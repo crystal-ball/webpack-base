@@ -1,5 +1,6 @@
 'use strict';
 const merge = require('webpack-merge');
+const defaultPaths = require('./lib/paths');
 let common = require('./lib/common');
 let development = require('./lib/development');
 let production = require('./lib/production');
@@ -9,10 +10,13 @@ let production = require('./lib/production');
 // See guides/architecture/build - Webpack
 // ========================================================
 
-module.exports = (env='development', paths={}) => {
+module.exports = ({ paths={}, env }={}) => {
   // See guides/architecture - .babelrc env
   process.env.BABEL_ENV = env;
   console.info(`Webpack running for ${env}`);
+
+  // Assign any configured paths to default build paths
+  paths = Object.assign(defaultPaths, paths);
 
   // Generate shared configs
   common = common(paths);
