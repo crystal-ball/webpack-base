@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.2] - 2017-07-10
+### Changed
+- Enable `eslint-loader`, is working with classes again
+
 ## [2.0.1] - 2017-07-09
 ### Changed
 - Disable `eslint-loader` until https://github.com/babel/babel-eslint/issues/487
