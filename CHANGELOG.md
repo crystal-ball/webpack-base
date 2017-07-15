@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Webpack Visualizer plugin to auto-generate bundle graph for prod builds
+- Duplicate package checker plugin
+- Guides for Babel && Analyzing
+
+### Fixed
+- Vendor chunk updated to include `.json` file content in addition to `.js`
 
 ## [2.0.2] - 2017-07-10
 ### Changed
