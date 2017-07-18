@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.1] - 2017-07-17
+### Fixed
+- Add default alias object to resolve so consuming apps can expect to set aliases
+  without checking existence first
+
 ## [2.1.0] - 2017-07-15
 ### Added
 - Webpack Visualizer plugin to auto-generate bundle graph for prod builds
