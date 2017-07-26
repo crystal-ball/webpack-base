@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.1] - 2017-07-26
+### Fixed
+- Paths module overriding a configured appIndexJS
+
 ## [2.3.0] - 2017-07-26
 ### Added
 - The JS loader will now resolve `.jsx` files
