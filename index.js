@@ -1,9 +1,12 @@
+/* eslint-disable no-console */
+
 'use strict';
+
 const merge = require('webpack-merge');
-let defaultPaths = require('./lib/paths');
+const configurePaths = require('./lib/paths');
+const development = require('./lib/development');
+const production = require('./lib/production');
 let common = require('./lib/common');
-let development = require('./lib/development');
-let production = require('./lib/production');
 
 /**
  * Package generates webpack configs in this order:
@@ -20,29 +23,26 @@ let production = require('./lib/production');
  * @param {Object} options.paths Configurable paths that will override default paths
  * @return {Object} Complete webpack configuration for passed environment
  */
-module.exports = (env, { paths }={}) => {
-  if (!env) { console.error('Env is required! Please use pass an env using: --env=ENV'); }
+module.exports = (env, { paths } = {}) => {
+  if (!env) {
+    console.error('Env is required! Please use pass an env using: --env=ENV');
+  }
   console.info(`Webpack running for ${env}`);
 
   // Ensure that Babel has an env for .babelrc
   process.env.BABEL_ENV = process.env.BABEL_ENV || env;
 
-  // Get default paths for passed env
-  defaultPaths = defaultPaths(env);
-
-  // Assign any configured paths to default paths
-  paths = Object.assign(defaultPaths, paths || {});
+  // Resolve paths config for env and passed paths
+  const resolvedPaths = configurePaths(env, paths);
 
   // Generate common configs for all envs
-  common = common(paths);
+  common = common(resolvedPaths);
 
   // Use webpack-merge and dev vs prod specific configs to return complete webpack
   // configuration object
   if (env === 'production') {
-    production = production(paths);
-    return merge(common, production);
-  } else {
-    development = development(paths);
-    return merge(common, development);
+    return merge(common, production(resolvedPaths));
   }
+
+  return merge(common, development(resolvedPaths));
 };
