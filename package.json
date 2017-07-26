@@ -4,12 +4,11 @@
   "description": "InspireScript base wepback configs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --single-quote --print-width=84 --write lib/*.js",
+    "eslint": "NODE_ENV=TEST eslint lib"
   },
-  "keywords": [
-    "webpack",
-    "configs"
-  ],
+  "keywords": ["webpack", "configs"],
   "author": "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)",
   "license": "ISC",
   "peerDependencies": {
@@ -39,6 +38,7 @@
     "webpack-visualizer-plugin": "~0.1.11"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^2.0.1"
+    "@crystal-ball/eslint-config-eloquence": "^2.0.1",
+    "prettier": "^1.5.3"
   }
 }

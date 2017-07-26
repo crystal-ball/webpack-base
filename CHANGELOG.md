@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.0] - 2017-07-26
+### Added
+- The JS loader will now resolve `.jsx` files
+- The application entry can be specified in paths using `appIndexJs`
+
+### Changed
+- Project formatted with Prettier and linting updated to Eloquence v2.
+
 ## [2.1.1] - 2017-07-17
 ### Fixed
 - Add default alias object to resolve so consuming apps can expect to set aliases

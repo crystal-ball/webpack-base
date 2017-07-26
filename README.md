@@ -1,4 +1,5 @@
 # InspireScript Webpack Configs
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Base configurations for InspireScript Webpack build. Exported function`configs`
 expects an environment variable and returns base config object for webpack build.
