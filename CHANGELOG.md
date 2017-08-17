@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.5.0] - 2017-08-17
+### Added
+- Loader configurations for CSS upgraded to produce readable local path namespaces
+
 ## [2.4.0] - 2017-08-17
 ### Added
 - Path `publicPath` for configuring build `output.publicPath`
