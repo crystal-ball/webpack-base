@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.4.0] - 2017-08-17
+### Added
+- Path `publicPath` for configuring build `output.publicPath`
+
+### Fixed
+- Path `appDist` renamed to `outputPath` to indicate usage
+- Path `appHtml` renamed to `htmlTemplate` to indicate usage
+
 ## [2.3.1] - 2017-07-26
 ### Fixed
 - Paths module overriding a configured appIndexJS
