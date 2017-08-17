@@ -6,7 +6,7 @@ const merge = require('webpack-merge');
 const configurePaths = require('./lib/paths');
 const development = require('./lib/development');
 const production = require('./lib/production');
-let common = require('./lib/common');
+const common = require('./lib/common');
 
 /**
  * Package generates webpack configs in this order:
@@ -35,14 +35,9 @@ module.exports = (env, { paths } = {}) => {
   // Resolve paths config for env and passed paths
   const resolvedPaths = configurePaths(env, paths);
 
-  // Generate common configs for all envs
-  common = common(resolvedPaths);
-
   // Use webpack-merge and dev vs prod specific configs to return complete webpack
   // configuration object
-  if (env === 'production') {
-    return merge(common, production(resolvedPaths));
-  }
-
-  return merge(common, development(resolvedPaths));
+  return env === 'production'
+    ? merge(common(resolvedPaths), production(resolvedPaths))
+    : merge(common(resolvedPaths), development(resolvedPaths));
 };
