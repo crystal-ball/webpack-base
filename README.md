@@ -23,15 +23,16 @@ Package uses the following default paths:
 
 ```javascript
 {
-  appDist: 'dist',
-  appHtml: 'public/index.html',
-  appIndexJs: 'src/index.js',
-  appPackageJson: 'package.json',
-  appPublic: 'public',
-  appSrc: 'src',
-  babelLoaderInclude: 'src',
-  nodeModules: 'node_modules',
-  yarnLockFile: 'yarn.lock',
+  appIndexJs: '/src/index.js',
+  appPackageJson: '/package.json',
+  appPublic: '/public',
+  appSrc: '/src',
+  babelLoaderInclude: '/src',
+  htmlTemplate: '/public/index.html',
+  nodeModules: '/node_modules',
+  outputPath: '/build',
+  publicPath: '/',
+  yarnLockFile: '/yarn.lock',
 }
 ```
 
