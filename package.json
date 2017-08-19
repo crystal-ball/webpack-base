@@ -2,15 +2,22 @@
   "name": "@inspire-script/webpack-configs",
   "version": "2.5.0",
   "description": "InspireScript base wepback configs",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --single-quote --print-width=84 --write lib/*.js",
-    "eslint": "NODE_ENV=TEST eslint lib"
+    "build": "tsc",
+    "documentation": "typedoc --out build src/index.ts",
+    "prettier": "prettier --single-quote --no-semi --print-width=84 --write src/*.ts",
+    "eslint": "NODE_ENV=TEST eslint --ext .ts src/*"
   },
   "keywords": ["webpack", "configs"],
   "author": "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inspire-script/webpack-configs.git"
+  },
   "peerDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0"
@@ -38,7 +45,14 @@
     "webpack-visualizer-plugin": "~0.1.11"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^2.0.1",
-    "prettier": "^1.5.3"
+    "@crystal-ball/eslint-config-eloquence": "^3.0.0",
+    "@types/extract-text-webpack-plugin": "^2.1.0",
+    "@types/html-webpack-plugin": "^2.28.0",
+    "@types/node": "^8.0.24",
+    "@types/webpack": "^3.0.9",
+    "@types/webpack-merge": "^0.0.5",
+    "prettier": "^1.5.3",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.4.2"
   }
 }
