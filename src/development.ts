@@ -1,7 +1,6 @@
 import * as webpack from 'webpack'
-import { Configuration } from 'webpack'
 
-import { Paths } from './annotations' // eslint-disable-line
+import { Paths } from './annotations'
 
 /**
  * Development environment specfic configurations
@@ -9,7 +8,7 @@ import { Paths } from './annotations' // eslint-disable-line
  * @return {Object} Development specific configurations to merge with cross
  *                  environment configurations
  */
-export default function development({ appPublic }: Paths): Configuration {
+export default function development({ appPublic }: Paths): webpack.Configuration {
   return {
     // This makes the bundle appear split into separate modules in the devtools.
     // We don't use source maps here because they can be confusing:
@@ -76,5 +75,5 @@ export default function development({ appPublic }: Paths): Configuration {
         warnings: false
       }
     }
-  } as Configuration
+  } as webpack.Configuration
 }

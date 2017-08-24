@@ -1,11 +1,11 @@
 import * as merge from 'webpack-merge'
-import { Configuration } from 'webpack' // eslint-disable-line
+import { Configuration } from 'webpack'
 
 import configurePaths from './configure-paths'
 import development from './development'
 import production from './production'
 import common from './common'
-import { Paths, Settings } from './annotations' // eslint-disable-line
+import { Settings } from './annotations'
 
 /**
  * Package generates webpack configs in this order:
@@ -18,9 +18,6 @@ import { Paths, Settings } from './annotations' // eslint-disable-line
 export default function webpackConfigs(
   { env, paths }: Settings = { env: 'development' }
 ): Configuration {
-  if (!env) {
-    console.error('Env is required! Please use pass an env using: --env=ENV') // eslint-disable-line
-  }
   console.info(`Webpack running for ${env}`) // eslint-disable-line
 
   // Ensure that Babel has an env for .babelrc

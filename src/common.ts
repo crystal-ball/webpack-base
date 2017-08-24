@@ -1,7 +1,7 @@
 import { optimize, EnvironmentPlugin, Configuration } from 'webpack'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 
-import { Paths } from './annotations' // eslint-disable-line
+import { Paths } from './annotations'
 
 /**
  * Cross environment common configurations. The development or production configs

@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@crystal-ball/eslint-config-eloquence@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@crystal-ball/eslint-config-eloquence/-/eslint-config-eloquence-3.0.0.tgz#af2b01eeb4cae254f9a7a3678f7235b6ce44b77e"
+"@crystal-ball/eslint-config-eloquence@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@crystal-ball/eslint-config-eloquence/-/eslint-config-eloquence-3.1.0.tgz#351bd1dd3d3f84e3be2b2c4987333e6b34b1a787"
   dependencies:
     babel-eslint "^7.2.3"
     eslint "^4.3.0"

@@ -4,9 +4,8 @@ import * as BabiliPlugin from 'babili-webpack-plugin'
 import * as CleanWebpackPlugin from 'clean-webpack-plugin'
 import * as DuplicatePackageCheckerPlugin from 'duplicate-package-checker-webpack-plugin'
 import * as StatsVisualizer from 'webpack-visualizer-plugin'
-import { Configuration } from 'webpack'
 
-import { Paths } from './annotations' // eslint-disable-line
+import { Paths } from './annotations'
 
 /**
  * Production environment specific configurations.
@@ -14,7 +13,7 @@ import { Paths } from './annotations' // eslint-disable-line
  * @return {Object} Production specific configurations to merge with cross
  *                  environment configurations
  */
-export default function production({ outputPath }: Paths): Configuration {
+export default function production({ outputPath }: Paths): webpack.Configuration {
   return {
     // Fail out on the first error instead of tolerating it.
     bail: true,
@@ -91,5 +90,5 @@ export default function production({ outputPath }: Paths): Configuration {
       // doesn't seem worth it.
       // new webpack.HashedModuleIdsPlugin(),
     ]
-  } as Configuration
+  } as webpack.Configuration
 }

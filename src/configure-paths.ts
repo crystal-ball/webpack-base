@@ -1,7 +1,7 @@
 import { realpathSync } from 'fs'
 import { resolve } from 'path'
 
-import { Envs, Paths } from './annotations' // eslint-disable-line
+import { Envs, Paths } from './annotations'
 
 // From create-react-app
 // Make sure any symlinks in the project folder are resolved:

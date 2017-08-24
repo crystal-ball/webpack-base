@@ -1,11 +1,12 @@
-/* eslint-disable no-undef */
 /** Supported environment values */
 export type Envs = 'development' | 'production'
 
 /** Configuration options for customizing returned configuration */
 export interface Settings {
-  /** Environment value for required build configurations */
+  /** Environment value for required build configurations, if no value is passed
+   * will default to 'development */
   env: Envs
+  /** Custom path override configurations */
   paths?: Paths
 }
 
