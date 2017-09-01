@@ -1,5 +1,5 @@
-import * as merge from 'webpack-merge'
 import * as webpack from 'webpack'
+import merge from 'webpack-merge'
 
 import configurePaths from './configure-paths'
 import development from './development'

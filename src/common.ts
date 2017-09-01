@@ -1,5 +1,5 @@
 import * as webpack from 'webpack'
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const { optimize, EnvironmentPlugin } = webpack
 
