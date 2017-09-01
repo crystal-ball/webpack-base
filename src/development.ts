@@ -1,6 +1,8 @@
 import * as webpack from 'webpack'
 
-import { Paths } from './annotations'
+export interface Paths {
+  appPublic: string
+}
 
 /**
  * Development environment specfic configurations
@@ -8,8 +10,8 @@ import { Paths } from './annotations'
  * @return {Object} Development specific configurations to merge with cross
  *                  environment configurations
  */
-export default function development({ appPublic }: Paths): webpack.Configuration {
-  return {
+export default ({ appPublic }: Paths): webpack.Configuration =>
+  ({
     // This makes the bundle appear split into separate modules in the devtools.
     // We don't use source maps here because they can be confusing:
     // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
@@ -75,5 +77,4 @@ export default function development({ appPublic }: Paths): webpack.Configuration
         warnings: false
       }
     }
-  } as webpack.Configuration
-}
+  } as webpack.Configuration)

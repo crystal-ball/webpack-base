@@ -1,17 +1,8 @@
 /** Supported environment values */
 export type Envs = 'development' | 'production'
 
-/** Configuration options for customizing returned configuration */
-export interface Settings {
-  /** Environment value for required build configurations, if no value is passed
-   * will default to 'development */
-  env: Envs
-  /** Custom path override configurations */
-  paths?: Paths
-}
-
 /** Path configurations passed to constructed Webpack configs object. */
-export interface Paths {
+export interface ConfigurationPaths {
   /** Entry points into application _(`react-hot-loader` automatically included in
    * development)_ */
   appEntry?: string[]
@@ -39,4 +30,19 @@ export interface Paths {
   publicPath?: string
   /** File path to application `yarn.lock` */
   yarnLockFile?: string
+}
+
+export interface Paths {
+  appEntry: string[]
+  appIndexJs: string
+  appPackageJson: string
+  appPublic: string
+  appSrc: string
+  babelLoaderInclude: string[]
+  htmlTemplate: string
+  nodeModules: string
+  outputFilename: string
+  outputPath: string
+  publicPath: string
+  yarnLockFile: string
 }

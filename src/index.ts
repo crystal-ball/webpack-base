@@ -1,11 +1,20 @@
 import * as merge from 'webpack-merge'
-import { Configuration } from 'webpack'
+import * as webpack from 'webpack'
 
 import configurePaths from './configure-paths'
 import development from './development'
 import production from './production'
 import common from './common'
-import { Settings } from './annotations'
+import { Envs, ConfigurationPaths } from './annotations'
+
+/** Configuration options for customizing returned configuration */
+export interface Options {
+  /** Environment value for required build configurations, if no value is passed
+   * will default to 'development */
+  env: Envs
+  /** Custom path override configurations */
+  paths?: ConfigurationPaths
+}
 
 /**
  * Package generates webpack configs in this order:
@@ -16,8 +25,8 @@ import { Settings } from './annotations'
  * Flow: `paths(env) => common(paths) + (dev(paths) || prod(paths))`
  */
 export default function webpackConfigs(
-  { env, paths }: Settings = { env: 'development' }
-): Configuration {
+  { env, paths }: Options = { env: 'development', paths: {} }
+): webpack.Configuration {
   console.info(`Webpack running for ${env}`) // eslint-disable-line
 
   // Ensure that Babel has an env for .babelrc

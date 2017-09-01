@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@crystal-ball/eslint-config-eloquence@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@crystal-ball/eslint-config-eloquence/-/eslint-config-eloquence-3.1.0.tgz#351bd1dd3d3f84e3be2b2c4987333e6b34b1a787"
+"@crystal-ball/eslint-config-eloquence@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@crystal-ball/eslint-config-eloquence/-/eslint-config-eloquence-3.2.0.tgz#7d477fe776136fa1ee190572103d4725da4bf4e5"
   dependencies:
     babel-eslint "^7.2.3"
     eslint "^4.3.0"
@@ -15,7 +15,10 @@
     eslint-plugin-prettier "^2.1.2"
     eslint-plugin-react "7.1.0"
     prettier "^1.5.3"
-    typescript-eslint-parser "^6.0.1"
+
+"@std/esm@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.7.1.tgz#f612e3f10b87622c2054f241d1933585ea9050fe"
 
 "@types/clean-css@*":
   version "3.4.30"
@@ -5472,9 +5475,9 @@ typedoc@^0.8.0:
     typedoc-default-themes "^0.5.0"
     typescript "2.4.1"
 
-typescript-eslint-parser@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/typescript-eslint-parser/-/typescript-eslint-parser-6.0.1.tgz#8dbff9ad606d1f3c229a072bc06a75dd71ef2f8b"
+typescript-eslint-parser@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/typescript-eslint-parser/-/typescript-eslint-parser-7.0.0.tgz#be57d8768e37707af825e339ea2af18d7393cabb"
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.3.0"

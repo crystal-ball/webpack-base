@@ -1,7 +1,18 @@
-import { optimize, EnvironmentPlugin, Configuration } from 'webpack'
+import * as webpack from 'webpack'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 
-import { Paths } from './annotations'
+const { optimize, EnvironmentPlugin } = webpack
+
+export interface Paths {
+  appEntry: string[]
+  appSrc: string
+  babelLoaderInclude: string[]
+  htmlTemplate: string
+  nodeModules: string
+  outputFilename: string
+  outputPath: string
+  publicPath: string
+}
 
 /**
  * Cross environment common configurations. The development or production configs
@@ -9,7 +20,7 @@ import { Paths } from './annotations'
  * @param {Object} paths Configured paths for environment build
  * @return {Object} Build configurations common to all environments
  */
-export default function common({
+export default ({
   appEntry,
   appSrc,
   babelLoaderInclude,
@@ -18,8 +29,8 @@ export default function common({
   outputFilename,
   outputPath,
   publicPath
-}: Paths): Configuration {
-  return {
+}: Paths): webpack.Configuration =>
+  ({
     entry: {
       app: appEntry
     },
@@ -110,5 +121,4 @@ export default function common({
         minChunks: Infinity
       })
     ]
-  } as Configuration
-}
+  } as webpack.Configuration)

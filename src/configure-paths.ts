@@ -1,7 +1,7 @@
 import { realpathSync } from 'fs'
 import { resolve } from 'path'
 
-import { Envs, Paths } from './annotations'
+import { Envs, ConfigurationPaths, Paths } from './annotations'
 
 // From create-react-app
 // Make sure any symlinks in the project folder are resolved:
@@ -11,15 +11,14 @@ function resolveApp(relativePath: string) {
   return resolve(appDirectory, relativePath)
 }
 
-export default function configurePaths({
-  env,
-  paths
-}: {
+export interface Options {
   env: Envs
-  paths: Paths
-}): Paths {
+  paths: ConfigurationPaths
+}
+
+export default function configurePaths({ env, paths }: Options): Paths {
   const defaultPaths = {
-    appIndexJs: resolveApp('src/index.js'),
+    appIndexJs: resolveApp('src/index.jsx'),
     appPackageJson: resolveApp('package.json'),
     appPublic: resolveApp('public'),
     appSrc: resolveApp('src'),
@@ -32,8 +31,7 @@ export default function configurePaths({
   }
 
   // Assign any configured paths to default paths
-  // const resolvedPaths = <Paths>Object.assign(defaultPaths, paths);
-  const resolvedPaths = Object.assign(defaultPaths, paths)
+  const resolvedPaths = Object.assign(defaultPaths, paths) as Paths
 
   // Handle dev vs production relative paths
   if (env === 'production') {
