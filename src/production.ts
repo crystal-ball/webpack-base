@@ -1,6 +1,6 @@
 import * as webpack from 'webpack'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
-import * as BabiliPlugin from 'babili-webpack-plugin'
+import * as MinifyPlugin from 'babel-minify-webpack-plugin'
 import * as CleanWebpackPlugin from 'clean-webpack-plugin'
 import * as DuplicatePackageCheckerPlugin from 'duplicate-package-checker-webpack-plugin'
 import * as StatsVisualizer from 'webpack-visualizer-plugin'
@@ -86,7 +86,7 @@ export default ({ outputPath }: Paths): webpack.Configuration =>
       // CONCATENATE ALL THEM MODULES!!! (Scope Hoisting)
       new webpack.optimize.ModuleConcatenationPlugin(),
       // Uglify with Babili
-      new BabiliPlugin()
+      new MinifyPlugin()
       // Build output shows module hashes instead of numerical module order, could be
       // useful for debugging or something I guess, disabled cause it adds 8kb and
       // doesn't seem worth it.
