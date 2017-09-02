@@ -6,7 +6,6 @@
   "scripts": {
     "test": "npm run eslint",
     "prepush": "npm run test",
-    "prepublish": "npm run build",
     "prettier": "prettier --write lib/*.js",
     "eslint": "NODE_ENV=test eslint lib/*"
   },
