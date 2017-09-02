@@ -28,31 +28,11 @@ Note on using `~` to import from node_modules (sass-loader feature)
 ## Docs:
 **Webpack:** https://webpack.js.org/
 
-# TODO
-bail: env.prod
-https://babeljs.io/blog/2016/08/30/babili
-
-## Notes:
+# Notes TODO
+- https://babeljs.io/blog/2016/08/30/babili
 - not including babel-polyfill as entry before hot loader...
 - bable-polyfill vs babel-babel-plugin-transform-runtime
 - https://medium.com/@jcse/clearing-up-the-babel-6-ecosystem-c7678a314bf3
-
-
-
-Notes:
-
-Step 1:
-vendor: 0
-app: 100bytes 300bytes
-
-Step 2:
-vendor: 0
-app: 1.2kb 764bytes
-
-Step 3:
-vendor: 1.2kb -> 1.2kb
-app: 770bytes -> 738bytes
-
 
 # Babel + Wepback Optimizations
 Tree shaking only occurs with files/exports that are not imported anywhere in the
@@ -93,7 +73,7 @@ Base Tools:
 - `babel-core` + `babel-loader`
 - `babel-plugin-transform-runtime` + `babel-runtime`
 - `babel-preset-env` + `babel-preset-react`
-- `babili-webpack-plugin` + `webpack.optimize.ModuleConcatenationPlugin` _(Webpack 3 Only)_
+- `babel-minify-webpack-plugin` + `webpack.optimize.ModuleConcatenationPlugin` _(Webpack 3 Only)_
 
 Demo File Sizes (App + Vendor):
 Nothing: 1.83kb + 1.18kb

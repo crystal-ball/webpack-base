@@ -10,12 +10,12 @@ expects an environment variable and returns base config object for webpack build
 'use strict';
 const configs = require('@inspire-script/webpack-configs');
 
-module.exports = configs(env, { paths: 'path overrides' });
+module.exports = configs({env, paths: { /*path overrides*/ } });
 ```
 
 An environment variable should be declared in the webpack build script:
 ```bash
-webpack --env=production --progress --profile --colors
+NODE_ENV=production webpack --env=production --progress --profile --colors
 ```
 
 ## Default Paths
@@ -23,7 +23,7 @@ Package uses the following default paths:
 
 ```javascript
 {
-  appIndexJs: '/src/index.js',
+  appIndexJs: '/src/index.jsx',
   appPackageJson: '/package.json',
   appPublic: '/public',
   appSrc: '/src',
@@ -43,13 +43,14 @@ Custom paths can be passed as the second argument to configs call:
 const configs = require('@inspire-script/webpack-configs');
 
 // Override appIndexJs to use src/main.js instead of src/index.js
-module.exports = configs(env, { appIndexJs: resolveApp('src/main.js'), });
+module.exports = configs({ env, appIndexJs: resolveApp('src/main.js'), });
 ```
 
 ## Styles
 The configurations are intended for using Sass with the following patterns:
 - Allow easy import of a base set of library styles from Node modules using the
   `~library/path/to/styles` syntax.
+- Handle running styles through autoprefixer default configuration.
 - Allow `.scss` files to be required into component files. Using the `.scss`
   extension is required.
 - Allow component level namespacing of styles using a single top level local style
