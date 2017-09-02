@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.7.0] - 2017-09-01
+### Added
+- Pre push testing with `husky`
+
+### Changed
+- Deps bumped to latest versions
+
 ## [2.6.1] - 2017-08-31
 ### Fixed
 - Added config for esm
