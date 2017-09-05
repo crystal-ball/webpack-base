@@ -69,6 +69,15 @@ module.exports = env =>
   });
 ```
 
+## Webpack resolution
+The build configures the following module resolutions for convenient shorthand
+imports of common project directories.
+
+Module | Usage
+--- | ---
+`/src` | Allows relative imports from the src directory, useful for shared utilities
+`/src/styles` | Allows importing style variables directly from any SASS partial
+
 ## Environment variables
 The following environment variables are set by build:
 
