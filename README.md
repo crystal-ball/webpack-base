@@ -1,16 +1,20 @@
 # InspireScript Webpack Configs
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Base configurations for InspireScript Webpack build. Exported function`configs`
-expects an environment variable and returns base config object for webpack build.
+Base configurations for InspireScript Webpack build. Exported function `configs`
+expects an options object with the build environment. An optional paths object can
+be used to customize build behavior.
 
 ## Usage:
 
 ```javascript
-'use strict';
 const configs = require('@inspire-script/webpack-configs');
 
-module.exports = configs({env, paths: { /*path overrides*/ } });
+module.exports = env =>
+  configs({
+    env,
+    paths: { /*path overrides*/ }
+  });
 ```
 
 An environment variable should be declared in the webpack build script:
@@ -18,7 +22,20 @@ An environment variable should be declared in the webpack build script:
 NODE_ENV=production webpack --env=production --progress --profile --colors
 ```
 
-## Default Paths
+## Project structure
+Build defaults use the following directory structure:
+```
+project
+├─  public
+│  ├─  index.html
+│  └─  favicon.ico
+├─  src
+│  └─  index.jsx
+├─  .babelrc
+└─  webpack.config.js
+```
+
+## Default paths
 Package uses the following default paths:
 
 ```javascript
@@ -36,15 +53,29 @@ Package uses the following default paths:
 }
 ```
 
-Custom paths can be passed as the second argument to configs call:
+Build paths can be overriden by passing configuration paths in the configs options
+object:
 
 ```javascript
-'use strict';
 const configs = require('@inspire-script/webpack-configs');
 
 // Override appIndexJs to use src/main.js instead of src/index.js
-module.exports = configs({ env, appIndexJs: resolveApp('src/main.js'), });
+module.exports = env =>
+  configs({
+    env,
+    paths: {
+      publicPath: env === 'production' ? 'https://cdn.project/' : '/'
+    }
+  });
 ```
+
+## Environment variables
+The following environment variables are set by build:
+
+Constant | Usage
+--- | ---
+`process.env.BABEL_ENV` | Set to match `NODE_ENV` for configuring Babel by environment
+`process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths
 
 ## Styles
 The configurations are intended for using Sass with the following patterns:
@@ -72,6 +103,3 @@ The configurations are intended for using Sass with the following patterns:
   ```
   Having a single, standard import removes cognitive overhead for modular CSS for
   components.
-
-## BABEL_ENV
-Package will set `BABEL_ENV` to match environment as a convenience.
