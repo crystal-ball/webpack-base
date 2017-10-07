@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run eslint",
     "prepush": "npm run test",
-    "prettier": "prettier --write lib/*.js",
+    "prettier": "prettier --write lib/*.mjs",
     "eslint": "NODE_ENV=test eslint lib/*"
   },
   "keywords": ["webpack", "configs"],
@@ -26,6 +26,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",

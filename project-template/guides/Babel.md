@@ -20,6 +20,8 @@ own Babel configurations in a `.babelrc` file.
 - [`babel-plugin-transform-object-rest-spread`](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread)
   Transform rest properties for object destructuring assignment and spread
   properties for object literals.
+- [`babel-plugin-syntax-trailing-function-commas`](https://www.npmjs.com/package/babel-plugin-syntax-trailing-function-commas)
+  Compile trailing function commas to ES5
 
 #### Production Optimizations
 - [`babel-plugin-transform-react-remove-prop-types`](https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types)

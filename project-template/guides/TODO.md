@@ -1,0 +1,12 @@
+Include:
+- Babel (.babelrc)
+- ESLint + Prettier (.eslintrc.js, .prettierrc)
+- Webpack (webpack.config.js)
+  - Copy (/public index.html, favicon.ico)
+  - Output (/build)
+- Routing (react-router-dom)
+  - Creative paths: <Route path="/:path(accessibility|getting-started)" component={AppNav} />
+- .gitignore
+- package.json
+  - Use CLI passed name to generate package.json
+- README.md
