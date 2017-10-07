@@ -1,0 +1,26 @@
+{
+  "presets": [
+    // Autoprefixer transpile for only last 2 browser versions
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": { "browsers": "last 2 versions" }
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "syntax-trailing-function-commas", // Function trailing commas
+    "transform-object-rest-spread", // Spread operator inside objects
+    "transform-class-properties" // Class static and property initializers
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types", // Strip propTypes declarations
+        "transform-runtime" // Library babel-helpers with import statements
+      ]
+    }
+  }
+}
