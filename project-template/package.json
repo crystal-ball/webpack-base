@@ -9,7 +9,7 @@
     "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "NODE_ENV=test eslint --ext .js --ext .jsx src"
   },
-  "keywords": [],
+  "keywords": ["inspirescript"],
   "author": "",
   "license": "ISC",
   "dependencies": {
