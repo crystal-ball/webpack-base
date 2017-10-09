@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [2.12.0] - 2017-10-09
+### Added
+- Template project generator updated with working wiring for application styles and
+  state management.
+
 ## [2.11.0] - 2017-10-07
 ### Added
 - Generate new project from template using command `generate-inspirescript-project`
