@@ -13,7 +13,8 @@
   "plugins": [
     "syntax-trailing-function-commas", // Function trailing commas
     "transform-object-rest-spread", // Spread operator inside objects
-    "transform-class-properties" // Class static and property initializers
+    "transform-class-properties", // Class static and property initializers
+    "transform-runtime" // runtime needed for generators
   ],
   "env": {
     "production": {

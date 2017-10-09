@@ -1,0 +1,23 @@
+/*
+ * InspireScript Project Styles Entry
+ * The application styles for InspireScript should be driven as much as possible by
+ * a common set of theme variables and classes. Components consumed by the project
+ * that follow this pattern will match the appearance of the application as a whole.
+ */
+
+/*
+ * Variables Setup
+ * The same set of theme variables should be used for theming Bootstrap and
+ * application components, see `theme.scss` for details. Note that the webpack build
+ * is configured so that the theme variables can be imported into any component
+ * style file with: `@import 'theme';` This makes it easy to use the same theme
+ * variables everywhere.
+ */
+@import 'theme';
+
+/*
+ * Rules Import
+ * ...
+ */
+@import '~componentry/dist/bootstrap';
+@import '~componentry/dist/componentry';

@@ -1,1 +1,0 @@
-## Build Pipeline Architecture

@@ -16,7 +16,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <header>InspireScript</header>
+        <header className="mb-5" />
         <div className="container">
           <Switch>
             <Route path="/" exact component={HomeScreen} />

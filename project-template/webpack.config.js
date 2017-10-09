@@ -1,35 +1,23 @@
 /* eslint-env node */
-const configs = require('@inspire-script/webpack-configs')
+const createBaseConfigs = require('@inspire-script/webpack-configs')
 
 /**
- * Webpack config accepts a function that is called with an env defined in the
- * package script: `webpack --env=production`
- *
- * Note that the returned config is only a base, you can make any changes you need
- * to support your build requirements. The returned configs have the shape:
- * ```json
- * {
- *   entry: {},
- *   output: {},
- *   bail: true,
- *   devtool: '',
- *   performance: {},
- *   resolve: {},
- *   module: {
- *     rules: []
- *   },
- *   plugins: [],
- *   devServer: {}
- * }
- * ```
+ * Webpack accepts an object or a function as the module export for the config file.
+ * The `@inspire-script/webpack-configs` module returns a base Webpack configuration
+ * object. Although the base config will cover most requirements, it's very easy to
+ * extend the configuration for custom requirements. Make any changes you need to
+ * the returned config object, including adding to or rewriting the base configs.
+ * See [Webpack Configurations](guides/Webpack.md) for details.
  * @param {boolean} env Build environment
+ * @return {Object} Complete webpack configuration
  */
 module.exports = env => {
   // Any path overrides can be passed in the call to create the base configurations
-  const baseConfig = configs({ env, paths: {} })
+  const baseConfig = createBaseConfigs({ env, paths: {} })
 
   /*
-   * Make any changes you need to returned webpack config here before returning
+   * Make any changes you need to the base Webpack config here, ie:
+   * baseConfig.plugins.push(new AwesomePlugin())
    */
 
   return baseConfig

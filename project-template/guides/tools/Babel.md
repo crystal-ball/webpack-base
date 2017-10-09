@@ -1,20 +1,21 @@
 ## Babel Configuration
+The [`babel-loader`](XXX) is included in the Webpack configurations to transpile
+project JavaScript with Babel. In addition to transpiling new language features
+there are a number of performance plugins for Babel that optimize the production
+build bundle.
 
-This package includes additional Babel plugins for transforming language features
-and optimizing production builds.
+The `.babelrc` file configures which presets and plugins should be used for each
+build environment. By default the `babel-preset-env` preset is used to transpile
+only the language features required for targeted browsers. _(Work is planned to emit
+seperate bundles for modern browsers vs legacy browsers)_ The following presets/
+plugins are configured by default:
 
-The Webpack configuration exported by this package include the `babel-loader` for
-loading JS files, but does not configure Babel. Consuming projects must set their
-own Babel configurations in a `.babelrc` file.
-
-## Included Babel Plugins
-
-#### Build Helpers
+#### Language Feature Transpiling
+- [`babel-preset-env`](XXX)
+- [`babel-preset-react](XXX)
 - [`transform-runtime`](https://babeljs.io/docs/plugins/transform-runtime/)
   Externalise references to helpers and builtins, automatically polyfilling your
   code without polluting globals
-
-#### Language Features
 - [`babel-plugin-transform-class-properties`](https://www.npmjs.com/package/babel-plugin-transform-class-properties)
   Transform es2015 static class properties and es2016 property initializer syntax
 - [`babel-plugin-transform-object-rest-spread`](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread)
@@ -33,3 +34,15 @@ own Babel configurations in a `.babelrc` file.
 - [`babel-plugin-transform-react-inline-elements`](https://www.npmjs.com/package/babel-plugin-transform-react-inline-elements)
   Replaces the `React.createElement` function with one that is more optimized for
   production
+
+## Babel env
+The Babel environment variable `BABEL_ENV` handles specifying the target `env` in
+the `.babelrc` configuration. The environment variable is automatically set in the
+Webpack configs using `NODE_ENV`. If needed a specific `BABEL_ENV` can be included
+in the appropriate script, eg:
+```shell
+BABEL_ENV=jsnext NODE_ENV=production webpack --env=production
+```
+
+## Babel getting started resources
+XXX
