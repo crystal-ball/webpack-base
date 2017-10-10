@@ -1,23 +1,31 @@
 # InspireScript Webpack Configs
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Base configurations for InspireScript Webpack build. Exported function `configs`
-expects an options object with the build environment. An optional paths object can
-be used to customize build behavior.
+This package creates the base Webpack configuration for InspireScript projects. The
+exported function expects an options object with the build environment. An optional
+paths object can be used to customize build behavior.
+
+## Installation
+```bash
+npm i -D @inspire-script/webpack-configs
+```
 
 ## Usage:
-
 ```javascript
-const configs = require('@inspire-script/webpack-configs');
+// webpack.config.js
+const { resolve } = require('path')
+const configs = require('@inspire-script/webpack-configs')
 
 module.exports = env =>
   configs({
     env,
-    paths: { /*path overrides*/ }
-  });
+    paths: {
+      context: resolve(__dirname)
+    }
+  })
 ```
 
-An environment variable should be declared in the webpack build script:
+The environment variable should be declared in the webpack build script with `--env`:
 ```bash
 NODE_ENV=production webpack --env=production --progress --profile --colors
 ```
@@ -46,6 +54,7 @@ Package uses the following default paths:
   appSrc: '/src',
   babelLoaderInclude: '/src',
   htmlTemplate: '/public/index.html',
+  iconsSpriteLoader: 'src/media/icons',
   nodeModules: '/node_modules',
   outputPath: '/build',
   publicPath: '/',

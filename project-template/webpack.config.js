@@ -1,4 +1,5 @@
 /* eslint-env node */
+const { resolve } = require('path')
 const createBaseConfigs = require('@inspire-script/webpack-configs')
 
 /**
@@ -12,8 +13,14 @@ const createBaseConfigs = require('@inspire-script/webpack-configs')
  * @return {Object} Complete webpack configuration
  */
 module.exports = env => {
-  // Any path overrides can be passed in the call to create the base configurations
-  const baseConfig = createBaseConfigs({ env, paths: {} })
+  const baseConfig = createBaseConfigs({
+    env,
+    // Any path overrides can be passed in the path options
+    paths: {
+      // Explicitly set the context for resolving entry points and loaders
+      context: resolve(__dirname),
+    },
+  })
 
   /*
    * Make any changes you need to the base Webpack config here, ie:

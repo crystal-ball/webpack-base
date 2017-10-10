@@ -4,10 +4,10 @@
   "description": "",
   "scripts": {
     "build": "NODE_ENV=production webpack --env=production",
-    "start": "webpack-dev-server --env=development",
+    "start": "NODE_ENV=development webpack-dev-server --env=development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "NODE_ENV=test eslint --ext .js --ext .jsx src"
+    "lint": "NODE_ENV=test eslint src --ext .js,.jsx"
   },
   "keywords": ["inspirescript"],
   "author": "",
