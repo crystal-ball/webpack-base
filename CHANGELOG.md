@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.14.0] - 2017-10-11
+### Added
+- `classnames` dependency to template project
+- Example usage of font icons and locally scoped classes to template project
+
 ## [2.13.0] - 2017-10-10
 ### Added
 - Build context in the paths configuration object
