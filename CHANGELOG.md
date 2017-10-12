@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.15.0] - 2017-10-12
+### Changed
+- The ESLint loader is now only used for dev builds. Linting for production should
+  be enforced through testing in CI pipeline. This is to improve production build
+  times.
+- Definitions used for guide links to make raw markdown more readable.
+
 ## [2.14.0] - 2017-10-11
 ### Added
 - `classnames` dependency to template project
