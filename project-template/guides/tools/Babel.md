@@ -1,8 +1,8 @@
 ## Babel Configuration
-The [`babel-loader`](XXX) is included in the Webpack configurations to transpile
-project JavaScript with Babel. In addition to transpiling new language features
-there are a number of performance plugins for Babel that optimize the production
-build bundle.
+The [`babel-loader`][babel-loader] is included in the Webpack configurations to
+transpile project JavaScript with Babel. In addition to transpiling new language
+features there are a number of performance plugins for Babel that optimize the
+production build bundle.
 
 The `.babelrc` file configures which presets and plugins should be used for each
 build environment. By default the `babel-preset-env` preset is used to transpile
@@ -11,29 +11,27 @@ seperate bundles for modern browsers vs legacy browsers)_ The following presets/
 plugins are configured by default:
 
 #### Language Feature Transpiling
-- [`babel-preset-env`](XXX)
-- [`babel-preset-react](XXX)
-- [`transform-runtime`](https://babeljs.io/docs/plugins/transform-runtime/)
-  Externalise references to helpers and builtins, automatically polyfilling your
-  code without polluting globals
-- [`babel-plugin-transform-class-properties`](https://www.npmjs.com/package/babel-plugin-transform-class-properties)
-  Transform es2015 static class properties and es2016 property initializer syntax
-- [`babel-plugin-transform-object-rest-spread`](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread)
-  Transform rest properties for object destructuring assignment and spread
-  properties for object literals.
-- [`babel-plugin-syntax-trailing-function-commas`](https://www.npmjs.com/package/babel-plugin-syntax-trailing-function-commas)
-  Compile trailing function commas to ES5
+- [`babel-preset-env`][preset-env]: Autoprefixer for Babel compiling
+- [`babel-preset-react`][preset-react]: Transform JSX into `createElement` calls
+- [`transform-runtime`][runtime]: Externalise references to helpers and builtins,
+  automatically polyfilling your code without polluting globals
+- [`babel-plugin-transform-class-properties`][class-properties]: Transform es2015
+  static class properties and es2016 property initializer syntax
+- [`babel-plugin-transform-object-rest-spread`][object-spread]: Transform rest
+  properties for object destructuring assignment and spread properties for object
+  literals
+- [`babel-plugin-syntax-trailing-function-commas`][trailing-commas]: Compile
+  trailing function commas to ES5
 
 #### Production Optimizations
-- [`babel-plugin-transform-react-remove-prop-types`](https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types)
-  Remove unnecessary React propTypes from the production build.
-- [`babel-plugin-react-remove-properties`](https://www.npmjs.com/package/babel-plugin-react-remove-properties) Remove
-  React properties
-- [`babel-plugin-transform-react-constant-elements`](https://www.npmjs.com/package/babel-plugin-transform-react-constant-elements)
-  Hoist JSX elements to highest scope possible
-- [`babel-plugin-transform-react-inline-elements`](https://www.npmjs.com/package/babel-plugin-transform-react-inline-elements)
-  Replaces the `React.createElement` function with one that is more optimized for
-  production
+- [`babel-plugin-transform-react-remove-prop-types`][remove-props]: Remove
+  unnecessary React propTypes from the production build.
+- [`babel-plugin-react-remove-properties`][remove-properties]: Remove React
+  properties
+- [`babel-plugin-transform-react-constant-elements`][constant-elems]: Hoist JSX
+  elements to highest scope possible
+- [`babel-plugin-transform-react-inline-elements`][inline-elems]: Replaces the
+  `React.createElement` function with one that is more optimized for production
 
 ## Babel env
 The Babel environment variable `BABEL_ENV` handles specifying the target `env` in
@@ -46,3 +44,17 @@ BABEL_ENV=jsnext NODE_ENV=production webpack --env=production
 
 ## Babel getting started resources
 XXX
+
+
+<!-- Links -->
+[babel-loader]: https://github.com/babel/babel-loader
+[preset-env]: https://babeljs.io/docs/plugins/preset-env/
+[preset-react]: https://babeljs.io/docs/plugins/preset-react/
+[runtime]: https://babeljs.io/docs/plugins/transform-runtime/
+[class-properties]: https://www.npmjs.com/package/babel-plugin-transform-class-properties
+[object-spread]: https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
+[trailing-commas]: https://www.npmjs.com/package/babel-plugin-syntax-trailing-function-commas
+[remove-props]: https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types
+[remove-properties]: https://www.npmjs.com/package/babel-plugin-react-remove-properties
+[constant-elems]: https://www.npmjs.com/package/babel-plugin-transform-react-constant-elements
+[inline-elems]: https://www.npmjs.com/package/babel-plugin-transform-react-inline-elements
