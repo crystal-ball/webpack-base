@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.17.0] - 2017-10-16
+### Added
+- Babel plugin `syntax-dynamic-import` to support dynamic imports of SVG files.
+
+### Changed
+- The `<Icon />` component is rewritten to dynamically import SVGs using a
+  streamlined syntax that allows passing the SVG id as a prop to the icon 🎉🎉🎉
+
 ## [2.16.0] - 2017-10-15
 ### Changed
 - React Hot Loader upgrade to v3
