@@ -12,15 +12,19 @@ used in a project.
 
 #### Usage
 1. Save the SVG file to `/scr/media/icons`.
-2. Import the icon into your component file, (relative paths supported) and use it
-   with an SVG element
+2. Use the `<Icon />` component with the id of the SVG element.
+3. The Icon component will handle dynamically importing your SVG through the
+   `svg-sprite-loader`. This will add it to your icon bundle as part of the Webpack
+   build.
+
 ```javascript
 // RadicalComponent.jsx
-import radIcon from 'media/icons/rad.svg'
+// To use SVG `rad.svg` saved in `media/icons/rad.svg`
+import Icon from 'components/universal/Icon'
 
 // ...
   <span>
-    <svg><use href={`#${radIcon.id}`} /></svg>
+    <Icon id="rad" /> Here is some really rad tricks I've learned...
   </span>
 ```
 
