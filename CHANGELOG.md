@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.16.0] - 2017-10-15
+### Changed
+- React Hot Loader upgrade to v3
+
 ## [2.15.0] - 2017-10-12
 ### Changed
 - The ESLint loader is now only used for dev builds. Linting for production should
