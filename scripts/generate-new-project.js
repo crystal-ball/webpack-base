@@ -11,7 +11,10 @@ const templatePackage = require('../project-template/package.json')
 
 const projectName = process.argv[2]
 
+// Copy template project
 shell.cp('-R', resolve(__dirname, '../project-template'), resolve(projectName))
+// Copy guides from project root
+shell.cp('-R', resolve(__dirname, '../guides'), resolve(projectName))
 
 templatePackage.name = projectName
 writeFileSync(

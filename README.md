@@ -44,23 +44,7 @@ project
 ```
 
 ## Default paths
-Package uses the following default paths:
-
-```javascript
-{
-  appIndexJs: '/src/index.jsx',
-  appPackageJson: '/package.json',
-  appPublic: '/public',
-  appSrc: '/src',
-  babelLoaderInclude: '/src',
-  htmlTemplate: '/public/index.html',
-  iconsSpriteLoader: 'src/media/icons',
-  nodeModules: '/node_modules',
-  outputPath: '/build',
-  publicPath: '/',
-  yarnLockFile: '/yarn.lock',
-}
-```
+_See #defaultpaths for the default configuration paths._
 
 Build paths can be overriden by passing configuration paths in the configs options
 object:
