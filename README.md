@@ -80,8 +80,8 @@ Constant | Usage
 `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths
 
 ## Guides
-- [Project Toolchain][]
-- [Project Application][]
+- [Project Toolchain][toolchain]
+- [Project Application][application]
 
 #### Tools
 - [Babel][]
@@ -90,8 +90,8 @@ Constant | Usage
 #### Application
 - [Styles][]
 
-[project toolchain]: ./guides/Project Toolchain.md
-[project application]: ./guides/Project Application.md
+[toolchain]: ./guides/Project%20Toolchain.md
+[application]: ./guides/Project%20Application.md
 [babel]: ./guides/tools/Babel.md
 [webpack]: ./guides/tools/Webpack.md
 [styles]: ./guides/application/Styles.md
