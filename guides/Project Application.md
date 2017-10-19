@@ -3,7 +3,7 @@ InspireScript strives to utilize small libraries to create discreet application
 concerns. This is important for flexibility over time. Small libraries that are
 concise in their concerns are easier to refactor or replace.
 
-#### Application Stack
+#### Application stack
 - [React][]
 - [React Router][]
 - [Redux][] _(with [React Redux][] for binding)_
@@ -18,8 +18,10 @@ code.
 
 ## Styles and Theming
 InspireScript projects use a powerful styling system to create highly customizable
-applications.
+applications. See [Styles][] for details.
 
+<!-- Links -->
+[styles]: ./application/Styles.md
 [React]: https://reactjs.org/
 [React Router]: https://reacttraining.com/react-router/
 [Redux]: http://redux.js.org/

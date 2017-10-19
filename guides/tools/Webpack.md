@@ -1,4 +1,4 @@
-## Webpack Configuration
+# Webpack Configuration
 Webpack handles managing all of your project assets through the project source code
 using loaders. Any images, styles, raw file content, etc. can be directly imported
 into project JS code. This allows powerful transformations and explicit declaration
@@ -6,12 +6,12 @@ of what assets are used in a project.
 
 ## Analyzing Bundle Output
 
-#### Webpack Visualizer
+#### Webpack visualizer
 The Webpack configs include the [`webpack-visualizer-plugin`][Webpack Visualizer]
 which will output a dependencies graph to `/dist/stats.html` for production builds.
 This can be used to analyze what the bundle is composed of.
 
-#### Additional Tools
+#### Additional tools
 Other visualizers/tools can be used with the bundle stats by generating a stats JSON
 file. The `profile` and `json` flags must be passed to the Webpack call and the
 results piped to a file:
@@ -26,9 +26,7 @@ Visualization Tools:
 [Webpack Visualizer]: https://chrisbateman.github.io/webpack-visualizer/
 [Webpack Bundle Analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
 
-
-
-
+<!--
 - Webpack (webpack.config.js)
   - Copy (/public index.html, favicon.ico)
   - Output (/build)
@@ -58,3 +56,4 @@ Visualization Tools:
  *   devServer: {}
  * }
  * ```
+-->

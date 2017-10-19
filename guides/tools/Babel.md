@@ -1,4 +1,4 @@
-## Babel Configuration
+# Babel Configuration
 The [`babel-loader`][babel-loader] is included in the Webpack configurations to
 transpile project JavaScript with Babel. In addition to transpiling new language
 features there are a number of performance plugins for Babel that optimize the
@@ -10,7 +10,7 @@ only the language features required for targeted browsers. _(Work is planned to 
 seperate bundles for modern browsers vs legacy browsers)_ The following presets/
 plugins are configured by default:
 
-#### Language Feature Transpiling
+#### Language feature transpiling
 - [`babel-preset-env`][preset-env]: Autoprefixer for Babel compiling
 - [`babel-preset-react`][preset-react]: Transform JSX into `createElement` calls
 - [`transform-runtime`][runtime]: Externalise references to helpers and builtins,
@@ -22,8 +22,13 @@ plugins are configured by default:
   literals
 - [`babel-plugin-syntax-trailing-function-commas`][trailing-commas]: Compile
   trailing function commas to ES5
+- [`babel-plugin-syntax-dynamic-import`][dynamic-import]: Allow parsing of
+  `import()`.
 
-#### Production Optimizations
+#### Development plugins
+- [`react-hot-loader/babel`][hot-loader]: Tweak React components in real time.
+
+#### Production optimizations
 - [`babel-plugin-transform-react-remove-prop-types`][remove-props]: Remove
   unnecessary React propTypes from the production build.
 - [`babel-plugin-react-remove-properties`][remove-properties]: Remove React
@@ -42,14 +47,13 @@ in the appropriate script, eg:
 BABEL_ENV=jsnext NODE_ENV=production webpack --env=production
 ```
 
-## Babel getting started resources
-XXX
-
 
 <!-- Links -->
 [babel-loader]: https://github.com/babel/babel-loader
 [preset-env]: https://babeljs.io/docs/plugins/preset-env/
 [preset-react]: https://babeljs.io/docs/plugins/preset-react/
+[hot-loader]: https://gaearon.github.io/react-hot-loader/
+[dynamic-import]: https://www.npmjs.com/package/babel-plugin-syntax-dynamic-import
 [runtime]: https://babeljs.io/docs/plugins/transform-runtime/
 [class-properties]: https://www.npmjs.com/package/babel-plugin-transform-class-properties
 [object-spread]: https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread

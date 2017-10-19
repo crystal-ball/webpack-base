@@ -2,7 +2,7 @@
 InspireScript projects are pre-wired with a default toolchain we hope is easy to get
 started with, and easy to customize for any custom requirements.
 
-#### Linting+Formatting
+#### Linting and formatting
 - Prettier: Enforce consistent formatting with no overhead for contributors.
   - Config file: `.prettierrc`
 - ESLint:  Enforce consistent code quality practices. The Airbnb ruleset is
@@ -22,13 +22,5 @@ started with, and easy to customize for any custom requirements.
 
 
 <!-- Links -->
-[Webpack Configuration]: /guides/tools/Webpack.md
-[Babel Configuration]: /guides/tools/Babel.md
-
-
-
-# TODO:
-- Appropriate links for Babel/Webpack md files
-- Note on bundling the regenerator-runtime w/ 'transform-runtime'
-
-
+[Webpack Configuration]: ./tools/Webpack.md
+[Babel Configuration]: ./tools/Babel.md

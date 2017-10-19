@@ -5,7 +5,7 @@ InspireScript encourages the use of SVGs for icons for accessibility. The build
 system can be used to automatically create optimized SVG sprites of _only_ the icons
 used in a project.
 
-#### Icon System
+#### Icon system
 1. Bundle only used SVGs into an SVG sprite.
 2. On app load, inject the SVG sprite into the DOM. _(This solves issues with IE and
    Edge browsers not supporting referencing external files via `<use xlink:href>` )_
@@ -28,7 +28,7 @@ import Icon from 'components/universal/Icon'
   </span>
 ```
 
-#### Icon Include Paths
+#### Icon include paths
 If you need to use an SVG from a source other than `/scr/media/icons` you can set
 the `iconsSpriteLoader` property in the Webpack paths config:
 ```javascript

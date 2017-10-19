@@ -30,7 +30,7 @@ The environment variable should be declared in the webpack build script with `--
 NODE_ENV=production webpack --env=production --progress --profile --colors
 ```
 
-## Project structure
+## Project Structure
 Build defaults use the following directory structure:
 ```
 project
@@ -43,7 +43,7 @@ project
 └─  webpack.config.js
 ```
 
-## Default paths
+## Default Paths
 _See #defaultpaths for the default configuration paths._
 
 Build paths can be overriden by passing configuration paths in the configs options
@@ -62,7 +62,7 @@ module.exports = env =>
   });
 ```
 
-## Webpack resolution
+## Webpack Resolution
 The build configures the following module resolutions for convenient shorthand
 imports of common project directories.
 
@@ -79,29 +79,20 @@ Constant | Usage
 `process.env.BABEL_ENV` | Set to match `NODE_ENV` for configuring Babel by environment
 `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths
 
-## Styles
-The configurations are intended for using Sass with the following patterns:
-- Allow easy import of a base set of library styles from Node modules using the
-  `~library/path/to/styles` syntax.
-- Handle running styles through autoprefixer default configuration.
-- Allow `.scss` files to be required into component files. Using the `.scss`
-  extension is required.
-- Allow component level namespacing of styles using a single top level local style
-  class. The class `.component` is the standard class name to use for any component
-  styles. This makes importing the localized class name into a component file
-  consistent:
-  ```scss
-  // style.scss
-  :local(.component) {
-    .title {}
-    .feature {}
-    // etc..
-  }
-  ```
-  ```javascript
-  // component.jsx
-  import { component } from './style.scss';
-  // Importing component is standard and requires only a single import
-  ```
-  Having a single, standard import removes cognitive overhead for modular CSS for
-  components.
+## Guides
+- [Project Toolchain][]
+- [Project Application][]
+
+#### Tools
+- [Babel][]
+- [Webpack][]
+
+#### Application
+- [Styles][]
+
+[project toolchain]: ./guides/Project Toolchain.md
+[project application]: ./guides/Project Application.md
+[babel]: ./guides/tools/Babel.md
+[webpack]: ./guides/tools/Webpack.md
+[styles]: ./guides/application/Styles.md
+
