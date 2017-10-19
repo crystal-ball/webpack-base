@@ -28,6 +28,6 @@ applications. See [Styles][] for details.
 [React Redux]: http://redux.js.org/docs/basics/UsageWithReact.html
 [Redux Saga]: https://redux-saga.js.org/
 [Bootstrap v4]: https://getbootstrap.com/
-[classnames]: https://github.com/JedWatson/classnames)
+[classnames]: https://github.com/JedWatson/classnames
 [Nanoid]: https://github.com/ai/nanoid
 [Componentry]: https://crystal-ball.github.io/componentry/
