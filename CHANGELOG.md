@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.18.0] - 2017-10-19
+### Changed
+- Repo moved to `@inspirescript/webpack-configs`
+
 ## [2.17.0] - 2017-10-16
 ### Added
 - Babel plugin `syntax-dynamic-import` to support dynamic imports of SVG files.
