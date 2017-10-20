@@ -1,6 +1,6 @@
 {
-  "name": "@inspire-script/webpack-configs",
-  "version": "2.17.0",
+  "name": "@inspirescript/webpack-configs",
+  "version": "2.18.0",
   "description": "InspireScript base wepback configs",
   "main": "index.js",
   "bin": {
@@ -19,7 +19,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/inspire-script/webpack-configs.git"
+    "url": "https://github.com/inspirescript/webpack-configs.git"
   },
   "peerDependencies": {
     "babel-eslint": "^7.2.3",
