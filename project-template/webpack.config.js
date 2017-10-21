@@ -1,6 +1,6 @@
 /* eslint-env node */
 const { resolve } = require('path')
-const createBaseConfigs = require('@inspire-script/webpack-configs')
+const createBaseConfigs = require('@inspirescript/webpack-configs')
 
 /**
  * Webpack accepts an object or a function as the module export for the config file.

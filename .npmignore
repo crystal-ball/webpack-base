@@ -1,5 +1,4 @@
 build
 .esm-cache
-.prettierrc
 documentation.yml
 tree.txt
