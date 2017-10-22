@@ -14,7 +14,7 @@ used in a project.
 1. Save the SVG file to `/scr/media/icons`.
 2. Use the `<Icon />` component with the id of the SVG element.
 3. The Icon component will handle dynamically importing your SVG through the
-   `svg-sprite-loader`. This will add it to your icon bundle as part of the Webpack
+   `svg-sprite-loader`. This will add it to your icon bundle as part of the webpack
    build.
 
 ```javascript
@@ -30,7 +30,7 @@ import Icon from 'components/universal/Icon'
 
 #### Icon include paths
 If you need to use an SVG from a source other than `/scr/media/icons` you can set
-the `iconsSpriteLoader` property in the Webpack paths config:
+the `iconsSpriteLoader` property in the webpack paths config:
 ```javascript
 // webpack.congif.js
 const baseConfig = createBaseConfigs({

@@ -1,7 +1,7 @@
-# InspireScript Webpack Configs
+# InspireScript webpack Configs
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-This package creates the base Webpack configuration for InspireScript projects. The
+This package creates the base webpack configuration for InspireScript projects. The
 exported function expects an options object with the build environment. An optional
 paths object can be used to customize build behavior.
 
@@ -62,7 +62,7 @@ module.exports = env =>
   });
 ```
 
-## Webpack Resolution
+## webpack Resolution
 The build configures the following module resolutions for convenient shorthand
 imports of common project directories.
 
@@ -85,7 +85,7 @@ Constant | Usage
 
 #### Tools
 - [Babel][]
-- [Webpack][]
+- [webpack][]
 
 #### Application
 - [Styles][]
@@ -93,6 +93,6 @@ Constant | Usage
 [toolchain]: ./guides/Project%20Toolchain.md
 [application]: ./guides/Project%20Application.md
 [babel]: ./guides/tools/Babel.md
-[webpack]: ./guides/tools/Webpack.md
+[webpack]: ./guides/tools/webpack.md
 [styles]: ./guides/application/Styles.md
 

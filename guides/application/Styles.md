@@ -60,7 +60,7 @@ _This is setup as a `includePath` in the webpack configurations._
 
 ## General Notes
 #### `~` resolving
-`~`: Webpack loaders with special resolvers use the tilde to signify that a relative
+`~`: webpack loaders with special resolvers use the tilde to signify that a relative
 import is a node module. If you want to import a SASS file from node modules prepend
 the path with a tilde:
 
@@ -68,7 +68,7 @@ the path with a tilde:
 
 _See [SASS Loader][] for details_
 
-#### Webpack configuration
+#### webpack configuration
 The webpack loaders/plugins handle:
 - Include paths configured for `src/styles`
 - Autoprefixing styles

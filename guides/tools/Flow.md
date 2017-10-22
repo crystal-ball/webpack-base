@@ -75,7 +75,7 @@ do with type annotation declarations, but do not do not include further rules fo
 types linting (see TODOs). ESLint is smart enough to recognize when prop types are
 defined using Flow types without explicit configuration.
 
-#### Webpack Integration
+#### webpack Integration
 Additional configuration is required to instruct Flow how to handle the webpack
 module resolution/aliasing and non JS imports.
 - Module resolution/aliasing is specified by including

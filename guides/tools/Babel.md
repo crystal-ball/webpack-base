@@ -1,5 +1,5 @@
 # Babel Configuration
-The [`babel-loader`][babel-loader] is included in the Webpack configurations to
+The [`babel-loader`][babel-loader] is included in the webpack configurations to
 transpile project JavaScript with Babel. In addition to transpiling new language
 features there are a number of performance plugins for Babel that optimize the
 production build bundle.
@@ -41,7 +41,7 @@ plugins are configured by default:
 ## Babel env
 The Babel environment variable `BABEL_ENV` handles specifying the target `env` in
 the `.babelrc` configuration. The environment variable is automatically set in the
-Webpack configs using `NODE_ENV`. If needed a specific `BABEL_ENV` can be included
+webpack configs using `NODE_ENV`. If needed a specific `BABEL_ENV` can be included
 in the appropriate script, eg:
 ```shell
 BABEL_ENV=jsnext NODE_ENV=production webpack --env=production
