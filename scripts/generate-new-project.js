@@ -16,6 +16,23 @@ shell.cp('-R', resolve(__dirname, '../project-template'), resolve(projectName))
 // Copy guides from project root
 shell.cp('-R', resolve(__dirname, '../guides'), resolve(projectName))
 
+writeFileSync(
+  resolve(projectName, '.gitignore'),
+  `# Git Ignore (https://help.github.com/articles/ignoring-files/)
+
+# Vendor
+/node_modules
+
+# Build
+/build
+
+# Dev
+.DS_Store
+npm-debug.log*
+.vscode
+`,
+)
+
 templatePackage.name = projectName
 writeFileSync(
   resolve(projectName, 'package.json'),

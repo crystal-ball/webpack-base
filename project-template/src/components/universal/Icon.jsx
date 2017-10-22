@@ -1,20 +1,20 @@
+// @flow
 import React, { Component } from 'react'
-import { bool, string } from 'prop-types'
 import classNames from 'classnames'
+
+type Props = {
+  className: ?string,
+  font: ?boolean,
+  id: string,
+  title: ?string,
+  presentation: ?boolean,
+}
 
 /**
  * Use the icon component with an svg imported from `/media/icons` to create an icon
  * font.
  */
-export default class Icon extends Component {
-  static propTypes = {
-    className: string,
-    font: bool,
-    id: string.isRequired,
-    title: string,
-    presentation: bool,
-  }
-
+export default class Icon extends Component<Props> {
   static defaultProps = {
     className: '',
     font: true,
@@ -22,8 +22,9 @@ export default class Icon extends Component {
     title: null,
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
+    // $FlowIgnore: Flow doesn't know about webpack magic comments for dynamic imports
     import(/* webpackMode: "eager", webpackChunkName: "icons" */ `media/icons/${props.id}.svg`)
   }
 

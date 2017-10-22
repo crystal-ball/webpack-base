@@ -6,6 +6,7 @@
     "build": "NODE_ENV=production webpack --env=production",
     "start": "NODE_ENV=development webpack-dev-server --env=development",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow",
     "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "NODE_ENV=test eslint src --ext .js,.jsx"
   },
@@ -15,19 +16,20 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "componentry": "^1.6.0",
-    "prop-types": "^15.6.0",
+    "nanoid": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-saga": "^0.15.6"
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^5.0.0",
+    "@crystal-ball/eslint-config-eloquence": "^6.0.0",
     "@inspirescript/webpack-configs": "2.18.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint-import-resolver-webpack": "^0.8.3",
+    "flow-bin": "^0.57.3",
     "prettier": "^1.7.4"
   }
 }

@@ -26,11 +26,11 @@ plugins are configured by default:
   `import()`.
 
 #### Development plugins
+- [`transform-react-stateless-component-name`][component-name]: Adds a display name
+  to functional stateless components.
 - [`react-hot-loader/babel`][hot-loader]: Tweak React components in real time.
 
 #### Production optimizations
-- [`babel-plugin-transform-react-remove-prop-types`][remove-props]: Remove
-  unnecessary React propTypes from the production build.
 - [`babel-plugin-react-remove-properties`][remove-properties]: Remove React
   properties
 - [`babel-plugin-transform-react-constant-elements`][constant-elems]: Hoist JSX
@@ -50,15 +50,16 @@ BABEL_ENV=jsnext NODE_ENV=production webpack --env=production
 
 <!-- Links -->
 [babel-loader]: https://github.com/babel/babel-loader
+[class-properties]: https://www.npmjs.com/package/babel-plugin-transform-class-properties
+[component-name]: https://www.npmjs.com/package/babel-plugin-transform-react-stateless-component-name
+[constant-elems]: https://www.npmjs.com/package/babel-plugin-transform-react-constant-elements
+[dynamic-import]: https://www.npmjs.com/package/babel-plugin-syntax-dynamic-import
+[hot-loader]: https://gaearon.github.io/react-hot-loader/
+[inline-elems]: https://www.npmjs.com/package/babel-plugin-transform-react-inline-elements
+[object-spread]: https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
 [preset-env]: https://babeljs.io/docs/plugins/preset-env/
 [preset-react]: https://babeljs.io/docs/plugins/preset-react/
-[hot-loader]: https://gaearon.github.io/react-hot-loader/
-[dynamic-import]: https://www.npmjs.com/package/babel-plugin-syntax-dynamic-import
-[runtime]: https://babeljs.io/docs/plugins/transform-runtime/
-[class-properties]: https://www.npmjs.com/package/babel-plugin-transform-class-properties
-[object-spread]: https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
-[trailing-commas]: https://www.npmjs.com/package/babel-plugin-syntax-trailing-function-commas
-[remove-props]: https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types
 [remove-properties]: https://www.npmjs.com/package/babel-plugin-react-remove-properties
-[constant-elems]: https://www.npmjs.com/package/babel-plugin-transform-react-constant-elements
-[inline-elems]: https://www.npmjs.com/package/babel-plugin-transform-react-inline-elements
+[remove-props]: https://www.npmjs.com/package/babel-plugin-transform-react-remove-prop-types
+[runtime]: https://babeljs.io/docs/plugins/transform-runtime/
+[trailing-commas]: https://www.npmjs.com/package/babel-plugin-syntax-trailing-function-commas

@@ -11,6 +11,7 @@
     "react"
   ],
   "plugins": [
+    "transform-react-stateless-component-name", // Give names to SFCs
     "react-hot-loader/babel", // 🔥
     "syntax-dynamic-import", // Magic imports
     "syntax-trailing-function-commas", // Function trailing commas
@@ -21,7 +22,6 @@
   "env": {
     "production": {
       "plugins": [
-        "transform-react-remove-prop-types", // Strip propTypes declarations
         "transform-runtime" // Library babel-helpers with import statements
       ]
     }

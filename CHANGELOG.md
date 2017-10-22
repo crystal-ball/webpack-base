@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Flow tooling and configuration included by default with docs and examples.
+
+### Fixed
+- `.prettierc` missing from generated project
+- Corrected `babel-loader` usage for production builds
+- Fixed `@inspirescript/webpack-configs` reference in `webpack.config.js`
 
 ## [2.18.0] - 2017-10-19
 ### Changed
