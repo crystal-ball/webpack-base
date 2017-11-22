@@ -6,11 +6,13 @@ exported function expects an options object with the build environment. An optio
 paths object can be used to customize build behavior.
 
 ## Installation
+
 ```bash
 npm i -D @inspire-script/webpack-configs
 ```
 
-## Usage:
+## Usage
+
 ```javascript
 // webpack.config.js
 const { resolve } = require('path')
@@ -26,12 +28,14 @@ module.exports = env =>
 ```
 
 The environment variable should be declared in the webpack build script with `--env`:
+
 ```bash
 NODE_ENV=production webpack --env=production --progress --profile --colors
 ```
 
 ## Project Structure
 Build defaults use the following directory structure:
+
 ```
 project
 ├─  public
@@ -79,15 +83,39 @@ Constant | Usage
 `process.env.BABEL_ENV` | Set to match `NODE_ENV` for configuring Babel by environment
 `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths
 
+## Testing
+Changes to the build can be tested using the `scripts/prepare-test.js` module. This
+will copy the template project into the root directory and update the repo package
+with the additional project dependencies. Install the dependencies and update the
+webpack config to point to this repo and the `test:` commands should work.
+
+```shell
+node scripts/preprepare-test.js
+npm install
+```
+
+```javascript
+// webpack.config.js
+const createBaseConfigs = require('./index')
+```
+
+```shell
+npm run test:start
+npm run test:build
+```
+
 ## Guides
+
 - [Project Toolchain][toolchain]
 - [Project Application][application]
 
 #### Tools
+
 - [Babel][]
 - [webpack][]
 
 #### Application
+
 - [Styles][]
 
 [toolchain]: ./guides/Project%20Toolchain.md

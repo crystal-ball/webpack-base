@@ -11,6 +11,9 @@
     "prepush": "npm run test",
     "documentation":
       "./node_modules/.bin/documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
+    "test:start": "NODE_ENV=development webpack-dev-server --env=development",
+    "test:build": "NODE_ENV=production webpack --env=production",
+    "test:test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write lib/*.mjs",
     "eslint": "NODE_ENV=test eslint lib/*"
   },
@@ -63,7 +66,7 @@
     "webpack-visualizer-plugin": "~0.1.11"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.0.0",
+    "@crystal-ball/eslint-config-eloquence": "^6.1.1",
     "documentation": "^5.3.3",
     "flow-bin": "^0.57.3",
     "husky": "^0.14.3",
