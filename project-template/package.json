@@ -15,21 +15,21 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
-    "componentry": "^1.6.0",
-    "nanoid": "^1.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "componentry": "^2.0.0-alpha.4",
+    "nanoid": "^1.0.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.0.0",
+    "@crystal-ball/eslint-config-eloquence": "^6.1.1",
     "@inspirescript/webpack-configs": "2.19.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint-import-resolver-webpack": "^0.8.3",
-    "flow-bin": "^0.57.3",
-    "prettier": "^1.7.4"
+    "flow-bin": "^0.59.0",
+    "prettier": "^1.8.2"
   }
 }
