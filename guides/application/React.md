@@ -5,7 +5,9 @@ Prefer stateless functional components wherever possible. This helps enforce
 separation between the presentation and data layers.
 
 #### Prop Types Definitions
-Prefer defining prop types with Flow.
+Prefer defining prop types with Flow. Define props (and state) with a type
+definition rather than inline (this makes adding props later impact the git history
+less)
 
 #### Syntax Convention
 ```javascript

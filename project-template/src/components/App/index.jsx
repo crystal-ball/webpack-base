@@ -2,6 +2,9 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider } from 'componentry'
 
+// App Components
+import ScrollToTop from 'components/universal/ScrollToTop'
+// Screens
 import HomeScreen from '../HomeScreen'
 import ToolchainScreen from '../ToolchainScreen'
 import FourOhFourScreen from '../FourOhFourScreen'
@@ -16,6 +19,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+        {/* Restores scroll position to page top on route change */}
+        <ScrollToTop />
         <header className="mb-5" />
         <div className="container">
           <Switch>

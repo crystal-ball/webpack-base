@@ -86,6 +86,7 @@ module resolution/aliasing and non JS imports.
 ## Resources
 - [Official Docs][] for guides on type annotations
 - [`flow-typed][flow-typed] for installing third party definitions
+- [Flow Types Cheat Sheet][types] for available types reference
 
 ## TODO
 - [] ESLint rules for type annotations (see `eslint-plugin-flowtype` package)
@@ -96,3 +97,4 @@ module resolution/aliasing and non JS imports.
 [flow-typed]: https://github.com/flowtype/flow-typed
 [flow language support]: https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode
 [official docs]: https://flow.org/en/docs/
+[types]: https://www.saltycrane.com/flow-type-cheat-sheet/latest/
