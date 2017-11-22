@@ -9,18 +9,17 @@
   "scripts": {
     "test": "npm run eslint",
     "prepush": "npm run test",
-    "documentation": "./node_modules/.bin/documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
+    "documentation":
+      "./node_modules/.bin/documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
     "test:start": "NODE_ENV=development webpack-dev-server --env=development",
     "test:build": "NODE_ENV=production webpack --env=production",
+    "test:monitor":
+      "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
     "test:test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write lib/*.mjs",
     "eslint": "NODE_ENV=test eslint lib/*"
   },
-  "keywords": [
-    "InspireScript",
-    "webpack",
-    "configs"
-  ],
+  "keywords": ["InspireScript", "webpack", "configs"],
   "author": "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)",
   "license": "ISC",
   "repository": {
@@ -66,7 +65,7 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4",
     "webpack-merge": "~4.1.0",
-    "webpack-visualizer-plugin": "~0.1.11"
+    "webpack-monitor": "^1.0.13"
   },
   "devDependencies": {
     "@crystal-ball/eslint-config-eloquence": "^6.1.1",

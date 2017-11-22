@@ -6,25 +6,11 @@ of what assets are used in a project.
 
 ## Analyzing Bundle Output
 
-#### webpack visualizer
-The webpack configs include the [`webpack-visualizer-plugin`][webpack Visualizer]
-which will output a dependencies graph to `/dist/stats.html` for production builds.
-This can be used to analyze what the bundle is composed of.
-
-#### Additional tools
-Other visualizers/tools can be used with the bundle stats by generating a stats JSON
-file. The `profile` and `json` flags must be passed to the webpack call and the
-results piped to a file:
-
-`NODE_ENV=production webpack --env=production --profile --json > webpack-stats.json`
-
-Visualization Tools:
-- [webpack Visualizer][]
-- [webpack Bundle Analyzer][]
+Build statistics are automatically captured using [Webpack Monitor][]. The plugin
+provides interactive analysis of builds and build changes over time.
 
 <!-- Links -->
-[webpack Visualizer]: https://chrisbateman.github.io/webpack-visualizer/
-[webpack Bundle Analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
+[Webpack Monitor]: https://github.com/webpackmonitor/webpackmonitor
 
 <!--
 - webpack (webpack.config.js)
