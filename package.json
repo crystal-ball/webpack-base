@@ -31,8 +31,8 @@
     "url": "https://github.com/inspirescript/webpack-configs.git"
   },
   "peerDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.3.0"
+    "babel-eslint": "^8.0.0",
+    "eslint": "^4.10.0"
   },
   "dependencies": {
     "@std/esm": "^0.16.0",
