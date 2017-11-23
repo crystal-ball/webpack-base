@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader'
 
 // Application core elements: View, State and Styles
 import App from './components/App'
-import createStore from './scm/createStore'
+import createStore from './state-container/createStore'
 import './styles/index.scss'
 
 const render = Component => {

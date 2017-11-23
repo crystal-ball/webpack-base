@@ -9,6 +9,8 @@
   "scripts": {
     "test": "npm run eslint",
     "prepush": "npm run test",
+    "postpublish": "npm run clean",
+    "clean": "rm -rf build __mocks__ flow-typed monitor public src",
     "documentation":
       "./node_modules/.bin/documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
     "test:start": "NODE_ENV=development webpack-dev-server --env=development",
@@ -20,7 +22,9 @@
     "eslint": "NODE_ENV=test eslint lib/*"
   },
   "keywords": ["InspireScript", "webpack", "configs"],
-  "author": "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)",
+  "contributors": [
+    "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)"
+  ],
   "license": "ISC",
   "repository": {
     "type": "git",
