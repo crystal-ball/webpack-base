@@ -7,6 +7,10 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased]
 
+### Changed
+
+* Reduced noise in logged production build stats
+
 ## [2.20.0] - 2017-11-23
 
 ### Added
