@@ -1,4 +1,19 @@
+# Don't Publish Me!
+
+# Output
 build
+
+# esmodules
 .esm-cache
+
+# Config
+.vscode
+.cz-config.js
+.eslintrc.js
+.prettierrc
 documentation.yml
+
+# Documentation
+docs
+guides
 tree.txt
