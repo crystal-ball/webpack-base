@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 const shell = require('shelljs')
 const { resolve } = require('path')
-const { writeFile } = require('fs')
+const { readFile, writeFile } = require('fs')
 
 const templatePackage = require('../project-template/package.json')
 const repoPackage = require('../package.json')
@@ -57,4 +57,16 @@ Object.keys(templatePackage.devDependencies).forEach(dep => {
 writeFile(
   resolve(__dirname, '..', 'package.json'),
   JSON.stringify(repoPackage, null, 2),
+  () => {},
 )
+
+// Update webpack.config.js to point to this repo
+const webpackConfigPath = resolve('webpack.config.js')
+readFile(webpackConfigPath, (err, data) => {
+  if (err) return console.warn(err)
+
+  let file = data.toString()
+  file = file.replace('@inspirescript/webpack-configs', './index')
+
+  return writeFile(webpackConfigPath, file, () => {})
+})
