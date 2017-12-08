@@ -7,7 +7,8 @@
     "generate-inspirescript-project": "./scripts/generate-new-project.js"
   },
   "scripts": {
-    "test": "npm run eslint",
+    "commit": "git cz",
+    "test": "npm run lint",
     "prepush": "npm run test",
     "postpublish": "npm run clean",
     "clean": "rm -rf build __mocks__ flow-typed monitor public src",
@@ -18,8 +19,8 @@
     "test:monitor":
       "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
     "test:test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write lib/*.mjs",
-    "eslint": "NODE_ENV=test eslint lib/*"
+    "format": "prettier --write lib/*.mjs",
+    "lint": "NODE_ENV=test eslint lib/*"
   },
   "keywords": ["InspireScript", "webpack", "configs"],
   "contributors": [
@@ -72,10 +73,17 @@
     "webpack-monitor": "^1.0.13"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.1.1",
+    "@crystal-ball/eslint-config-eloquence": "^6.1.2",
+    "commitizen": "^2.9.6",
+    "cz-customizable": "^5.2.0",
     "documentation": "^5.3.3",
-    "flow-bin": "^0.59.0",
+    "flow-bin": "^0.61.0",
     "husky": "^0.14.3",
-    "prettier": "^1.8.2"
+    "prettier": "^1.9.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   }
 }
