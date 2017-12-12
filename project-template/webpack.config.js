@@ -1,6 +1,6 @@
 /* eslint-env node */
 const { resolve } = require('path')
-const createBaseConfigs = require('@inspirescript/webpack-configs')
+const webpackConfigs = require('@inspirescript/webpack-configs')
 
 /**
  * Webpack accepts an object or a function as the module export for the config file.
@@ -13,19 +13,19 @@ const createBaseConfigs = require('@inspirescript/webpack-configs')
  * @return {Object} Complete webpack configuration
  */
 module.exports = env => {
-  const baseConfig = createBaseConfigs({
+  const config = webpackConfigs({
     env,
-    // Any path overrides can be passed in the path options
     paths: {
       // Explicitly set the context for resolving entry points and loaders
       context: resolve(__dirname),
+      // See guides/tools/webpack.md for available path configurations
     },
   })
 
   /*
-   * Make any changes you need to the base Webpack config here, ie:
-   * baseConfig.plugins.push(new AwesomePlugin())
+   * Make any changes to the base webpack configs for your application
    */
+  // config.resolve.alias.universal = resolve('src', 'components', 'universal')
 
-  return baseConfig
+  return config
 }

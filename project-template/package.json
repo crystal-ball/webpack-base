@@ -3,34 +3,35 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "build": "NODE_ENV=production webpack --env=production",
+    "build": "cross-env NODE_ENV=production webpack --env=production",
     "stats": "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
-    "start": "NODE_ENV=development webpack-dev-server --env=development",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --env=development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow",
-    "prettier": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "NODE_ENV=test eslint src --ext .js,.jsx"
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "cross-env NODE_ENV=test eslint src --ext .js,.jsx"
   },
   "keywords": ["inspirescript"],
-  "author": "",
+  "contributors": [],
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.5",
-    "componentry": "^2.0.0-alpha.4",
-    "nanoid": "^1.0.1",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-saga": "^0.16.0"
+    "classnames": "~2.2.5",
+    "componentry": "~2.0.0-beta",
+    "nanoid": "~1.0.1",
+    "react": "~16.2.0",
+    "react-dom": "~16.2.0",
+    "react-redux": "~5.0.6",
+    "react-router-dom": "~4.2.2",
+    "redux": "~3.7.2",
+    "redux-saga": "0.16.0"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.1.1",
-    "@inspirescript/webpack-configs": "2.19.0",
+    "@crystal-ball/eslint-config-eloquence": "^6.2.0",
+    "@inspirescript/webpack-configs": "~2.19.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "cross-env": "^5.1.1",
     "eslint-import-resolver-webpack": "^0.8.3",
-    "flow-bin": "^0.59.0",
-    "prettier": "^1.8.2"
+    "flow-bin": "^0.61.0",
+    "prettier": "~1.9.1"
   }
 }

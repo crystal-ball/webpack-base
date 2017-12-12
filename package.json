@@ -10,15 +10,8 @@
     "commit": "git cz",
     "test": "npm run lint",
     "prepush": "npm run test",
-    "postpublish": "npm run clean",
-    "clean": "rm -rf build __mocks__ flow-typed monitor public src",
     "documentation":
-      "./node_modules/.bin/documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
-    "test:start": "NODE_ENV=development webpack-dev-server --env=development",
-    "test:build": "NODE_ENV=production webpack --env=production",
-    "test:monitor":
-      "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
-    "test:test": "echo \"Error: no test specified\" && exit 1",
+      "documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
     "format": "prettier --write lib/*.mjs",
     "lint": "NODE_ENV=test eslint lib/*"
   },
@@ -30,10 +23,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/inspirescript/webpack-configs.git"
-  },
-  "peerDependencies": {
-    "babel-eslint": "^8.0.0",
-    "eslint": "^4.10.0"
   },
   "dependencies": {
     "@std/esm": "^0.16.0",
@@ -58,6 +47,7 @@
     "extract-text-webpack-plugin": "~3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
+    "inline-chunk-manifest-html-webpack-plugin": "^2.0.0",
     "node-sass": "~4.7.2",
     "nyan-progress-webpack-plugin": "^1.2.0",
     "postcss-loader": "^2.0.8",
@@ -67,13 +57,15 @@
     "shelljs": "^0.7.8",
     "style-loader": "~0.19.0",
     "svg-sprite-loader": "^3.4.1",
+    "svg-symbol-sprite-loader": "^0.1.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4",
+    "webpack-manifest-plugin": "^1.3.2",
     "webpack-merge": "~4.1.0",
     "webpack-monitor": "^1.0.13"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.1.2",
+    "@crystal-ball/eslint-config-eloquence": "^6.2.0",
     "commitizen": "^2.9.6",
     "cz-customizable": "^5.2.0",
     "documentation": "^5.3.3",
