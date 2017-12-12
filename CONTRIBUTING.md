@@ -12,7 +12,7 @@ when contributing.
 * JS must pass ESLint standards. Note that formatting is included in the standards
   ands uses Prettier to determine the 'correct' format. If you do not have Prettier
   integrated in your editor you can run the package `format` script:
-  `npm run format` to format all JS files in the `/lib` directory.
+  `npm run format` to format all JS files in the `/src` directory.
 * All tests must pass before any commit will be merged.
 * Code should include inline documentation on **why** the code does what it does
   _(it should be obvious **what** the code does from semantically named functions
