@@ -7,9 +7,21 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased]
 
+## [2.21.0] - 2017-12-18
+
+### Added
+
+* Configuration for `commitizen` 🎉
+* `svg-symbol-sprite-loader` added for creating SVG symbol sprites
+
 ### Changed
 
 * Reduced noise in logged production build stats
+* Internal move from `/lib` to `/src`
+
+### Fixed
+
+* `.npmignore` updated to ignore all files unrelated to publish
 
 ## [2.20.0] - 2017-11-23
 
