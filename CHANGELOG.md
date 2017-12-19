@@ -2,8 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and
-this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to
+[Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
@@ -80,9 +81,9 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
-* The ESLint loader is now only used for dev builds. Linting for production should
-  be enforced through testing in CI pipeline. This is to improve production build
-  times.
+* The ESLint loader is now only used for dev builds. Linting for production
+  should be enforced through testing in CI pipeline. This is to improve
+  production build times.
 * Definitions used for guide links to make raw markdown more readable.
 
 ## [2.14.0] - 2017-10-11
@@ -103,14 +104,15 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
-* Template project generator updated with working wiring for application styles and
-  state management.
+* Template project generator updated with working wiring for application styles
+  and state management.
 
 ## [2.11.0] - 2017-10-07
 
 ### Added
 
-* Generate new project from template using command `generate-inspirescript-project`
+* Generate new project from template using command
+  `generate-inspirescript-project`
 
 ### Changed
 
@@ -126,8 +128,8 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
-* Not spending anymore time trying to get TS to play nice. Use spec compliant ESM
-  with @std/esm package.
+* Not spending anymore time trying to get TS to play nice. Use spec compliant
+  ESM with @std/esm package.
 
 ## [2.7.0] - 2017-09-01
 
@@ -159,7 +161,8 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
-* Loader configurations for CSS upgraded to produce readable local path namespaces
+* Loader configurations for CSS upgraded to produce readable local path
+  namespaces
 
 ## [2.4.0] - 2017-08-17
 
@@ -193,8 +196,8 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
-* Add default alias object to resolve so consuming apps can expect to set aliases
-  without checking existence first
+* Add default alias object to resolve so consuming apps can expect to set
+  aliases without checking existence first
 
 ## [2.1.0] - 2017-07-15
 
@@ -218,8 +221,8 @@ this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
-* Disable `eslint-loader` until https://github.com/babel/babel-eslint/issues/487 is
-  resolved. Currently class statics are throwing no-undef errors 😔
+* Disable `eslint-loader` until https://github.com/babel/babel-eslint/issues/487
+  is resolved. Currently class statics are throwing no-undef errors 😔
 
 ## [2.0.0] - 2017-07-09
 

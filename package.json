@@ -10,12 +10,15 @@
     "commit": "git cz",
     "test": "npm run lint",
     "prepush": "npm run test",
-    "documentation":
-      "documentation build lib/** -f html -o docs --require-extension mjs --parse-extension mjs",
-    "format": "prettier --write lib/*.mjs",
-    "lint": "NODE_ENV=test eslint lib/*"
+    "documentation": "documentation build src/** -f html -o docs --require-extension mjs --parse-extension mjs",
+    "format": "prettier --write \"{src,project-template}/**/*.{mjs,js,jsx}\"",
+    "lint": "NODE_ENV=test eslint src/*"
   },
-  "keywords": ["InspireScript", "webpack", "configs"],
+  "keywords": [
+    "InspireScript",
+    "webpack",
+    "configs"
+  ],
   "contributors": [
     "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)"
   ],
