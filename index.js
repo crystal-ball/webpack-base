@@ -1,2 +1,3 @@
-require = require('@std/esm')(module) // eslint-disable-line
+/* eslint-disable no-global-assign */
+require = require('@std/esm')(module)
 module.exports = require('./src').default

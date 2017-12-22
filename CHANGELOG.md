@@ -8,6 +8,19 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+* Code of Conduct
+* License
+
+### Changed
+
+* Prettier printWidth set to 80 for markdown files for better readability.
+
+### Fixed
+
+* Prettier ignores `package.json`
+
 ## [2.21.0] - 2017-12-18
 
 ### Added

@@ -1,7 +1,0 @@
-# project
-## public
-### index.html
-### favicon.ico
-## src
-### index.jsx
-## webpack.config.js

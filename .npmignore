@@ -11,6 +11,7 @@ build
 .cz-config.js
 .eslintrc.js
 .prettierrc
+.prettierignore
 documentation.yml
 
 # Documentation

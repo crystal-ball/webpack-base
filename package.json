@@ -17,7 +17,7 @@
   "keywords": [
     "InspireScript",
     "webpack",
-    "configs"
+    "configuration"
   ],
   "contributors": [
     "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)"
@@ -28,7 +28,7 @@
     "url": "https://github.com/inspirescript/webpack-configs.git"
   },
   "dependencies": {
-    "@std/esm": "^0.16.0",
+    "@std/esm": "^0.18.0",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

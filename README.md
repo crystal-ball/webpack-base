@@ -1,7 +1,13 @@
-# InspireScript webpack Configs
+<h1 align="center">InspireScript webpack Base Configuration</h1>
 
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+<p align="center">
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier">
+  </a>
+  <a href="http://commitizen.github.io/cz-cli/">
+    <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen">
+  </a>
+</p>
 
 This package creates the base webpack configuration for InspireScript projects.
 The exported function expects an options object with the build environment. An
@@ -126,6 +132,15 @@ npm run test:build
 #### Application
 
 * [Styles][]
+
+## Contributing 😃
+
+All contributions are greatly appreciated 👍🎉. To contribute please:
+
+* Review the repo [Code of Conduct](./CODE_OF_CONDUCT.md), it is not just for
+  show!
+* Review the [Contributing Guide](./CONTRIBUTING.md) for a helpful code overview
+  and repository pull request process details.
 
 <!-- Links -->
 
