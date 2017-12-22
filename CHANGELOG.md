@@ -16,6 +16,8 @@ and this project adheres to
 ### Changed
 
 * Prettier printWidth set to 80 for markdown files for better readability.
+* Nyan indicator replaced with `webpack-dashboard` and
+  `progress-bar-webpack-plugin`
 
 ### Fixed
 

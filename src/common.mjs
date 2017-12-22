@@ -1,10 +1,9 @@
-import webpack from 'webpack'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
-import WebpackManifestPlugin from 'webpack-manifest-plugin'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
 import SVGSymbolSpritePlugin from 'svg-symbol-sprite-loader/src/plugin'
-import NyanProgressPlugin from 'nyan-progress-webpack-plugin'
+import WebpackManifestPlugin from 'webpack-manifest-plugin'
+import webpack from 'webpack'
 
 const { optimize, DefinePlugin, EnvironmentPlugin } = webpack
 
@@ -93,16 +92,6 @@ export default ({
   // Plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    // Builds dashboard
-    // ---------------------------------------------------------------------------
-
-    // Visual progress indicator
-    new NyanProgressPlugin({
-      nyanCatSays(progress) {
-        return progress === 1 ? 'Bringo!' : 'Hacking time...'
-      },
-    }),
-
     // Variable injections
     // ---------------------------------------------------------------------------
 

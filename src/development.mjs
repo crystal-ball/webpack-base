@@ -1,3 +1,4 @@
+import DashboardPlugin from 'webpack-dashboard/plugin'
 import webpack from 'webpack'
 
 /**
@@ -59,6 +60,12 @@ export default ({ appPublic, babelLoaderInclude }) => ({
   },
 
   plugins: [
+    // Builds dashboard
+    // ---------------------------------------------------------------------------
+    new DashboardPlugin(),
+
+    // 🔥 Modules
+    // ---------------------------------------------------------------------------
     // See guides/architecture/build - HMR
     new webpack.HotModuleReplacementPlugin(),
     // prints more readable module names in the browser console on HMR updates

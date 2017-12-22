@@ -1,10 +1,12 @@
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 import DuplicatePackageCheckerPlugin from 'duplicate-package-checker-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import MinifyPlugin from 'babel-minify-webpack-plugin'
-import autoprefixer from 'autoprefixer'
+import ProgressBarPlugin from 'progress-bar-webpack-plugin'
 import WebpackMonitor from 'webpack-monitor'
+import autoprefixer from 'autoprefixer'
+import chalk from 'chalk'
+import webpack from 'webpack'
 
 /**
  * Production environment specific configurations.
@@ -80,22 +82,43 @@ export default ({ babelLoaderInclude, outputPath }) => ({
   },
 
   plugins: [
-    // Clean /dist folder
-    new CleanWebpackPlugin([outputPath], {
-      // root is required b/c our paths are absolute and clean makes sure they match
-      root: process.cwd(),
+    // Stats
+    // ---------------------------------------------------------------------------
+    // Progress Indicator
+    new ProgressBarPlugin({
+      format: `  Hacking time... [:bar] ${chalk.green.bold(
+        ':percent',
+      )} (:elapsed seconds) :msg`,
+      clear: false,
+      callback: () => {
+        console.log(chalk.bold('\n  BINGO 🎉\n'))
+      },
     }),
     // Totally awesome webpack build stats monitor, run `npm run build:monitor` to
     // launch the monitor after building
     new WebpackMonitor({
       launch: process.env.LAUNCH_MONITOR,
     }),
+
+    // Prepare
+    // ---------------------------------------------------------------------------
+    // Clean /dist folder
+    new CleanWebpackPlugin([outputPath], {
+      // root is required b/c our paths are absolute and clean makes sure they match
+      root: process.cwd(),
+    }),
+
+    // Validations
+    // ---------------------------------------------------------------------------
     // Check for duplicate versions of the same package, ie React 15 && React 16
     // in the same build
     new DuplicatePackageCheckerPlugin({
       verbose: true, // Show module that is requiring each duplicate package
       emitError: true, // Emit errors instead of warnings
     }),
+
+    // Optimizations
+    // ---------------------------------------------------------------------------
     // ExtractTextPlugin pulls SASS into external css file
     new ExtractTextPlugin({
       // Include content hash so that only CSS changes (and not changes to JS will
