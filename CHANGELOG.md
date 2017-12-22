@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.22.0] - 2017-12-12
+
 ### Added
 
 * Code of Conduct

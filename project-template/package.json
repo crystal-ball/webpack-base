@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@crystal-ball/eslint-config-eloquence": "^6.2.0",
-    "@inspirescript/webpack-configs": "~2.19.0",
+    "@inspirescript/webpack-configs": "~2.22.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "cross-env": "^5.1.1",
     "eslint-import-resolver-webpack": "^0.8.3",
