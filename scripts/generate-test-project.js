@@ -6,13 +6,15 @@ const { readFile, writeFile } = require('fs')
 const templatePackage = require('../project-template/package.json')
 const repoPackage = require('../package.json')
 
-const testProjectDir = resolve(__dirname, '../test-project')
+const testProjectDir = resolve(__dirname, '../../test-inspirescript-project')
 const webpackSrcDir = resolve(__dirname, '../src')
+const guidesDir = resolve(__dirname, '../guides')
 const templateProjectDir = resolve(__dirname, '../project-template')
 const webpackConfigPath = join(templateProjectDir, 'webpack.config.js')
 
 // Copy template project files
 shell.cp('-R', templateProjectDir, testProjectDir)
+shell.cp('-R', guidesDir, testProjectDir)
 shell.cp('-R', webpackSrcDir, join(testProjectDir, 'lib'))
 
 // Add the dependencies from the project to the dev dependencies of the test project
