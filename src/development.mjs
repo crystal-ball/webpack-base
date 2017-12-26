@@ -1,24 +1,30 @@
-import DashboardPlugin from 'webpack-dashboard/plugin'
+import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin'
+import chalk from 'chalk'
 import webpack from 'webpack'
 
 /**
  * Development environment specfic configurations
  * @param {Object} paths Configured paths for environment build
+ * @param {number} port  Dev server port
  * @return {Object} Development specific configurations to merge with cross
  *                  environment configurations
  */
-export default ({ appPublic, babelLoaderInclude }) => ({
+export default ({ appPublic, babelLoaderInclude }, port) => ({
   // This makes the bundle appear split into separate modules in the devtools.
   // We don't use source maps here because they can be confusing:
   // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
   // You may want 'cheap-module-source-map' instead if you prefer source maps.
-  // devtool: 'eval',
   devtool: 'eval',
 
-  // CSS Loader Definition - Dev
+  // Dev Loader Definitions
+  // ---------------------------------------------------------------------------
   module: {
     rules: [
-      // Dev JS loader runs everything through eslint then Babel
+      // ========================================================
+      // JS Loader
+      // ========================================================
+
+      // Run everything through ESLint then Babel
       {
         test: /\.jsx?$/,
         // Only use loader with explicitly included files
@@ -36,7 +42,12 @@ export default ({ appPublic, babelLoaderInclude }) => ({
          */
         use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
       },
-      // Dev styles loader does not extract into a file
+
+      // ========================================================
+      // Styles Loader
+      // ========================================================
+
+      // Do not extract into a separate file in dev environment
       {
         test: /\.scss$/,
         use: [
@@ -50,7 +61,8 @@ export default ({ appPublic, babelLoaderInclude }) => ({
           {
             loader: 'sass-loader',
             options: {
-              // src/styles allows easy theme variable import
+              // Allows for aliased imports from src/styles, especially useful for
+              // importing app theme variables and mixins into component styles
               includePaths: ['src/styles'],
             },
           },
@@ -59,21 +71,40 @@ export default ({ appPublic, babelLoaderInclude }) => ({
     ],
   },
 
+  // Dev Plugin Definitions
+  // ---------------------------------------------------------------------------
   plugins: [
-    // Builds dashboard
-    // ---------------------------------------------------------------------------
-    new DashboardPlugin(),
+    // ========================================================
+    // Indicators
+    // ========================================================
 
+    // Shows and clears errors in a easier to read format
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [
+          `  🎉  ${chalk.bold.green('BINGO')} 🎉`,
+          `  Application running at ${chalk.underline.blue(
+            `http://localhost:${port}`,
+          )}`,
+        ],
+        notes: [],
+      },
+    }),
+
+    // ========================================================
     // 🔥 Modules
-    // ---------------------------------------------------------------------------
-    // See guides/architecture/build - HMR
+    // ========================================================
+
+    // HMR - see guides/architecture/build
     new webpack.HotModuleReplacementPlugin(),
-    // prints more readable module names in the browser console on HMR updates
+    // Prints more readable module names in the browser console on HMR updates
     new webpack.NamedModulesPlugin(),
-    // do not emit compiled assets that include errors
+    // Do not emit compiled assets that include errors
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 
+  // Dev Server
+  // ---------------------------------------------------------------------------
   devServer: {
     // Tell the server where to serve content from. This is only necessary if you
     // want to serve static files.
@@ -85,7 +116,7 @@ export default ({ appPublic, babelLoaderInclude }) => ({
     // in handy in more complicated setups.
     // true for index.html upon 404, object for multiple paths
     historyApiFallback: true,
-    port: 3000,
+    port,
     // See guides/architecture/build - HMR
     hot: true,
     // true for self-signed, object for cert authority
@@ -97,5 +128,8 @@ export default ({ appPublic, babelLoaderInclude }) => ({
       errors: true,
       warnings: false,
     },
+    // Suppresses output from dev-server, the FriendlyErrors plugin displays clean
+    // error messagging
+    quiet: true,
   },
 })

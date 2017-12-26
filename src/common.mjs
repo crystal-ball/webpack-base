@@ -1,15 +1,16 @@
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
+import ProgressBarPlugin from 'progress-bar-webpack-plugin'
 import SVGSymbolSpritePlugin from 'svg-symbol-sprite-loader/src/plugin'
 import WebpackManifestPlugin from 'webpack-manifest-plugin'
+import chalk from 'chalk'
 import webpack from 'webpack'
 
 const { optimize, DefinePlugin, EnvironmentPlugin } = webpack
 
 /**
- * Cross environment common configurations. The development or production configs
- * will be merged with these base configs using `webpack-merge`
+ * The common configurations are used across environments.
  * @param {Object} paths Configured paths for environment build
  * @return {Object} Build configurations common to all environments
  */
@@ -55,18 +56,26 @@ export default ({
     alias: {},
   },
 
-  // Module
+  // Common Loader Definitions
   // ---------------------------------------------------------------------------
   module: {
     rules: [
-      // SVG Icons loader will create an svg sprite with any icons in the include
+      // ========================================================
+      // SVG Icons
+      // ========================================================
+
+      // Create an svg sprite with any icons in the include paths
       {
         test: /\.svg$/,
         include: iconsSpriteLoader,
         use: [{ loader: 'svg-symbol-sprite-loader' }],
       },
-      // Basic image loader setup to use file-loader, configured to include hash
-      // in filenames
+
+      // ========================================================
+      // Images
+      // ========================================================
+
+      // Basic image loader setup with file name hashing
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         // Make sure that we don't try to use file-loader with icons for svg sprite
@@ -81,7 +90,12 @@ export default ({
           },
         ],
       },
-      // The raw loader is available for importing .txt files
+
+      // ========================================================
+      // Text files
+      // ========================================================
+
+      // If you want to import a text file you can ¯\_(ツ)_/¯
       {
         test: /\.txt$/,
         use: [{ loader: 'raw-loader' }],
@@ -89,11 +103,27 @@ export default ({
     ],
   },
 
-  // Plugins
+  // Common Plugin Definitions
   // ---------------------------------------------------------------------------
   plugins: [
+    // ========================================================
+    // Stats
+    // ========================================================
+
+    // Visual compile indicator with progress bar
+    new ProgressBarPlugin({
+      format: `  Hacking time... [:bar] ${chalk.green.bold(
+        ':percent',
+      )} (:elapsed seconds) :msg`,
+      clear: false,
+      callback: () => {
+        console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`)
+      },
+    }),
+
+    // ========================================================
     // Variable injections
-    // ---------------------------------------------------------------------------
+    // ========================================================
 
     // Inject build related environment variables. They will be accessible as
     // constants. Replacing NODE_ENV allows Babili to strip dead code based on env
@@ -101,8 +131,9 @@ export default ({
     new EnvironmentPlugin(['NODE_ENV']),
     new DefinePlugin({ 'process.env.PUBLIC_PATH': JSON.stringify(publicPath) }),
 
+    // ========================================================
     // Asset extractions
-    // ---------------------------------------------------------------------------
+    // ========================================================
 
     // Plugin for SVG symbol sprite extracts imported SVGs into a file
     // ⚠️ Plugin order matters! This plugin and the WebpackManifestPlugin/
@@ -113,15 +144,17 @@ export default ({
       filename: 'static/media/icon-sprite.[hash:8].svg',
     }),
 
-    // Files copying
-    // ---------------------------------------------------------------------------
+    // ========================================================
+    // File copying
+    // ========================================================
 
     // Copy public directory to build directory, this is an escape hatch for assets
     // needed that are not imported into build
     new CopyWebpackPlugin([{ from: 'public' }]),
 
-    // index.html generator
-    // ---------------------------------------------------------------------------
+    // ========================================================
+    // HTML Index
+    // ========================================================
 
     // Inlines the chunk manifest in head, this is explicitly required to know which
     // version of the SVG sprite is correct, but is also nice to have for reference
@@ -147,8 +180,9 @@ export default ({
       favicon: `${appPublic}/favicon.ico`,
     }),
 
-    // Configure chunks
-    // ---------------------------------------------------------------------------
+    // ========================================================
+    // Chunks
+    // ========================================================
 
     // Pull node_modules into vendor.js file using CommonsChunk, minChunks handles
     // checking if module is from node_modules and is a js/json file see

@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+* Webpack dashboard replaced with webpack progress plugin and friendly errors
+  plugin. The dashboard had issues with command line tools and was adding
+  confusing warnings to npm processes. Friendly errors plugin does a better job
+  of cutting through the noise and showing readable messaging for build issues.
+
 ## [2.22.0] - 2017-12-12
 
 ### Added
