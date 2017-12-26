@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.23.0] - 2017-12-27
+
+### Added
+
+* The magic markdown loader allows importing markdown files as React components.
+  The components are looked up off of the registry.
+
 ### Changed
 
 * Webpack dashboard replaced with webpack progress plugin and friendly errors
