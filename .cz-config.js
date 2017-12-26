@@ -31,6 +31,7 @@ module.exports = {
     { name: 'icons' },
     { name: 'stats' },
     { name: 'template' },
+    { name: 'markdown' },
   ],
 
   allowCustomScopes: true,

@@ -22,10 +22,15 @@ module.exports = env => {
     },
   })
 
+  // Default aliases for easy importing of common modules
+  config.resolve.alias.UNIVERSAL = resolve('src', 'components', 'universal')
+  config.resolve.alias.GUIDES = resolve('guides')
+
   /*
-   * Make any changes to the base webpack configs for your application
+   * Make any changes to the base webpack configs for your application, eg:
+   *
+   * config.module.rules.push({ custom loader... })
    */
-  // config.resolve.alias.universal = resolve('src', 'components', 'universal')
 
   return config
 }

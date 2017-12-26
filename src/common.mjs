@@ -5,7 +5,12 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin'
 import SVGSymbolSpritePlugin from 'svg-symbol-sprite-loader/src/plugin'
 import WebpackManifestPlugin from 'webpack-manifest-plugin'
 import chalk from 'chalk'
+import path from 'path'
 import webpack from 'webpack'
+
+import cjs from './cjs'
+
+const { __dirname } = cjs
 
 const { optimize, DefinePlugin, EnvironmentPlugin } = webpack
 
@@ -61,7 +66,20 @@ export default ({
   module: {
     rules: [
       // ========================================================
-      // SVG Icons
+      // 🔮 Markdown Loader
+      // ========================================================
+      {
+        test: /\.md$/,
+        use: [
+          // Transpiles JSX to JS
+          { loader: 'babel-loader' },
+          // Convert markdown to a component with content as JSX
+          { loader: path.resolve(__dirname, 'magic-markdown-loader/loader.js') },
+        ],
+      },
+
+      // ========================================================
+      // SVG Icons Loader
       // ========================================================
 
       // Create an svg sprite with any icons in the include paths
@@ -72,7 +90,7 @@ export default ({
       },
 
       // ========================================================
-      // Images
+      // Images Loader
       // ========================================================
 
       // Basic image loader setup with file name hashing
@@ -92,7 +110,7 @@ export default ({
       },
 
       // ========================================================
-      // Text files
+      // Text files Loader
       // ========================================================
 
       // If you want to import a text file you can ¯\_(ツ)_/¯
