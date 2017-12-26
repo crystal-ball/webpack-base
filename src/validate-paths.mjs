@@ -25,7 +25,7 @@ function resolveApp(relativePath) {
  * @param {Object} options The options object passed to index function used to
  * configure paths.
  */
-export default function validatePaths({ env, paths }) {
+export default function validatePaths({ env, customPaths }) {
   /**
    * Default project paths used when not specified in `webpackConfigs` options.
    */
@@ -154,20 +154,24 @@ export default function validatePaths({ env, paths }) {
   // Decorate any missing paths with defaults. Don't reassign or change passed paths
   // b/c of editor issues with resolving modules used for eslint-plugin-import
   Object.keys(defaultPaths).forEach(configPath => {
-    if (!paths[configPath]) paths[configPath] = defaultPaths[configPath]
+    if (!customPaths[configPath]) customPaths[configPath] = defaultPaths[configPath]
   })
 
   // Handle dev vs production relative paths
   if (env === 'production') {
     // Prod - include chunkhash for cache busting
-    paths.outputFilename = paths.outputFilename || 'static/js/[name].[chunkhash].js'
-    paths.appEntry = paths.appEntry || [paths.appIndexJs]
+    customPaths.outputFilename =
+      customPaths.outputFilename || 'static/js/[name].[chunkhash].js'
+    customPaths.appEntry = customPaths.appEntry || [customPaths.appIndexJs]
   } else {
     // Dev no chunkhash, not needed
-    paths.outputFilename = paths.outputFilename || 'static/js/[name].js'
+    customPaths.outputFilename = customPaths.outputFilename || 'static/js/[name].js'
     // Dev include hot-loader
-    paths.appEntry = paths.appEntry || ['react-hot-loader/patch', paths.appIndexJs]
+    customPaths.appEntry = customPaths.appEntry || [
+      'react-hot-loader/patch',
+      customPaths.appIndexJs,
+    ]
   }
 
-  return paths
+  return customPaths
 }
