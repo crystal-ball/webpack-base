@@ -7,21 +7,20 @@ import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
-// Compose store enhancers, checking for redux devtools extension in non prod envs
-let storeEnhancers
-if (process.env.NODE_ENV === 'production') {
-  storeEnhancers = compose(applyMiddleware(sagaMiddleware))
-} else {
-  /* eslint-disable no-underscore-dangle */
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-  storeEnhancers = composeEnhancers(applyMiddleware(sagaMiddleware))
-}
+// In dev envs and when app is entered in debug mode use the redux devtools compose
+// otherwise fallback to redux compose
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers =
+  process.env.NODE_ENV === 'development' ||
+  window.location.href.includes('debug=true')
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+    : compose
 
 // Create store, overriding preloaded state if needed
 const store = createStore(
   rootReducer,
   /* preloadedState, */
-  storeEnhancers,
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 )
 
 // Fire up those generators

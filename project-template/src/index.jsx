@@ -6,17 +6,21 @@ import { Provider } from 'react-redux'
 import localStorageSVGLoader from 'svg-symbol-sprite-loader/src/local-storage-svg-loader'
 import { AppContainer } from 'react-hot-loader'
 
-// Application core elements: View, State and Styles
-import App from './components/App'
-import createStore from './state-container/createStore'
+// ========================================================
+// Application Core Elements
+// ========================================================
+// ⚠️ Import application styles before application components so that base CSS
+// styles are included before component styles.
 import './styles/index.scss'
+import App from './components/App'
+import store from './state-container/store'
 
 localStorageSVGLoader(window.manifest['icon-sprite.svg'])
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Provider store={createStore}>
+      <Provider store={store}>
         <Component />
       </Provider>
     </AppContainer>,
