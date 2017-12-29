@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.24.0] - 2017-12-29
+
+### Changed
+
+* The `EnvironmentPlugin` injection has been updated to inject (with defaults)
+  `NODE_ENV`, `DEBUG`, and `PUBLIC_PATH` env variables.
+
 ## [2.23.0] - 2017-12-27
 
 ### Added
