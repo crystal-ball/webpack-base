@@ -89,11 +89,12 @@ imports of common project directories.
 
 ## Environment variables
 
-The following environment variables are set by build:
+The following environment variables are injected by the build:
 
 | Constant                  | Usage                                                                                   |
 | ------------------------- | --------------------------------------------------------------------------------------- |
-| `process.env.BABEL_ENV`   | Set to match `NODE_ENV` for configuring Babel by environment                            |
+| `process.env.NODE_ENV`    | Defaults to match NODE_ENV, used by Babili to strip code in prod builds                 |
+| `process.env.DEBUG`       | Defaults to false, can be used for adding detailed logging in dev environment           |
 | `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths |
 
 ## Testing

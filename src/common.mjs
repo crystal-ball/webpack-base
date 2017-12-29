@@ -12,7 +12,7 @@ import cjs from './cjs'
 
 const { __dirname } = cjs
 
-const { optimize, DefinePlugin, EnvironmentPlugin } = webpack
+const { optimize, EnvironmentPlugin } = webpack
 
 /**
  * The common configurations are used across environments.
@@ -143,11 +143,13 @@ export default ({
     // Variable injections
     // ========================================================
 
-    // Inject build related environment variables. They will be accessible as
-    // constants. Replacing NODE_ENV allows Babili to strip dead code based on env
-    // The PUBLIC_PATH constant is useful for non imported media and routing
-    new EnvironmentPlugin(['NODE_ENV']),
-    new DefinePlugin({ 'process.env.PUBLIC_PATH': JSON.stringify(publicPath) }),
+    // Inject environment variables into build as `process.env.<VARIABLE>`. (All
+    // values are applied to JSON.stringify by plugin)
+    new EnvironmentPlugin({
+      NODE_ENV: 'development', // allow Babili to strip dead code in prod builds
+      DEBUG: false, // detailed logging level option
+      PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
+    }),
 
     // ========================================================
     // Asset extractions
