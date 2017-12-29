@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.25.0] - 2017-12-29
+
+### Added
+
+* Markdown files can now declare values using front matter syntax and the magic
+  markdown loader will inject those values into the created component.
+
 ## [2.24.0] - 2017-12-29
 
 ### Changed
