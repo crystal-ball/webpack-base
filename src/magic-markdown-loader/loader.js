@@ -1,7 +1,8 @@
 /* eslint-env node */
-// Magic Markdown loader is required and exectued by webpack, which doesn't support
+// Magic Markdown loader is required and executed by webpack, which doesn't support
 // ES modules
 const { interpolateName } = require('loader-utils')
+const frontMatter = require('front-matter')
 
 const renderer = require('markdown-it')({
   // Enable HTML tags in source
@@ -12,7 +13,7 @@ const renderer = require('markdown-it')({
   // because Babel does not know how to handle the pretty quotes, but it's also bad
   // because it results in inconsistent typography. Find a way to beautify only the
   // content inside JSX blocks
-  typographer: true,
+  typographer: false,
 })
 
 /**
@@ -31,9 +32,15 @@ module.exports = function loader(source) {
     .replace(/\s/g, '')
     .replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())}`
 
+  // ========================================================
   // Convert source markdown to HTML
-  const html = renderer.render(source)
-  const safeHTML = html.replace(/<!--.+-->/g, '')
+  // ========================================================
+  const { body = '', attributes = {} } = frontMatter(source) // extract front matter and body
+  const html = renderer.render(body) // parse md body to html
+  const safeHTML = html.replace(/<!--.+-->/g, '') // Babel HATES html comments
+
+  // Create set of variable names to destructure defined attributes
+  const attributeVars = Object.keys(attributes)
 
   // create a unique set of component names used in the markdown that can be
   // destructured off of the REGISTRY in the returned component source
@@ -47,11 +54,19 @@ module.exports = function loader(source) {
   // HTML is wrapped in a Fragment because it won't have a top level element. ⚠️This
   // component MUST be run through the Babel loader to transpile the JSX into
   // `createElement` calls.
+  // The front matter attributes are declared a single time in the module scope and
+  // the value is injected by stringifying the JSON value
   return `import React, { Fragment } from 'react'
 import { object } from 'prop-types'
 
+// Front matter attributes declared once at module level
+const attributes = ${JSON.stringify(attributes)}
+
 const ${componentName} = (props, { REGISTRY = {} }) => {
+  // Destructure components used in body from REGISTRY
   let {${uniqueComponentNames.toString()}} = REGISTRY
+  // Destructure front matter to local variables
+  let {${attributeVars.toString()}} = attributes
 
   return <Fragment>${safeHTML}</Fragment>
 }
