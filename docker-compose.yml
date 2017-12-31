@@ -1,0 +1,17 @@
+version: '3'
+services:
+  webpack:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - './src:/usr/src/app/webpack'
+      - './guides:/usr/src/app/guides'
+      - './project-template/.babelrc:/usr/src/app/.babelrc'
+      - './project-template/.eslintrc.js:/usr/src/app/.eslintrc.js'
+      - './project-template/.flowconfig:/usr/src/app/.flowconfig'
+      - './project-template/.prettierrc:/usr/src/app/.prettierrc'
+      - './project-template/__mocks__:/usr/src/app/__mocks__'
+      - './project-template/public:/usr/src/app/public'
+      - './project-template/src:/usr/src/app/src'
+    entrypoint: /bin/sh
