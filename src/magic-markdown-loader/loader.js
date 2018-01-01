@@ -66,7 +66,8 @@ class ${componentName} extends Component {
   }
 
   render() {
-    const { props, context: { REGISTRY = {} } } = this
+    let { props, context } = this
+    let { REGISTRY = {} } = context
 
     // Destructure components used in body from REGISTRY
     let {${componentNames.toString()}} = REGISTRY
