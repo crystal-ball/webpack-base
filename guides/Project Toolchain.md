@@ -11,6 +11,11 @@ get started with, and easy to customize for any custom requirements.
   configured with linting for Prettier added.
   * Config file: `.eslintrc.js`
 
+<Alert color="warning">
+  <Icon id="warning" /> ESLint and Prettier validations are included in the
+  project test suite.
+</Alert>
+
 #### Build
 
 * Babel: For transpiling new language features as well as applying performance
