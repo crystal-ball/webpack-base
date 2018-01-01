@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.26.0] - 2017-12-30
+
 ### Added
 
 * Markdown code block syntax highlighting with Prismjs added 🎉
