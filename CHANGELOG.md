@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.28.0] - 2018-01-01
+
+### Added
+
+* Dynamically register all Magic Markdown components ✨🎉. The registry will now
+  use webpack's `require.context` to dynamically look up and register any
+  component with `.registry.` in the file name.
+
 ## [2.27.0] - 2018-01-01
 
 ### Added
