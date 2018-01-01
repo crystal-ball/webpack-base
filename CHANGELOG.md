@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.27.0] - 2018-01-01
+
+### Added
+
+* Context is exposed in the magic markdown components for easy access
+
 ## [2.26.0] - 2017-12-30
 
 ### Added
