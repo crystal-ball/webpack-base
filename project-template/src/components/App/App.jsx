@@ -11,6 +11,7 @@ import componentRegistry from 'utils/component-registry'
 import InspireScriptScreen from 'GUIDES/InspireScript.md'
 import ToolchainScreen from 'GUIDES/Project Toolchain.md'
 import ApplicationScreen from 'GUIDES/Project Application.md'
+import StylesScreen from 'GUIDES/application/Styles.md'
 import FourOhFourScreen from '../FourOhFourScreen'
 
 // Componentry configuration defaults can be updated using the ThemeProvider
@@ -38,7 +39,8 @@ export default class App extends Component {
           <div className="container">
             <Switch>
               <Route path="/" exact component={InspireScriptScreen} />
-              <Route path="/application" component={ApplicationScreen} />
+              <Route path="/application" exact component={ApplicationScreen} />
+              <Route path="/application/styles" component={StylesScreen} />
               <Route path="/toolchain" component={ToolchainScreen} />
               <Route component={FourOhFourScreen} />
             </Switch>

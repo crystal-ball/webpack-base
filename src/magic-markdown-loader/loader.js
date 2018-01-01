@@ -1,74 +1,80 @@
 /* eslint-env node */
-// Magic Markdown loader is required and executed by webpack, which doesn't support
-// ES modules
-const { interpolateName } = require('loader-utils')
+// ℹ️ CJS modules until webpack 4
 const frontMatter = require('front-matter')
+const { interpolateName } = require('loader-utils')
 
-const renderer = require('markdown-it')({
-  // Enable HTML tags in source
-  html: true,
-  // Linkify will convert content like 'github.com' to a fully qualified anchor
-  linkify: true,
-  // 🔧 TODO: Typographer replacements are not run inside JSX blocks. This is good
-  // because Babel does not know how to handle the pretty quotes, but it's also bad
-  // because it results in inconsistent typography. Find a way to beautify only the
-  // content inside JSX blocks
-  typographer: false,
-})
+const parser = require('./parser')
 
 /**
- * The magic markdown loader handles importing markdown files and wrapping them as
- * components for Babel transpilation.
+ * 🔮 The magic markdown loader is used for importing markdown files. The loader
+ * parses the markdown body to html and wraps it in a React class component, this
+ * effectively transforms the html markup to jsx. Passing this to the Babel loader
+ * will transpile the JSX to executable JS in the bundle 🎉
  */
 module.exports = function loader(source) {
-  // For better identification, pull the filename out of the resource path and
-  // transform it into a component name used in returned component source
-  const id = interpolateName({ resourcePath: this.resourcePath }, '[name]', {
+  // For better identification, pull the file name out of the resource path and
+  // transform it into a component name used in created component source
+  const fileName = interpolateName({ resourcePath: this.resourcePath }, '[name]', {
     content: '',
   })
 
-  const componentName = `${id.slice(0, 1).toUpperCase()}${id
-    .slice(1)
+  // Pascal case the file name for component name
+  let componentName = fileName
     .replace(/\s/g, '')
-    .replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())}`
+    .replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())
+  componentName = `${componentName.slice(0, 1).toUpperCase()}${componentName.slice(
+    1,
+  )}`
 
-  // ========================================================
-  // Convert source markdown to HTML
-  // ========================================================
-  const { body = '', attributes = {} } = frontMatter(source) // extract front matter and body
-  const html = renderer.render(body) // parse md body to html
-  const safeHTML = html.replace(/<!--.+-->/g, '') // Babel HATES html comments
-
-  // Create set of variable names to destructure defined attributes
-  const attributeVars = Object.keys(attributes)
+  // Extract front matter data and parse source markdown body to HTML
+  const { body = '', attributes = {} } = frontMatter(source)
+  const html = parser(body)
 
   // create a unique set of component names used in the markdown that can be
-  // destructured off of the REGISTRY in the returned component source
-  const componentNames = safeHTML.match(/<([A-Z][A-za-z]+)/g) || []
-  const uniqueComponentNames = [...new Set(componentNames)].map(component =>
-    component.slice(1),
-  )
+  // destructured off of the REGISTRY in the created component source
+  let componentNames = html.match(/<([A-Z][A-za-z]+)/g) || []
+  componentNames = componentNames.map(component => component.slice(1))
+  componentNames = [...new Set(componentNames)]
 
-  // 🔮 Component source that wraps the markdown html in a component instance with
-  // all of the components used in the markdown destructured off of the REGISTRY.
-  // HTML is wrapped in a Fragment because it won't have a top level element. ⚠️This
-  // component MUST be run through the Babel loader to transpile the JSX into
-  // `createElement` calls.
-  // The front matter attributes are declared a single time in the module scope and
-  // the value is injected by stringifying the JSON value
-  return `import React, { Fragment } from 'react'
+  /*
+   * 🎉 React component class defintion that wraps the parsed JSX.
+   *
+   * ℹ️ Important Notes
+   * * All of the components used in the source content are destructured off of the
+   *   REGISTRY
+   * * JSX is wrapped in a Fragment because it won't have a top level element.
+   * * The front matter attributes are set as state on the component and
+   *   destructured in the render method for ease of access
+   * * Variable declarations for front matter and registry components use `let` so
+   *   that they can be used in any way in the body, including reassignment
+   *
+   * ⚠️ Attention This component MUST be run through the Babel loader to transpile
+   * the JSX into `createElement` calls.
+   */
+  return `import React, { Component, Fragment } from 'react'
 import { object } from 'prop-types'
 
-// Front matter attributes declared once at module level
-const attributes = ${JSON.stringify(attributes)}
+// 🔮 Magic Markdown Component
+// This component is generated by the magic-markdown loader during the webpack
+// build process.
+class ${componentName} extends Component {
 
-const ${componentName} = (props, { REGISTRY = {} }) => {
-  // Destructure components used in body from REGISTRY
-  let {${uniqueComponentNames.toString()}} = REGISTRY
-  // Destructure front matter to local variables
-  let {${attributeVars.toString()}} = attributes
+  constructor() {
+    super()
+    // Source front matter is set as state
+    this.state = ${JSON.stringify(attributes)}
+  }
 
-  return <Fragment>${safeHTML}</Fragment>
+  render() {
+    const { props, context: { REGISTRY = {} } } = this
+
+    // Destructure components used in body from REGISTRY
+    let {${componentNames.toString()}} = REGISTRY
+    // Destructure front matter to local variables
+    let {${Object.keys(attributes).toString()}} = this.state
+
+    return <Fragment>${html}</Fragment>
+  }
 }
 
 ${componentName}.contextTypes = {
@@ -78,14 +84,3 @@ ${componentName}.contextTypes = {
 
 export default ${componentName}`
 }
-
-// It is possible to append REGISTRY. before every component name to directly lookup
-// that component on the registry. Currently destructuring the component names off
-// of the registry is favored for flexibility. If implementation doesn't turn up
-// any issues the below should be deleted
-
-// Append every component instance with REGISTRY. to lookup component on registry
-// const registryHTML = html.replace(
-//   /(<\/?)([A-Z])/g,
-//   (match, p1, p2) => `${p1}REGISTRY.${p2}`,
-// )

@@ -39,7 +39,7 @@ rules are scoped to the component instance.
 }
 ```
 
-```javascript
+```jsx
 // RadComponent.jsx
 import { component } from './rad-component.scss'
 

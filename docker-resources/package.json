@@ -11,7 +11,9 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "cross-env NODE_ENV=test eslint src --ext .js,.jsx"
   },
-  "keywords": ["inspirescript"],
+  "keywords": [
+    "inspirescript"
+  ],
   "contributors": [],
   "license": "ISC",
   "dependencies": {
@@ -62,6 +64,7 @@
     "markdown-it": "8.4.0",
     "node-sass": "4.7.2",
     "postcss-loader": "2.0.9",
+    "prismjs": "^1.9.0",
     "progress-bar-webpack-plugin": "1.10.0",
     "raw-loader": "0.5.1",
     "react-hot-loader": "3.1.3",

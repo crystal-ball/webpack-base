@@ -16,8 +16,13 @@
 @import 'theme';
 
 /*
- * Rules Import
+ * Base Rules
  * ...
  */
 @import '~componentry/dist/bootstrap';
 @import '~componentry/dist/componentry';
+
+/*
+ * Application Rules
+ */
+@import 'application/prism';

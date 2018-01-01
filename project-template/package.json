@@ -11,7 +11,9 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "cross-env NODE_ENV=test eslint src --ext .js,.jsx"
   },
-  "keywords": ["inspirescript"],
+  "keywords": [
+    "inspirescript"
+  ],
   "contributors": [],
   "license": "ISC",
   "dependencies": {

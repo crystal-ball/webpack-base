@@ -8,6 +8,15 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+* Markdown code block syntax highlighting with Prismjs added 🎉
+
+### Changed
+
+* Development workflow has been dockerized to allow for working on the webpack
+  configs or the project template inside of a Docker container.
+
 ## [2.25.0] - 2017-12-29
 
 ### Added
