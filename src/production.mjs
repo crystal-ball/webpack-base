@@ -52,7 +52,16 @@ export default ({ babelLoaderInclude, outputPath }) => ({
         test: /\.jsx?$/,
         // Only use loader with explicitly included files
         include: babelLoaderInclude,
-        use: [{ loader: 'babel-loader' }],
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: 'svg-symbol-sprite-loader',
+            options: {
+              componentName: 'Icon',
+              importPath: 'media/icons',
+            },
+          },
+        ],
       },
 
       // ========================================================

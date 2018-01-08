@@ -73,6 +73,14 @@ export default ({
         use: [
           // Transpiles JSX to JS
           { loader: 'babel-loader' },
+          // Import those svgs!
+          {
+            loader: 'svg-symbol-sprite-loader',
+            options: {
+              componentName: 'Icon',
+              importPath: 'media/icons',
+            },
+          },
           // Convert markdown to a component with content as JSX
           { loader: path.resolve(__dirname, 'magic-markdown-loader/loader.js') },
         ],
@@ -173,29 +181,24 @@ export default ({
     new CopyWebpackPlugin([{ from: 'public' }]),
 
     // ========================================================
-    // HTML Index
+    // HTML index generator
     // ========================================================
 
-    // Inlines the chunk manifest in head, this is explicitly required to know which
-    // version of the SVG sprite is correct, but is also nice to have for reference
-    new InlineChunkManifestHtmlWebpackPlugin({
-      // The default chunk manifest plugin only includes .js files for some reason,
-      // override with `webpack-manifest-plugin` to include all emitted assets
-      manifestPlugins: [
-        new WebpackManifestPlugin({
-          // Don't include sourcemaps in manifest, they ugly
-          filter: ({ name }) => !name.includes('.map'),
-        }),
-      ],
-      manifestVariable: 'manifest',
-      // Option to suppress output of `manifest.json`, added here as a reminder of
-      // option, but currently seems fine to output additional asset
-      // dropAsset: true,
+    // Extracts the webpack asset manifest into a JSON file, this is useful for
+    // knowing final asset ids after hashing, eg the SVG icon system uses the
+    // manifest to look up the current sprite asset id.
+    new WebpackManifestPlugin({
+      // Don't include sourcemaps in manifest, they ugly
+      filter: ({ name }) => !name.includes('.map'),
     }),
+
+    // Inlines the chunk manifest in head, allowing reference to manifest without
+    // having to fetch it first
+    new InlineChunkManifestHtmlWebpackPlugin(),
 
     // Generates index.html with injected script/style resources paths
     new HtmlWebpackPlugin({
-      inject: true,
+      minify: false,
       template: htmlTemplate,
       favicon: `${appPublic}/favicon.ico`,
     }),
@@ -210,10 +213,7 @@ export default ({
     // #loading-dependencies-to-a-vendor-bundle-automatically
     new optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: ({ resource }) =>
-        resource &&
-        resource.indexOf('node_modules') >= 0 &&
-        resource.match(/\.(js|json)$/),
+      minChunks: ({ context }) => context && context.includes('node_modules'),
     }),
 
     // Extract manifest into separate chunk so that changes to the app src don't

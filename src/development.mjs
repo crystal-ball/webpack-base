@@ -40,7 +40,17 @@ export default ({ appPublic, babelLoaderInclude }, port) => ({
          * must be included by that project. This allows projects to handle
          * specifying and configuring eslint explicitly as required.
          */
-        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: 'svg-symbol-sprite-loader',
+            options: {
+              componentName: 'Icon',
+              importPath: 'media/icons',
+            },
+          },
+          { loader: 'eslint-loader' },
+        ],
       },
 
       // ========================================================

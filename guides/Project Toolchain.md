@@ -12,7 +12,7 @@ get started with, and easy to customize for any custom requirements.
   * Config file: `.eslintrc.js`
 
 <Alert color="warning">
-  <Icon id="warning" /> ESLint and Prettier validations are included in the
+  <Icon id="heart" /> ESLint and Prettier validations are included in the
   project test suite.
 </Alert>
 
