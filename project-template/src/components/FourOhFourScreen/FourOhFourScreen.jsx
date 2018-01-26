@@ -2,7 +2,7 @@ import React from 'react'
 
 import Icon from 'UNIVERSAL/Icon'
 
-export default () => (
+const FourOhFourScreen = () => (
   <div>
     <h3>
       <Icon id="warning" className="text-warning" /> The page you are looking for
@@ -10,3 +10,5 @@ export default () => (
     </h3>
   </div>
 )
+
+export default FourOhFourScreen

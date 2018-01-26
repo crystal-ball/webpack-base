@@ -5,8 +5,13 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - './src:/usr/src/app/node_modules@inspirescript/webpack-configs/src'
+      # Source files mounting
+      - './src:/usr/src/app/node_modules/@inspirescript/webpack-configs/src'
+      - './index.js:/usr/src/app/node_modules/@inspirescript/webpack-configs/index.js'
+      - './package.json:/usr/src/app/node_modules/@inspirescript/webpack-configs/packge.json'
+      # Guides files mounting
       - './guides:/usr/src/app/guides'
+      # Template project mounting
       - './project-template/src:/usr/src/app/src'
       - './project-template/webpack.config.js:/usr/src/app/webpack.config.js'
     entrypoint: /bin/sh

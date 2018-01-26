@@ -13,7 +13,7 @@ type Props = {
  * Use the icon component with an svg imported from `/media/icons` to create an icon
  * font.
  */
-export default ({
+const Icon = ({
   presentation = false,
   id,
   className = '',
@@ -28,3 +28,5 @@ export default ({
     <use xlinkHref={`#${id}`} href={`#${id}`} />
   </svg>
 )
+
+export default Icon

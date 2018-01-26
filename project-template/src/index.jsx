@@ -13,7 +13,7 @@ import { AppContainer } from 'react-hot-loader'
 // styles are included before component styles.
 import './styles/index.scss'
 import App from './components/App'
-import store from './state-container/store'
+import store from './store/store'
 
 // Inject SVG symbol sprite into document from local storage if exists, otherwise
 // fetch, cache in local storage and inject. Manifest is inlined to index.html by
