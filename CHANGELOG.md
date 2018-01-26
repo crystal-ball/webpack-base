@@ -8,6 +8,11 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+* SVG Symbol Sprite Loader updated to `0.3.0`, template project and webpack
+  configs updated to inject imports for Icon component 😍
+
 ## [2.28.0] - 2018-01-01
 
 ### Added
