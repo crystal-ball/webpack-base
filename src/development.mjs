@@ -9,7 +9,7 @@ import webpack from 'webpack'
  * @return {Object} Development specific configurations to merge with cross
  *                  environment configurations
  */
-export default ({ appPublic, babelLoaderInclude }, port) => ({
+export default ({ appPublic, babelLoaderInclude, sassIncludePaths }, port) => ({
   // This makes the bundle appear split into separate modules in the devtools.
   // We don't use source maps here because they can be confusing:
   // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
@@ -73,7 +73,7 @@ export default ({ appPublic, babelLoaderInclude }, port) => ({
             options: {
               // Allows for aliased imports from src/styles, especially useful for
               // importing app theme variables and mixins into component styles
-              includePaths: ['src/styles'],
+              includePaths: sassIncludePaths,
             },
           },
         ],

@@ -26,152 +26,104 @@ function resolveApp(relativePath) {
  * configure paths.
  */
 export default function validatePaths({ env, customPaths }) {
+  const prod = env === 'production'
+
+  // Resolve default index file and app entry based on env, dev includes hot loader
+  const defaultIndex = resolveApp('src/index.jsx')
+  const defaultEntry = prod
+    ? [defaultIndex]
+    : ['react-hot-loader/patch', defaultIndex]
+
   /**
    * Default project paths used when not specified in `webpackConfigs` options.
    */
   const defaultPaths = {
     /**
-     * Application index entry point. Is used as the default app entry if `appEntry`
-     * is not specified.
-     *
-     * | | |
-     * --- | ---
-     * Default | `src/index.jsx`
-     * @type {File}
+     * Array of entry points into application. This can include additional
+     * bootstrapping assets like React Hot Loader or Babel polyfills. It includes the
+     * `appIndexJS` and is the value used by the `entry` config to create the `app`
+     * chunk.
+     * @type {Array<File|Directory>}
+     * @default ['src/index.jsx']
      */
-    appIndexJs: resolveApp('src/index.jsx'),
+    appEntry: defaultEntry,
     /**
-     * Application public static files.
-     *
-     * | | |
-     * --- | ---
-     * Default | `public`
-     * Consumer | `CopyWebpackPlugin`
+     * Application index file. This is the single entry point of the app source, it
+     * is included in the array of entries used to create chunks within the `entry`
+     * configuration.
+     * @type {File}
+     * @default src/index.jsx
+     */
+    appIndexJs: defaultIndex,
+    /**
+     * Application public static files directory. This directory is copied to the
+     * build without manipulation by the `CopyWebpackPlugin`
      * @type {Directory}
+     * @default public
      */
     appPublic: resolveApp('public'),
     /**
-     * Application source code.
-     *
-     * | | |
-     * --- | ---
-     * Default | `src`
-     * Consumer | `webpack.resolve.modules`
+     * Application source directory. This directory is added to the
+     * `webpack.resolve.modules` list to allow importing relative to this directory.
      * @type {Directory}
+     * @default src
      */
     appSrc: resolveApp('src'),
     /**
-     * Application source files that will be loaded transpiled with Babel
-     *
-     * | | |
-     * --- | ---
-     * Default | `[src]`
-     * Consumer | `babel-loader`
+     * Files that will be loaded transpiled with Babel using the `babel-loader`.
      * @type {Array<Directory|File>}
+     * @default ['src']
      */
     babelLoaderInclude: [resolveApp('src')],
     /**
-     * Template `index.html` used for generating project `index.html` with injected
-     * build assets.
-     *
-     * | | |
-     * --- | ---
-     * Default | `public/index.html`
-     * Consumer | `HtmlWebpackPlugin`
+     * Template `index.html` used by `HtmlWebpackPlugin` to generate build
+     * `index.html` with injected build assets.
      * @type {File}
+     * @default public/index.html
      */
     htmlTemplate: resolveApp('public/index.html'),
     /**
-     * SVG assets that will be loaded using SVG icon system.
-     *
-     * | | |
-     * --- | ---
-     * Default | `[src/media/icons]`
-     * Consumer | `svg-sprite-loader`
+     * SVG assets that will be loaded using the `svg-symbol-sprite-loader` system.
      * @type {Array<Directory|File>}
+     * @default [src/media/icons]
      */
     iconsSpriteLoader: [resolveApp('src/media/icons')],
     /**
-     * Application `node_modules`
-     *
-     * | | |
-     * --- | ---
-     * Default | `node_modules`
-     * Consumer | `webpack.resolve.modules`
+     * Project `node_modules` location included in `webpack.resolve.modules` list.
      * @type {Directory}
+     * @default node_modules
      */
     nodeModules: resolveApp('node_modules'),
     /**
-     * Target for built Webpack bundle assets
-     *
-     * | | |
-     * --- | ---
-     * Default | `build`
-     * Consumer | `webpack.output.path`
+     * Name used for bundle output index.js file. _(Chunk hash included in
+     * production only for cache busting)_.
+     * @type {string}
+     * @default static/js/[name].[chunkhash].js
+     */
+    outputFilename: `static/js/[name]${prod ? '.[chunkhash]' : ''}.js`,
+    /**
+     * Output directory for webpack build assets.
      * @type {Directory}
+     * @default build
      */
     outputPath: resolveApp('build'),
     /**
      * Prefix appended to all emitted assets, can be used with a CDN or server
      * subdirectory.
-     *
-     * | | |
-     * --- | ---
-     * Default | `/`
-     * Consumer | `webpack.output.publicPath`
      * @type {string}
+     * @default /
      */
     publicPath: '/',
+    /**
+     * Sass resolution directories.
+     * @type {Array<Directory>}
+     * @default ['src/styles']
+     */
+    sassIncludePaths: [resolveApp('src/styles')],
   }
 
-  /* eslint-disable no-param-reassign */
+  // Overwrite the default paths with any configured paths
+  Object.assign(defaultPaths, customPaths)
 
-  /**
-   * Entry points into application.
-   *
-   * | | |
-   * --- | ---
-   * Default | `[src/index.jsx]`
-   * Consumer | `webpack.entry.app`
-   * @property {Array<File|Directory>} appEntry
-   * @memberof defaultPaths
-   * @type {Array<File>}
-   */
-
-  /**
-   * Name used for bundle output index.js file. _(Chunk hash included in
-   * production only for cache busting)_.
-   *
-   * | | |
-   * --- | ---
-   * Default | `static/js/[name].[chunkhash].js`
-   * Consumer | `webpack.output.filename`
-   * @property {string} outputFilename
-   * @memberof defaultPaths
-   * @type {string}
-   */
-
-  // Decorate any missing paths with defaults. Don't reassign or change passed paths
-  // b/c of editor issues with resolving modules used for eslint-plugin-import
-  Object.keys(defaultPaths).forEach(configPath => {
-    if (!customPaths[configPath]) customPaths[configPath] = defaultPaths[configPath]
-  })
-
-  // Handle dev vs production relative paths
-  if (env === 'production') {
-    // Prod - include chunkhash for cache busting
-    customPaths.outputFilename =
-      customPaths.outputFilename || 'static/js/[name].[chunkhash].js'
-    customPaths.appEntry = customPaths.appEntry || [customPaths.appIndexJs]
-  } else {
-    // Dev no chunkhash, not needed
-    customPaths.outputFilename = customPaths.outputFilename || 'static/js/[name].js'
-    // Dev include hot-loader
-    customPaths.appEntry = customPaths.appEntry || [
-      'react-hot-loader/patch',
-      customPaths.appIndexJs,
-    ]
-  }
-
-  return customPaths
+  return defaultPaths
 }

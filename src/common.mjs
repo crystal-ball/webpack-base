@@ -23,7 +23,7 @@ export default ({
   appEntry,
   appPublic,
   appSrc,
-  context,
+  context: projectContext,
   htmlTemplate,
   iconsSpriteLoader,
   nodeModules,
@@ -33,7 +33,7 @@ export default ({
 }) => ({
   // Explicitly set the build context for resolving entry points and loaders
   // See: https://webpack.js.org/configuration/entry-context/#context
-  context,
+  context: projectContext,
 
   entry: {
     app: appEntry,

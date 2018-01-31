@@ -12,7 +12,7 @@ import webpack from 'webpack'
  * @return {Object} Production specific configurations to merge with cross
  *                  environment configurations
  */
-export default ({ babelLoaderInclude, outputPath }) => ({
+export default ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
   // Fail out on the first error instead of tolerating it.
   bail: true,
 
@@ -90,7 +90,7 @@ export default ({ babelLoaderInclude, outputPath }) => ({
               loader: 'sass-loader',
               options: {
                 // src/styles allows easy theme variable import
-                includePaths: ['src/styles'],
+                includePaths: sassIncludePaths,
               },
             },
           ],
