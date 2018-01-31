@@ -12,7 +12,12 @@ import webpack from 'webpack'
  * @return {Object} Production specific configurations to merge with cross
  *                  environment configurations
  */
-export default ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
+export default ({
+  babelLoaderInclude,
+  outputPath,
+  sassIncludePaths,
+  svgSprites,
+}) => ({
   // Fail out on the first error instead of tolerating it.
   bail: true,
 
@@ -54,13 +59,7 @@ export default ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
         include: babelLoaderInclude,
         use: [
           { loader: 'babel-loader' },
-          {
-            loader: 'svg-symbol-sprite-loader',
-            options: {
-              componentName: 'Icon',
-              importPath: 'media/icons',
-            },
-          },
+          ...svgSprites, // Import those svgs!
         ],
       },
 

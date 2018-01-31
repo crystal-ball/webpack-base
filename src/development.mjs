@@ -9,7 +9,13 @@ import webpack from 'webpack'
  * @return {Object} Development specific configurations to merge with cross
  *                  environment configurations
  */
-export default ({ appPublic, babelLoaderInclude, sassIncludePaths }, port) => ({
+export default ({
+  appPublic,
+  babelLoaderInclude,
+  sassIncludePaths,
+  port,
+  svgSprites,
+}) => ({
   // This makes the bundle appear split into separate modules in the devtools.
   // We don't use source maps here because they can be confusing:
   // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
@@ -42,13 +48,7 @@ export default ({ appPublic, babelLoaderInclude, sassIncludePaths }, port) => ({
          */
         use: [
           { loader: 'babel-loader' },
-          {
-            loader: 'svg-symbol-sprite-loader',
-            options: {
-              componentName: 'Icon',
-              importPath: 'media/icons',
-            },
-          },
+          ...svgSprites, // Import those svgs!
           { loader: 'eslint-loader' },
         ],
       },

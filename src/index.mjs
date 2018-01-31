@@ -1,9 +1,9 @@
 import merge from 'webpack-merge'
 
+import validateConfigs from './validate-configs'
 import common from './common'
 import development from './development'
 import production from './production'
-import validatePaths from './validate-paths'
 
 /**
  * InspireScript projects' base webpack configs include configurations for loader
@@ -16,20 +16,17 @@ import validatePaths from './validate-paths'
  * @param {number} options.port
  * @returns {Object} Base Webpack configurations object.
  */
-export default function webpackConfigs({
-  env = 'development',
-  paths: customPaths = {},
-  port = 3000,
-} = {}) {
+export default function webpackConfigs(configs = {}) {
+  const env = configs.env || 'development'
+
   // Ensure that Babel has an environment variable for .babelrc
   process.env.BABEL_ENV = process.env.BABEL_ENV || env
 
-  // Resolve all configuration paths
-  const paths = validatePaths({ env, customPaths })
+  const validatedConfigs = validateConfigs(configs)
 
   // Merge common configs with dev vs prod specific configs to return complete
   // webpack configuration object
   return env === 'production'
-    ? merge(common(paths), production(paths))
-    : merge(common(paths), development(paths, port))
+    ? merge(common(validatedConfigs), production(validatedConfigs))
+    : merge(common(validatedConfigs), development(validatedConfigs))
 }

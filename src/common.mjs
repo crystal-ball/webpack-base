@@ -30,6 +30,7 @@ export default ({
   outputFilename,
   outputPath,
   publicPath,
+  svgSprites,
 }) => ({
   // Explicitly set the build context for resolving entry points and loaders
   // See: https://webpack.js.org/configuration/entry-context/#context
@@ -74,13 +75,7 @@ export default ({
           // Transpiles JSX to JS
           { loader: 'babel-loader' },
           // Import those svgs!
-          {
-            loader: 'svg-symbol-sprite-loader',
-            options: {
-              componentName: 'Icon',
-              importPath: 'media/icons',
-            },
-          },
+          ...svgSprites,
           // Convert markdown to a component with content as JSX
           { loader: path.resolve(__dirname, 'magic-markdown-loader/loader.js') },
         ],

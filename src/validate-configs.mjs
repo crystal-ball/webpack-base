@@ -20,12 +20,16 @@ function resolveApp(relativePath) {
 }
 
 /**
- * Validates paths used for defining configuration. Any paths not explicitly set
- * will be set to defaults.
- * @param {Object} options The options object passed to index function used to
- * configure paths.
+ * Validates all configs used to generate base webpack configs. Assigns defaults for
+ * any unassigned value.
+ * @param {Object} configs The configurations passed to the library.
  */
-export default function validatePaths({ env, customPaths }) {
+export default function validateConfigs({
+  env = 'development',
+  customPaths,
+  port,
+  svgSprites,
+}) {
   const prod = env === 'production'
 
   // Resolve default index file and app entry based on env, dev includes hot loader
@@ -37,7 +41,7 @@ export default function validatePaths({ env, customPaths }) {
   /**
    * Default project paths used when not specified in `webpackConfigs` options.
    */
-  const defaultPaths = {
+  const defaultConfigs = {
     /**
      * Array of entry points into application. This can include additional
      * bootstrapping assets like React Hot Loader or Babel polyfills. It includes the
@@ -108,6 +112,12 @@ export default function validatePaths({ env, customPaths }) {
      */
     outputPath: resolveApp('build'),
     /**
+     * The port that webpack dev server runs on (only used in development)
+     * @type {number}
+     * @default 3000
+     */
+    port: port || 3000,
+    /**
      * Prefix appended to all emitted assets, can be used with a CDN or server
      * subdirectory.
      * @type {string}
@@ -120,10 +130,36 @@ export default function validatePaths({ env, customPaths }) {
      * @default ['src/styles']
      */
     sassIncludePaths: [resolveApp('src/styles')],
+    /**
+     * Array of loader configs that will generate indvidual SVG spritesheets
+     * defaults to single sprite:
+     *
+     * ```javascript
+     * [
+     *   {
+     *     loader: 'svg-symbol-sprite-loader',
+     *     options: {
+     *       componentName: 'Icon',
+     *       importPath: 'media/icons',
+     *     },
+     *   },
+     * ]
+     * ```
+     * @type {Array}
+     */
+    svgSprites: svgSprites || [
+      {
+        loader: 'svg-symbol-sprite-loader',
+        options: {
+          componentName: 'Icon',
+          importPath: 'media/icons',
+        },
+      },
+    ],
   }
 
-  // Overwrite the default paths with any configured paths
-  Object.assign(defaultPaths, customPaths)
+  // Overwrite the default path configs with any custom paths
+  Object.assign(defaultConfigs, customPaths || {})
 
-  return defaultPaths
+  return defaultConfigs
 }
