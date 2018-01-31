@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.29.0] - 2018-01-31
+
+### Added
+
+* Ability to configure Sass `includePath`
+* Ability to configure icon sprite loader
+
 ### Changed
 
 * SVG Symbol Sprite Loader updated to `0.3.0`, template project and webpack
