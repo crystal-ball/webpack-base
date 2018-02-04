@@ -8,7 +8,17 @@ require('prismjs/components/prism-json')
 require('prismjs/components/prism-scss')
 require('prismjs/components/prism-css')
 
-const renderer = require('markdown-it')({
+// Magic Markdown custom parsing rules
+const jsxBlock = require('./rules/jsx-block')
+const jsxInline = require('./rules/jsx-inline')
+
+// 1. Create Magic Markdown parser instance
+// ---------------------------------------------------------------------------
+
+/**
+ * The Markdown-it instance that will parse our Magic Markdown to valid JSX.
+ */
+const markdownIt = require('markdown-it')({
   // Enable HTML tags in source
   html: true,
   // Linkify will convert content like 'github.com' to a fully qualified anchor
@@ -39,9 +49,25 @@ const renderer = require('markdown-it')({
   },
 })
 
-module.exports = body => {
-  const html = renderer.render(body) // parse md body to html
-  const safeHTML = html.replace(/<!--.+-->/g, '') // Babel HATES html comments
+// 2. Attach custom rules needed for parsing Magic Markdown
+// ---------------------------------------------------------------------------
 
-  return safeHTML
+// ℹ️ Table is the first rule, insert custom rules first for priority
+// React component rule handles JSX syntaxes that Markdown-it does not properly
+// parse as block tokens
+markdownIt.block.ruler.before('table', 'jsx_block', jsxBlock)
+// ℹ️ Insert before html rule to intercept JSX components
+markdownIt.inline.ruler.before('html_inline', 'jsx_inline', jsxInline)
+
+// 3. Return fully assembled paser for Magic Markdown 🎉
+// ---------------------------------------------------------------------------
+
+/**
+ * The parser is responsible for parsing the Magic Mardkown content into valid JSX.
+ * Essentially we are trying to parse any markdown to HTML while ignoring all JSX.
+ */
+module.exports = body => {
+  // HTML comments are NOT valid JSX, strip them out first
+  const cleanedBody = body.replace(/<!--((.|\s)*?)-->/g, '')
+  return markdownIt.render(cleanedBody)
 }

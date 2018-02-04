@@ -1,47 +1,43 @@
 # 🔮 InspireScript Magic Markdown
 
-The Inspirescript Magic Markdown parsing is the bee's knees!
+Magic Markdown in InspireScript projects enable you to include JSX in your
+markdown. JSX expressions, combined with Redux, makes it possible to include
+powerful, custom functionality in you application.
 
-## Design
+## System
 
-Magic Markdown is accomplished with two features, a component registry and a
-webpack loader.
+The Magic Markdown system has two parts: a component registry, and a webpack
+loader.
 
-### Component registry
+1. **Component registry** - dynamically includes project components for use in
+   Magic Markdown content.
+1. **webpack loader** - parses Magic Markdown content into valid JSX which is
+   then wrapped in a component and transpiled by Babel.
 
-The component registry makes it possible to use React components inside your
-markdown content.
+## ⚠️ Restrictions
 
-1. The registry is created in `registry.js`
-1. All components that can be used in Magic Markdown are saved as
-   `*.registry.js(x)`
-1. The registry uses `require.context` to dynamically search the project for any
-   component with the registry file extension.
-1. All Magic Markdown components are imported and registered in the registry
-1. The registry is set in React's context where it can be accessed from any
-   child component.
-1. Components used inside Magic Markdown are looked up on the registry.
+The current Magic Markdown capabilities are layered onto the functional
+requirements of Markdown. Markdown is parsed into a series of block level tokens
+with content that is then parsed into a series of inline level tokens. JSX in
+Magic Markdown content is also parsed in this block -> inline token process.
+Block level JSX must utilize newlines to signal its block token status to the
+parser.
 
-### webpack Loader
+#### Don't
 
-1. The InspireScript `magic-markdown` loader enables importing `.md` files into
-   your project JS.
-1. The loader extracts front matter and the body from the markdown source
-1. The body is parsed and rendered as HTML by `markdown-it` and then wrapped
-   with a React component class.
-1. Front matter is set as state in the created component and any component used
-   in the content is destructured from the Registry.
-1. The defined component source is passed to the `babel-loader` where the JSX is
-   transpiled to executable JS.
+```markdown
+<InspireScript radical>
+  <AmazingFeature id={data} />
+</InspireScript>
+Don't include content after a block without an empty line
+```
 
-## Resources
+#### Do
 
-* [Dependency Management][] documents how webpack handles `require` expressions
-  and the `require.context` functionality.
-* [Module Methods][] documents the available module methods in webpack,
-  including `require.context`.
+```markdown
+<InspireScript radical>
+  <AmazingFeature id={data} />
+</InspireScript>
 
-<!-- Links -->
-
-[dependency management]: https://webpack.js.org/guides/dependency-management/
-[module methods]: https://webpack.js.org/api/module-methods/#require-context
+Do include an empty line after block components
+```
