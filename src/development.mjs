@@ -94,7 +94,7 @@ export default ({
         messages: [
           `  🎉  ${chalk.bold.green('BINGO')} 🎉`,
           `  Application running at ${chalk.underline.blue(
-            `http://localhost:${port}`,
+            `http://localhost:${port}`
           )}`,
         ],
         notes: [],

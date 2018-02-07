@@ -134,7 +134,7 @@ export default ({
     // Visual compile indicator with progress bar
     new ProgressBarPlugin({
       format: `  Hacking time... [:bar] ${chalk.green.bold(
-        ':percent',
+        ':percent'
       )} (:elapsed seconds) :msg`,
       clear: false,
       callback: () => {

@@ -73,7 +73,7 @@ module.exports = (state, startLine, endLine /* , silent */) => {
   // Test for single line block component
   // ========================================================
   const singleLineBlock = lineContent.match(
-    new RegExp(`<\\/${componentMatch[1]}>\n$`),
+    new RegExp(`<\\/${componentMatch[1]}>\n$`)
   )
 
   if (singleLineBlock) {
@@ -94,7 +94,7 @@ module.exports = (state, startLine, endLine /* , silent */) => {
 
     while (currentLine < endLine) {
       const endMatch = findComponentEnd(
-        state.src.slice(bMarks[currentLine], eMarks[currentLine] + 1),
+        state.src.slice(bMarks[currentLine], eMarks[currentLine] + 1)
       )
 
       if (endMatch === 'inline') {

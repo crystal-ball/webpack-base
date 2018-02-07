@@ -23,7 +23,7 @@ module.exports = function loader(source) {
     .replace(/\s/g, '')
     .replace(/-([a-z])/g, (match, p1) => p1.toUpperCase())
   componentName = `${componentName.slice(0, 1).toUpperCase()}${componentName.slice(
-    1,
+    1
   )}`
 
   // Extract front matter data and parse source markdown body to HTML

@@ -36,7 +36,7 @@ const markdownIt = require('markdown-it')({
       // parsed as JSX
       return `<pre className="language-${lang}"><code className="language-${lang}" dangerouslySetInnerHTML={{__html: \`${Prism.highlight(
         str,
-        Prism.languages[lang],
+        Prism.languages[lang]
       )}\`}} /></pre>`
     } catch (ex) {
       if (!lang || !Prism.languages[lang]) {
