@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.30.0] - 2018-02-10
+
+### Added
+
+* A `devServer` configuration object can be passed that will be merged with the
+  default dev server configs for better configuration ability. The port option
+  can be specified here.
+
 ## [2.29.0] - 2018-01-31
 
 ### Added
