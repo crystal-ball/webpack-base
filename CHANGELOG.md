@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.31.0] - 2018-02-10
+
+### Changed
+
+* Prod output is optimized with UglifyJS and NamedModuleIds plugin for the most
+  consistent, performant output.
+
 ## [2.30.0] - 2018-02-10
 
 ### Added
