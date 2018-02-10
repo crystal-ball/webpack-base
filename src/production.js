@@ -1,10 +1,10 @@
-import CleanWebpackPlugin from 'clean-webpack-plugin'
-import DuplicatePackageCheckerPlugin from 'duplicate-package-checker-webpack-plugin'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import MinifyPlugin from 'babel-minify-webpack-plugin'
-import WebpackMonitor from 'webpack-monitor'
-import autoprefixer from 'autoprefixer'
-import webpack from 'webpack'
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
+const WebpackMonitor = require('webpack-monitor')
+const autoprefixer = require('autoprefixer')
+const { optimize } = require('webpack')
 
 /**
  * Production environment specific configurations.
@@ -12,7 +12,7 @@ import webpack from 'webpack'
  * @return {Object} Production specific configurations to merge with cross
  * environment configurations
  */
-export default ({
+module.exports = ({
   babelLoaderInclude,
   outputPath,
   sassIncludePaths,
@@ -138,7 +138,7 @@ export default ({
       filename: 'static/css/[name].[contenthash].css',
     }),
     // CONCATENATE ALL THEM MODULES!!! (Scope Hoisting)
-    new webpack.optimize.ModuleConcatenationPlugin(),
+    new optimize.ModuleConcatenationPlugin(),
     // Uglify with Babili
     new MinifyPlugin(),
     // Build output shows module hashes instead of numerical module order, could be

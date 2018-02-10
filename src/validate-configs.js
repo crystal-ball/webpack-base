@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+const fs = require('fs')
+const { join } = require('path')
 
 /**
  * A project directory
@@ -11,20 +11,12 @@ import path from 'path'
  * @typedef {string} File
  */
 
-// From create-react-app
-// Make sure any symlinks in the project folder are resolved:
-// https://github.com/facebookincubator/create-react-app/issues/637
-const appDirectory = fs.realpathSync(process.cwd())
-function resolveApp(relativePath) {
-  return path.resolve(appDirectory, relativePath)
-}
-
 /**
  * Validates all configs used to generate base webpack configs. Assigns defaults for
  * any unassigned value.
  * @param {Object} configs The configurations passed to the library.
  */
-export default function validateConfigs({
+module.exports = function validateConfigs({
   define,
   devServer,
   env = 'development',
@@ -33,11 +25,12 @@ export default function validateConfigs({
 }) {
   const prod = env === 'production'
 
-  // Resolve default index file and app entry based on env, dev includes hot loader
-  const defaultIndex = resolveApp('src/index.jsx')
-  const defaultEntry = prod
-    ? [defaultIndex]
-    : ['react-hot-loader/patch', defaultIndex]
+  // Handle default resolution of build specifics off of the source directory, this
+  // enables easy source dir configuration without having to specify the path for
+  // all downstream source paths
+  const context = paths.context || fs.realpathSync(process.cwd())
+  const appSrcDir = paths.appSrc || join(context, 'src')
+  const appIndexJs = paths.appIndexJs || join(appSrcDir, 'index.jsx')
 
   /**
    * Default project paths used when not specified in `webpackConfigs` options.
@@ -51,7 +44,7 @@ export default function validateConfigs({
      * @type {Array<File|Directory>}
      * @default ['src/index.jsx']
      */
-    appEntry: defaultEntry,
+    appEntry: prod ? [appIndexJs] : ['react-hot-loader/patch', appIndexJs],
     /**
      * Application index file. This is the single entry point of the app source, it
      * is included in the array of entries used to create chunks within the `entry`
@@ -59,27 +52,27 @@ export default function validateConfigs({
      * @type {File}
      * @default src/index.jsx
      */
-    appIndexJs: defaultIndex,
+    appIndexJs,
     /**
      * Application public static files directory. This directory is copied to the
      * build without manipulation by the `CopyWebpackPlugin`
      * @type {Directory}
      * @default public
      */
-    appPublic: resolveApp('public'),
+    appPublic: join(context, 'public'),
     /**
      * Application source directory. This directory is added to the
      * `webpack.resolve.modules` list to allow importing relative to this directory.
      * @type {Directory}
      * @default src
      */
-    appSrc: resolveApp('src'),
+    appSrc: appSrcDir,
     /**
      * Files that will be loaded && transpiled with Babel using the `babel-loader`.
      * @type {Array<Directory|File>}
      * @default ['src']
      */
-    babelLoaderInclude: [resolveApp('src')],
+    babelLoaderInclude: [appSrcDir],
     /**
      * Environment variables that need to be defined in the build with DefinePlugin.
      * @type {Object}
@@ -99,20 +92,20 @@ export default function validateConfigs({
      * @type {File}
      * @default public/index.html
      */
-    htmlTemplate: resolveApp('public/index.html'),
+    htmlTemplate: join(context, 'public/index.html'),
     /**
      * Directories where SVG assets will be sprited using the
      * `svg-symbol-sprite-loader` system.
      * @type {Array<Directory|File>}
      * @default [src/media/icons]
      */
-    iconsSpriteLoader: [resolveApp('src/media/icons')],
+    iconsSpriteLoader: [join(appSrcDir, '/media/icons')],
     /**
      * Project `node_modules` location included in `webpack.resolve.modules` list.
      * @type {Directory}
      * @default node_modules
      */
-    nodeModules: resolveApp('node_modules'),
+    nodeModules: join(context, 'node_modules'),
     /**
      * Name used for bundle output index.js file. _(Chunk hash included in
      * production only for cache busting)_.
@@ -125,7 +118,7 @@ export default function validateConfigs({
      * @type {Directory}
      * @default build
      */
-    outputPath: resolveApp('build'),
+    outputPath: join(context, 'build'),
     /**
      * Prefix appended to all emitted assets, can be used with a CDN or server
      * subdirectory.
@@ -138,7 +131,7 @@ export default function validateConfigs({
      * @type {Array<Directory>}
      * @default ['src/styles']
      */
-    sassIncludePaths: [resolveApp('src/styles')],
+    sassIncludePaths: [join(appSrcDir, '/styles')],
     /**
      * Array of loader configs that will generate indvidual SVG spritesheets
      * defaults to single sprite:

@@ -7,8 +7,7 @@ services:
     volumes:
       # Source files mounting
       - './src:/usr/src/app/node_modules/@inspirescript/webpack-configs/src'
-      - './index.js:/usr/src/app/node_modules/@inspirescript/webpack-configs/index.js'
-      - './package.json:/usr/src/app/node_modules/@inspirescript/webpack-configs/packge.json'
+      - './package.json:/usr/src/app/node_modules/@inspirescript/webpack-configs/package.json'
       # Guides files mounting
       - './guides:/usr/src/app/guides'
       # Template project mounting

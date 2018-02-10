@@ -1,9 +1,9 @@
-import merge from 'webpack-merge'
+const merge = require('webpack-merge')
 
-import validateConfigs from './validate-configs'
-import common from './common'
-import development from './development'
-import production from './production'
+const validateConfigs = require('./validate-configs')
+const common = require('./common')
+const development = require('./development')
+const production = require('./production')
 
 /**
  * InspireScript projects' base webpack configs include configurations for loader
@@ -17,7 +17,7 @@ import production from './production'
  * @param {number} configs.port
  * @returns {Object} Base Webpack configurations object.
  */
-export default function webpackConfigs(configs = {}) {
+module.exports = function webpackConfigs(configs = {}) {
   const env = configs.env || 'development'
 
   // Ensure that Babel has an environment variable for .babelrc

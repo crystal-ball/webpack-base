@@ -1,6 +1,6 @@
-import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin'
-import chalk from 'chalk'
-import webpack from 'webpack'
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const chalk = require('chalk')
+const webpack = require('webpack')
 
 /**
  * Development environment specfic configurations
@@ -8,7 +8,7 @@ import webpack from 'webpack'
  * @return {Object} Development specific configurations to merge with cross
  * environment configurations
  */
-export default ({
+module.exports = ({
   appPublic,
   babelLoaderInclude,
   devServer,
@@ -93,7 +93,7 @@ export default ({
         messages: [
           `  🎉  ${chalk.bold.green('BINGO')} 🎉`,
           `  Application running at ${chalk.underline.blue(
-            `http://localhost:${devServer.port}`
+            `http://localhost:${devServer.port || 3000}`
           )}`,
         ],
         notes: [],

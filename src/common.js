@@ -1,25 +1,19 @@
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
-import ProgressBarPlugin from 'progress-bar-webpack-plugin'
-import SVGSymbolSpritePlugin from 'svg-symbol-sprite-loader/src/plugin'
-import WebpackManifestPlugin from 'webpack-manifest-plugin'
-import chalk from 'chalk'
-import path from 'path'
-import webpack from 'webpack'
-
-import cjs from './cjs'
-
-const { __dirname } = cjs
-
-const { optimize, DefinePlugin, EnvironmentPlugin } = webpack
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InlineChunkManifestHtmlWebpackPlugin = require('inline-chunk-manifest-html-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const SVGSymbolSpritePlugin = require('svg-symbol-sprite-loader/src/plugin')
+const WebpackManifestPlugin = require('webpack-manifest-plugin')
+const chalk = require('chalk')
+const path = require('path')
+const { optimize, DefinePlugin, EnvironmentPlugin } = require('webpack')
 
 /**
  * The common configurations are used across environments.
  * @param {Object} configs
  * @return {Object} Build configurations common to all environments
  */
-export default ({
+module.exports = ({
   appEntry,
   appPublic,
   appSrc,
