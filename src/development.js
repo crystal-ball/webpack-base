@@ -1,6 +1,6 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const chalk = require('chalk')
-const webpack = require('webpack')
+const { HotModuleReplacementPlugin, NoEmitOnErrorsPlugin } = require('webpack')
 
 /**
  * Development environment specfic configurations
@@ -105,11 +105,9 @@ module.exports = ({
     // ========================================================
 
     // HMR - see guides/architecture/build
-    new webpack.HotModuleReplacementPlugin(),
-    // Prints more readable module names in the browser console on HMR updates
-    new webpack.NamedModulesPlugin(),
+    new HotModuleReplacementPlugin(),
     // Do not emit compiled assets that include errors
-    new webpack.NoEmitOnErrorsPlugin(),
+    new NoEmitOnErrorsPlugin(),
   ],
 
   // Dev Server

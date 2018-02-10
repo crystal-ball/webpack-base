@@ -1,7 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackMonitor = require('webpack-monitor')
 const autoprefixer = require('autoprefixer')
 const { optimize } = require('webpack')
@@ -22,10 +22,7 @@ module.exports = ({
   bail: true,
 
   // Real source maps for production builds
-  // devtool: 'source-map',
-  // Do not use 'source-map' until 🐛 is resolved:
-  // https://github.com/webpack-contrib/babel-minify-webpack-plugin/issues/68
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
 
   // Produce warnings about file sizes
   performance: {
@@ -139,11 +136,9 @@ module.exports = ({
     }),
     // CONCATENATE ALL THEM MODULES!!! (Scope Hoisting)
     new optimize.ModuleConcatenationPlugin(),
-    // Uglify with Babili
-    new MinifyPlugin(),
-    // Build output shows module hashes instead of numerical module order, could be
-    // useful for debugging or something I guess, disabled cause it adds 8kb and
-    // doesn't seem worth it.
-    // new webpack.HashedModuleIdsPlugin(),
+    // 🏎 Minify/compress/mangle etc
+    new UglifyJsPlugin({
+      sourceMap: true,
+    }),
   ],
 })

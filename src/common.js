@@ -6,7 +6,7 @@ const SVGSymbolSpritePlugin = require('svg-symbol-sprite-loader/src/plugin')
 const WebpackManifestPlugin = require('webpack-manifest-plugin')
 const chalk = require('chalk')
 const path = require('path')
-const { optimize, EnvironmentPlugin } = require('webpack')
+const { optimize, EnvironmentPlugin, NamedModulesPlugin } = require('webpack')
 
 /**
  * The common configurations are used across environments.
@@ -121,6 +121,18 @@ module.exports = ({
   // Common Plugin Definitions
   // ---------------------------------------------------------------------------
   plugins: [
+    // ========================================================
+    // Modules
+    // ========================================================
+
+    // Uses the relative path of a module for the module id instead of the module
+    // index. This produces more consistent module ids across builds b/c the path
+    // changes much less frequently than the index. Apparenlty consistent module ids
+    // is a good thing in webpack land.
+    // ℹ️ We use NamedModulesPlugin in prod and dev b/c the paths gzip better than
+    // the hashes produced by the HashedModuleIdsPlugin!
+    new NamedModulesPlugin(),
+
     // ========================================================
     // Stats
     // ========================================================
