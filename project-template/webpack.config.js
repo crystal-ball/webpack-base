@@ -23,6 +23,7 @@ module.exports = env => {
   })
 
   // Default aliases for easy importing of common modules
+  // TODO: don't alis universal
   config.resolve.alias.UNIVERSAL = resolve('src', 'components', 'universal')
   config.resolve.alias.GUIDES = resolve('guides')
 

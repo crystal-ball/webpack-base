@@ -5,12 +5,12 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      # Source files mounting
+      # Mount resources that we want kept in sync with local as volumes for development
+      # webpack source
       - './src:/usr/src/app/node_modules/@inspirescript/webpack-configs/src'
-      - './package.json:/usr/src/app/node_modules/@inspirescript/webpack-configs/package.json'
-      # Guides files mounting
+      # Guides
       - './guides:/usr/src/app/guides'
-      # Template project mounting
+      # Template project
       - './project-template/src:/usr/src/app/src'
       - './project-template/webpack.config.js:/usr/src/app/webpack.config.js'
     entrypoint: /bin/sh
