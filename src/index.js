@@ -11,10 +11,10 @@ const production = require('./production')
  * specific to environment and can be overriden as needed for custom build
  * requirements.
  * @param {Object} configs
- * @param {Object} configs.define
+ * @param {Object} configs.devServer
  * @param {string} configs.env
  * @param {Object} configs.paths
- * @param {number} configs.port
+ * @param {number} configs.svgSprites
  * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackConfigs(configs = {}) {

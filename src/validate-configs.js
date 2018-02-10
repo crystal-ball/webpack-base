@@ -17,7 +17,6 @@ const { join } = require('path')
  * @param {Object} configs The configurations passed to the library.
  */
 module.exports = function validateConfigs({
-  define,
   devServer,
   env = 'development',
   paths,
@@ -73,12 +72,6 @@ module.exports = function validateConfigs({
      * @default ['src']
      */
     babelLoaderInclude: [appSrcDir],
-    /**
-     * Environment variables that need to be defined in the build with DefinePlugin.
-     * @type {Object}
-     * @default {}
-     */
-    define: define || {},
     /**
      * webpack dev server overrides. Any dev server configurations can be passed
      * in an object and they will have priority when merged with the defaults.

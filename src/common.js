@@ -6,7 +6,7 @@ const SVGSymbolSpritePlugin = require('svg-symbol-sprite-loader/src/plugin')
 const WebpackManifestPlugin = require('webpack-manifest-plugin')
 const chalk = require('chalk')
 const path = require('path')
-const { optimize, DefinePlugin, EnvironmentPlugin } = require('webpack')
+const { optimize, EnvironmentPlugin } = require('webpack')
 
 /**
  * The common configurations are used across environments.
@@ -18,7 +18,6 @@ module.exports = ({
   appPublic,
   appSrc,
   context: projectContext,
-  define,
   htmlTemplate,
   iconsSpriteLoader,
   nodeModules,
@@ -148,7 +147,6 @@ module.exports = ({
       DEBUG: false, // detailed logging level option
       PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
     }),
-    new DefinePlugin(define),
 
     // ========================================================
     // Asset extractions
