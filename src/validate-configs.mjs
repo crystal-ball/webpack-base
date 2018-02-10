@@ -25,9 +25,10 @@ function resolveApp(relativePath) {
  * @param {Object} configs The configurations passed to the library.
  */
 export default function validateConfigs({
+  define,
+  devServer,
   env = 'development',
-  customPaths,
-  port,
+  paths,
   svgSprites,
 }) {
   const prod = env === 'production'
@@ -74,11 +75,24 @@ export default function validateConfigs({
      */
     appSrc: resolveApp('src'),
     /**
-     * Files that will be loaded transpiled with Babel using the `babel-loader`.
+     * Files that will be loaded && transpiled with Babel using the `babel-loader`.
      * @type {Array<Directory|File>}
      * @default ['src']
      */
     babelLoaderInclude: [resolveApp('src')],
+    /**
+     * Environment variables that need to be defined in the build with DefinePlugin.
+     * @type {Object}
+     * @default {}
+     */
+    define: define || {},
+    /**
+     * webpack dev server overrides. Any dev server configurations can be passed
+     * in an object and they will have priority when merged with the defaults.
+     * @type {Object}
+     * @default {}
+     */
+    devServer: devServer || {},
     /**
      * Template `index.html` used by `HtmlWebpackPlugin` to generate build
      * `index.html` with injected build assets.
@@ -87,7 +101,8 @@ export default function validateConfigs({
      */
     htmlTemplate: resolveApp('public/index.html'),
     /**
-     * SVG assets that will be loaded using the `svg-symbol-sprite-loader` system.
+     * Directories where SVG assets will be sprited using the
+     * `svg-symbol-sprite-loader` system.
      * @type {Array<Directory|File>}
      * @default [src/media/icons]
      */
@@ -111,12 +126,6 @@ export default function validateConfigs({
      * @default build
      */
     outputPath: resolveApp('build'),
-    /**
-     * The port that webpack dev server runs on (only used in development)
-     * @type {number}
-     * @default 3000
-     */
-    port: port || 3000,
     /**
      * Prefix appended to all emitted assets, can be used with a CDN or server
      * subdirectory.
@@ -159,7 +168,7 @@ export default function validateConfigs({
   }
 
   // Overwrite the default path configs with any custom paths
-  Object.assign(defaultConfigs, customPaths || {})
+  Object.assign(defaultConfigs, paths || {})
 
   return defaultConfigs
 }

@@ -4,16 +4,15 @@ import webpack from 'webpack'
 
 /**
  * Development environment specfic configurations
- * @param {Object} paths Configured paths for environment build
- * @param {number} port  Dev server port
+ * @param {Object} config
  * @return {Object} Development specific configurations to merge with cross
- *                  environment configurations
+ * environment configurations
  */
 export default ({
   appPublic,
   babelLoaderInclude,
+  devServer,
   sassIncludePaths,
-  port,
   svgSprites,
 }) => ({
   // This makes the bundle appear split into separate modules in the devtools.
@@ -30,7 +29,7 @@ export default ({
       // JS Loader
       // ========================================================
 
-      // Run everything through ESLint then Babel
+      // Dev JS loader runs source through ESLint then Babel
       {
         test: /\.jsx?$/,
         // Only use loader with explicitly included files
@@ -71,8 +70,8 @@ export default ({
           {
             loader: 'sass-loader',
             options: {
-              // Allows for aliased imports from src/styles, especially useful for
-              // importing app theme variables and mixins into component styles
+              // Allows for aliased imports from include paths, especially useful
+              // for importing app theme variables and mixins into component styles
               includePaths: sassIncludePaths,
             },
           },
@@ -94,7 +93,7 @@ export default ({
         messages: [
           `  🎉  ${chalk.bold.green('BINGO')} 🎉`,
           `  Application running at ${chalk.underline.blue(
-            `http://localhost:${port}`
+            `http://localhost:${devServer.port}`
           )}`,
         ],
         notes: [],
@@ -115,31 +114,36 @@ export default ({
 
   // Dev Server
   // ---------------------------------------------------------------------------
-  devServer: {
-    // Tell the server where to serve content from. This is only necessary if you
-    // want to serve static files.
-    contentBase: appPublic,
-    // enable gzip compression
-    compress: true,
-    // Enable history API fallback so HTML5 History API based
-    // routing works. This is a good default that will come
-    // in handy in more complicated setups.
-    // true for index.html upon 404, object for multiple paths
-    historyApiFallback: true,
-    port,
-    // See guides/architecture/build - HMR
-    hot: true,
-    // true for self-signed, object for cert authority
-    https: false,
-    // only errors & warns on hot reload
-    noInfo: true,
-    // overlay: true captures only errors
-    overlay: {
-      errors: true,
-      warnings: false,
+  devServer: Object.assign(
+    {
+      // Tell the server where to serve content from. This is only necessary if you
+      // want to serve static files.
+      contentBase: appPublic,
+      // enable gzip compression
+      compress: true,
+      // Enable history API fallback so HTML5 History API based
+      // routing works. This is a good default that will come
+      // in handy in more complicated setups.
+      // true for index.html upon 404, object for multiple paths
+      historyApiFallback: true,
+      // The. port.
+      port: 3000,
+      // See guides/architecture/build - HMR
+      hot: true,
+      // true for self-signed, object for cert authority
+      https: false,
+      // only errors & warns on hot reload
+      noInfo: true,
+      // overlay: true captures only errors
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+      // Suppresses output from dev-server, the FriendlyErrors plugin displays clean
+      // error messagging
+      quiet: true,
     },
-    // Suppresses output from dev-server, the FriendlyErrors plugin displays clean
-    // error messagging
-    quiet: true,
-  },
+    // ℹ️ Any custom configurations passed to configs will override the defaults
+    devServer
+  ),
 })

@@ -10,10 +10,11 @@ import production from './production'
  * definitions, dev server, build indicators, stats, etc. The configurations are
  * specific to environment and can be overriden as needed for custom build
  * requirements.
- * @param {Object} options
- * @param {string} options.env
- * @param {Object} options.paths
- * @param {number} options.port
+ * @param {Object} configs
+ * @param {Object} configs.define
+ * @param {string} configs.env
+ * @param {Object} configs.paths
+ * @param {number} configs.port
  * @returns {Object} Base Webpack configurations object.
  */
 export default function webpackConfigs(configs = {}) {

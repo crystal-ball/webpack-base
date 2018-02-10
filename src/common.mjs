@@ -12,11 +12,11 @@ import cjs from './cjs'
 
 const { __dirname } = cjs
 
-const { optimize, EnvironmentPlugin } = webpack
+const { optimize, DefinePlugin, EnvironmentPlugin } = webpack
 
 /**
  * The common configurations are used across environments.
- * @param {Object} paths Configured paths for environment build
+ * @param {Object} configs
  * @return {Object} Build configurations common to all environments
  */
 export default ({
@@ -24,6 +24,7 @@ export default ({
   appPublic,
   appSrc,
   context: projectContext,
+  define,
   htmlTemplate,
   iconsSpriteLoader,
   nodeModules,
@@ -133,26 +134,27 @@ export default ({
 
     // Visual compile indicator with progress bar
     new ProgressBarPlugin({
+      callback() {
+        console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`)
+      },
+      clear: false, // Don't clear the bar on completion
       format: `  Hacking time... [:bar] ${chalk.green.bold(
         ':percent'
       )} (:elapsed seconds) :msg`,
-      clear: false,
-      callback: () => {
-        console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`)
-      },
     }),
 
     // ========================================================
     // Variable injections
     // ========================================================
 
-    // Inject environment variables into build as `process.env.<VARIABLE>`. (All
-    // values are applied to JSON.stringify by plugin)
+    // Define environment variables in build.
     new EnvironmentPlugin({
-      NODE_ENV: 'development', // allow Babili to strip dead code in prod builds
+      // ℹ️ Values passed to EnvironmentPlugin are defaults
+      NODE_ENV: 'development', // strip dead code in prod builds
       DEBUG: false, // detailed logging level option
       PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
     }),
+    new DefinePlugin(define),
 
     // ========================================================
     // Asset extractions
@@ -173,7 +175,7 @@ export default ({
 
     // Copy public directory to build directory, this is an escape hatch for assets
     // needed that are not imported into build
-    new CopyWebpackPlugin([{ from: 'public' }]),
+    new CopyWebpackPlugin([{ from: appPublic }]),
 
     // ========================================================
     // HTML index generator
@@ -193,9 +195,9 @@ export default ({
 
     // Generates index.html with injected script/style resources paths
     new HtmlWebpackPlugin({
+      favicon: `${appPublic}/favicon.ico`,
       minify: false,
       template: htmlTemplate,
-      favicon: `${appPublic}/favicon.ico`,
     }),
 
     // ========================================================

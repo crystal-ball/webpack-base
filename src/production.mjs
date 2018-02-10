@@ -8,9 +8,9 @@ import webpack from 'webpack'
 
 /**
  * Production environment specific configurations.
- * @param {Object} paths Configured paths for environment build
+ * @param {Object} configs Configured paths for environment build
  * @return {Object} Production specific configurations to merge with cross
- *                  environment configurations
+ * environment configurations
  */
 export default ({
   babelLoaderInclude,
