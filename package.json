@@ -1,6 +1,6 @@
 {
   "name": "@inspirescript/webpack-configs",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "description": "InspireScript base wepback configs",
   "main": "src/index.js",
   "bin": {

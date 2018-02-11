@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.31.0] - 2018-02-11
+
+### Changed
+
+* The block token parsing for JSX expressions is updated to attempt and match
+  all tokens instead of just the ones Markdown-it mangles
+
 ## [2.31.0] - 2018-02-10
 
 ### Changed
