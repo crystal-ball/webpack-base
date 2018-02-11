@@ -1,51 +1,14 @@
 /* eslint-disable no-param-reassign */
+const addToken = require('./add-block-token')
 
 /**
- * Tests the passed line content for a component close character. If found, returns
- * component type of `'inline'` or `'block'`
- */
-function findComponentEnd(lineContent) {
-  const match = lineContent.match(/(\/)>/)
-
-  // The component doesn't end on this line
-  if (!match) return false
-
-  // The component ends on this line, check for a match in group 1 to know if it's
-  // an inline or block component
-  return match[1] ? 'inline' : 'block'
-}
-
-/**
- * Handles injecting a block token into the current parser state.
- */
-function addToken(state, startLine, endLine) {
-  // Args: token type, html tag, ???
-  const token = state.push('html_block', '', 0)
-  token.map = [startLine, endLine + 1]
-  token.content = state.getLines(startLine, endLine + 1, state.blkIndent, true)
-}
-
-/**
- * The markdown-it parser doesn't parse all JSX component forms as HTML blocks, and
- * when it doesn't match it will assume the component is a block paragraph and wrap
- * it in a `<p>` tag. This set or rules does **NOT** attempt to match all JSX
- * component instances, instead it looks for instances that we know markdown-it
- * mangles. This was the quickest way to get what appears to be full parity quickly,
- * if more failure cases are found, we should evaulate if it would be worthwhile to
- * switch to attempting to match ALL JSX component instances.
+ * This rule parses JSX block tokens from the markdown document. In order to qualify
+ * as a block token, a Component must meet the following requirements:
  *
- * Rule intended flow:
- *
- * 1. IF a line starts with `<[A-Z]`, then it is a markdown block token with a JSX
- *    component for content. (If not rule exits)
- *    1. IF the component is a single line block component, manually inject a token
- *    1. IF the component is a multiline self closing component, manually inject a
- *       token
- *
- * ℹ️ Single line self closing components and mutliline block components appear to
- * be correctly recognized as block tokens, so we ignore them.
- * ℹ️ The `block` and `self-closing` langauge used here refers to JSX component
- * syntax, not markdown block/inline parsing.
+ * 1. Component definition must being without indentation
+ * 2. Component close must end with either `</COMPONENT>` or `/>` with no
+ *    indentation
+ * 3. There cannot be content after the component close or it is an inline token.
  * @param {object} state
  * @param {string} state.src The original source string
  * @param {array} state.bMarks The string index in src for each line start
@@ -59,57 +22,77 @@ function addToken(state, startLine, endLine) {
  * @param {*} silent https://github.com/markdown-it/markdown-it/issues/323 ???
  */
 module.exports = (state, startLine, endLine /* , silent */) => {
-  const { bMarks, eMarks } = state
-  const lineContent = state.src.slice(bMarks[startLine], eMarks[startLine] + 1)
+  const { bMarks, eMarks, src } = state
+  const pos = bMarks[startLine]
+  let lineContent = src.slice(bMarks[startLine], eMarks[startLine] + 1)
+
+  // Check for starting <
+  if (src.charCodeAt(pos) !== 0x3c /* < */) return false
+
+  // Quick fail on second char if not a capital character
+  const secondChar = src.charCodeAt(pos + 1)
+  if (secondChar > 0x7a || secondChar < 0x41) return false
 
   // Check if the line starts with a React component using a regex
   // TODO: 📝 Include component names with periods, <Card.Body>
-  const componentMatch = lineContent.match(/^<([A-Z][a-zA-z]*)/)
+  const componentNameMatch = lineContent.match(/^<([A-Z][a-zA-z.]*)/)
 
   // 👋 If there wasn't a component match, bail
-  if (!componentMatch) return false
+  if (!componentNameMatch) return false
+
+  const componentName = componentNameMatch[1]
+  let currentLine = startLine
+  let tokenEndLine
 
   // ========================================================
-  // Test for single line block component
+  // Test for single line block token
   // ========================================================
+
   const singleLineBlock = lineContent.match(
-    new RegExp(`<\\/${componentMatch[1]}>\n$`)
+    new RegExp(`((/>)|(</${componentName}>))(.*)?\n?$`)
   )
 
   if (singleLineBlock) {
+    // If the end match has content after the close, it's an inline token, bail out
+    if (singleLineBlock[4]) return false
+
     addToken(state, startLine, startLine)
     state.line = startLine + 1 // Increment state to move parser forward!
     return true // Advance parser to new state.line
   }
 
   // ========================================================
-  // Test for self-closing component
+  // Test for multi line block token
   // ========================================================
-  if (!lineContent.includes('>')) {
-    let componentEndLine
-    // Start testing subsequent lines to find where the component ends. If the
-    // component is a block form, we can leave it, if it's self closing, we need to
-    // add a block token for it b/c markdown-it wraps in a <p>
-    let currentLine = startLine + 1
 
-    while (currentLine < endLine) {
-      const endMatch = findComponentEnd(
-        state.src.slice(bMarks[currentLine], eMarks[currentLine] + 1)
-      )
+  // Start looping through lines to find the end of the token
+  while (!tokenEndLine) {
+    lineContent = src.slice(bMarks[currentLine], eMarks[currentLine] + 1)
 
-      if (endMatch === 'inline') {
-        componentEndLine = currentLine
-        break
-      }
+    const endMatch = lineContent.match(
+      new RegExp(`^((\\/>)|(<\\/${componentName}>))(.*)?\n?$`)
+    )
 
+    if (!endMatch) {
+      // If this isn't the end line, keep on moving
       currentLine += 1
+    } else if (endMatch[4]) {
+      // If there is content on the same line as the component ends it's not a JSX
+      // block token (probably a p tag) 👋
+      return false
+    } else {
+      // If there isn't content on this end line, we found the end of a block token
+      tokenEndLine = currentLine
     }
 
-    if (componentEndLine) {
-      addToken(state, startLine, componentEndLine)
-      state.line = componentEndLine + 1 // Increment state to move parser forward!
-      return true // Advance parser to new state.line
-    }
+    // If we end up going over the endLine, it's bad news 👋
+    if (currentLine >= endLine) break
+  }
+
+  if (tokenEndLine) {
+    addToken(state, startLine, tokenEndLine)
+    state.line = tokenEndLine + 1 // Increment state to move parser forward!
+    return true // Advance parser to new state.line
   }
 
   // We're in a scenario we don't need to worry about ¯\_(ツ)_/¯

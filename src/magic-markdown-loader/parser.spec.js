@@ -22,6 +22,15 @@ inside of it. The Icon component should not be altered. It also should not alter
 <Test valid attr={value} /> This paragraph starts with a component, the component
 should not be altered and the paragraph should be wrapped in a p tag.
 
+<!--
+TODO: make me work!
+<Tricky.Component
+  spans={lines + maxLines}
+  classNames="d-flex party zone ultra long
+/>{' '}
+This paragraph is a realllll tricky one.
+-->
+
 <!-- Test nested inline token block components -->
 This tests nested <RadButton><RadButton>component</RadButton> with text</RadButton>
 _components_ matching. <RadButton><RadButton outline /></RadButton>
@@ -29,32 +38,36 @@ _components_ matching. <RadButton><RadButton outline /></RadButton>
 <!-- Test single line block token self closing component -->
 
 <Icon id={someId} />
+<ComponentsList components={['Active', 'Active.Trigger', 'Active.Content']} />
+{/* some JSX block */}
 
 <!-- Test multiline block token self closing component -->
 
 <Icon
   id={someId}
 />
+<ComponentsList
+  components={['Active', 'Active.Trigger', 'Active.Content']}
+  outline
+  classNames="long component"
+/>
 
 <!-- Test single line block token block component -->
 <Button>Hey</Button>
 
-<!-- Test multie line block token block component -->
+<!-- Test multi line block token block component -->
 <Button>
   Hey
 </Button>
 
-<!--
-TODO: MAKE ME WORK!
 <Card.Body>
   This block tests that names with '.' are parsed correctly.
 </Card.Body>
--->
 
-<!--
-TODO: MAKE ME WORK!
-{/* some JSX block */}
--->
+
+{someArray.map(child => (
+  <Button {...child}>{child.name}</Button>
+))}
 
 <!-- Test remove html comment -->
 
@@ -79,13 +92,26 @@ should not be altered and the paragraph should be wrapped in a p tag.</p>
 <p>This tests nested <RadButton><RadButton>component</RadButton> with text</RadButton>
 <em>components</em> matching. <RadButton><RadButton outline /></RadButton></p>
 <Icon id={someId} />
+<ComponentsList components={['Active', 'Active.Trigger', 'Active.Content']} />
+{/* some JSX block */}
 <Icon
   id={someId}
+/>
+<ComponentsList
+  components={['Active', 'Active.Trigger', 'Active.Content']}
+  outline
+  classNames="long component"
 />
 <Button>Hey</Button>
 <Button>
   Hey
 </Button>
+<Card.Body>
+  This block tests that names with '.' are parsed correctly.
+</Card.Body>
+{someArray.map(child => (
+  <Button {...child}>{child.name}</Button>
+))}
 `
 
   expect(parser(markdown)).toEqual(expected)

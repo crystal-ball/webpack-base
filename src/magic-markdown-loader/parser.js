@@ -10,6 +10,7 @@ require('prismjs/components/prism-css')
 
 // Magic Markdown custom parsing rules
 const jsxBlock = require('./rules/jsx-block')
+const jsxExpression = require('./rules/jsx-expression')
 const jsxInline = require('./rules/jsx-inline')
 
 // 1. Create Magic Markdown parser instance
@@ -56,6 +57,7 @@ const markdownIt = require('markdown-it')({
 // React component rule handles JSX syntaxes that Markdown-it does not properly
 // parse as block tokens
 markdownIt.block.ruler.before('table', 'jsx_block', jsxBlock)
+markdownIt.block.ruler.before('table', 'jsx_expression', jsxExpression)
 // ℹ️ Insert before html rule to intercept JSX components
 markdownIt.inline.ruler.before('html_inline', 'jsx_inline', jsxInline)
 

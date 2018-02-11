@@ -31,14 +31,11 @@ module.exports = function jsxInline(state, silent) {
   let endPos
 
   // Check for starting <
-  if (state.src.charCodeAt(pos) !== 0x3c /* < */ || pos + 2 >= posMax) {
-    return false
-  }
+  if (state.src.charCodeAt(pos) !== 0x3c /* < */ || pos + 2 >= posMax) return false
 
   // Quick fail on second char if not a capital character
-  if (state.src.charCodeAt(pos + 1) < 65 || state.src.charCodeAt(pos + 1) > 90) {
-    return false
-  }
+  const secondChar = src.charCodeAt(pos + 1)
+  if (secondChar > 0x7a || secondChar < 0x41) return false
 
   const content = src.slice(pos)
 
