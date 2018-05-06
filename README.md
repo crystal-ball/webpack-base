@@ -1,11 +1,20 @@
 <h1 align="center">InspireScript webpack Base Configuration</h1>
 
 <p align="center">
-  <a href="https://github.com/prettier/prettier">
+  <a href="https://www.npmjs.com/package/@inspirescript/webpack-configs">
+    <img src="https://img.shields.io/npm/v/@inspirescript/webpack-configs.svg?style=flat-square" alt="current version">
+  </a>
+  <a href="https://travis-ci.org/inspirescript/webpack-configs">
+    <img src="https://travis-ci.org/inspirescript/webpack-configs.svg?branch=master" alt="Build">
+  </a>
+  <a href="https://greenkeeper.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://badges.greenkeeper.io/inspirescript/webpack-configs.svg">
+  </a>
+  <a href="https://github.com/prettier/prettier" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier">
   </a>
-  <a href="http://commitizen.github.io/cz-cli/">
-    <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen">
+  <a href="https://github.com/semantic-release/semantic-release" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="managed by semantic release">
   </a>
 </p>
 
