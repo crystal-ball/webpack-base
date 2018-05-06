@@ -6,7 +6,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.0.0] - 2018-05-06
+
+Version 3 includes breaking changes to update to webpack v4, and updates to the
+documentation and testing workflow for better maintainability. Moving forward
+all releases will be managed with `semantic-release`.
+
+### Breaking Changes
+
+* webpack 4v compatible plugins must be used
+* Default application entry changed to `src/index.js`
+
+### Additional Updates
+
+* 📦 webpack updated to v4
+* ✅ Test application uses Node 7.9 to ensure compatibility with Atom ESLint
+  instances.
+* 📝 Documentation for usage and developing updated.
+* ℹ️ SVG symbol sprites (`svg-symbol-sprite-loader`) updated to v1, allowing
+  removal of manifest plugins from HTML index plugin.
+* 📝 Example icon component usage added to test application
 
 ## [2.31.0] - 2018-02-11
 
