@@ -13,8 +13,8 @@
     "test": "npm run lint && npm run test:unit",
     "prepush": "npm run test",
     "test:unit": "jest",
-    "format": "prettier --write \"{src,test-app}/**/*.{mjs,js,jsx}\"",
-    "lint": "NODE_ENV=test eslint src/*"
+    "format": "prettier --write \"{guides,scripts,src,test-app}/**/*.{js,md}\"",
+    "lint": "NODE_ENV=test eslint src/**/*.js test-app/**/*.js"
   },
   "keywords": [
     "InspireScript",
@@ -46,6 +46,7 @@
     "css-loader": "~0.28.11",
     "directory-named-webpack-plugin": "^4.0.0",
     "duplicate-package-checker-webpack-plugin": "~3.0.0",
+    "eslint-config-eloquence": "^7.3.0",
     "eslint-import-resolver-webpack": "~0.9.0",
     "eslint-loader": "~2.0.0",
     "file-loader": "~1.1.11",
@@ -71,7 +72,6 @@
     "webpack-monitor": "~1.0.14"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.3.0",
     "commitizen": "^2.9.6",
     "cz-customizable": "^5.2.0",
     "flow-bin": "^0.71.0",

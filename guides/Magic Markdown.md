@@ -9,10 +9,10 @@ powerful, custom functionality in you application.
 The Magic Markdown system has two parts: a component registry, and a webpack
 loader.
 
-1. **Component registry** - dynamically includes project components for use in
-   Magic Markdown content.
-1. **webpack loader** - parses Magic Markdown content into valid JSX which is
-   then wrapped in a component and transpiled by Babel.
+1.  **Component registry** - dynamically includes project components for use in
+    Magic Markdown content.
+1.  **webpack loader** - parses Magic Markdown content into valid JSX which is
+    then wrapped in a component and transpiled by Babel.
 
 ## ⚠️ Restrictions
 

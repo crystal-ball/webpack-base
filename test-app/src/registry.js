@@ -12,7 +12,9 @@ class Registry {
   register(component, name) {
     const registryName = name || component.displayName || component.name
     if (!name) {
+      /* eslint-disable no-console */
       console.error('⚠️ Component registration requires a name: ', component)
+      /* eslint-enable no-console */
     } else {
       this.registry[registryName] = component
     }

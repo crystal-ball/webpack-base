@@ -20,7 +20,7 @@ const composeEnhancers =
 const store = createStore(
   rootReducer,
   /* preloadedState, */
-  composeEnhancers(applyMiddleware(sagaMiddleware)),
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 )
 
 // Fire up those generators

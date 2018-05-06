@@ -11,16 +11,16 @@ transpilation.
 
 #### Process
 
-1. All components that can be used in Magic Markdown content must be saved with
-   a `*.registry.js(x)` file extension.
-1. A singleton application registry is created in `registry.js`.
-1. The registry uses webpack's `require.context` to dynamically search the
-   project for any component with the registry file extension.
-1. Registry components are imported and registered in the registry.
-1. InspireScript App component sets the registry in context where it can be
-   accessed by any child component.
-1. The component wrapper for each Magic Markdown file looks up and injects
-   values for any component used from the registry.
+1.  All components that can be used in Magic Markdown content must be saved with
+    a `*.registry.js(x)` file extension.
+1.  A singleton application registry is created in `registry.js`.
+1.  The registry uses webpack's `require.context` to dynamically search the
+    project for any component with the registry file extension.
+1.  Registry components are imported and registered in the registry.
+1.  InspireScript App component sets the registry in context where it can be
+    accessed by any child component.
+1.  The component wrapper for each Magic Markdown file looks up and injects
+    values for any component used from the registry.
 
 ## webpack Loader
 
@@ -30,15 +30,15 @@ loader for transpilation to valid JS.
 
 #### Process
 
-1. The `magic-markdown` loader enables importing `.md` files into your project
-   JS.
-1. The loader extracts front matter and the body from the markdown source.
-1. The body is parsed and rendered as HTML by `markdown-it`, this transforms the
-   content to valid JSX.
-1. The parsed JSX wrapped with a React component class that also sets content
-   front matter in state and sets registry references.
-1. The defined component is passed to the `babel-loader` which transpiles the
-   JSX into executable JS.
+1.  The `magic-markdown` loader enables importing `.md` files into your project
+    JS.
+1.  The loader extracts front matter and the body from the markdown source.
+1.  The body is parsed and rendered as HTML by `markdown-it`, this transforms
+    the content to valid JSX.
+1.  The parsed JSX wrapped with a React component class that also sets content
+    front matter in state and sets registry references.
+1.  The defined component is passed to the `babel-loader` which transpiles the
+    JSX into executable JS.
 
 ## Resources
 

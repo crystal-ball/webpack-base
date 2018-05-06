@@ -40,11 +40,13 @@ const markdownIt = require('markdown-it')({
         Prism.languages[lang]
       )}\`}} /></pre>`
     } catch (ex) {
+      /* eslint-disable no-console */
       if (!lang || !Prism.languages[lang]) {
         console.warn(`Prism: ${lang} not found`)
       } else {
         console.warn('Prism: Failed parsing language: ', ex.message)
       }
+      /* eslint-enable no-console */
       return ''
     }
   },

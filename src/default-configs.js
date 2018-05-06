@@ -37,7 +37,5 @@ module.exports = function defaultConfigs({
   // and devServer values
   // ℹ️ Once Atom upgrades to Node 8.9+ this can be cleaned up a lot with object
   // spread
-  Object.assign({ env, devServer }, defaults, paths || {})
-
-  return defaultConfigs
+  return Object.assign({ env, devServer }, defaults, paths || {})
 }

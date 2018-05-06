@@ -1,8 +1,9 @@
 'use strict'
 
+process.env.ELOQUENCE_PROJECT_TYPE = 'webpack'
 module.exports = {
   root: true,
-  extends: '@crystal-ball/eloquence/web',
+  extends: 'eloquence',
   rules: {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',

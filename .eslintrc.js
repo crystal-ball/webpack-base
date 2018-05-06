@@ -2,5 +2,5 @@
 
 module.exports = {
   root: true,
-  extends: '@crystal-ball/eloquence/node',
+  extends: 'eloquence',
 }
