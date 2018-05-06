@@ -1,6 +1,5 @@
 {
   "presets": [
-    // Autoprefixer transpile for only last 2 browser versions
     [
       "env",
       {
@@ -11,14 +10,16 @@
     "react"
   ],
   "plugins": [
-    "react-hot-loader/babel", // 🔥
-    "transform-object-rest-spread", // Spread operator inside objects
-    "transform-class-properties", // Class static and property initializers
+    "react-hot-loader/babel",
+    "transform-object-rest-spread",
+    "transform-class-properties",
     "transform-runtime" // runtime needed for generators
   ],
   "env": {
     "production": {
       "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties",
         "transform-runtime" // Library babel-helpers with import statements
       ]
     }

@@ -69,7 +69,7 @@ _See [Importing And Using Type Definitions][importing types] for details._
 
 ```javascript
 {
-  // Disable validating JS to allow using types in .js/.jsx files
+  // Disable validating JS to allow using types in .js files
   "javascript.validate.enable": false,
   // Prefer project specific `flow-bin` package to global installation
   "flow.useNPMPackagedFlow": true

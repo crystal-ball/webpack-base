@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { object } from 'prop-types'
+import { hot } from 'react-hot-loader'
 import * as Componentry from 'componentry'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 // Application
 import registry from 'registry'
-import ScrollToTop from 'UNIVERSAL/ScrollToTop'
+import ScrollToTop from 'components/universal/ScrollToTop'
+import logger from 'lib/logger'
+
+import HoodImg from 'media/Hood-dan-hawk.jpg'
 
 // Screens
 import MagicMarkdownScreen from 'GUIDES/Magic Markdown.md'
@@ -49,7 +53,7 @@ registry.register(Link, 'Link')
  * 2. Creates the application React Router router instance
  * 3. Sets up application level routing and components
  */
-export default class App extends Component {
+class App extends Component {
   static childContextTypes = { REGISTRY: object }
 
   getChildContext() {
@@ -57,6 +61,7 @@ export default class App extends Component {
   }
 
   render() {
+    logger('app render')
     return (
       <BrowserRouter>
         <Componentry.ThemeProvider theme={theme}>
@@ -64,17 +69,34 @@ export default class App extends Component {
           <ScrollToTop />
           <header className="mb-5" />
           <div className="container">
-            <Switch>
-              <Route path="/" exact component={InspireScriptScreen} />
-              <Route path="/magic-markdown" exact component={MagicMarkdownScreen} />
-              <Route path="/application" exact component={ApplicationScreen} />
-              <Route path="/application/styles" component={StylesScreen} />
-              <Route path="/toolchain" component={ToolchainScreen} />
-              <Route component={FourOhFourScreen} />
-            </Switch>
+            <div className="d-flex">
+              <div className="w-25">
+                <img
+                  src={HoodImg}
+                  className="img-fluid"
+                  alt="Mount Hood at night by Dan Hawk"
+                />
+              </div>
+              <div className="w-75 ml-3">
+                <Switch>
+                  <Route path="/" exact component={InspireScriptScreen} />
+                  <Route
+                    path="/magic-markdown"
+                    exact
+                    component={MagicMarkdownScreen}
+                  />
+                  <Route path="/application" exact component={ApplicationScreen} />
+                  <Route path="/application/styles" component={StylesScreen} />
+                  <Route path="/toolchain" component={ToolchainScreen} />
+                  <Route component={FourOhFourScreen} />
+                </Switch>
+              </div>
+            </div>
           </div>
         </Componentry.ThemeProvider>
       </BrowserRouter>
     )
   }
 }
+
+export default hot(module)(App) // eslint-disable-line

@@ -13,25 +13,21 @@ const webpackConfigs = require('@inspirescript/webpack-configs')
  * @return {Object} Complete webpack configuration
  */
 module.exports = env => {
-  const config = webpackConfigs({
+  const baseConfigs = webpackConfigs({
     env,
     paths: {
       // Explicitly set the context for resolving entry points and loaders
       context: resolve(__dirname),
-      // See guides/tools/webpack.md for available path configurations
     },
   })
 
-  // Default aliases for easy importing of common modules
-  // TODO: don't alis universal
-  config.resolve.alias.UNIVERSAL = resolve('src', 'components', 'universal')
-  config.resolve.alias.GUIDES = resolve('guides')
+  // Alias the guides directory for importing guide markdown resources
+  baseConfigs.resolve.alias.GUIDES = resolve('guides')
 
   /*
    * Make any changes to the base webpack configs for your application, eg:
-   *
-   * config.module.rules.push({ custom loader... })
+   * baseConfigs.module.rules.push({ custom loader... })
    */
 
-  return config
+  return baseConfigs
 }

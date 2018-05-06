@@ -1,34 +1,25 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const chalk = require('chalk')
-const { HotModuleReplacementPlugin, NoEmitOnErrorsPlugin } = require('webpack')
+const { HotModuleReplacementPlugin } = require('webpack')
 
-/**
- * Development environment specfic configurations
- * @param {Object} config
- * @return {Object} Development specific configurations to merge with cross
- * environment configurations
- */
+/** Development environment specfic configurations */
 module.exports = ({
   appPublic,
   babelLoaderInclude,
   devServer,
   sassIncludePaths,
-  svgSprites,
 }) => ({
   // This makes the bundle appear split into separate modules in the devtools.
-  // We don't use source maps here because they can be confusing:
+  // We use this instead of source maps in order to have visibility into actual code
+  // being executed, `cheap-module-source-map` can be set if needed
   // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
-  // You may want 'cheap-module-source-map' instead if you prefer source maps.
   devtool: 'eval',
 
-  // Dev Loader Definitions
+  // Development loaders
   // ---------------------------------------------------------------------------
   module: {
     rules: [
-      // ========================================================
-      // JS Loader
-      // ========================================================
-
+      // --- 🎉 JS Loader
       // Dev JS loader runs source through ESLint then Babel
       {
         test: /\.jsx?$/,
@@ -45,26 +36,21 @@ module.exports = ({
          * must be included by that project. This allows projects to handle
          * specifying and configuring eslint explicitly as required.
          */
-        use: [
-          { loader: 'babel-loader' },
-          ...svgSprites, // Import those svgs!
-          { loader: 'eslint-loader' },
-        ],
+        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
       },
 
-      // ========================================================
-      // Styles Loader
-      // ========================================================
-
-      // Do not extract into a separate file in dev environment
+      // --- 😍 Styles Loader
+      // ℹ️ Dev styles uses SASS+CSS loader chain and injects results into DOM
       {
         test: /\.scss$/,
         use: [
+          // In dev the style loader injects imported styles into the DOM, this is
+          // replaced with the MiniCSSExtract in production
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
-              localIdentName: '[name]-[local]--[hash:base64:5]',
+              localIdentName: '[name]-[local]--[hash:5]',
             },
           },
           {
@@ -80,13 +66,10 @@ module.exports = ({
     ],
   },
 
-  // Dev Plugin Definitions
+  // Development plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    // ========================================================
-    // Indicators
-    // ========================================================
-
+    // --- ℹ️ Indicators
     // Shows and clears errors in a easier to read format
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
@@ -100,14 +83,9 @@ module.exports = ({
       },
     }),
 
-    // ========================================================
-    // 🔥 Modules
-    // ========================================================
-
+    // --- 🔥 Modules
     // HMR - see guides/architecture/build
     new HotModuleReplacementPlugin(),
-    // Do not emit compiled assets that include errors
-    new NoEmitOnErrorsPlugin(),
   ],
 
   // Dev Server

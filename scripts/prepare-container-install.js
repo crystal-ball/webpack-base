@@ -8,9 +8,10 @@ const projectPackage = require('../package.json')
 
 delete projectPackage.devDependencies['@inspirescript/webpack-configs']
 
-projectPackage.devDependencies = {
-  ...projectPackage.devDependencies,
-  ...sourcePackage.dependencies,
-}
+projectPackage.devDependencies = Object.assign(
+  {},
+  projectPackage.devDependencies,
+  sourcePackage.dependencies
+)
 
 writeFileSync(resolve('package.json'), JSON.stringify(projectPackage, null, 2))

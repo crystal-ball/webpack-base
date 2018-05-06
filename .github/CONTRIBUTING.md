@@ -31,17 +31,17 @@ This module exports a function that creates a base webpack config and includes
 any required node modules for running a webpack build. The intent is to make
 running a build simple, but allow for any customization required.
 
-1. `npm install` to install the dependencies for this module
-1. `node ./scripts/generate-test-project TEST` to generate a test project
-1. `cd TEST && npm install` to change directories and install application
-   dependencies for InspireScript.
-1. `npm start` or `npm run build` to validate required modules and webpack
-   configs are working.
+1.  `npm install` to install the dependencies for this module
+1.  `node ./scripts/generate-test-project TEST` to generate a test project
+1.  `cd TEST && npm install` to change directories and install application
+    dependencies for InspireScript.
+1.  `npm start` or `npm run build` to validate required modules and webpack
+    configs are working.
 
 ### Files
 
 * `/src` contains the webpack config generators
-* `/project-template` contains the template for new InspireScript projects
+* `/test-app` contains the template for new InspireScript projects
 * `/guides` contains guides for working with InspireScript projects.
 
 <!-- Links -->

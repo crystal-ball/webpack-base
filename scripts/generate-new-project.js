@@ -3,7 +3,7 @@ const shell = require('shelljs')
 const { writeFileSync } = require('fs')
 const { resolve } = require('path')
 
-const templatePackage = require('../project-template/package.json')
+const templatePackage = require('../test-app/package.json')
 
 /**
  * Handle creating a new project from template
@@ -12,7 +12,7 @@ const templatePackage = require('../project-template/package.json')
 const projectName = process.argv[2]
 
 // Copy template project
-shell.cp('-R', resolve(__dirname, '../project-template'), resolve(projectName))
+shell.cp('-R', resolve(__dirname, '../test-app'), resolve(projectName))
 // Copy guides from project root
 shell.cp('-R', resolve(__dirname, '../guides'), resolve(projectName))
 
@@ -30,13 +30,13 @@ writeFileSync(
 .DS_Store
 npm-debug.log*
 .vscode
-`,
+`
 )
 
 templatePackage.name = projectName
 writeFileSync(
   resolve(projectName, 'package.json'),
-  JSON.stringify(templatePackage, null, 2),
+  JSON.stringify(templatePackage, null, 2)
 )
 
 console.log('Project generated!')

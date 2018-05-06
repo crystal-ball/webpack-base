@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --env=production",
+    "build": "NODE_ENV=production webpack --env=production",
     "stats": "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
     "start": "webpack-dev-server --env=development --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "cross-env NODE_ENV=test eslint src --ext .js,.jsx"
+    "format": "prettier --write \"src/**/*.{js,md}\"",
+    "lint": "NODE_ENV=test eslint src"
   },
   "keywords": [
     "inspirescript"
@@ -18,23 +18,23 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "~2.2.5",
-    "componentry": "~2.0.0-beta",
+    "componentry": "~2.2.1",
     "nanoid": "~1.0.1",
-    "prop-types": "^15.6.0",
-    "react": "~16.2.0",
-    "react-dom": "~16.2.0",
-    "react-redux": "~5.0.6",
+    "prop-types": "^15.6.1",
+    "react": "~16.3.2",
+    "react-dom": "~16.3.2",
+    "react-hot-loader": "~4.1.1",
+    "react-redux": "~5.0.7",
     "react-router-dom": "~4.2.2",
-    "redux": "~3.7.2",
-    "redux-saga": "0.16.0"
+    "redux": "~4.0.0",
+    "redux-saga": "0.16.0",
+    "svg-symbol-sprite-loader": "~1.0.0"
   },
   "devDependencies": {
     "@crystal-ball/eslint-config-eloquence": "^6.2.0",
-    "@inspirescript/webpack-configs": "2.32.0",
+    "@inspirescript/webpack-configs": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "cross-env": "^5.1.1",
-    "eslint-import-resolver-webpack": "^0.8.3",
-    "flow-bin": "^0.61.0",
-    "prettier": "~1.9.1"
+    "flow-bin": "^0.70.0",
+    "prettier": "^1.12.1"
   }
 }

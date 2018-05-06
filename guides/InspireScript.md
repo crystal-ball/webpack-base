@@ -1,6 +1,7 @@
 # InspireScript
 
-Welcome to InspireScript 🎉🎉🎉 Have fun building something amazing.
+Welcome to InspireScript 🎉🎉🎉 Have fun building something amazing
+<Icon id="heart" className="text-danger ml-1" />
 
 <div className="d-flex justify-content-center">
   <Link to="/magic-markdown" className="px-3">Magic Markdown</Link>

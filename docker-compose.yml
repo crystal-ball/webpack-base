@@ -4,6 +4,7 @@ services:
     build: .
     ports:
       - '3000:3000'
+      - '5000:5000'
     volumes:
       # Mount resources that we want kept in sync with local as volumes for development
       # webpack source
@@ -11,6 +12,6 @@ services:
       # Guides
       - './guides:/usr/src/app/guides'
       # Template project
-      - './project-template/src:/usr/src/app/src'
-      - './project-template/webpack.config.js:/usr/src/app/webpack.config.js'
+      - './test-app/src:/usr/src/app/src'
+      - './test-app/webpack.config.js:/usr/src/app/webpack.config.js'
     entrypoint: /bin/sh

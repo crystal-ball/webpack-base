@@ -40,7 +40,7 @@ rules are scoped to the component instance.
 ```
 
 ```jsx
-// RadComponent.jsx
+// RadComponent.js
 import { component } from './rad-component.scss'
 
 export () => (

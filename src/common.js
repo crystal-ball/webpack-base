@@ -1,115 +1,132 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const InlineChunkManifestHtmlWebpackPlugin = require('inline-chunk-manifest-html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const SVGSymbolSpritePlugin = require('svg-symbol-sprite-loader/src/plugin')
-const WebpackManifestPlugin = require('webpack-manifest-plugin')
+const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const chalk = require('chalk')
 const path = require('path')
-const { optimize, EnvironmentPlugin, NamedModulesPlugin } = require('webpack')
+const { EnvironmentPlugin } = require('webpack')
 
-/**
- * The common configurations are used across environments.
- * @param {Object} configs
- * @return {Object} Build configurations common to all environments
- */
+/** The common configurations are used across environments */
 module.exports = ({
   appEntry,
   appPublic,
   appSrc,
   context: projectContext,
+  env,
   htmlTemplate,
-  iconsSpriteLoader,
-  nodeModules,
+  iconsSpriteLoaderInclude,
   outputFilename,
   outputPath,
   publicPath,
-  svgSprites,
 }) => ({
+  // webpack v4+ automatic environment optimization switch
+  // https://webpack.js.org/concepts/mode/
+  mode: env,
+
   // Explicitly set the build context for resolving entry points and loaders
-  // See: https://webpack.js.org/configuration/entry-context/#context
+  // https://webpack.js.org/configuration/entry-context/#context
   context: projectContext,
 
-  entry: {
-    app: appEntry,
-  },
+  // Default to a single entry and let webpack automatically split and name bundles
+  // https://webpack.js.org/configuration/entry-context/#entry
+  entry: appEntry,
 
+  // Default to webpack /dist output with hashed filenames in prod builds for long
+  // term caching, see README for docs on config effects
+  // https://webpack.js.org/configuration/output/
   output: {
     path: outputPath,
-    // Entry chunks are emitted by name
     filename: outputFilename,
-    // The public URL of the output directory when referenced in a browser
-    // (The value of the option is prefixed to every URL created by the runtime or loaders)
-    // Value: Serve all resources from /assets/, eg: /assets/app.js
     publicPath,
+    // Configures the lengths of [hash] and [chunkhash] globally
+    hashDigestLength: 12,
   },
 
   // These options change how modules are resolved.
   // https://webpack.js.org/configuration/resolve/
   resolve: {
-    // Allow resolving js and jsx files
     extensions: ['.js', '.jsx', '.json'],
     // Tell webpack what directories should be searched when resolving modules.
     // Including `appSrc` allows for importing modules relative to /src directory!
-    modules: [nodeModules, appSrc],
-    // Alias can be used to point imports to specific modules
+    modules: [appSrc, 'node_modules'],
+    // Alias can be used to point imports to specific modules, include empty object
+    // to allow direct assignment in consuming packages
     alias: {},
+    // Custom plugins used with webpack module resolution
+    plugins: [
+      // 🎉 Plugin allows automatically resolving a file based on the directory
+      // name, we use this with component directories to resolve named component
+      // files without requiring an import/export index.js for each component
+      // https://github.com/shaketbaby/directory-named-webpack-plugin
+      // ⚠️ Using DirectoryNamedWebpackPlugin is experimental, it's possible to
+      // duplicate this behavior using index.js import/export files
+      new DirectoryNamedWebpackPlugin({
+        honorIndex: true,
+        // This magiks is only intended for use with application components, don't
+        // mess with node modules resolution
+        include: [appSrc],
+      }),
+    ],
   },
 
-  // Common Loader Definitions
+  // Configure the SplitChunksPlugin to split vendor, runtime and main chunks
+  // https://webpack.js.org/plugins/split-chunks-plugin/
+  optimization: {
+    splitChunks: {
+      // 'All' is required to split vendor even when dynamic modules aren't used
+      // See https://webpack.js.org/plugins/split-chunks-plugin/#optimization-splitchunks-chunks-all
+      // See https://twitter.com/wSokra/status/969633336732905474
+      chunks: 'all',
+      // Use names instead of numbers for bundles
+      name: true,
+    },
+    // Keep the runtime chunk seperated to enable long term caching
+    // https://twitter.com/wSokra/status/969679223278505985
+    runtimeChunk: true,
+  },
+
+  // Common loaders
   // ---------------------------------------------------------------------------
   module: {
     rules: [
-      // ========================================================
-      // 🔮 Markdown Loader
-      // ========================================================
+      // --- 🔮 Markdown loader
+      // Turn plain text into a magic experience!
       {
         test: /\.md$/,
         use: [
-          // Transpiles JSX to JS
+          // Returned JSX must be transpiled to JS
           { loader: 'babel-loader' },
-          // Import those svgs!
-          ...svgSprites,
           // Convert markdown to a component with content as JSX
           { loader: path.resolve(__dirname, 'magic-markdown-loader/loader.js') },
         ],
       },
 
-      // ========================================================
-      // SVG Icons Loader
-      // ========================================================
-
-      // Create an svg sprite with any icons in the include paths
+      // --- 📦 SVG icon sprite loader
+      // Create an svg sprite with any icons imported into app
       {
         test: /\.svg$/,
-        include: iconsSpriteLoader,
+        include: iconsSpriteLoaderInclude,
         use: [{ loader: 'svg-symbol-sprite-loader' }],
       },
 
-      // ========================================================
-      // Images Loader
-      // ========================================================
-
+      // --- 🖼 Images Loader
       // Basic image loader setup with file name hashing
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         // Make sure that we don't try to use file-loader with icons for svg sprite
-        exclude: iconsSpriteLoader,
+        exclude: iconsSpriteLoaderInclude,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash:8].[ext]',
-              outputPath: 'static/media/',
+              name: 'static/media/[name].[hash:8].[ext]',
             },
           },
         ],
       },
 
-      // ========================================================
-      // Text files Loader
-      // ========================================================
-
+      // --- 📝 Text files Loader
       // If you want to import a text file you can ¯\_(ツ)_/¯
       {
         test: /\.txt$/,
@@ -118,85 +135,28 @@ module.exports = ({
     ],
   },
 
-  // Common Plugin Definitions
+  // Common plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    // ========================================================
-    // Modules
-    // ========================================================
-
-    // Uses the relative path of a module for the module id instead of the module
-    // index. This produces more consistent module ids across builds b/c the path
-    // changes much less frequently than the index. Apparenlty consistent module ids
-    // is a good thing in webpack land.
-    // ℹ️ We use NamedModulesPlugin in prod and dev b/c the paths gzip better than
-    // the hashes produced by the HashedModuleIdsPlugin!
-    new NamedModulesPlugin(),
-
-    // ========================================================
-    // Stats
-    // ========================================================
-
+    // --- 🔢 Stats
     // Visual compile indicator with progress bar
     new ProgressBarPlugin({
-      callback() {
-        console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`)
-      },
+      callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
       clear: false, // Don't clear the bar on completion
       format: `  Hacking time... [:bar] ${chalk.green.bold(
         ':percent'
       )} (:elapsed seconds) :msg`,
     }),
 
-    // ========================================================
-    // Variable injections
-    // ========================================================
-
+    // --- 💉 Variable injections
     // Define environment variables in build.
+    // ℹ️ Values passed to EnvironmentPlugin are defaults
     new EnvironmentPlugin({
-      // ℹ️ Values passed to EnvironmentPlugin are defaults
-      NODE_ENV: 'development', // strip dead code in prod builds
-      DEBUG: false, // detailed logging level option
+      DEBUG: false,
       PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
     }),
 
-    // ========================================================
-    // Asset extractions
-    // ========================================================
-
-    // Plugin for SVG symbol sprite extracts imported SVGs into a file
-    // ⚠️ Plugin order matters! This plugin and the WebpackManifestPlugin/
-    // InlineChunkManifestHtmlWebpackPlugin hook into the compiler 'emit' event.
-    // This plugin must run first so that the generated sprite can be added to the
-    // build chunks before the manifest plugin checks what chunks are in the build!
-    new SVGSymbolSpritePlugin({
-      filename: 'static/media/icon-sprite.[hash:8].svg',
-    }),
-
-    // ========================================================
-    // File copying
-    // ========================================================
-
-    // Copy public directory to build directory, this is an escape hatch for assets
-    // needed that are not imported into build
-    new CopyWebpackPlugin([{ from: appPublic }]),
-
-    // ========================================================
-    // HTML index generator
-    // ========================================================
-
-    // Extracts the webpack asset manifest into a JSON file, this is useful for
-    // knowing final asset ids after hashing, eg the SVG icon system uses the
-    // manifest to look up the current sprite asset id.
-    new WebpackManifestPlugin({
-      // Don't include sourcemaps in manifest, they ugly
-      filter: ({ name }) => !name.includes('.map'),
-    }),
-
-    // Inlines the chunk manifest in head, allowing reference to manifest without
-    // having to fetch it first
-    new InlineChunkManifestHtmlWebpackPlugin(),
-
+    // --- 📦 HTML index generator
     // Generates index.html with injected script/style resources paths
     new HtmlWebpackPlugin({
       favicon: `${appPublic}/favicon.ico`,
@@ -204,25 +164,17 @@ module.exports = ({
       template: htmlTemplate,
     }),
 
-    // ========================================================
-    // Chunks
-    // ========================================================
-
-    // Pull node_modules into vendor.js file using CommonsChunk, minChunks handles
-    // checking if module is from node_modules and is a js/json file see
-    // https://survivejs.com/webpack/building/bundle-splitting/
-    // #loading-dependencies-to-a-vendor-bundle-automatically
-    new optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: ({ context }) => context && context.includes('node_modules'),
+    // --- 📦 Asset extractions
+    // Plugin for SVG symbol sprite extracts imported SVGs into a file
+    // ⚠️ Order is important, this plugin must be included after HTML plugin so that
+    // HTML plugin hooks are pre-registered!
+    new SVGSymbolSprite.Plugin({
+      filename: 'static/media/icon-sprite.[contenthash].svg',
     }),
 
-    // Extract manifest into separate chunk so that changes to the app src don't
-    // invalidate the vendor bundle
-    // https://survivejs.com/webpack/optimizing/separating-manifest/#extracting-a-manifest
-    new optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity,
-    }),
+    // --- 🖨 File copying
+    // Copy public directory to build directory, this is an escape hatch for assets
+    // needed that are not imported into build
+    new CopyWebpackPlugin([{ from: appPublic }]),
   ],
 })

@@ -4,8 +4,6 @@
  * Example application wide utility method.
  */
 export default (message: string) => {
-  console.log(
-    process.env.NODE_ENV === 'production' ? 'Production: ' : 'Development: ',
-  )
+  if (process.env.DEBUG) console.log('Extra logging: ')
   console.info(message)
 }
