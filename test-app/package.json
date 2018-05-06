@@ -34,7 +34,7 @@
     "@crystal-ball/eslint-config-eloquence": "^6.2.0",
     "@inspirescript/webpack-configs": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "flow-bin": "^0.70.0",
+    "flow-bin": "^0.71.0",
     "prettier": "^1.12.1"
   }
 }
