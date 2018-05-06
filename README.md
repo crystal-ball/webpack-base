@@ -1,4 +1,4 @@
-<h1 align="center">InspireScript webpack Base Configuration</h1>
+<h1 align="center">🌄 InspireScript webpack Base Configuration</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@inspirescript/webpack-configs">
