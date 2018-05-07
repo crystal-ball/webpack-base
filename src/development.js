@@ -108,8 +108,6 @@ module.exports = ({
       hot: true,
       // true for self-signed, object for cert authority
       https: false,
-      // only errors & warns on hot reload
-      noInfo: true,
       // overlay: true captures only errors
       overlay: {
         errors: true,
