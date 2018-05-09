@@ -31,9 +31,9 @@
     "svg-symbol-sprite-loader": "~1.0.0"
   },
   "devDependencies": {
-    "@crystal-ball/eslint-config-eloquence": "^6.2.0",
     "@inspirescript/webpack-configs": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "eslint-config-eloquence": "^7.3.2",
     "flow-bin": "^0.71.0",
     "prettier": "^1.12.1"
   }
