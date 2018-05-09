@@ -214,6 +214,9 @@ Development and testing of the repository use a Docker workflow to ensure that
 the generated configs work with the packages required and the minimum version of
 Node supported. The `/test-app` directory includes a complete test application.
 
+Unit tests are run with Jest and use snapshots to validate the generated configs
+for development and production environments.
+
 #### Process
 
 1.  Start the docker container: `npm run container`
