@@ -98,7 +98,7 @@ module.exports = ({
           // Returned JSX must be transpiled to JS
           { loader: 'babel-loader' },
           // Convert markdown to a component with content as JSX
-          { loader: path.resolve(__dirname, 'magic-markdown-loader/loader.js') },
+          { loader: '@inspirescript/magic-markdown-loader' },
         ],
       },
 
