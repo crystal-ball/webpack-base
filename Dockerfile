@@ -1,6 +1,4 @@
-# Use Atom Node verion to ensure users of ESLint import plugin are able to parse
-# these webpack configs
-FROM node:7.9 as base
+FROM node:8.11-alpine
 LABEL maintainer="hedgecock.d@gmail.com"
 
 WORKDIR /usr/src/app
@@ -9,8 +7,6 @@ WORKDIR /usr/src/app
 RUN npm install -g serve
 
 # --- DEPENDENCIES ---
-
-FROM base as builder
 
 # Copy source and template packages and run merge script to install the same deps
 # as listed in current package (vs published package deps)
@@ -21,14 +17,14 @@ RUN node scripts/prepare-container-install.js
 
 # --- PROJECT ---
 
-FROM base as project
-
-COPY --from=builder /usr/src/app/package.json ./package.json
+# COPY --from=builder /usr/src/app/package.json ./package.json
 RUN npm install
 
-COPY ./test-app .
-
+# Copy project package to installed version package
 COPY ./package.json /usr/src/app/node_modules/@inspirescript/webpack-configs/package.json
+
+# Copy test app in to container
+COPY ./test-app .
 
 EXPOSE 3000
 EXPOSE 5000
