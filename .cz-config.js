@@ -29,8 +29,8 @@ module.exports = {
     { name: 'javascript' },
     { name: 'styles' },
     { name: 'icons' },
-    { name: 'stats' },
-    { name: 'template' },
     { name: 'markdown' },
+    { name: 'stats' },
+    { name: 'demo' },
   ],
 }
