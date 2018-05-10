@@ -1,9 +1,11 @@
 'use strict'
 
-process.env.ELOQUENCE_PROJECT_TYPE = 'webpack'
 module.exports = {
   root: true,
   extends: 'eloquence',
+  env: {
+    browser: true,
+  },
   rules: {
     'import/extensions': 'off',
     'import/no-duplicates': 'off',

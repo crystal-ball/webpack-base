@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const chalk = require('chalk')
-const path = require('path')
 const { EnvironmentPlugin } = require('webpack')
 
 /** The common configurations are used across environments */
@@ -141,7 +140,9 @@ module.exports = ({
     // --- 🔢 Stats
     // Visual compile indicator with progress bar
     new ProgressBarPlugin({
+      /* eslint-disable no-console */
       callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
+      /* eslint-enable no-console */
       clear: false, // Don't clear the bar on completion
       format: `  Hacking time... [:bar] ${chalk.green.bold(
         ':percent'
