@@ -4,8 +4,8 @@
   <a href="https://www.npmjs.com/package/@inspirescript/webpack-configs">
     <img src="https://img.shields.io/npm/v/@inspirescript/webpack-configs.svg?style=flat-square" alt="current version">
   </a>
-  <a href="https://travis-ci.org/inspirescript/webpack-configs">
-    <img src="https://travis-ci.org/inspirescript/webpack-configs.svg?branch=master" alt="Build">
+  <a href="https://travis-ci.com/inspirescript/webpack-configs">
+    <img src="https://travis-ci.com/inspirescript/webpack-configs.svg?branch=master" alt="Build">
   </a>
   <a href="https://greenkeeper.io/" target="_blank" rel="noopener noreferrer">
     <img src="https://badges.greenkeeper.io/inspirescript/webpack-configs.svg">
