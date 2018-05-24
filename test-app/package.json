@@ -19,12 +19,12 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "~2.2.5",
-    "componentry": "~2.2.1",
-    "nanoid": "~1.0.1",
+    "componentry": "~2.2.2",
+    "nanoid": "~1.0.2",
     "prop-types": "^15.6.1",
-    "react": "~16.3.2",
-    "react-dom": "~16.3.2",
-    "react-hot-loader": "~4.1.1",
+    "react": "~16.4.0",
+    "react-dom": "~16.4.0",
+    "react-hot-loader": "~4.2.0",
     "react-redux": "~5.0.7",
     "react-router-dom": "~4.2.2",
     "redux": "~4.0.0",
@@ -34,8 +34,8 @@
   "devDependencies": {
     "@inspirescript/webpack-configs": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "eslint-config-eloquence": "^7.3.2",
-    "flow-bin": "^0.71.0",
+    "eslint-config-eloquence": "^7.4.0",
+    "flow-bin": "^0.72.0",
     "prettier": "^1.12.1"
   }
 }
