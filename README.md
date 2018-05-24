@@ -24,8 +24,6 @@ optional paths object can be used to customize build behavior.
 
 ## Installation
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/inspirescript/webpack-configs.svg)](https://greenkeeper.io/)
-
 ```bash
 npm i -D @inspire-script/webpack-configs
 ```
