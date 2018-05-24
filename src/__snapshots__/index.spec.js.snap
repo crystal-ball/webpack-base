@@ -117,12 +117,9 @@ Object {
     "publicPath": "/",
   },
   "plugins": Array [
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] [32m[1m:percent[22m[39m (:elapsed seconds) :msg",
-      },
+    ProgressPlugin {
+      "handler": [Function],
+      "profile": undefined,
     },
     EnvironmentPlugin {
       "defaultValues": Object {
@@ -166,8 +163,8 @@ Object {
     FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
         "messages": Array [
-          "  🎉  [1m[32mBINGO[39m[22m 🎉",
-          "  Application running at [4m[34mhttp://localhost:3000[39m[24m",
+          "  🎉  BINGO 🎉",
+          "  Application running at http://localhost:3000",
         ],
         "notes": Array [],
       },
@@ -324,12 +321,9 @@ Object {
     "maxEntrypointSize": 1500000,
   },
   "plugins": Array [
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] [32m[1m:percent[22m[39m (:elapsed seconds) :msg",
-      },
+    ProgressPlugin {
+      "handler": [Function],
+      "profile": undefined,
     },
     EnvironmentPlugin {
       "defaultValues": Object {

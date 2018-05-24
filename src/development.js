@@ -74,8 +74,8 @@ module.exports = ({
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: [
-          `  🎉  ${chalk.bold.green('BINGO')} 🎉`,
-          `  Application running at ${chalk.underline.blue(
+          `  🎉  ${chalk.green.bold('BINGO')} 🎉`,
+          `  Application running at ${chalk.blue.underline(
             `http://localhost:${devServer.port || 3000}`
           )}`,
         ],
