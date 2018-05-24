@@ -14,6 +14,8 @@ type Props = {
  * See: https://reacttraining.com/react-router/web/guides/scroll-restoration
  */
 class ScrollToTop extends Component<Props> {
+  static defaultProps = { children: null }
+
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0)

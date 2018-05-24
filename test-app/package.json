@@ -6,7 +6,8 @@
     "build": "NODE_ENV=production webpack --env=production",
     "stats": "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
     "start": "webpack-dev-server --env=development --host 0.0.0.0",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "jest src",
     "flow": "flow",
     "format": "prettier --write \"src/**/*.{js,md}\"",
     "lint": "NODE_ENV=test eslint src"

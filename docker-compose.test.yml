@@ -1,0 +1,19 @@
+version: '3'
+services:
+  test:
+    build:
+      context: .
+      dockerfile: ./test/test.Dockerfile
+    ports:
+      - '5000:5000'
+  puppeteer:
+    build:
+      context: .
+      dockerfile: ./test/puppeteer.Dockerfile
+    environment:
+      - CI=true
+    depends_on:
+      - test
+    volumes:
+      - ./test:/usr/src/puppeteer/test
+

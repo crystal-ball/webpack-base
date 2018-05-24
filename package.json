@@ -8,11 +8,13 @@
   },
   "scripts": {
     "commit": "git cz",
-    "container": "docker-compose run --service-ports --rm webpack",
+    "container": "docker-compose run --service-ports --rm app",
     "container:test": "docker-compose run --rm webpack",
     "test": "npm run lint && npm run test:unit",
     "prepush": "npm run test",
-    "test:unit": "jest",
+    "test:unit": "jest src",
+    "test:acceptance": "jest test",
+    "test:ci-acceptance": "docker-compose -f docker-compose.test.yml up --exit-code-from puppeteer",
     "format": "prettier --write \"{guides,scripts,src,test-app}/**/*.{js,md}\"",
     "lint": "NODE_ENV=test eslint src/**/*.js test-app/**/*.js"
   },
@@ -75,6 +77,7 @@
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "prettier": "^1.12.1",
+    "puppeteer": "^1.4.0",
     "semantic-release": "^15.3.1"
   },
   "config": {
