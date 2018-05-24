@@ -117,9 +117,12 @@ Object {
     "publicPath": "/",
   },
   "plugins": Array [
-    ProgressPlugin {
-      "handler": [Function],
-      "profile": undefined,
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] [32m[1m:percent[22m[39m (:elapsed seconds) :msg",
+      },
     },
     EnvironmentPlugin {
       "defaultValues": Object {
@@ -321,9 +324,12 @@ Object {
     "maxEntrypointSize": 1500000,
   },
   "plugins": Array [
-    ProgressPlugin {
-      "handler": [Function],
-      "profile": undefined,
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] [32m[1m:percent[22m[39m (:elapsed seconds) :msg",
+      },
     },
     EnvironmentPlugin {
       "defaultValues": Object {
