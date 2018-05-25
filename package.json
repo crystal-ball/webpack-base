@@ -73,7 +73,7 @@
     "commitizen": "^2.9.6",
     "cz-customizable": "^5.2.0",
     "eslint-config-eloquence": "^7.4.0",
-    "flow-bin": "^0.72.0",
+    "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "jest": "^22.4.4",
     "prettier": "^1.12.1",

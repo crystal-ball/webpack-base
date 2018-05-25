@@ -35,7 +35,7 @@
     "@inspirescript/webpack-configs": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint-config-eloquence": "^7.4.0",
-    "flow-bin": "^0.72.0",
+    "flow-bin": "^0.73.0",
     "prettier": "^1.12.1"
   }
 }
