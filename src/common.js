@@ -64,7 +64,9 @@ module.exports = ({
         honorIndex: true,
         // This magiks is only intended for use with application components, don't
         // mess with node modules resolution
-        include: [appSrc],
+        exclude: /node_modules/,
+        // 🐛 https://github.com/shaketbaby/directory-named-webpack-plugin/issues/30
+        // include: [appSrc],
       }),
     ],
   },
