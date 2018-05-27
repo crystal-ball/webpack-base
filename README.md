@@ -1,4 +1,4 @@
-<h1 align="center">🌄 InspireScript webpack Base Configuration</h1>
+<h1 align="center">🌄 InspireScript webpack Configurations</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@inspirescript/webpack-configs">
@@ -16,6 +16,8 @@
   <a href="https://github.com/semantic-release/semantic-release" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="managed by semantic release">
   </a>
+  <img src="https://img.shields.io/badge/%20%20%F0%9F%8C%84-InspireScript-bb41f4.svg" alt="InspireScript"/>
+  <img src="https://img.shields.io/badge/%20%20%F0%9F%A6%84%F0%9F%8C%88-made%20with%20love-ce068b.svg" alt="made with love" />
 </p>
 
 This package creates the base webpack configuration for InspireScript projects.
