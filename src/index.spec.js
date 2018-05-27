@@ -1,12 +1,12 @@
 const webpackConfigs = require('./index')
 
-// Mock plugin to ensure snapshot paths are agnostic to machine
+// Mocks to ensure snapshots output consistent values based on configs used
 jest.mock('mini-css-extract-plugin')
-global.cwd = () => '/test/cwd/path'
 
 describe('webpack-configs', () => {
   beforeEach(() => {
-    // Ensures cwd() passed to clean plugin is stable
+    // Ensure a consistent working directory is used for paths generated in
+    // snapshots
     process.cwd = () => '/test/cwd/path'
   })
 
