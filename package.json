@@ -63,7 +63,7 @@
     "shelljs": "~0.8.2",
     "style-loader": "~0.21.0",
     "svg-symbol-sprite-loader": "~1.1.0",
-    "webpack": "~4.9.1",
+    "webpack": "~4.10.1",
     "webpack-cli": "~2.1.4",
     "webpack-dev-server": "~3.1.4",
     "webpack-merge": "~4.1.2",
