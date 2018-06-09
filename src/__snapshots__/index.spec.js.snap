@@ -398,7 +398,7 @@ Object {
     },
     DuplicatePackageCheckerPlugin {
       "options": Object {
-        "emitError": true,
+        "emitError": false,
         "exclude": null,
         "showHelp": true,
         "strict": true,

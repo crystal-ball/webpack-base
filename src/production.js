@@ -106,7 +106,6 @@ module.exports = ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
     // in the same build
     new DuplicatePackageCheckerPlugin({
       verbose: true, // Show module that is requiring each duplicate package
-      emitError: true, // Emit errors instead of warnings
     }),
 
     // Extract CSS
