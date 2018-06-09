@@ -11,12 +11,14 @@ const production = require('./production')
  * specific to environment and can be overriden as needed for custom build
  * requirements.
  * @param {Object} configs
- * @param {Object} configs.devServer
  * @param {string} configs.env
  * @param {Object} configs.paths
+ * @param {Object} configs.serve
  * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackConfigs(configs = {}) {
+  if (process.env.WEBPACK_SERVE) configs = { env: 'development' }
+
   const validatedConfigs = defaultConfigs(configs)
 
   // Ensure that Babel has an environment variable for .babelrc

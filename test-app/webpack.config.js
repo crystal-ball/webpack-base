@@ -13,6 +13,8 @@ const webpackConfigs = require('@inspirescript/webpack-configs')
  * @return {Object} Complete webpack configuration
  */
 module.exports = env => {
+  if (typeof env === 'object') env = 'development'
+
   const baseConfigs = webpackConfigs({
     env,
     paths: {

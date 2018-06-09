@@ -1,11 +1,11 @@
 {
-  "name": "template",
+  "name": "test-app",
   "version": "0.0.0",
-  "description": "",
+  "description": "InspireScript webpack configs test application",
   "scripts": {
     "build": "NODE_ENV=production webpack --env=production",
     "stats": "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
-    "start": "webpack-dev-server --env=development --host 0.0.0.0",
+    "start": "webpack-serve --host=0.0.0.0",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest src",
     "flow": "flow",
@@ -20,11 +20,11 @@
   "dependencies": {
     "classnames": "~2.2.6",
     "componentry": "~2.3.1",
-    "nanoid": "~1.0.2",
+    "nanoid": "~1.0.3",
     "prop-types": "^15.6.1",
     "react": "~16.4.0",
     "react-dom": "~16.4.0",
-    "react-hot-loader": "~4.3.0",
+    "react-hot-loader": "~4.3.1",
     "react-redux": "~5.0.7",
     "react-router-dom": "~4.3.1",
     "redux": "~4.0.0",
@@ -35,7 +35,7 @@
     "@inspirescript/webpack-configs": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint-config-eloquence": "^7.4.0",
-    "flow-bin": "^0.73.0",
-    "prettier": "^1.12.1"
+    "flow-bin": "^0.74.0",
+    "prettier": "^1.13.5"
   }
 }

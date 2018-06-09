@@ -1,8 +1,10 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const WebpackMonitor = require('webpack-monitor')
 const autoprefixer = require('autoprefixer')
+const chalk = require('chalk')
 const { NamedModulesPlugin } = require('webpack')
 
 /** Production environment specific configurations. */
@@ -78,6 +80,18 @@ module.exports = ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
   // Production plugins
   // ---------------------------------------------------------------------------
   plugins: [
+    // --- 🔢 Stats
+    // Visual compile indicator with progress bar
+    new ProgressBarPlugin({
+      /* eslint-disable no-console */
+      callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
+      /* eslint-enable no-console */
+      clear: false, // Don't clear the bar on completion
+      format: `  Hacking time... [:bar] ${chalk.green.bold(
+        ':percent'
+      )} (:elapsed seconds) :msg`,
+    }),
+
     // --- 🛣 Modules
     // Uses the relative path of a module for the module id instead of the module
     // index. This produces more consistent module ids across builds b/c the path
