@@ -11,8 +11,7 @@ const sagaMiddleware = createSagaMiddleware()
 // otherwise fallback to redux compose
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
-  process.env.NODE_ENV === 'development' ||
-  window.location.href.includes('debug=true')
+  process.env.NODE_ENV === 'development' || window.location.href.includes('debug=true')
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : compose
 

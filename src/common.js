@@ -10,7 +10,6 @@ module.exports = ({
   appPublic,
   appSrc,
   context: projectContext,
-  env,
   htmlTemplate,
   iconsSpriteLoaderInclude,
   outputFilename,
@@ -19,7 +18,7 @@ module.exports = ({
 }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
-  mode: env,
+  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
 
   // Explicitly set the build context for resolving entry points and loaders
   // https://webpack.js.org/configuration/entry-context/#context

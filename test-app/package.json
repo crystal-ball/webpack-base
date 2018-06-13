@@ -1,22 +1,16 @@
 {
   "name": "test-app",
   "version": "0.0.0",
-  "description": "InspireScript webpack configs test application",
+  "description": "Package test application",
   "scripts": {
-    "build": "NODE_ENV=production webpack --env=production",
-    "stats": "LAUNCH_MONITOR=true NODE_ENV=production webpack --env=production",
-    "start": "webpack-serve --host=0.0.0.0",
+    "start": "webpack-serve",
+    "build": "webpack",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest src",
     "flow": "flow",
-    "format": "prettier --write \"src/**/*.{js,md}\"",
+    "format": "prettier --write \"src/**/*.{js,md,scss}\"",
     "lint": "NODE_ENV=test eslint src"
   },
-  "keywords": [
-    "inspirescript"
-  ],
-  "contributors": [],
-  "license": "ISC",
   "dependencies": {
     "classnames": "~2.2.6",
     "componentry": "~2.3.1",
@@ -32,7 +26,7 @@
     "svg-symbol-sprite-loader": "~1.1.0"
   },
   "devDependencies": {
-    "@inspirescript/webpack-configs": "latest",
+    "@crystal-ball/webpack-base": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint-config-eloquence": "^7.4.0",
     "flow-bin": "^0.74.0",

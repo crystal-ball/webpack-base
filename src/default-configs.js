@@ -2,11 +2,9 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any config not specified by consuming applicaiton */
-module.exports = function defaultConfigs({
-  env = 'development',
-  paths = {},
-  serve = {},
-}) {
+module.exports = function defaultConfigs({ paths = {}, serve = {} }) {
+  const env = process.env.WEBPACK_SERVE ? 'development' : 'production'
+
   // Handle default resolution of build specifics off of the source directory, this
   // enables easy source dir configuration without having to specify the path for
   // all downstream source paths
@@ -37,5 +35,5 @@ module.exports = function defaultConfigs({
   // and serve values
   // ℹ️ Once Atom upgrades to Node 8.9+ this can be cleaned up a lot with object
   // spread
-  return Object.assign({ env, serve }, defaults, paths || {})
+  return Object.assign(defaults, paths, serve)
 }

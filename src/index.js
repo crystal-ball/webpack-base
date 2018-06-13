@@ -17,7 +17,9 @@ const production = require('./production')
  * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackConfigs(configs = {}) {
-  if (process.env.WEBPACK_SERVE) configs = { env: 'development' }
+  /* eslint-disable no-param-reassign */
+  configs.env =
+    configs.env || process.env.WEBPACK_SERVE ? 'development' : 'production'
 
   const validatedConfigs = defaultConfigs(configs)
 

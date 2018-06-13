@@ -1,16 +1,16 @@
 {
-  "name": "@inspirescript/webpack-configs",
-  "version": "3.0.0",
-  "description": "InspireScript base wepback configs",
+  "name": "@crystal-ball/webpack-base",
+  "version": "1.0.0",
+  "description": "Customizable webpack base configuration generator",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/inspirescript/webpack-configs.git"
+    "url": "https://github.com/crystal-ball/webpack-base.git"
   },
   "keywords": [
-    "InspireScript",
     "webpack",
-    "configuration"
+    "configuration",
+    "customizable"
   ],
   "contributors": [
     "Dan Hedgecock <hedgecock.d@gmail.com> (https://danhedgecock.com)"
@@ -20,7 +20,7 @@
     "node": ">=7.9"
   },
   "bin": {
-    "generate-inspirescript-project": "./scripts/generate-new-project.js"
+    "🔮": "./scripts/initialize-project.js"
   },
   "scripts": {
     "commit": "git cz",
@@ -31,12 +31,11 @@
     "test:unit": "jest src",
     "test:acceptance": "jest test",
     "test:ci-acceptance": "docker-compose -f docker-compose.test.yml up --exit-code-from puppeteer",
-    "format": "prettier --write \"{guides,scripts,src,test-app}/**/*.{js,md}\"",
-    "lint": "NODE_ENV=test eslint src/**/*.js test-app/**/*.js"
+    "format": "prettier --write \"{scripts,src,test-app}/**/*.{js,scss,md}\"",
+    "lint": "NODE_ENV=test eslint scripts src test-app"
   },
   "dependencies": {
-    "@inspirescript/magic-markdown-loader": "~1.0.0",
-    "autoprefixer": "~8.6.1",
+    "autoprefixer": "~8.6.2",
     "babel-core": "~6.26.3",
     "babel-loader": "~7.1.4",
     "babel-plugin-transform-class-properties": "~6.24.1",
@@ -47,7 +46,7 @@
     "clean-webpack-plugin": "~0.1.19",
     "copy-webpack-plugin": "~4.5.1",
     "css-loader": "~0.28.11",
-    "directory-named-webpack-plugin": "^4.0.0",
+    "directory-named-webpack-plugin": "~4.0.0",
     "duplicate-package-checker-webpack-plugin": "~3.0.0",
     "eslint-import-resolver-webpack": "~0.10.0",
     "eslint-loader": "~2.0.0",
@@ -59,7 +58,7 @@
     "postcss-loader": "~2.1.5",
     "progress-bar-webpack-plugin": "~1.11.0",
     "raw-loader": "~0.5.1",
-    "sass-loader": "~7.0.1",
+    "sass-loader": "~7.0.3",
     "shelljs": "~0.8.2",
     "style-loader": "~0.21.0",
     "svg-symbol-sprite-loader": "~1.1.0",
@@ -68,18 +67,18 @@
     "webpack-merge": "~4.1.2",
     "webpack-monitor": "~1.0.14",
     "webpack-serve": "~1.0.4",
-    "webpack-serve-waitpage": "^1.0.0"
+    "webpack-serve-waitpage": "~1.0.0"
   },
   "devDependencies": {
-    "commitizen": "^2.9.6",
+    "commitizen": "^2.10.1",
     "cz-customizable": "^5.2.0",
     "eslint-config-eloquence": "^7.4.0",
     "flow-bin": "^0.74.0",
     "husky": "^0.14.3",
-    "jest": "^22.4.4",
-    "prettier": "^1.12.1",
-    "puppeteer": "^1.4.0",
-    "semantic-release": "^15.5.0"
+    "jest": "^23.1.0",
+    "prettier": "^1.13.5",
+    "puppeteer": "^1.5.0",
+    "semantic-release": "^15.5.1"
   },
   "config": {
     "commitizen": {
