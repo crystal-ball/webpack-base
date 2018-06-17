@@ -21,7 +21,8 @@ describe('webpack-configs', () => {
   })
 
   test('returns expected prod configs', () => {
-    process.env.WEBPACK_SERVE = false
+    // Remove the webpack serve env variable
+    delete process.env.WEBPACK_SERVE
     const baseConfigs = webpackConfigs({
       env: 'production',
       paths: { context: '/test' },

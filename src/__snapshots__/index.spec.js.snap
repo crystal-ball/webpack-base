@@ -186,7 +186,7 @@ Object {
   "context": "/test",
   "devtool": "source-map",
   "entry": "/test/src/index.js",
-  "mode": "development",
+  "mode": "production",
   "module": Object {
     "rules": Array [
       Object {
@@ -271,7 +271,7 @@ Object {
     },
   },
   "output": Object {
-    "filename": "static/js/[name].js",
+    "filename": "static/js/[name].[chunkhash].js",
     "hashDigestLength": 12,
     "path": "/test/dist",
     "publicPath": "/",
