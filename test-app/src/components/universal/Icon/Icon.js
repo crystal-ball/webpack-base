@@ -7,7 +7,7 @@ import 'media/icons/heart.svg'
 
 type IconProps = {
   id: 'warning' | 'heart',
-  className?: string
+  className?: string,
 }
 
 const Icon: ComponentType<IconProps> = BaseIcon

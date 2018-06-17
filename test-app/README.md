@@ -22,8 +22,9 @@ See [webpack](#webpack) for details on customizing webpack configurations.
 
 ## webpack
 
-All webpack configurations are managed in [`webpack.config.js`](./webpack.config.js) and
-utilize the [`@crystal-ball/webpack-base`](XXX) package.
+All webpack configurations are managed in
+[`webpack.config.js`](./webpack.config.js) and utilize the
+[`@crystal-ball/webpack-base`](XXX) package.
 
 - Follows project conventions outlined in webpack-base readme
 

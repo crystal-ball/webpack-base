@@ -23,8 +23,8 @@ const theme = {
   transitionDuration: 350,
   Button: {
     // Default all buttons to primary theme color
-    color: 'primary'
-  }
+    color: 'primary',
+  },
 }
 
 /**
