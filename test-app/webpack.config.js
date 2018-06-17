@@ -7,13 +7,13 @@ const webpackBase = require('@crystal-ball/webpack-base')
  *
  * 📝 https://github.com/crystal-ball/webpack-base
  */
-module.exports = env => {
+module.exports = () => {
   /*
    * Generate the base configuration object by passing the environment flags and
    * optional options object available for customizing the standard project
    * conventions.
    */
-  const baseConfigs = webpackBase(env /* , {options} */)
+  const baseConfigs = webpackBase(/* { path, serve } */)
 
   /*
    * Handle non-standard, advanced project customization by directly updating the

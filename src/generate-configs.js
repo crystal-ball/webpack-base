@@ -1,8 +1,8 @@
 const fs = require('fs')
 const { join } = require('path')
 
-/** Assign default values to any config not specified by consuming applicaiton */
-module.exports = function defaultConfigs({ paths = {}, serve = {} }) {
+/** Assign default values to any option not specified by consuming applicaiton */
+module.exports = function generateConfigs({ paths = {}, serve = {} } = {}) {
   const env = process.env.WEBPACK_SERVE ? 'development' : 'production'
 
   // Handle default resolution of build specifics off of the source directory, this
@@ -10,14 +10,12 @@ module.exports = function defaultConfigs({ paths = {}, serve = {} }) {
   // all downstream source paths
   const context = paths.context || fs.realpathSync(process.cwd())
   const appSrc = paths.appSrc || join(context, 'src')
-  const appIndexJs = paths.appIndexJs || join(appSrc, 'index.js')
 
   // Default project configs used when not specified by consumer, see README for
   // details on values and usage
   // ⚠️ If you change these ensure that the docs in README are updated!
   const defaults = {
-    appEntry: appIndexJs,
-    appIndexJs,
+    appEntry: join(appSrc, 'index.js'),
     appPublic: join(context, 'public'),
     appSrc,
     babelLoaderInclude: [appSrc],
