@@ -9,7 +9,7 @@ services:
     volumes:
       # Mount resources that we want kept in sync with local as volumes for development
       # webpack source
-      - './src:/usr/src/app/node_modules/@inspirescript/webpack-configs/src'
+      - './src:/usr/src/app/node_modules/@crystal-ball/webpack-base/src'
       # Guides
       - './guides:/usr/src/app/guides'
       # Template project

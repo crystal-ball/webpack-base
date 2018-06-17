@@ -35,5 +35,5 @@ module.exports = function defaultConfigs({ paths = {}, serve = {} }) {
   // and serve values
   // ℹ️ Once Atom upgrades to Node 8.9+ this can be cleaned up a lot with object
   // spread
-  return Object.assign(defaults, paths, serve)
+  return Object.assign(defaults, paths, { serve })
 }

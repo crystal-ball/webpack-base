@@ -1,8 +1,7 @@
 {
-  "printWidth": 84,
+  "printWidth": 90,
   "singleQuote": true,
   "semi": false,
-  "trailingComma": "es5",
   "proseWrap": "always",
   "overrides": [
     {

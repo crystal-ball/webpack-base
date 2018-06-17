@@ -6,7 +6,7 @@ const development = require('./development')
 const production = require('./production')
 
 /**
- * InspireScript projects' base webpack configs include configurations for loader
+ * Crystal ball projects' base webpack configs include configurations for loader
  * definitions, dev server, build indicators, stats, etc. The configurations are
  * specific to environment and can be overriden as needed for custom build
  * requirements.

@@ -1,12 +1,11 @@
 const { writeFileSync } = require('fs')
 const { resolve } = require('path')
 
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 const sourcePackage = require('../source.package.json')
 const projectPackage = require('../package.json')
 
-delete projectPackage.devDependencies['@inspirescript/webpack-configs']
+delete projectPackage.devDependencies['@crystal-ball/webpack-base']
 
 projectPackage.devDependencies = Object.assign(
   {},

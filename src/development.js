@@ -3,13 +3,7 @@ const webpackServeWaitpage = require('webpack-serve-waitpage')
 const chalk = require('chalk')
 
 /** Development environment specfic configurations */
-module.exports = ({
-  appPublic,
-  babelLoaderInclude,
-  serve,
-  publicPath,
-  sassIncludePaths,
-}) => ({
+module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) => ({
   // This makes the bundle appear split into separate modules in the devtools.
   // We use this instead of source maps in order to have visibility into actual code
   // being executed, `cheap-module-source-map` can be set if needed

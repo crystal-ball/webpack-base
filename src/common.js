@@ -1,5 +1,4 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const { EnvironmentPlugin } = require('webpack')
@@ -49,23 +48,6 @@ module.exports = ({
     // Alias can be used to point imports to specific modules, include empty object
     // to allow direct assignment in consuming packages
     alias: {},
-    // Custom plugins used with webpack module resolution
-    plugins: [
-      // 🎉 Plugin allows automatically resolving a file based on the directory
-      // name, we use this with component directories to resolve named component
-      // files without requiring an import/export index.js for each component
-      // https://github.com/shaketbaby/directory-named-webpack-plugin
-      // ⚠️ Using DirectoryNamedWebpackPlugin is experimental, it's possible to
-      // duplicate this behavior using index.js import/export files
-      new DirectoryNamedWebpackPlugin({
-        honorIndex: true,
-        // This magiks is only intended for use with application components, don't
-        // mess with node modules resolution
-        exclude: /node_modules/,
-        // 🐛 https://github.com/shaketbaby/directory-named-webpack-plugin/issues/30
-        // include: [appSrc],
-      }),
-    ],
   },
 
   // Configure the SplitChunksPlugin to split vendor, runtime and main chunks
@@ -88,18 +70,6 @@ module.exports = ({
   // ---------------------------------------------------------------------------
   module: {
     rules: [
-      // --- 🔮 Markdown loader
-      // Turn plain text into a magic experience!
-      {
-        test: /\.md$/,
-        use: [
-          // Returned JSX must be transpiled to JS
-          { loader: 'babel-loader' },
-          // Convert markdown to a component with content as JSX
-          { loader: '@inspirescript/magic-markdown-loader' },
-        ],
-      },
-
       // --- 📦 SVG icon sprite loader
       // Create an svg sprite with any icons imported into app
       {
