@@ -23,7 +23,7 @@
     "react-router-dom": "~4.3.1",
     "redux": "~4.0.0",
     "redux-saga": "0.16.0",
-    "svg-symbol-sprite-loader": "~1.1.0"
+    "svg-symbol-sprite-loader": "~2.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",

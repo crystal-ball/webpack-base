@@ -23,9 +23,7 @@ module.exports = function defaultConfigs({ paths = {}, serve = {} }) {
     babelLoaderInclude: [appSrc],
     htmlTemplate: join(context, 'src/index.html'),
     iconsSpriteLoaderInclude: [join(appSrc, '/media/icons')],
-    outputFilename: `static/js/[name]${
-      env === 'production' ? '.[chunkhash]' : ''
-    }.js`,
+    outputFilename: `static/js/[name]${env === 'production' ? '.[chunkhash]' : ''}.js`,
     outputPath: join(context, 'dist'),
     publicPath: '/',
     sassIncludePaths: [join(appSrc, '/styles')],

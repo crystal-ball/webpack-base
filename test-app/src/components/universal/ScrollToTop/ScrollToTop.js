@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 type Props = {
   children?: Node,
-  location: {},
+  location: {}
 }
 
 /**
