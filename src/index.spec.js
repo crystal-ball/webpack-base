@@ -11,6 +11,8 @@ describe('webpack-configs', () => {
   })
 
   test('returns expected dev configs', () => {
+    // webpack-serve sets an environment variable
+    process.env.WEBPACK_SERVE = true
     const baseConfigs = webpackConfigs({
       env: 'development',
       paths: { context: '/test' },
@@ -19,6 +21,7 @@ describe('webpack-configs', () => {
   })
 
   test('returns expected prod configs', () => {
+    process.env.WEBPACK_SERVE = false
     const baseConfigs = webpackConfigs({
       env: 'production',
       paths: { context: '/test' },

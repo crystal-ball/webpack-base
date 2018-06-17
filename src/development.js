@@ -100,7 +100,7 @@ module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) =>
       // Suppresses output from dev-server, the FriendlyErrors plugin displays clean
       // error messagging
       logLevel: 'silent',
-      // 😢 TODO: respect CLI flag
+      // Opens the users default browser with application 😃
       open: true,
       // The.port.
       port: 3000,
