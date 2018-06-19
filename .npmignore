@@ -18,3 +18,9 @@ documentation.yml
 docs
 guides
 tree.txt
+.github
+
+# Tests
+__mocks__
+test
+test-app
