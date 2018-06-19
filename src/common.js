@@ -1,9 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
-const chalk = require('chalk')
 const { EnvironmentPlugin } = require('webpack')
 
 /** The common configurations are used across environments */
@@ -12,7 +9,6 @@ module.exports = ({
   appPublic,
   appSrc,
   context: projectContext,
-  env,
   htmlTemplate,
   iconsSpriteLoaderInclude,
   outputFilename,
@@ -21,7 +17,7 @@ module.exports = ({
 }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
-  mode: env,
+  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
 
   // Explicitly set the build context for resolving entry points and loaders
   // https://webpack.js.org/configuration/entry-context/#context
@@ -52,23 +48,6 @@ module.exports = ({
     // Alias can be used to point imports to specific modules, include empty object
     // to allow direct assignment in consuming packages
     alias: {},
-    // Custom plugins used with webpack module resolution
-    plugins: [
-      // 🎉 Plugin allows automatically resolving a file based on the directory
-      // name, we use this with component directories to resolve named component
-      // files without requiring an import/export index.js for each component
-      // https://github.com/shaketbaby/directory-named-webpack-plugin
-      // ⚠️ Using DirectoryNamedWebpackPlugin is experimental, it's possible to
-      // duplicate this behavior using index.js import/export files
-      new DirectoryNamedWebpackPlugin({
-        honorIndex: true,
-        // This magiks is only intended for use with application components, don't
-        // mess with node modules resolution
-        exclude: /node_modules/,
-        // 🐛 https://github.com/shaketbaby/directory-named-webpack-plugin/issues/30
-        // include: [appSrc],
-      }),
-    ],
   },
 
   // Configure the SplitChunksPlugin to split vendor, runtime and main chunks
@@ -91,18 +70,6 @@ module.exports = ({
   // ---------------------------------------------------------------------------
   module: {
     rules: [
-      // --- 🔮 Markdown loader
-      // Turn plain text into a magic experience!
-      {
-        test: /\.md$/,
-        use: [
-          // Returned JSX must be transpiled to JS
-          { loader: 'babel-loader' },
-          // Convert markdown to a component with content as JSX
-          { loader: '@inspirescript/magic-markdown-loader' },
-        ],
-      },
-
       // --- 📦 SVG icon sprite loader
       // Create an svg sprite with any icons imported into app
       {
@@ -139,18 +106,6 @@ module.exports = ({
   // Common plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    // --- 🔢 Stats
-    // Visual compile indicator with progress bar
-    new ProgressBarPlugin({
-      /* eslint-disable no-console */
-      callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
-      /* eslint-enable no-console */
-      clear: false, // Don't clear the bar on completion
-      format: `  Hacking time... [:bar] ${chalk.green.bold(
-        ':percent'
-      )} (:elapsed seconds) :msg`,
-    }),
-
     // --- 💉 Variable injections
     // Define environment variables in build.
     // ℹ️ Values passed to EnvironmentPlugin are defaults

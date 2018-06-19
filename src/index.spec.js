@@ -11,18 +11,16 @@ describe('webpack-configs', () => {
   })
 
   test('returns expected dev configs', () => {
-    const baseConfigs = webpackConfigs({
-      env: 'development',
-      paths: { context: '/test' },
-    })
+    // webpack-serve sets an environment variable
+    process.env.WEBPACK_SERVE = true
+    const baseConfigs = webpackConfigs({ paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
 
   test('returns expected prod configs', () => {
-    const baseConfigs = webpackConfigs({
-      env: 'production',
-      paths: { context: '/test' },
-    })
+    // Remove the webpack serve env variable
+    delete process.env.WEBPACK_SERVE
+    const baseConfigs = webpackConfigs({ paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
 })

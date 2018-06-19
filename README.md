@@ -220,29 +220,30 @@ for development and production environments.
 #### Process
 
 1.  Start the docker container: `npm run container`
-1.  After the image/container are created start the dev server: `npm start`
+1.  After the image/container are created start the dev server with host set to
+    work with Docker: `npx webpack-serve --host=0.0.0.0`
 
 ## Guides
 
-* [Project Toolchain][toolchain]
-* [Project Application][application]
+- [Project Toolchain][toolchain]
+- [Project Application][application]
 
 #### Tools
 
-* [Babel][]
-* [webpack][]
+- [Babel][]
+- [webpack][]
 
 #### Application
 
-* [Styles][]
+- [Styles][]
 
 ## Contributing 😃
 
 All contributions are greatly appreciated 👍🎉. To contribute please:
 
-* Review the repo [Code of Conduct](./CODE_OF_CONDUCT.md), it is not just for
+- Review the repo [Code of Conduct](./CODE_OF_CONDUCT.md), it is not just for
   show!
-* Review the [Contributing Guide](./CONTRIBUTING.md) for a helpful code overview
+- Review the [Contributing Guide](./CONTRIBUTING.md) for a helpful code overview
   and repository pull request process details.
 
 ## Node version support
@@ -252,8 +253,8 @@ users of ESLint import plugin are able to parse these webpack configs.
 
 ## Roadmap
 
-* [ ] Investigate usage of [profile][] in builds
-* [ ] Investigate including [Bundle Buddy][bundle] plugin
+- [ ] Investigate usage of [profile][] in builds
+- [ ] Investigate including [Bundle Buddy][bundle] plugin
 
 <!-- Links -->
 

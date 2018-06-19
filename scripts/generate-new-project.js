@@ -39,4 +39,4 @@ writeFileSync(
   JSON.stringify(templatePackage, null, 2)
 )
 
-console.log('Project generated!')
+console.log('Project generated!') // eslint-disable-line

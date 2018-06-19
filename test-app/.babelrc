@@ -1,26 +1,38 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": { "browsers": "last 2 versions" }
-      }
-    ],
-    "react"
-  ],
-  "plugins": [
-    "react-hot-loader/babel",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    "transform-runtime" // runtime needed for generators
-  ],
-  "env": {
-    "production": {
-      "plugins": [
-        "transform-object-rest-spread",
-        "transform-class-properties",
-        "transform-runtime" // Library babel-helpers with import statements
+  env: {
+    development: {
+      presets: [
+        [
+          'env',
+          {
+            modules: false,
+            targets: { browsers: ['>0.25%', 'not ie 11', 'not op_mini all'] }
+          }
+        ],
+        'react'
+      ],
+      plugins: [
+        'react-hot-loader/babel',
+        'transform-object-rest-spread',
+        'transform-class-properties',
+        'transform-runtime' // Needed for generators and babel-helpers
+      ]
+    },
+    production: {
+      presets: [
+        [
+          'env',
+          {
+            modules: false,
+            targets: { browsers: ['>0.25%', 'not ie 11', 'not op_mini all'] }
+          }
+        ],
+        'react'
+      ],
+      plugins: [
+        'transform-object-rest-spread',
+        'transform-class-properties',
+        'transform-runtime' // Needed for generators and babel-helpers
       ]
     }
   }

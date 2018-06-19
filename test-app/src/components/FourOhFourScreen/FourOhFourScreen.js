@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Icon from 'components/universal/Icon'
+import Icon from 'components/universal/Icon/Icon'
 
 const FourOhFourScreen = () => (
   <div>

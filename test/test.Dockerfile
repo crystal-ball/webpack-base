@@ -20,8 +20,8 @@ RUN node scripts/prepare-container-install.js
 RUN npm install
 
 # Copy project package to installed version package
-COPY ./src /usr/src/app/node_modules/@inspirescript/webpack-configs/src
-COPY ./package.json /usr/src/app/node_modules/@inspirescript/webpack-configs/package.json
+COPY ./src /usr/src/app/node_modules/@crystal-ball/webpack-base/src
+COPY ./package.json /usr/src/app/node_modules/@crystal-ball/webpack-base/package.json
 
 # Copy test app in to container
 COPY ./test-app .

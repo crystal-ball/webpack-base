@@ -1,14 +1,9 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const webpackServeWaitpage = require('webpack-serve-waitpage')
 const chalk = require('chalk')
-const { HotModuleReplacementPlugin } = require('webpack')
 
 /** Development environment specfic configurations */
-module.exports = ({
-  appPublic,
-  babelLoaderInclude,
-  devServer,
-  sassIncludePaths,
-}) => ({
+module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) => ({
   // This makes the bundle appear split into separate modules in the devtools.
   // We use this instead of source maps in order to have visibility into actual code
   // being executed, `cheap-module-source-map` can be set if needed
@@ -76,48 +71,67 @@ module.exports = ({
         messages: [
           `  🎉  ${chalk.green.bold('BINGO')} 🎉`,
           `  Application running at ${chalk.blue.underline(
-            `http://localhost:${devServer.port || 3000}`
+            `http://localhost:${serve.port || 3000}`
           )}`,
         ],
         notes: [],
       },
     }),
-
-    // --- 🔥 Modules
-    // HMR - see guides/architecture/build
-    new HotModuleReplacementPlugin(),
   ],
 
-  // Dev Server
+  // webpack-serve dev server
   // ---------------------------------------------------------------------------
-  devServer: Object.assign(
+  /**
+   * webpack-serve is a Koa server. It uses two libraries:
+   *
+   * - `webpack-dev-middleware` serves the files emitted by webpack.
+   *   https://github.com/webpack/webpack-dev-middleware
+   * - `webpack-hot-client` creates a WebSocket server and automagically adds the
+   *   necessary webpack configuration, webpack plugins and client scripts.
+   *   https://github.com/webpack-contrib/webpack-hot-client
+   *
+   * See: https://github.com/webpack-contrib/webpack-serve
+   */
+  serve: Object.assign(
     {
       // Tell the server where to serve content from. This is only necessary if you
       // want to serve static files.
-      contentBase: appPublic,
-      // enable gzip compression
-      compress: true,
-      // Enable history API fallback so HTML5 History API based
-      // routing works. This is a good default that will come
-      // in handy in more complicated setups.
-      // true for index.html upon 404, object for multiple paths
-      historyApiFallback: true,
-      // The. port.
-      port: 3000,
-      // See guides/architecture/build - HMR
-      hot: true,
-      // true for self-signed, object for cert authority
-      https: false,
-      // overlay: true captures only errors
-      overlay: {
-        errors: true,
-        warnings: false,
-      },
+      content: appPublic,
       // Suppresses output from dev-server, the FriendlyErrors plugin displays clean
       // error messagging
-      quiet: true,
+      logLevel: 'silent',
+      // Opens the users default browser with application 😃
+      open: true,
+      // The.port.
+      port: 3000,
+
+      // Configures webpack-dev-middleware.
+      dev: {
+        // 😢 Add a note to docs about `publicPath` config, it's defaulted to '/' so
+        // it should be fine for dev envs, but is available for speshal routing
+        logLevel: 'silent',
+      },
+
+      // Configures webpack-hot-client
+      hot: {},
+
+      // The add option exposes the underlying Koa app, the webpack-dev and koa-static
+      // middlewares, and the internal webpack-serve options object
+      // See: https://github.com/webpack-contrib/webpack-serve#add-function-parameters
+      add: (app, middleware, options) => {
+        // Include waitpage invocation before everything else to ensure it has
+        app.use(webpackServeWaitpage(options, { theme: 'material' }))
+
+        // HTML5 history API fallback, rewrites request to index.html for direct
+        // requests, determined by a request without a '.' in final url path section
+        app.use((ctx, next) => {
+          const { url } = ctx.request
+          if (url.lastIndexOf('.') < url.lastIndexOf('/')) ctx.url = '/index.html'
+          return next()
+        })
+      },
     },
     // ℹ️ Any custom configurations passed to configs will override the defaults
-    devServer
+    serve
   ),
 })
