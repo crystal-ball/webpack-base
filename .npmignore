@@ -23,5 +23,4 @@ tree.txt
 # Tests
 __mocks__
 test
-
-# Be sure to publish the test-app for generating new projects!
+test-app

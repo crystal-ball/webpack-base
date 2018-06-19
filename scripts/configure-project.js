@@ -9,7 +9,11 @@ const { resolve } = require('path')
 const cwd = process.cwd()
 
 // Copy template project
-shell.cp(resolve(__dirname, '../test-app', '.babelrc'), cwd)
-shell.cp(resolve(__dirname, '../test-app', 'webpack.config.js'), cwd)
+shell.cp(resolve(__dirname, 'config-files/.babelrc'), cwd)
+shell.cp(resolve(__dirname, 'config-files/.eslintrc.js'), cwd)
+shell.cp(resolve(__dirname, 'config-files/webpack.config.js'), cwd)
+
+shell.mkdir(resolve(cwd, 'public'))
+shell.cp(resolve(__dirname, 'config-files/favicon.ico'), cwd)
 
 console.log('Configurations generated!') // eslint-disable-line
