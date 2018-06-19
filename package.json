@@ -20,7 +20,8 @@
     "node": ">=7.9"
   },
   "bin": {
-    "🔮": "./scripts/initialize-project.js"
+    "🔮": "./scripts/initialize-project.js",
+    "webpack-base": "./scripts/initialize-project.js"
   },
   "scripts": {
     "commit": "git cz",
