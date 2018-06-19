@@ -1,9 +1,9 @@
-const webpackConfigs = require('./index')
+const webpackBase = require('./index')
 
 // Mocks to ensure snapshots output consistent values based on configs used
 jest.mock('mini-css-extract-plugin')
 
-describe('webpack-configs', () => {
+describe('webpack-base', () => {
   beforeEach(() => {
     // Ensure a consistent working directory is used for paths generated in
     // snapshots
@@ -13,14 +13,14 @@ describe('webpack-configs', () => {
   test('returns expected dev configs', () => {
     // webpack-serve sets an environment variable
     process.env.WEBPACK_SERVE = true
-    const baseConfigs = webpackConfigs({ paths: { context: '/test' } })
+    const baseConfigs = webpackBase({ paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
 
   test('returns expected prod configs', () => {
     // Remove the webpack serve env variable
     delete process.env.WEBPACK_SERVE
-    const baseConfigs = webpackConfigs({ paths: { context: '/test' } })
+    const baseConfigs = webpackBase({ paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
 })

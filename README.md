@@ -1,14 +1,14 @@
-<h1 align="center">🌄 InspireScript webpack Configurations</h1>
+<h1 align="center">🔮 Crystal ball webpack base configs</h1>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@inspirescript/webpack-configs">
-    <img src="https://img.shields.io/npm/v/@inspirescript/webpack-configs.svg?style=flat-square" alt="current version">
+  <a href="https://www.npmjs.com/package/@crystal-ball/webpack-base">
+    <img src="https://img.shields.io/npm/v/@crystal-ball/webpack-base.svg?style=flat-square" alt="current version">
   </a>
-  <a href="https://travis-ci.com/inspirescript/webpack-configs">
-    <img src="https://travis-ci.com/inspirescript/webpack-configs.svg?branch=master" alt="Build">
+  <a href="https://travis-ci.com/crystal-ball/webpack-base">
+    <img src="https://travis-ci.com/crystal-ball/webpack-base.svg?branch=master" alt="Build">
   </a>
   <a href="https://greenkeeper.io/" target="_blank" rel="noopener noreferrer">
-    <img src="https://badges.greenkeeper.io/inspirescript/webpack-configs.svg">
+    <img src="https://badges.greenkeeper.io/crystal-ball/webpack-base.svg">
   </a>
   <a href="https://github.com/prettier/prettier" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier">
@@ -16,40 +16,33 @@
   <a href="https://github.com/semantic-release/semantic-release" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="managed by semantic release">
   </a>
-  <img src="https://img.shields.io/badge/%20%20%F0%9F%8C%84-InspireScript-bb41f4.svg" alt="InspireScript"/>
   <img src="https://img.shields.io/badge/%20%20%F0%9F%A6%84%F0%9F%8C%88-made%20with%20love-ce068b.svg" alt="made with love" />
 </p>
 
-This package creates the base webpack configuration for InspireScript projects.
-The exported function expects an options object with the build environment. An
+This package creates a base webpack configuration for modern React projects. The
+exported function expects an options object with the build environment. An
 optional paths object can be used to customize build behavior.
 
 ## Installation
 
 ```bash
-npm i -D @inspire-script/webpack-configs
+npm i -D @crystal-ball/webpack-base
 ```
 
 ## Usage
 
 ```javascript
 // webpack.config.js
-const { resolve } = require('path')
-const webpackConfigs = require('@inspire-script/webpack-configs')
+const webpackBase = require('@crystal-ball/webpack-base')
 
 module.exports = env => {
-  const baseConfigs = webpackConfigs({
-    env,
-    paths: {
-      // Explicitly set the context for resolving entry points and loaders
-      context: resolve(__dirname),
-    },
-  })
+  const baseConfigs = webpackBase(/* { path, serve } */)
 
   /*
-   * Make any changes to the base webpack configs for your application, eg:
-   * baseConfigs.module.rules.push({ custom loader... })
+   * Handle non-standard, advanced project customization by directly updating the
+   * generated base configs.
    */
+  // eg: baseConfigs.bail = false
 
   return baseConfigs
 }

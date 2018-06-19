@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`webpack-configs returns expected dev configs 1`] = `
+exports[`webpack-base returns expected dev configs 1`] = `
 Object {
   "context": "/test",
   "devtool": "eval",
@@ -180,7 +180,7 @@ Object {
 }
 `;
 
-exports[`webpack-configs returns expected prod configs 1`] = `
+exports[`webpack-base returns expected prod configs 1`] = `
 Object {
   "bail": true,
   "context": "/test",
