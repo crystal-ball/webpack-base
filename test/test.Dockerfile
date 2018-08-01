@@ -25,7 +25,6 @@ COPY ./package.json /usr/src/app/node_modules/@crystal-ball/webpack-base/package
 
 # Copy test app in to container
 COPY ./test-app .
-COPY ./guides /usr/src/app/guides
 
 # Run Build
 RUN npm run build
