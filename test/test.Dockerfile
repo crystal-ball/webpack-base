@@ -17,7 +17,7 @@ RUN node scripts/prepare-container-install.js
 
 # --- PROJECT ---
 
-RUN npm install
+RUN npm install --loglevel error
 
 # Copy project package to installed version package
 COPY ./src /usr/src/app/node_modules/@crystal-ball/webpack-base/src
