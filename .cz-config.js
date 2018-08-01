@@ -6,8 +6,7 @@ module.exports = {
     { value: 'fix', name: '👍 fix:        A bug fix' },
     {
       value: 'refactor',
-      name:
-        '🔩 refactor:   A code change that neither fixes a bug nor adds a feature',
+      name: '🔩 refactor:   A code change that neither fixes a bug nor adds a feature',
     },
     {
       value: 'test',
@@ -25,12 +24,5 @@ module.exports = {
 
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix', 'style', 'refactor', 'perf', 'chore'],
-  scopes: [
-    { name: 'javascript' },
-    { name: 'styles' },
-    { name: 'icons' },
-    { name: 'markdown' },
-    { name: 'stats' },
-    { name: 'demo' },
-  ],
+  scopes: ['ci', 'deps', 'javascript', 'styles', 'icons', 'markdown', 'stats', 'demo'],
 }
