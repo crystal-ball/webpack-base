@@ -7,9 +7,6 @@
   <a href="https://travis-ci.com/crystal-ball/webpack-base">
     <img src="https://travis-ci.com/crystal-ball/webpack-base.svg?branch=master" alt="Build">
   </a>
-  <a href="https://greenkeeper.io/" target="_blank" rel="noopener noreferrer">
-    <img src="https://badges.greenkeeper.io/crystal-ball/webpack-base.svg">
-  </a>
   <a href="https://github.com/prettier/prettier" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier">
   </a>
