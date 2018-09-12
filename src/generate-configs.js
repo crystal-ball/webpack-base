@@ -27,6 +27,16 @@ module.exports = function generateConfigs({ paths = {}, serve = {} } = {}) {
     sassIncludePaths: [join(appSrc, '/styles')],
   }
 
+  // 🐳 When running in a Docker environment ports must be known in order to expose them
+  // in the Dockerfile and the host must be 0.0.0.0
+  if (process.env.DOCKER) {
+    /* eslint-disable no-param-reassign */
+    serve.host = serve.host || '0.0.0.0'
+    serve.hotClient = serve.hotClient || {}
+    serve.hotClient.port = serve.hotClient.port || 3001
+    /* eslint-enable no-param-reassign */
+  }
+
   // Overwrite the default path configs with any custom paths, pass through the env
   // and serve values
   // ℹ️ Once Atom upgrades to Node 8.9+ this can be cleaned up a lot with object

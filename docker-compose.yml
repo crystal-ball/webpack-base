@@ -3,9 +3,10 @@ services:
   app:
     build: .
     ports:
+      # Both the webpack serve and hot client ports must be exposed!
       - '3000:3000'
+      - '3001:3001'
       - '5000:5000'
-      - '8081:8081'
     volumes:
       # Mount resources that we want kept in sync with local as volumes for development
       # webpack source

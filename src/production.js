@@ -5,6 +5,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const WebpackMonitor = require('webpack-monitor')
 const autoprefixer = require('autoprefixer')
 const chalk = require('chalk')
+const postCSSCustomProperties = require('postcss-custom-properties')
 const { NamedModulesPlugin } = require('webpack')
 
 /** Production environment specific configurations. */
@@ -59,9 +60,11 @@ module.exports = ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
             },
           },
           {
+            // Use postcss to run CSS through autoprefixer and css variables
+            // transform
             loader: 'postcss-loader',
             options: {
-              plugins: [autoprefixer()],
+              plugins: [postCSSCustomProperties(), autoprefixer()],
             },
           },
           {
