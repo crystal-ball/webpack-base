@@ -22,11 +22,11 @@ beforeAll(async () => {
 describe('application renders', () => {
   test('title renders', async () => {
     const title = await page.$eval('h1', h1 => h1.innerHTML)
-    expect(title).toEqual('Crystal ball 🔮')
+    expect(title).toEqual('Home screen')
 
     const imgSrc = await page.$eval('img', image => image.src)
     expect(imgSrc).toEqual(
-      expect.stringMatching(/\/static\/media\/Hood-dan-hawk\.[a-z0-9]+?\.jpg/)
+      expect.stringMatching(/\/static\/media\/karly-santiago\.[a-z0-9]+?\.jpg/)
     )
   })
 })
