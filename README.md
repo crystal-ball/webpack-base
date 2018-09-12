@@ -198,6 +198,16 @@ The following environment variables are injected by the build:
 | `process.env.DEBUG`       | Defaults to false, can be used for adding detailed logging in dev environment           |
 | `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths |
 
+## 🐳 Using with Docker
+
+In order to use the project inside of a Docker container, the following ports
+must be exposed: `3000` and `3001`. Include a `DOCKER` environment variable when
+starting the server to set the host and ports:
+
+```
+DOCKER=true npx webpack-serve
+```
+
 ## Testing
 
 Development and testing of the repository use a Docker workflow to ensure that
@@ -207,25 +217,16 @@ Node supported. The `/test-app` directory includes a complete test application.
 Unit tests are run with Jest and use snapshots to validate the generated configs
 for development and production environments.
 
-#### Process
+1.  Start the docker container: `npm run container` (The image/container will be
+    created and started)
+2.  Start the webpack server for Docker envs: `npm run start:docker`
 
-1.  Start the docker container: `npm run container`
-1.  After the image/container are created start the dev server with host set to
-    work with Docker: `npx webpack-serve --host=0.0.0.0`
+## Features
 
-## Guides
+TODO...
 
-- [Project Toolchain][toolchain]
-- [Project Application][application]
-
-#### Tools
-
-- [Babel][]
-- [webpack][]
-
-#### Application
-
-- [Styles][]
+- [`webpack-serve-overlay`][overlay] provides an error overlay on compilation
+  error.
 
 ## Contributing 😃
 
@@ -248,10 +249,6 @@ users of ESLint import plugin are able to parse these webpack configs.
 
 <!-- Links -->
 
-[toolchain]: ./guides/Project%20Toolchain.md
-[application]: ./guides/Project%20Application.md
-[babel]: ./guides/tools/Babel.md
-[webpack]: ./guides/tools/webpack.md
-[styles]: ./guides/application/Styles.md
+[overlay]: https://github.com/G-Rath/webpack-serve-overlay
 [profile]: https://webpack.js.org/configuration/other-options/#profile
 [bundle]: https://github.com/samccone/bundle-buddy

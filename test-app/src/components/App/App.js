@@ -34,7 +34,8 @@ const theme = {
  * 2. Sets up application level routing and components
  */
 const App = () => {
-  logger('app render')
+  logger('Test application initialized 🎉')
+
   return (
     <BrowserRouter>
       <Componentry.ThemeProvider theme={theme}>

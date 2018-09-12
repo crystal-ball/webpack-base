@@ -71,7 +71,7 @@ module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) =>
         messages: [
           `  🎉  ${chalk.green.bold('BINGO')} 🎉`,
           `  Application running at ${chalk.blue.underline(
-            `http://localhost:${serve.port || 3000}`
+            `http://${serve.host || 'localhost'}:${serve.port || 3000}`
           )}`,
         ],
         notes: [],
@@ -106,24 +106,25 @@ module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) =>
       port: 3000,
 
       // Configures webpack-dev-middleware.
-      dev: {
+      devMiddleware: {
         // 😢 Add a note to docs about `publicPath` config, it's defaulted to '/' so
         // it should be fine for dev envs, but is available for speshal routing
         logLevel: 'silent',
       },
 
       // Configures webpack-hot-client
-      hot: {},
+      hotClient: {},
 
       // The add option exposes the underlying Koa app, the webpack-dev and koa-static
       // middlewares, and the internal webpack-serve options object
       // See: https://github.com/webpack-contrib/webpack-serve#add-function-parameters
       add: (app, middleware, options) => {
-        // Include waitpage invocation before everything else to ensure it has
+        // Mount waitpage first to ensure it has priority
         app.use(webpackServeWaitpage(options, { theme: 'material' }))
 
-        // HTML5 history API fallback, rewrites request to index.html for direct
-        // requests, determined by a request without a '.' in final url path section
+        // Mount HTML5 history API fallback, rewrites request to index.html for
+        // direct requests, determined by a request without a '.' in final url
+        // path section
         app.use((ctx, next) => {
           const { url } = ctx.request
           if (url.lastIndexOf('.') < url.lastIndexOf('/')) ctx.url = '/index.html'

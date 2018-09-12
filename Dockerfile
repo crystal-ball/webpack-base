@@ -26,6 +26,8 @@ COPY ./package.json /usr/src/app/node_modules/@crystal-ball/webpack-base/package
 # Copy test app in to container
 COPY ./test-app .
 
+# Expose both the webpack-serve and hot client ports
 EXPOSE 3000
+EXPOSE 3001
+# Expose the serve port for testing production builds
 EXPOSE 5000
-EXPOSE 8081

@@ -169,10 +169,10 @@ Object {
   "serve": Object {
     "add": [Function],
     "content": "/test/public",
-    "dev": Object {
+    "devMiddleware": Object {
       "logLevel": "silent",
     },
-    "hot": Object {},
+    "hotClient": Object {},
     "logLevel": "silent",
     "open": true,
     "port": 3000,
@@ -247,6 +247,7 @@ Object {
             "loader": "postcss-loader",
             "options": Object {
               "plugins": Array [
+                [Function],
                 [Function],
               ],
             },
