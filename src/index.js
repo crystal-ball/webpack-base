@@ -1,3 +1,4 @@
+const { argv } = require('yargs')
 const merge = require('webpack-merge')
 
 const generateConfigs = require('./generate-configs')
@@ -16,7 +17,7 @@ const production = require('./production')
  * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackBase(options) {
-  const env = process.env.WEBPACK_SERVE ? 'development' : 'production'
+  const env = argv.mode
 
   // Ensure that Babel has the correct environment variable for .babelrc
   process.env.BABEL_ENV = process.env.BABEL_ENV || env

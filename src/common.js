@@ -1,14 +1,17 @@
+const { argv } = require('yargs')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const { EnvironmentPlugin } = require('webpack')
+const chalk = require('chalk')
 
 /** The common configurations are used across environments */
 module.exports = ({
   appEntry,
   appPublic,
   appSrc,
-  context: projectContext,
+  context,
   htmlTemplate,
   iconsSpriteLoaderInclude,
   outputFilename,
@@ -17,11 +20,11 @@ module.exports = ({
 }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
-  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
+  mode: argv.mode,
 
   // Explicitly set the build context for resolving entry points and loaders
   // https://webpack.js.org/configuration/entry-context/#context
-  context: projectContext,
+  context,
 
   // Default to a single entry and let webpack automatically split and name bundles
   // https://webpack.js.org/configuration/entry-context/#entry
@@ -106,6 +109,18 @@ module.exports = ({
   // Common plugins
   // ---------------------------------------------------------------------------
   plugins: [
+    // --- 🔢 Stats
+    // Visual compile indicator with progress bar
+    new ProgressBarPlugin({
+      /* eslint-disable no-console */
+      callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
+      /* eslint-enable no-console */
+      clear: false, // Don't clear the bar on completion
+      format: `  Hacking time... [:bar] ${chalk.green.bold(
+        ':percent'
+      )} (:elapsed seconds) :msg`,
+    }),
+
     // --- 💉 Variable injections
     // Define environment variables in build.
     // ℹ️ Values passed to EnvironmentPlugin are defaults

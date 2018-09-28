@@ -15,6 +15,9 @@ module.exports = {
     'import/no-named-as-default': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-unresolved': 'off',
+    'import/order': 'off',
+    'import/no-self-import': 'off',
+    'import/no-cycle': 'off',
     // TODO: remove after udpate of eloquence
     'react/destructuring-assignment': 'off',
   },

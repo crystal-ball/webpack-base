@@ -4,7 +4,7 @@
   "description": "Package test application",
   "scripts": {
     "start": "webpack-serve",
-    "start:docker": "DOCKER=true webpack-serve",
+    "start:docker": "webpack-dev-server --mode=development --docker",
     "build": "webpack",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest src",
@@ -15,11 +15,11 @@
   "dependencies": {
     "classnames": "~2.2.6",
     "componentry": "~2.3.1",
-    "nanoid": "~1.2.3",
+    "nanoid": "~1.2.4",
     "prop-types": "^15.6.2",
-    "react": "~16.5.0",
-    "react-dom": "~16.5.0",
-    "react-hot-loader": "~4.3.1",
+    "react": "~16.5.2",
+    "react-dom": "~16.5.2",
+    "react-hot-loader": "~4.3.11",
     "react-redux": "~5.0.7",
     "react-router-dom": "~4.3.1",
     "redux": "~4.0.0",
@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
-    "eslint-config-eloquence": "^9.3.1",
-    "flow-bin": "^0.80.0",
-    "prettier": "^1.14.2"
+    "eslint-config-eloquence": "^9.3.2",
+    "flow-bin": "^0.81.0",
+    "prettier": "^1.14.3"
   }
 }

@@ -12,9 +12,6 @@ import './styles/index.scss'
 import App from './components/App/App'
 import store from './dux/store'
 
-// Include errors overlay during dev only
-if (process.env.NODE_ENV === 'development') require('webpack-serve-overlay') // eslint-disable-line
-
 // Injects SVG symbol sprite into document from local storage if it exists,
 // otherwise fetch, cache in local storage and inject.
 svgSymbolSpriteLoader()
