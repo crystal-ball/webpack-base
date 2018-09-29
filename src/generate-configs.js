@@ -2,12 +2,7 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function generateConfigs({
-  mode,
-  docker,
-  paths = {},
-  devServer = {},
-} = {}) {
+module.exports = function generateConfigs({ mode, paths = {}, devServer = {} } = {}) {
   // Handle default resolution of build specifics off of the source directory, this
   // enables easy source dir configuration without having to specify the path for
   // all downstream source paths
@@ -29,17 +24,6 @@ module.exports = function generateConfigs({
     outputPath: join(context, 'dist'),
     publicPath: '/',
     sassIncludePaths: [join(appSrc, '/styles')],
-  }
-
-  // 🐳 When running in a Docker environment ports must be known in order to
-  // expose them in the Dockerfile and the host must be 0.0.0.0
-  if (docker) {
-    /* eslint-disable no-param-reassign */
-    devServer = {
-      host: '0.0.0.0',
-      ...devServer,
-    }
-    /* eslint-enable no-param-reassign */
   }
 
   // Overwrite the default path configs with any custom paths, pass through the

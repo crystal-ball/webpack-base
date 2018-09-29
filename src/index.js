@@ -18,7 +18,7 @@ const production = require('./production')
  */
 module.exports = function webpackBase(options = {}) {
   process.argv.forEach(arg => {
-    const match = arg.match(/(mode|docker)/)
+    const match = arg.match(/(mode)/)
     // Fallback to true for flags without value, eg --docker
     /* eslint-disable prefer-destructuring */
     if (match) options[match[1]] = arg.split('=')[1] || true

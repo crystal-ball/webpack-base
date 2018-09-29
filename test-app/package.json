@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Package test application",
   "scripts": {
-    "start": "webpack-serve",
-    "start:docker": "webpack-dev-server --mode=development --docker",
-    "build": "webpack",
+    "start": "webpack-dev-server --mode=development",
+    "start:docker": "webpack-dev-server --host=0.0.0.0 --mode=development",
+    "build": "webpack --mode=production",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest src",
     "flow": "flow",
