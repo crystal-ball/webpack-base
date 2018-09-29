@@ -19,9 +19,6 @@
   "engines": {
     "node": ">=8.11"
   },
-  "bin": {
-    "webpack-base": "./scripts/configure-project.js"
-  },
   "scripts": {
     "commit": "git cz",
     "container": "docker-compose run --service-ports --rm app",
@@ -58,7 +55,6 @@
     "progress-bar-webpack-plugin": "~1.11.0",
     "raw-loader": "~0.5.1",
     "sass-loader": "~7.1.0",
-    "shelljs": "~0.8.2",
     "style-loader": "~0.23.0",
     "svg-symbol-sprite-loader": "~2.1.0",
     "webpack": "~4.20.2",
