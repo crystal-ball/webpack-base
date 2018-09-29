@@ -1,11 +1,13 @@
 const fs = require('fs')
 const { join } = require('path')
-const { argv } = require('yargs')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function generateConfigs({ paths = {}, devServer = {} } = {}) {
-  const env = argv.mode
-
+module.exports = function generateConfigs({
+  mode,
+  docker,
+  paths = {},
+  devServer = {},
+} = {}) {
   // Handle default resolution of build specifics off of the source directory, this
   // enables easy source dir configuration without having to specify the path for
   // all downstream source paths
@@ -23,7 +25,7 @@ module.exports = function generateConfigs({ paths = {}, devServer = {} } = {}) {
     context,
     htmlTemplate: join(appSrc, 'index.html'),
     iconsSpriteLoaderInclude: [join(appSrc, 'media/icons')],
-    outputFilename: `static/js/[name]${env === 'production' ? '.[chunkhash]' : ''}.js`,
+    outputFilename: `static/js/[name]${mode === 'production' ? '.[chunkhash]' : ''}.js`,
     outputPath: join(context, 'dist'),
     publicPath: '/',
     sassIncludePaths: [join(appSrc, '/styles')],
@@ -31,7 +33,7 @@ module.exports = function generateConfigs({ paths = {}, devServer = {} } = {}) {
 
   // 🐳 When running in a Docker environment ports must be known in order to
   // expose them in the Dockerfile and the host must be 0.0.0.0
-  if (argv.docker) {
+  if (docker) {
     /* eslint-disable no-param-reassign */
     devServer = {
       host: '0.0.0.0',
@@ -42,5 +44,5 @@ module.exports = function generateConfigs({ paths = {}, devServer = {} } = {}) {
 
   // Overwrite the default path configs with any custom paths, pass through the
   // env and devServer values
-  return { ...defaults, ...paths, devServer }
+  return { mode, ...defaults, ...paths, devServer }
 }

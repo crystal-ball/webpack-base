@@ -1,4 +1,3 @@
-const { argv } = require('yargs')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
@@ -14,13 +13,14 @@ module.exports = ({
   context,
   htmlTemplate,
   iconsSpriteLoaderInclude,
+  mode,
   outputFilename,
   outputPath,
   publicPath,
 }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
-  mode: argv.mode,
+  mode,
 
   // Explicitly set the build context for resolving entry points and loaders
   // https://webpack.js.org/configuration/entry-context/#context

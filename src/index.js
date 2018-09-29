@@ -1,4 +1,4 @@
-const { argv } = require('yargs')
+/* eslint-disable no-param-reassign */
 const merge = require('webpack-merge')
 
 const generateConfigs = require('./generate-configs')
@@ -16,17 +16,23 @@ const production = require('./production')
  * @param {Object} options.serve
  * @returns {Object} Base Webpack configurations object.
  */
-module.exports = function webpackBase(options) {
-  const env = argv.mode
+module.exports = function webpackBase(options = {}) {
+  process.argv.forEach(arg => {
+    const match = arg.match(/(mode|docker)/)
+    // Fallback to true for flags without value, eg --docker
+    /* eslint-disable prefer-destructuring */
+    if (match) options[match[1]] = arg.split('=')[1] || true
+    /* eslint-enable prefer-destructuring */
+  })
 
   // Ensure that Babel has the correct environment variable for .babelrc
-  process.env.BABEL_ENV = process.env.BABEL_ENV || env
+  process.env.BABEL_ENV = process.env.BABEL_ENV || options.mode
 
   const configs = generateConfigs(options)
 
   // Merge common configs with dev vs prod specific configs to return complete
   // webpack configuration object
-  return env === 'production'
+  return options.mode === 'production'
     ? merge(common(configs), production(configs))
     : merge(common(configs), development(configs))
 }
