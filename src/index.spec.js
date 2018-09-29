@@ -29,15 +29,4 @@ describe('webpack-base', () => {
     const baseConfigs = webpackBase({ paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
-
-  test('returns expected docker dev configs', () => {
-    process.argv = process.argv.map(
-      arg => (arg.includes('mode=') ? '--mode=development' : arg)
-    )
-    // Add Docker configs
-    process.argv.push('--docker')
-
-    const baseConfigs = webpackBase({ paths: { context: '/test' } })
-    expect(baseConfigs).toMatchSnapshot()
-  })
 })
