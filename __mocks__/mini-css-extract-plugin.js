@@ -1,6 +1,6 @@
 class MiniCSSExtractPlugin {
   constructor(opts) {
-    this.options = Object.assign({ chunkFilename: opts.filename }, opts)
+    this.options = { chunkFilename: opts.filename, ...opts }
   }
 }
 

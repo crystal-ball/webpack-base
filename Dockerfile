@@ -30,6 +30,5 @@ COPY ./serve.json .
 
 # Expose both the webpack-serve and hot client ports
 EXPOSE 3000
-EXPOSE 3001
 # Expose the serve port for testing production builds
 EXPOSE 5000

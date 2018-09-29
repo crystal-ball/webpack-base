@@ -3,6 +3,18 @@
 exports[`webpack-base returns expected dev configs 1`] = `
 Object {
   "context": "/test",
+  "devServer": Object {
+    "contentBase": "/test/public",
+    "historyApiFallback": true,
+    "hot": true,
+    "open": false,
+    "overlay": Object {
+      "errors": true,
+      "warnings": true,
+    },
+    "port": 3000,
+    "quiet": true,
+  },
   "devtool": "eval",
   "entry": "/test/src/index.js",
   "mode": "development",
@@ -93,6 +105,13 @@ Object {
     "publicPath": "/",
   },
   "plugins": Array [
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
+      },
+    },
     EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
@@ -132,6 +151,12 @@ Object {
     Object {
       "apply": [Function],
     },
+    HotModuleReplacementPlugin {
+      "fullBuildTimeout": 200,
+      "multiStep": undefined,
+      "options": Object {},
+      "requestTimeout": 10000,
+    },
     FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
         "messages": Array [
@@ -165,17 +190,6 @@ Object {
       "/test/src",
       "node_modules",
     ],
-  },
-  "serve": Object {
-    "add": [Function],
-    "content": "/test/public",
-    "devMiddleware": Object {
-      "logLevel": "silent",
-    },
-    "hotClient": Object {},
-    "logLevel": "silent",
-    "open": true,
-    "port": 3000,
   },
 }
 `;
@@ -283,6 +297,13 @@ Object {
     "maxEntrypointSize": 1500000,
   },
   "plugins": Array [
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
+      },
+    },
     EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
@@ -321,13 +342,6 @@ Object {
     },
     Object {
       "apply": [Function],
-    },
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
     },
     NamedModulesPlugin {
       "options": Object {},

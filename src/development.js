@@ -1,9 +1,9 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const webpackServeWaitpage = require('webpack-serve-waitpage')
+const webpack = require('webpack')
 const chalk = require('chalk')
 
 /** Development environment specfic configurations */
-module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) => ({
+module.exports = ({ appPublic, babelLoaderInclude, devServer, sassIncludePaths }) => ({
   // This makes the bundle appear split into separate modules in the devtools.
   // We use this instead of source maps in order to have visibility into actual code
   // being executed, `cheap-module-source-map` can be set if needed
@@ -64,6 +64,10 @@ module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) =>
   // Development plugins
   // ---------------------------------------------------------------------------
   plugins: [
+    // --- 🔥 Hot Module Replacement
+    // See: https://webpack.js.org/concepts/hot-module-replacement/
+    new webpack.HotModuleReplacementPlugin(),
+
     // --- ℹ️ Indicators
     // Shows and clears errors in a easier to read format
     new FriendlyErrorsWebpackPlugin({
@@ -71,7 +75,7 @@ module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) =>
         messages: [
           `  🎉  ${chalk.green.bold('BINGO')} 🎉`,
           `  Application running at ${chalk.blue.underline(
-            `http://${serve.host || 'localhost'}:${serve.port || 3000}`
+            `http://${devServer.host || 'localhost'}:${devServer.port || 3000}`
           )}`,
         ],
         notes: [],
@@ -79,60 +83,37 @@ module.exports = ({ appPublic, babelLoaderInclude, serve, sassIncludePaths }) =>
     }),
   ],
 
-  // webpack-serve dev server
+  // webpack-dev-server
   // ---------------------------------------------------------------------------
+
   /**
-   * webpack-serve is a Koa server. It uses two libraries:
-   *
-   * - `webpack-dev-middleware` serves the files emitted by webpack.
-   *   https://github.com/webpack/webpack-dev-middleware
-   * - `webpack-hot-client` creates a WebSocket server and automagically adds the
-   *   necessary webpack configuration, webpack plugins and client scripts.
-   *   https://github.com/webpack-contrib/webpack-hot-client
-   *
-   * See: https://github.com/webpack-contrib/webpack-serve
+   * WDS docs: https://github.com/webpack/webpack-dev-server
+   * File serving debug info served at /webpack-dev-server
    */
-  serve: Object.assign(
-    {
-      // Tell the server where to serve content from. This is only necessary if you
-      // want to serve static files.
-      content: appPublic,
-      // Suppresses output from dev-server, the FriendlyErrors plugin displays clean
-      // error messagging
-      logLevel: 'silent',
-      // Opens the users default browser with application 😃
-      open: true,
-      // The.port.
-      port: 3000,
+  devServer: {
+    // Only log initial startup information
+    quiet: true,
+    // ℹ️ clientLogLevel - Suppress logging, the FriendlyErrors plugin displays
+    // cleaner messaging Controls the console logs in the browser before
+    // reloading, HMR, etc.
 
-      // Configures webpack-dev-middleware.
-      devMiddleware: {
-        // 😢 Add a note to docs about `publicPath` config, it's defaulted to '/' so
-        // it should be fine for dev envs, but is available for speshal routing
-        logLevel: 'silent',
-      },
-
-      // Configures webpack-hot-client
-      hotClient: {},
-
-      // The add option exposes the underlying Koa app, the webpack-dev and koa-static
-      // middlewares, and the internal webpack-serve options object
-      // See: https://github.com/webpack-contrib/webpack-serve#add-function-parameters
-      add: (app, middleware, options) => {
-        // Mount waitpage first to ensure it has priority
-        app.use(webpackServeWaitpage(options, { theme: 'material' }))
-
-        // Mount HTML5 history API fallback, rewrites request to index.html for
-        // direct requests, determined by a request without a '.' in final url
-        // path section
-        app.use((ctx, next) => {
-          const { url } = ctx.request
-          if (url.lastIndexOf('.') < url.lastIndexOf('/')) ctx.url = '/index.html'
-          return next()
-        })
-      },
+    // Serve static file from the public file (only required for files not
+    // imported into project)
+    contentBase: appPublic,
+    // Serve index.html for all unmatched routes
+    historyApiFallback: true,
+    // Enable hot module replacement feature
+    hot: true,
+    // Disable auto-open until a re-use tab solution is figured out
+    open: false,
+    // Show compilation errors and warnings
+    overlay: {
+      warnings: true,
+      errors: true,
     },
-    // ℹ️ Any custom configurations passed to configs will override the defaults
-    serve
-  ),
+    // The.port.
+    port: 3000,
+    //   // Custom overrides
+    ...devServer,
+  },
 })
