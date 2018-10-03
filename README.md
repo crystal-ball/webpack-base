@@ -1,4 +1,8 @@
-<h1 align="center">🔮 Crystal ball webpack base configs</h1>
+<div align="right">
+  <img src="./assets/project-logo.png" height="100" alt="Crystal Ball webpack base" />
+</div>
+
+<hr >
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@crystal-ball/webpack-base">
