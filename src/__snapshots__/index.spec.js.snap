@@ -180,7 +180,9 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {},
+    "alias": Object {
+      "warning": "/test/node_modules/warning",
+    },
     "extensions": Array [
       ".js",
       ".jsx",
@@ -190,6 +192,415 @@ Object {
       "/test/src",
       "node_modules",
     ],
+  },
+}
+`;
+
+exports[`webpack-base returns expected electron dev configs 1`] = `
+Object {
+  "context": "/test",
+  "devServer": Object {
+    "contentBase": "/test/public",
+    "historyApiFallback": true,
+    "hot": true,
+    "open": false,
+    "overlay": Object {
+      "errors": true,
+      "warnings": true,
+    },
+    "port": 3000,
+    "quiet": true,
+  },
+  "devtool": "eval",
+  "entry": "/test/src/index.js",
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "include": Array [
+          "/test/src/media/icons",
+        ],
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "svg-symbol-sprite-loader",
+          },
+        ],
+      },
+      Object {
+        "exclude": Array [
+          "/test/src/media/icons",
+        ],
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {
+              "name": "static/media/[name].[hash:8].[ext]",
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": Array [
+          Object {
+            "loader": "raw-loader",
+          },
+        ],
+      },
+      Object {
+        "include": Array [
+          "/test/src",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "includePaths": Array [
+                "/test/src/styles",
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "optimization": Object {
+    "runtimeChunk": true,
+    "splitChunks": Object {
+      "chunks": "all",
+      "name": true,
+    },
+  },
+  "output": Object {
+    "filename": "static/js/[name].js",
+    "hashDigestLength": 12,
+    "path": "/test/dist",
+    "publicPath": "/",
+  },
+  "plugins": Array [
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
+      },
+    },
+    EnvironmentPlugin {
+      "defaultValues": Object {
+        "DEBUG": false,
+        "PUBLIC_PATH": "/",
+      },
+      "keys": Array [
+        "DEBUG",
+        "PUBLIC_PATH",
+      ],
+    },
+    HtmlWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "chunks": "all",
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": "/test/public/favicon.ico",
+        "filename": "index.html",
+        "hash": false,
+        "inject": true,
+        "meta": Object {},
+        "minify": false,
+        "showErrors": true,
+        "template": "/test/src/index.html",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    SVGSymbolSpritePlugin {
+      "options": Object {
+        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "injectSpriteId": true,
+      },
+    },
+    Object {
+      "apply": [Function],
+    },
+    HotModuleReplacementPlugin {
+      "fullBuildTimeout": 200,
+      "multiStep": undefined,
+      "options": Object {},
+      "requestTimeout": 10000,
+    },
+    FriendlyErrorsWebpackPlugin {
+      "compilationSuccessInfo": Object {
+        "messages": Array [
+          "  🎉  BINGO 🎉",
+          "  Application running at http://localhost:3000",
+        ],
+        "notes": Array [],
+      },
+      "formatters": Array [
+        [Function],
+        [Function],
+        [Function],
+      ],
+      "onErrors": undefined,
+      "shouldClearConsole": true,
+      "transformers": Array [
+        [Function],
+        [Function],
+        [Function],
+      ],
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "warning": "/test/node_modules/warning",
+    },
+    "extensions": Array [
+      ".js",
+      ".jsx",
+      ".json",
+    ],
+    "modules": Array [
+      "/test/src",
+      "node_modules",
+    ],
+  },
+}
+`;
+
+exports[`webpack-base returns expected electron prod configs 1`] = `
+Object {
+  "bail": true,
+  "context": "/test",
+  "devtool": "source-map",
+  "entry": "/test/src/index.js",
+  "mode": "production",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "include": Array [
+          "/test/src/media/icons",
+        ],
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "svg-symbol-sprite-loader",
+          },
+        ],
+      },
+      Object {
+        "exclude": Array [
+          "/test/src/media/icons",
+        ],
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {
+              "name": "static/media/[name].[hash:8].[ext]",
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": Array [
+          Object {
+            "loader": "raw-loader",
+          },
+        ],
+      },
+      Object {
+        "include": Array [
+          "/test/src",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          "/test/path/to/mini-css-extract-loader",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "includePaths": Array [
+                "/test/src/styles",
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "optimization": Object {
+    "runtimeChunk": true,
+    "splitChunks": Object {
+      "chunks": "all",
+      "name": true,
+    },
+  },
+  "output": Object {
+    "filename": "static/js/[name].[chunkhash].js",
+    "hashDigestLength": 12,
+    "path": "/test/dist",
+    "publicPath": "/",
+  },
+  "performance": Object {
+    "assetFilter": [Function],
+    "hints": "warning",
+    "maxAssetSize": 250000,
+    "maxEntrypointSize": 500000,
+  },
+  "plugins": Array [
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
+      },
+    },
+    EnvironmentPlugin {
+      "defaultValues": Object {
+        "DEBUG": false,
+        "PUBLIC_PATH": "/",
+      },
+      "keys": Array [
+        "DEBUG",
+        "PUBLIC_PATH",
+      ],
+    },
+    HtmlWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "chunks": "all",
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": "/test/public/favicon.ico",
+        "filename": "index.html",
+        "hash": false,
+        "inject": true,
+        "meta": Object {},
+        "minify": false,
+        "showErrors": true,
+        "template": "/test/src/index.html",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    SVGSymbolSpritePlugin {
+      "options": Object {
+        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "injectSpriteId": true,
+      },
+    },
+    Object {
+      "apply": [Function],
+    },
+    NamedModulesPlugin {
+      "options": Object {},
+    },
+    MonitorStats {
+      "options": Object {
+        "capture": true,
+        "jsonOpts": Object {
+          "chunkModules": true,
+          "source": false,
+        },
+        "launch": undefined,
+        "port": 8081,
+        "target": "../monitor/stats.json",
+      },
+    },
+    CleanWebpackPlugin {
+      "options": Object {
+        "allowExternal": false,
+        "dry": false,
+        "root": "/test/cwd/path",
+        "verbose": false,
+      },
+      "paths": Array [
+        "/test/dist",
+      ],
+    },
+    DuplicatePackageCheckerPlugin {
+      "options": Object {
+        "emitError": false,
+        "exclude": null,
+        "showHelp": true,
+        "strict": true,
+        "verbose": true,
+      },
+    },
+    MiniCSSExtractPlugin {
+      "options": Object {
+        "chunkFilename": "static/css/[name].[chunkhash].css",
+        "filename": "static/css/[name].[chunkhash].css",
+      },
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "warning": "/test/node_modules/warning",
+    },
+    "extensions": Array [
+      ".js",
+      ".jsx",
+      ".json",
+    ],
+    "modules": Array [
+      "/test/src",
+      "node_modules",
+    ],
+  },
+  "stats": Object {
+    "excludeAssets": [Function],
+    "modules": false,
   },
 }
 `;
@@ -292,9 +703,10 @@ Object {
     "publicPath": "/",
   },
   "performance": Object {
+    "assetFilter": [Function],
     "hints": "warning",
-    "maxAssetSize": 450000,
-    "maxEntrypointSize": 1500000,
+    "maxAssetSize": 250000,
+    "maxEntrypointSize": 500000,
   },
   "plugins": Array [
     ProgressBarPlugin {
@@ -386,7 +798,9 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {},
+    "alias": Object {
+      "warning": "/test/node_modules/warning",
+    },
     "extensions": Array [
       ".js",
       ".jsx",

@@ -29,4 +29,24 @@ describe('webpack-base', () => {
     const baseConfigs = webpackBase({ paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
+
+  test('returns expected electron dev configs', () => {
+    process.argv.push('--electron')
+    process.argv = process.argv.map(
+      arg => (arg.includes('mode=') ? '--mode=development' : arg)
+    )
+
+    const baseConfigs = webpackBase({ paths: { context: '/test' } })
+    expect(baseConfigs).toMatchSnapshot()
+  })
+
+  test('returns expected electron prod configs', () => {
+    // argv should include --electron=renderer
+    process.argv = process.argv.map(
+      arg => (arg.includes('mode=') ? '--mode=production' : arg)
+    )
+
+    const baseConfigs = webpackBase({ paths: { context: '/test' } })
+    expect(baseConfigs).toMatchSnapshot()
+  })
 })

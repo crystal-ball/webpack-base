@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 
 const generateConfigs = require('./generate-configs')
 const common = require('./common')
+const electron = require('./electron')
 const development = require('./development')
 const production = require('./production')
 
@@ -29,10 +30,15 @@ module.exports = function webpackBase(options = {}) {
   process.env.BABEL_ENV = process.env.BABEL_ENV || options.mode
 
   const configs = generateConfigs(options)
+  let commonConfigs = common(configs)
+
+  if (options.electron) {
+    commonConfigs = merge(commonConfigs, electron())
+  }
 
   // Merge common configs with dev vs prod specific configs to return complete
   // webpack configuration object
   return options.mode === 'production'
-    ? merge(common(configs), production(configs))
-    : merge(common(configs), development(configs))
+    ? merge(commonConfigs, production(configs))
+    : merge(commonConfigs, development(configs))
 }

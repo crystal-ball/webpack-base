@@ -2,31 +2,47 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function generateConfigs({ mode, paths = {}, devServer = {} } = {}) {
+module.exports = function generateConfigs({
+  mode,
+  electron,
+  paths = {},
+  devServer = {},
+} = {}) {
   // Handle default resolution of build specifics off of the source directory, this
   // enables easy source dir configuration without having to specify the path for
   // all downstream source paths
   const context = paths.context || fs.realpathSync(process.cwd())
-  const appSrc = paths.appSrc || join(context, 'src')
+  const appPublic = paths.app || join(context, 'public')
+  let appSrc = paths.appSrc || join(context, 'src')
+  let outputPath = join(context, 'dist')
+  let chunkHash = mode === 'production' ? '.[chunkhash]' : ''
+
+  // Default app src for electron projects is nested by process type
+  if (electron) {
+    appSrc = join(context, 'src/renderer')
+    outputPath = join(context, 'src/build')
+    chunkHash = ''
+  }
 
   // Default project configs used when not specified by consumer, see README for
   // details on values and usage
   // ⚠️ If you change these ensure that the docs in README are updated!
   const defaults = {
     appEntry: join(appSrc, 'index.js'),
-    appPublic: join(context, 'public'),
+    appPublic,
     appSrc,
     babelLoaderInclude: [appSrc],
     context,
+    copy: [appPublic],
     htmlTemplate: join(appSrc, 'index.html'),
     iconsSpriteLoaderInclude: [join(appSrc, 'media/icons')],
-    outputFilename: `static/js/[name]${mode === 'production' ? '.[chunkhash]' : ''}.js`,
-    outputPath: join(context, 'dist'),
+    outputFilename: `static/js/[name]${chunkHash}.js`,
+    outputPath,
     publicPath: '/',
     sassIncludePaths: [join(appSrc, '/styles')],
   }
 
   // Overwrite the default path configs with any custom paths, pass through the
   // env and devServer values
-  return { mode, ...defaults, ...paths, devServer }
+  return { mode, electron, chunkHash, ...defaults, ...paths, devServer }
 }
