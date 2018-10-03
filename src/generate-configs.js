@@ -12,9 +12,9 @@ module.exports = function generateConfigs({
   // enables easy source dir configuration without having to specify the path for
   // all downstream source paths
   const context = paths.context || fs.realpathSync(process.cwd())
-  const appPublic = paths.app || join(context, 'public')
+  const appPublic = paths.appPublic || join(context, 'public')
   let appSrc = paths.appSrc || join(context, 'src')
-  let outputPath = join(context, 'dist')
+  let outputPath = paths.outputPath || join(context, 'dist')
   let chunkHash = mode === 'production' ? '.[chunkhash]' : ''
 
   // Default app src for electron projects is nested by process type
