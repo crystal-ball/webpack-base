@@ -1,3 +1,4 @@
+const { resolve } = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
@@ -11,6 +12,8 @@ module.exports = ({
   appPublic,
   appSrc,
   context,
+  copy,
+  electron,
   htmlTemplate,
   iconsSpriteLoaderInclude,
   mode,
@@ -50,7 +53,12 @@ module.exports = ({
     modules: [appSrc, 'node_modules'],
     // Alias can be used to point imports to specific modules, include empty object
     // to allow direct assignment in consuming packages
-    alias: {},
+    alias: {
+      // Short term fix to resolve duplicate versions of warning being imported
+      // when using react-router,
+      // see: https://github.com/ReactTraining/history/issues/601
+      warning: resolve(context, 'node_modules/warning'),
+    },
   },
 
   // Configure the SplitChunksPlugin to split vendor, runtime and main chunks
@@ -133,6 +141,7 @@ module.exports = ({
     // Generates index.html with injected script/style resources paths
     new HtmlWebpackPlugin({
       favicon: `${appPublic}/favicon.ico`,
+      inject: !electron,
       minify: false,
       template: htmlTemplate,
     }),
@@ -148,6 +157,6 @@ module.exports = ({
     // --- 🖨 File copying
     // Copy public directory to build directory, this is an escape hatch for assets
     // needed that are not imported into build
-    new CopyWebpackPlugin([{ from: appPublic }]),
+    new CopyWebpackPlugin(copy),
   ],
 })

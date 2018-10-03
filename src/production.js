@@ -7,7 +7,7 @@ const postCSSCustomProperties = require('postcss-custom-properties')
 const { NamedModulesPlugin } = require('webpack')
 
 /** Production environment specific configurations. */
-module.exports = ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
+module.exports = ({ babelLoaderInclude, chunkHash, outputPath, sassIncludePaths }) => ({
   // Fail out on the first error instead of tolerating it.
   bail: true,
 
@@ -17,8 +17,10 @@ module.exports = ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
   // Produce warnings about file sizes
   performance: {
     hints: 'warning', // 'error' or false are valid too
-    maxEntrypointSize: 1500000, // ~150k
-    maxAssetSize: 450000, // ~45k
+    maxEntrypointSize: 500000, // ~500Kb
+    maxAssetSize: 250000, // ~250Kb
+    // Don't warn about image file sizes
+    assetFilter: assetFilename => !/\.(map|jpe?g|png|gif|svg)$/i.test(assetFilename),
   },
 
   // Build stats output configuration
@@ -112,6 +114,6 @@ module.exports = ({ babelLoaderInclude, outputPath, sassIncludePaths }) => ({
     }),
 
     // Extract CSS
-    new MiniCssExtractPlugin({ filename: 'static/css/[name].[chunkhash].css' }),
+    new MiniCssExtractPlugin({ filename: `static/css/[name]${chunkHash}.css` }),
   ],
 })
