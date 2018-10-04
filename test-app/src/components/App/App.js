@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 // Application
 import ScrollToTop from 'components/universal/ScrollToTop/ScrollToTop'
+import Footer from './Footer'
 import logger from 'lib/logger'
 
 import MagicImg from 'media/karly-santiago.jpg'
@@ -55,6 +56,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </Componentry.ThemeProvider>
     </BrowserRouter>
   )
