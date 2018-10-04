@@ -19,9 +19,6 @@
   "engines": {
     "node": ">=8.11"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "commit": "git cz",
     "container": "docker-compose run --service-ports --rm app",
