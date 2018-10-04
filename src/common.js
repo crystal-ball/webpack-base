@@ -89,12 +89,19 @@ module.exports = ({
         use: [{ loader: 'svg-symbol-sprite-loader' }],
       },
 
+      // --- 🔢 SVG to React Loader
+      // Imported SVGs are converted to React components
+      {
+        test: /\.svg$/,
+        // Make sure that we don't try to use with icons for svg sprite
+        exclude: iconsSpriteLoaderInclude,
+        use: [{ loader: '@svgr/webpack' }],
+      },
+
       // --- 🖼 Images Loader
       // Basic image loader setup with file name hashing
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        // Make sure that we don't try to use file-loader with icons for svg sprite
-        exclude: iconsSpriteLoaderInclude,
+        test: /\.(jpe?g|png|gif)$/i,
         use: [
           {
             loader: 'file-loader',
