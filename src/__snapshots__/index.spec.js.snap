@@ -35,7 +35,15 @@ Object {
         "exclude": Array [
           "/test/src/media/icons",
         ],
-        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "@svgr/webpack",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
         "use": Array [
           Object {
             "loader": "file-loader",
@@ -231,7 +239,15 @@ Object {
         "exclude": Array [
           "/test/src/media/icons",
         ],
-        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "@svgr/webpack",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
         "use": Array [
           Object {
             "loader": "file-loader",
@@ -416,7 +432,15 @@ Object {
         "exclude": Array [
           "/test/src/media/icons",
         ],
-        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "@svgr/webpack",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
         "use": Array [
           Object {
             "loader": "file-loader",
@@ -629,7 +653,15 @@ Object {
         "exclude": Array [
           "/test/src/media/icons",
         ],
-        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "@svgr/webpack",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
         "use": Array [
           Object {
             "loader": "file-loader",
