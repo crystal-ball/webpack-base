@@ -1,7 +1,8 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import { Flex, ThemeProvider } from 'componentry'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Flex, ThemeProvider } from 'componentry'
+import styled from 'styled-components'
 
 // Application
 import { ScrollToTop } from 'components/universal'
@@ -29,6 +30,10 @@ const theme = {
   },
 }
 
+const AppContainer = styled(Flex)`
+  height: 100vh;
+`
+
 /**
  * Application class component:
  *
@@ -43,7 +48,7 @@ const App = () => {
       <ThemeProvider.Provider value={theme}>
         {/* Restores scroll position to page top on route change */}
         <ScrollToTop />
-        <Flex direction="column">
+        <AppContainer direction="column">
           <header className="mb-5" />
           <Flex className="flex-grow-1">
             <div className="w-25">
@@ -57,7 +62,7 @@ const App = () => {
             </div>
           </Flex>
           <Footer />
-        </Flex>
+        </AppContainer>
       </ThemeProvider.Provider>
     </BrowserRouter>
   )
