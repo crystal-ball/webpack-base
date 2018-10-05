@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/crystal-ball/webpack-base.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "webpack",
     "configuration",
