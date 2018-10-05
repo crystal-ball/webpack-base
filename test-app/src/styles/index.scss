@@ -16,11 +16,9 @@
 @import 'theme';
 
 /*
- * Base Rules
- * ...
+ * Componentry library styles
  */
-@import '~componentry/dist/bootstrap';
-@import '~componentry/dist/componentry';
+@import '~componentry/styles/componentry';
 
 /*
  * Application Rules

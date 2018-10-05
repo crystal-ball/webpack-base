@@ -1,4 +1,3 @@
-// @flow
 /* eslint-disable no-console */
 /**
  * Example application wide utility method.

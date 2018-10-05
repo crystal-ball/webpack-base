@@ -1,6 +1,5 @@
 import React from 'react'
-
-import Icon from 'components/universal/Icon/Icon'
+import { Icon } from 'componentry'
 
 const HomeScreen = () => (
   <div>
