@@ -28,7 +28,7 @@
     "svg-symbol-sprite-loader": "~2.1.0"
   },
   "devDependencies": {
-    "eslint-config-eloquence": "^9.3.2",
+    "eslint-config-eloquence": "^9.5.0",
     "prettier": "^1.14.3"
   }
 }
