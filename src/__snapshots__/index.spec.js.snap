@@ -10,7 +10,7 @@ Object {
     "open": false,
     "overlay": Object {
       "errors": true,
-      "warnings": true,
+      "warnings": false,
     },
     "port": 3000,
     "quiet": true,
@@ -214,7 +214,7 @@ Object {
     "open": false,
     "overlay": Object {
       "errors": true,
-      "warnings": true,
+      "warnings": false,
     },
     "port": 3000,
     "quiet": true,

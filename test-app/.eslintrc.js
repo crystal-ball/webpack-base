@@ -20,7 +20,5 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-useless-path-segments': 'off',
     'import/order': 'off',
-    // TODO: remove after udpate of eloquence
-    'react/destructuring-assignment': 'off',
   },
 }

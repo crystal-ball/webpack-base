@@ -108,7 +108,7 @@ module.exports = ({ appPublic, babelLoaderInclude, devServer, sassIncludePaths }
     open: false,
     // Show compilation errors and warnings
     overlay: {
-      warnings: true,
+      warnings: false,
       errors: true,
     },
     // The.port.

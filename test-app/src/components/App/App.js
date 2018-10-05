@@ -1,13 +1,14 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import * as Componentry from 'componentry'
+import { Flex, ThemeProvider } from 'componentry'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 // Application
-import ScrollToTop from 'components/universal/ScrollToTop/ScrollToTop'
+import { ScrollToTop } from 'components/universal'
 import Footer from './Footer'
 import logger from 'lib/logger'
 
+import 'lib/require-icons' // webpack require.context to import all sprite icons
 import MagicImg from 'media/karly-santiago.jpg'
 
 // Screens
@@ -39,12 +40,12 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Componentry.ThemeProvider theme={theme}>
+      <ThemeProvider.Provider value={theme}>
         {/* Restores scroll position to page top on route change */}
         <ScrollToTop />
-        <header className="mb-5" />
-        <div className="container">
-          <div className="d-flex">
+        <Flex direction="column">
+          <header className="mb-5" />
+          <Flex className="flex-grow-1">
             <div className="w-25">
               <img src={MagicImg} className="img-fluid" alt="In pursuit of magic" />
             </div>
@@ -54,10 +55,10 @@ const App = () => {
                 <Route component={FourOhFourScreen} />
               </Switch>
             </div>
-          </div>
-        </div>
-        <Footer />
-      </Componentry.ThemeProvider>
+          </Flex>
+          <Footer />
+        </Flex>
+      </ThemeProvider.Provider>
     </BrowserRouter>
   )
 }
