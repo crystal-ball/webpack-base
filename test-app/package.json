@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Package test application",
   "scripts": {
-    "start": "webpack-dev-server --mode=development",
-    "start:docker": "webpack-dev-server --host=0.0.0.0 --mode=development",
-    "build": "webpack --mode=production",
+    "start": "NODE_ENV=development webpack-dev-server --mode=development",
+    "start:docker": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --mode=development",
+    "build": "NODE_ENV=production webpack --mode=production",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest src",
     "format": "prettier --write \"src/**/*.{js,md,scss}\"",

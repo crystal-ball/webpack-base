@@ -220,13 +220,13 @@ Object {
     "quiet": true,
   },
   "devtool": "eval",
-  "entry": "/test/src/index.js",
+  "entry": "/test/src/renderer/index.js",
   "mode": "development",
   "module": Object {
     "rules": Array [
       Object {
         "include": Array [
-          "/test/src/media/icons",
+          "/test/src/renderer/media/icons",
         ],
         "test": /\\\\\\.svg\\$/,
         "use": Array [
@@ -237,7 +237,7 @@ Object {
       },
       Object {
         "exclude": Array [
-          "/test/src/media/icons",
+          "/test/src/renderer/media/icons",
         ],
         "test": /\\\\\\.svg\\$/,
         "use": Array [
@@ -267,7 +267,7 @@ Object {
       },
       Object {
         "include": Array [
-          "/test/src",
+          "/test/src/renderer",
         ],
         "test": /\\\\\\.jsx\\?\\$/,
         "use": Array [
@@ -295,7 +295,7 @@ Object {
             "loader": "sass-loader",
             "options": Object {
               "includePaths": Array [
-                "/test/src/styles",
+                "/test/src/renderer/styles",
               ],
             },
           },
@@ -313,7 +313,8 @@ Object {
   "output": Object {
     "filename": "static/js/[name].js",
     "hashDigestLength": 12,
-    "path": "/test/dist",
+    "libraryTarget": "commonjs2",
+    "path": "/test/src/build",
     "publicPath": "/",
   },
   "plugins": Array [
@@ -344,11 +345,11 @@ Object {
         "favicon": "/test/public/favicon.ico",
         "filename": "index.html",
         "hash": false,
-        "inject": true,
+        "inject": false,
         "meta": Object {},
         "minify": false,
         "showErrors": true,
-        "template": "/test/src/index.html",
+        "template": "/test/src/renderer/index.html",
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
@@ -401,10 +402,11 @@ Object {
       ".json",
     ],
     "modules": Array [
-      "/test/src",
+      "/test/src/renderer",
       "node_modules",
     ],
   },
+  "target": "electron-renderer",
 }
 `;
 
@@ -413,13 +415,13 @@ Object {
   "bail": true,
   "context": "/test",
   "devtool": "source-map",
-  "entry": "/test/src/index.js",
+  "entry": "/test/src/renderer/index.js",
   "mode": "production",
   "module": Object {
     "rules": Array [
       Object {
         "include": Array [
-          "/test/src/media/icons",
+          "/test/src/renderer/media/icons",
         ],
         "test": /\\\\\\.svg\\$/,
         "use": Array [
@@ -430,7 +432,7 @@ Object {
       },
       Object {
         "exclude": Array [
-          "/test/src/media/icons",
+          "/test/src/renderer/media/icons",
         ],
         "test": /\\\\\\.svg\\$/,
         "use": Array [
@@ -460,7 +462,7 @@ Object {
       },
       Object {
         "include": Array [
-          "/test/src",
+          "/test/src/renderer",
         ],
         "test": /\\\\\\.jsx\\?\\$/,
         "use": Array [
@@ -492,7 +494,7 @@ Object {
             "loader": "sass-loader",
             "options": Object {
               "includePaths": Array [
-                "/test/src/styles",
+                "/test/src/renderer/styles",
               ],
             },
           },
@@ -508,9 +510,10 @@ Object {
     },
   },
   "output": Object {
-    "filename": "static/js/[name].[chunkhash].js",
+    "filename": "static/js/[name].js",
     "hashDigestLength": 12,
-    "path": "/test/dist",
+    "libraryTarget": "commonjs2",
+    "path": "/test/src/build",
     "publicPath": "/",
   },
   "performance": Object {
@@ -547,11 +550,11 @@ Object {
         "favicon": "/test/public/favicon.ico",
         "filename": "index.html",
         "hash": false,
-        "inject": true,
+        "inject": false,
         "meta": Object {},
         "minify": false,
         "showErrors": true,
-        "template": "/test/src/index.html",
+        "template": "/test/src/renderer/index.html",
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
@@ -586,10 +589,10 @@ Object {
         "allowExternal": false,
         "dry": false,
         "root": "/test/cwd/path",
-        "verbose": false,
+        "verbose": true,
       },
       "paths": Array [
-        "/test/dist",
+        "/test/src/build",
       ],
     },
     DuplicatePackageCheckerPlugin {
@@ -603,8 +606,8 @@ Object {
     },
     MiniCSSExtractPlugin {
       "options": Object {
-        "chunkFilename": "static/css/[name].[chunkhash].css",
-        "filename": "static/css/[name].[chunkhash].css",
+        "chunkFilename": "static/css/[name].css",
+        "filename": "static/css/[name].css",
       },
     },
   ],
@@ -618,7 +621,7 @@ Object {
       ".json",
     ],
     "modules": Array [
-      "/test/src",
+      "/test/src/renderer",
       "node_modules",
     ],
   },
@@ -626,6 +629,7 @@ Object {
     "excludeAssets": [Function],
     "modules": false,
   },
+  "target": "electron-renderer",
 }
 `;
 
@@ -807,7 +811,7 @@ Object {
         "allowExternal": false,
         "dry": false,
         "root": "/test/cwd/path",
-        "verbose": false,
+        "verbose": true,
       },
       "paths": Array [
         "/test/dist",
@@ -846,6 +850,206 @@ Object {
   "stats": Object {
     "excludeAssets": [Function],
     "modules": false,
+  },
+}
+`;
+
+exports[`webpack-base returns loader and plugin components 1`] = `
+Object {
+  "loaders": Object {
+    "babel": Object {
+      "include": Array [
+        "/test/src",
+      ],
+      "test": /\\\\\\.jsx\\?\\$/,
+      "use": Array [
+        Object {
+          "loader": "babel-loader",
+        },
+        Object {
+          "loader": "eslint-loader",
+        },
+      ],
+    },
+    "file": Object {
+      "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
+      "use": Array [
+        Object {
+          "loader": "file-loader",
+          "options": Object {
+            "name": "static/media/[name].[hash:8].[ext]",
+          },
+        },
+      ],
+    },
+    "raw": Object {
+      "test": /\\\\\\.txt\\$/,
+      "use": Array [
+        Object {
+          "loader": "raw-loader",
+        },
+      ],
+    },
+    "sass": Object {
+      "test": /\\\\\\.scss\\$/,
+      "use": Array [
+        Object {
+          "loader": "style-loader",
+        },
+        Object {
+          "loader": "css-loader",
+          "options": Object {
+            "localIdentName": "[name]-[local]--[hash:5]",
+          },
+        },
+        Object {
+          "loader": "sass-loader",
+          "options": Object {
+            "includePaths": Array [
+              "/test/src/styles",
+            ],
+          },
+        },
+      ],
+    },
+    "svgComponent": Object {
+      "exclude": Array [
+        "/test/src/media/icons",
+      ],
+      "test": /\\\\\\.svg\\$/,
+      "use": Array [
+        Object {
+          "loader": "@svgr/webpack",
+        },
+      ],
+    },
+    "svgSprite": Object {
+      "include": Array [
+        "/test/src/media/icons",
+      ],
+      "test": /\\\\\\.svg\\$/,
+      "use": Array [
+        Object {
+          "loader": "svg-symbol-sprite-loader",
+        },
+      ],
+    },
+  },
+  "plugins": Object {
+    "clean": CleanWebpackPlugin {
+      "options": Object {
+        "allowExternal": false,
+        "dry": false,
+        "root": "/test/cwd/path",
+        "verbose": true,
+      },
+      "paths": Array [
+        "/test/dist",
+      ],
+    },
+    "copy": Object {
+      "apply": [Function],
+    },
+    "duplicatePackageChecker": DuplicatePackageCheckerPlugin {
+      "options": Object {
+        "emitError": false,
+        "exclude": null,
+        "showHelp": true,
+        "strict": true,
+        "verbose": true,
+      },
+    },
+    "environment": EnvironmentPlugin {
+      "defaultValues": Object {
+        "DEBUG": false,
+        "PUBLIC_PATH": "/",
+      },
+      "keys": Array [
+        "DEBUG",
+        "PUBLIC_PATH",
+      ],
+    },
+    "friendlyErrors": FriendlyErrorsWebpackPlugin {
+      "compilationSuccessInfo": Object {
+        "messages": Array [
+          "  🎉  BINGO 🎉",
+          "  Application running at http://localhost:3000",
+        ],
+        "notes": Array [],
+      },
+      "formatters": Array [
+        [Function],
+        [Function],
+        [Function],
+      ],
+      "onErrors": undefined,
+      "shouldClearConsole": true,
+      "transformers": Array [
+        [Function],
+        [Function],
+        [Function],
+      ],
+    },
+    "hotModuleReplacement": HotModuleReplacementPlugin {
+      "fullBuildTimeout": 200,
+      "multiStep": undefined,
+      "options": Object {},
+      "requestTimeout": 10000,
+    },
+    "html": HtmlWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "chunks": "all",
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": "/test/public/favicon.ico",
+        "filename": "index.html",
+        "hash": false,
+        "inject": true,
+        "meta": Object {},
+        "minify": false,
+        "showErrors": true,
+        "template": "/test/src/index.html",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    "miniCSSExtract": MiniCSSExtractPlugin {
+      "options": Object {
+        "chunkFilename": "static/css/[name].css",
+        "filename": "static/css/[name].css",
+      },
+    },
+    "namedModules": NamedModulesPlugin {
+      "options": Object {},
+    },
+    "progressBar": ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
+      },
+    },
+    "svgSymbolSprite": SVGSymbolSpritePlugin {
+      "options": Object {
+        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "injectSpriteId": true,
+      },
+    },
+    "webpackMonitor": MonitorStats {
+      "options": Object {
+        "capture": true,
+        "jsonOpts": Object {
+          "chunkModules": true,
+          "source": false,
+        },
+        "launch": undefined,
+        "port": 8081,
+        "target": "../monitor/stats.json",
+      },
+    },
   },
 }
 `;
