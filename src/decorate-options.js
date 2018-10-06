@@ -2,21 +2,15 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function decorateOptions({ paths = {}, devServer = {} } = {}) {
+module.exports = function decorateOptions({ paths = {}, devServer = {}, electron } = {}) {
   const { NODE_ENV } = process.env
   const flags = {
     mode: NODE_ENV,
     // Note that we're only supporting production && not production targets
     production: NODE_ENV === 'production',
     development: NODE_ENV !== 'production',
+    electron,
   }
-  process.argv.forEach(arg => {
-    const match = arg.match(/(electron)/)
-    // Fallback to true for flags without value, eg --docker
-    /* eslint-disable prefer-destructuring */
-    if (match) flags[match[1]] = arg.split('=')[1] || true
-    /* eslint-enable prefer-destructuring */
-  })
 
   // Handle default resolution of build specifics off of the source directory, this
   // enables easy source dir configuration without having to specify the path for

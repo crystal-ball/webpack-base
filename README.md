@@ -58,8 +58,8 @@ npm i -D @crystal-ball/webpack-base
 ```json
 {
   "scripts": {
-    "build": "webpack --mode=production",
-    "start": "webpack-dev-server --mode=development"
+    "build": "NODE_ENV=production webpack --mode=production",
+    "start": "NODE_ENV=development webpack-dev-server --mode=development"
   }
 }
 ```
@@ -273,12 +273,15 @@ The following environment variables are injected by the build:
 
 ## ⚛️ Electron support
 
-Electron renderer processes can be bundled by passing a `--electron` flag:
+Electron renderer processes can be bundled by passing an `electron` flag in
+options:
 
-```json
-{
-  "start": "webpack-dev-server --mode=development --electron",
-  "build": "webpack --mode=production --electron"
+```javascript
+// webpack.config.js
+const webpackBase = require('@crystal-ball/webpack-base')
+
+module.exports = () => {
+  return webpackBase({ electron: true })
 }
 ```
 
@@ -294,7 +297,7 @@ recommended:
 
 ```json
 {
-  "start:docker": "webpack-dev-server --host=0.0.0.0 --mode=development"
+  "start:docker": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --mode=development"
 }
 ```
 
