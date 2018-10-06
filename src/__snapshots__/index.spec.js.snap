@@ -589,7 +589,7 @@ Object {
         "allowExternal": false,
         "dry": false,
         "root": "/test/cwd/path",
-        "verbose": false,
+        "verbose": true,
       },
       "paths": Array [
         "/test/src/build",
@@ -811,7 +811,7 @@ Object {
         "allowExternal": false,
         "dry": false,
         "root": "/test/cwd/path",
-        "verbose": false,
+        "verbose": true,
       },
       "paths": Array [
         "/test/dist",
@@ -941,7 +941,7 @@ Object {
         "allowExternal": false,
         "dry": false,
         "root": "/test/cwd/path",
-        "verbose": false,
+        "verbose": true,
       },
       "paths": Array [
         "/test/dist",

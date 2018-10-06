@@ -5,10 +5,10 @@ module.exports = ({
   appEntry,
   appSrc,
   context,
-  mode,
   outputFilename,
   outputPath,
   publicPath,
+  flags: { mode },
 }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/

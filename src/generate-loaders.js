@@ -9,11 +9,11 @@ const postCSSCustomProperties = require('postcss-custom-properties')
 module.exports = ({
   babelLoaderInclude,
   iconsSpriteLoaderInclude,
-  isProduction,
   sassIncludePaths,
+  flags: { production },
 }) => ({
   // --- 🎉 JS Loader
-  babel: isProduction
+  babel: production
     ? {
         // Production JS loader does not use ESLint. Tests should be used for catching
         // linting errors and prod builds take long enough w/out ESLint
@@ -41,7 +41,7 @@ module.exports = ({
       },
 
   // --- 😍 Styles Loader
-  sass: isProduction
+  sass: production
     ? {
         // ℹ️ Prod styles uses SCSS+CSS loader chain to import, includes
         // PostCSS+Autoprefixer for browser compatability, and extracts final styles

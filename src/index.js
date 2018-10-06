@@ -2,10 +2,10 @@
 const merge = require('webpack-merge')
 
 const decorateOptions = require('./decorate-options')
-const common = require('./common')
-const electron = require('./electron')
-const development = require('./development')
-const production = require('./production')
+const commonConfigs = require('./common-configs')
+const electronConfigs = require('./electron-configs')
+const developmentConfigs = require('./development-configs')
+const productionConfigs = require('./production-configs')
 
 const generateLoaders = require('./generate-loaders')
 const generatePlugins = require('./generate-plugins')
@@ -21,25 +21,20 @@ const generatePlugins = require('./generate-plugins')
  * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackBase(options = {}) {
-  // Ensure that Babel has the correct environment variable for .babelrc
-  process.env.BABEL_ENV = process.env.BABEL_ENV || options.mode
-
-  // --- Generate config components
   const decoratedOptions = decorateOptions(options)
   const loaders = generateLoaders(decoratedOptions)
   const plugins = generatePlugins(decoratedOptions)
 
+  // process.env.BABEL_ENV = process.env.BABEL_ENV || decoratedOptions.flags.mode
+
   // Merge common configs with dev vs prod specific configs to return complete
   // webpack configuration object
-  let configs = common(decoratedOptions)
+  let configs = commonConfigs(decoratedOptions)
 
-  if (decoratedOptions.electron) configs = merge(configs, electron())
-
-  if (decoratedOptions.isProduction) {
-    configs = merge(configs, production(decoratedOptions))
-  } else {
-    configs = merge(configs, development(decoratedOptions))
-  }
+  const { development, electron, production } = decoratedOptions.flags
+  if (electron) configs = merge(configs, electronConfigs())
+  if (production) configs = merge(configs, productionConfigs(decoratedOptions))
+  if (development) configs = merge(configs, developmentConfigs(decoratedOptions))
 
   // Map loader and plugin names to instances
   configs.module.rules = configs.module.rules.map(loader => loaders[loader])

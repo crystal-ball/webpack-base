@@ -3,16 +3,20 @@ const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
 module.exports = function decorateOptions({ paths = {}, devServer = {} } = {}) {
-  const flags = {}
+  const { NODE_ENV } = process.env
+  const flags = {
+    mode: NODE_ENV,
+    // Note that we're only supporting production && not production targets
+    production: NODE_ENV === 'production',
+    development: NODE_ENV !== 'production',
+  }
   process.argv.forEach(arg => {
-    const match = arg.match(/(mode|electron)/)
+    const match = arg.match(/(electron)/)
     // Fallback to true for flags without value, eg --docker
     /* eslint-disable prefer-destructuring */
     if (match) flags[match[1]] = arg.split('=')[1] || true
     /* eslint-enable prefer-destructuring */
   })
-
-  const isProduction = flags.mode === 'production'
 
   // Handle default resolution of build specifics off of the source directory, this
   // enables easy source dir configuration without having to specify the path for
@@ -21,7 +25,7 @@ module.exports = function decorateOptions({ paths = {}, devServer = {} } = {}) {
   const appPublic = paths.appPublic || join(context, 'public')
   let appSrc = paths.appSrc || join(context, 'src')
   let outputPath = paths.outputPath || join(context, 'dist')
-  let chunkHash = isProduction ? '.[chunkhash]' : ''
+  let chunkHash = flags.production ? '.[chunkhash]' : ''
 
   // Default app src for electron projects is nested by process type
   if (flags.electron) {
@@ -50,5 +54,5 @@ module.exports = function decorateOptions({ paths = {}, devServer = {} } = {}) {
 
   // Overwrite the default path configs with any custom paths, pass through the
   // env and devServer values
-  return { isProduction, chunkHash, devServer, ...flags, ...defaults, ...paths }
+  return { flags, chunkHash, devServer, ...defaults, ...paths }
 }

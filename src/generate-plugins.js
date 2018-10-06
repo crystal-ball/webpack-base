@@ -25,10 +25,10 @@ module.exports = ({
   chunkHash,
   copy,
   devServer,
-  electron,
   htmlTemplate,
   outputPath,
   publicPath,
+  flags: { electron },
 }) => ({
   // --- 📦 Build Prep
   // Wipe output folder before the build
