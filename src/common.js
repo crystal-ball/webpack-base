@@ -1,21 +1,10 @@
 const { resolve } = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const SVGSymbolSprite = require('svg-symbol-sprite-loader')
-const { EnvironmentPlugin } = require('webpack')
-const chalk = require('chalk')
 
 /** The common configurations are used across environments */
 module.exports = ({
   appEntry,
-  appPublic,
   appSrc,
   context,
-  copy,
-  electron,
-  htmlTemplate,
-  iconsSpriteLoaderInclude,
   mode,
   outputFilename,
   outputPath,
@@ -80,90 +69,10 @@ module.exports = ({
   // Common loaders
   // ---------------------------------------------------------------------------
   module: {
-    rules: [
-      // --- 📦 SVG icon sprite loader
-      // Create an svg sprite with any icons imported into app
-      {
-        test: /\.svg$/,
-        include: iconsSpriteLoaderInclude,
-        use: [{ loader: 'svg-symbol-sprite-loader' }],
-      },
-
-      // --- 🔢 SVG to React Loader
-      // Imported SVGs are converted to React components
-      {
-        test: /\.svg$/,
-        // Make sure that we don't try to use with icons for svg sprite
-        exclude: iconsSpriteLoaderInclude,
-        use: [{ loader: '@svgr/webpack' }],
-      },
-
-      // --- 🖼 Images Loader
-      // Basic image loader setup with file name hashing
-      {
-        test: /\.(jpe?g|png|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
-        ],
-      },
-
-      // --- 📝 Text files Loader
-      // If you want to import a text file you can ¯\_(ツ)_/¯
-      {
-        test: /\.txt$/,
-        use: [{ loader: 'raw-loader' }],
-      },
-    ],
+    rules: ['svgSprite', 'svgComponent', 'file', 'raw', 'babel', 'sass'],
   },
 
   // Common plugins
   // ---------------------------------------------------------------------------
-  plugins: [
-    // --- 🔢 Stats
-    // Visual compile indicator with progress bar
-    new ProgressBarPlugin({
-      /* eslint-disable no-console */
-      callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
-      /* eslint-enable no-console */
-      clear: false, // Don't clear the bar on completion
-      format: `  Hacking time... [:bar] ${chalk.green.bold(
-        ':percent'
-      )} (:elapsed seconds) :msg`,
-    }),
-
-    // --- 💉 Variable injections
-    // Define environment variables in build.
-    // ℹ️ Values passed to EnvironmentPlugin are defaults
-    new EnvironmentPlugin({
-      DEBUG: false,
-      PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
-    }),
-
-    // --- 📦 HTML index generator
-    // Generates index.html with injected script/style resources paths
-    new HtmlWebpackPlugin({
-      favicon: `${appPublic}/favicon.ico`,
-      inject: !electron,
-      minify: false,
-      template: htmlTemplate,
-    }),
-
-    // --- 📦 Asset extractions
-    // Plugin for SVG symbol sprite extracts imported SVGs into a file
-    // ⚠️ Order is important, this plugin must be included after HTML plugin so that
-    // HTML plugin hooks are pre-registered!
-    new SVGSymbolSprite.Plugin({
-      filename: 'static/media/icon-sprite.[contenthash].svg',
-    }),
-
-    // --- 🖨 File copying
-    // Copy public directory to build directory, this is an escape hatch for assets
-    // needed that are not imported into build
-    new CopyWebpackPlugin(copy),
-  ],
+  plugins: ['progressBar', 'environment', 'html', 'svgSymbolSprite', 'copy'],
 })

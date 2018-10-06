@@ -1,11 +1,14 @@
 /* eslint-disable no-param-reassign */
 const merge = require('webpack-merge')
 
-const generateConfigs = require('./generate-configs')
+const decorateOptions = require('./decorate-options')
 const common = require('./common')
 const electron = require('./electron')
 const development = require('./development')
 const production = require('./production')
+
+const generateLoaders = require('./generate-loaders')
+const generatePlugins = require('./generate-plugins')
 
 /**
  * Crystal ball projects' base webpack configs include configurations for loader
@@ -18,27 +21,37 @@ const production = require('./production')
  * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackBase(options = {}) {
-  process.argv.forEach(arg => {
-    const match = arg.match(/(mode)/)
-    // Fallback to true for flags without value, eg --docker
-    /* eslint-disable prefer-destructuring */
-    if (match) options[match[1]] = arg.split('=')[1] || true
-    /* eslint-enable prefer-destructuring */
-  })
-
   // Ensure that Babel has the correct environment variable for .babelrc
   process.env.BABEL_ENV = process.env.BABEL_ENV || options.mode
 
-  const configs = generateConfigs(options)
-  let commonConfigs = common(configs)
-
-  if (options.electron) {
-    commonConfigs = merge(commonConfigs, electron())
-  }
+  // --- Generate config components
+  const decoratedOptions = decorateOptions(options)
+  const loaders = generateLoaders(decoratedOptions)
+  const plugins = generatePlugins(decoratedOptions)
 
   // Merge common configs with dev vs prod specific configs to return complete
   // webpack configuration object
-  return options.mode === 'production'
-    ? merge(commonConfigs, production(configs))
-    : merge(commonConfigs, development(configs))
+  let configs = common(decoratedOptions)
+
+  if (decoratedOptions.electron) configs = merge(configs, electron())
+
+  if (decoratedOptions.isProduction) {
+    configs = merge(configs, production(decoratedOptions))
+  } else {
+    configs = merge(configs, development(decoratedOptions))
+  }
+
+  // Map loader and plugin names to instances
+  configs.module.rules = configs.module.rules.map(loader => loaders[loader])
+  configs.plugins = configs.plugins.map(plugin => plugins[plugin])
+
+  return configs
+}
+
+module.exports.components = function components(options = {}) {
+  const decoratedOptions = decorateOptions(options)
+  const loaders = generateLoaders(decoratedOptions)
+  const plugins = generatePlugins(decoratedOptions)
+
+  return { loaders, plugins }
 }

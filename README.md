@@ -28,17 +28,20 @@ tooling dependencies for React web and Electron applications. Consuming projects
 can customize the generated base configurations to meet the specific needs of
 any project._
 
-<ul>
-  <li>[Setup](#-setup) - Installation and file setup instructions</li>
-  <li>[Project defaults](#=project-defaults) - Documentation on default project structure used</li>
-  <li>[Configuration API](#-configuration-api) - Documentation on customizing generated configurations</li>
-  <li>[Featureset](#-featureset) - Overview of the supported magic</li>
-  <li>[Docker support](#-docker-support) - Using within a Docker workflow</li>
-  <li>[Developing](#-developing) - How to develop the project</li>
-  <li>[Testing](#-testing) - How to test the project</li>
-  <li>[Roadmap](#-roadmap) - TODO items and contributing suggestions</li>
-  <li>[Contributing](#-contributing) - Yes please! 😍
-</ul>
+- [Setup](#-setup) - Installation and file setup instructions
+- [Project defaults](#=project-defaults) - Documentation on default project
+  structure used
+- [Configuration API](#-configuration-api) - Documentation on customizing
+  generated configurations
+- [Featureset](#-featureset) - Overview of the supported magic
+- [Electron support](#-electron-support) - Using within an Electron project
+- [Docker support](#-docker-support) - Using within a Docker workflow
+- [Components access](#-components-access) - Accessing loaders and plugins
+  directly
+- [Developing](#-developing) - How to develop the project
+- [Testing](#-testing) - How to test the project
+- [Roadmap](#-roadmap) - TODO items and contributing suggestions
+- [Contributing](#-contributing) - Yes please! 😍
 
 ## ⚙️ Setup
 
@@ -113,7 +116,7 @@ way to support specific project needs.
 // webpack.config.js
 const webpackBase = require('@crystal-ball/webpack-base')
 
-module.exports = env => {
+module.exports = () => {
   const baseConfigs = webpackBase(/* options */)
 
   /*
@@ -268,6 +271,21 @@ The following environment variables are injected by the build:
 | `process.env.DEBUG`       | Defaults to false, can be used for adding detailed logging in dev environment           |
 | `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths |
 
+## ⚛️ Electron support
+
+Electron renderer processes can be bundled by passing a `--electron` flag:
+
+```json
+{
+  "start": "webpack-dev-server --mode=development --electron",
+  "build": "webpack --mode=production --electron"
+}
+```
+
+By default `webpack-base` will look for project source files in `/src/renderer`
+instead of `/src` and builds are output to `/src/build` instead of `/dist`. This
+is for working with Electron build systems.
+
 ## 🐳 Docker support
 
 When working within a Docker setup, the dev server port (default `3000`) must be
@@ -279,6 +297,25 @@ recommended:
   "start:docker": "webpack-dev-server --host=0.0.0.0 --mode=development"
 }
 ```
+
+## 🎛 Components access
+
+A set of loaders and plugins can be accessed directly by calling the package
+`components` export:
+
+```javascript
+// webpack.config.js
+const webpackBase = require('@crystal-ball/webpack-base')
+
+module.exports = () => {
+  const components = webpackBase.components(/* options */)
+  const { loaders, plugins } = components
+}
+```
+
+This can be useful for customizing which plugins are used for projects by
+overwriting the config plugins with a filtered set, as well as adding loaders to
+Storybook.
 
 ## 👷‍♀️ Developing
 
