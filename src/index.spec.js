@@ -32,18 +32,16 @@ describe('webpack-base', () => {
   })
 
   test('returns expected electron dev configs', () => {
-    process.argv.push('--electron')
     process.env.NODE_ENV = 'development'
 
-    const baseConfigs = webpackBase({ paths: { context: '/test' } })
+    const baseConfigs = webpackBase({ electron: true, paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
 
   test('returns expected electron prod configs', () => {
-    // argv should include --electron
     process.env.NODE_ENV = 'production'
 
-    const baseConfigs = webpackBase({ paths: { context: '/test' } })
+    const baseConfigs = webpackBase({ electron: true, paths: { context: '/test' } })
     expect(baseConfigs).toMatchSnapshot()
   })
 })
