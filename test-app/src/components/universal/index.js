@@ -1,2 +1,2 @@
-/* eslint-disable import/prefer-default-export */
-export { default as ScrollToTop } from './ScrollToTop/ScrollToTop'
+export { default as ContentContainer } from './ContentContainer'
+export { default as ScrollToTop } from './ScrollToTop'

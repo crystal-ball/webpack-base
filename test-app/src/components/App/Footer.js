@@ -1,15 +1,20 @@
 import React from 'react'
-
-import Webpack from 'media/webpack-logo.svg'
+import { Icon, Text } from 'componentry'
 
 const Footer = () => (
   <>
     <div className="d-flex justify-content-center">
-      <div className="w-50">
-        <Webpack />
-      </div>
+      <Text size="lg">
+        <Icon id="cog" mr={1} />
+        Configuration Generator
+      </Text>
     </div>
-    <footer>webpack-base</footer>
+    <footer className="mx-3">
+      <Text textAlign="right">
+        <Icon id="warning" className="text-warning" /> Warning: This package contains
+        awesomeness!
+      </Text>
+    </footer>
   </>
 )
 
