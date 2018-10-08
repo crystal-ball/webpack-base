@@ -10,7 +10,6 @@ import Footer from './Footer'
 import logger from 'lib/logger'
 
 import 'lib/require-icons' // webpack require.context to import all sprite icons
-import MagicImg from 'media/karly-santiago.jpg'
 
 // Screens
 import HomeScreen from '../HomeScreen/HomeScreen'
@@ -51,15 +50,10 @@ const App = () => {
         <AppContainer direction="column">
           <header className="mb-5" />
           <Flex className="flex-grow-1">
-            <div className="w-25">
-              <img src={MagicImg} className="img-fluid" alt="In pursuit of magic" />
-            </div>
-            <div className="w-75 ml-3">
-              <Switch>
-                <Route to="/" exact component={HomeScreen} />
-                <Route component={FourOhFourScreen} />
-              </Switch>
-            </div>
+            <Switch>
+              <Route to="/" exact component={HomeScreen} />
+              <Route component={FourOhFourScreen} />
+            </Switch>
           </Flex>
           <Footer />
         </AppContainer>

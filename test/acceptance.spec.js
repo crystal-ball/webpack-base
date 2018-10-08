@@ -22,7 +22,7 @@ beforeAll(async () => {
 describe('application renders', () => {
   test('title renders', async () => {
     const title = await page.$eval('h1', h1 => h1.innerHTML)
-    expect(title).toEqual('Home screen')
+    expect(title).toEqual('webpack-base')
 
     const imgSrc = await page.$eval('img', image => image.src)
     expect(imgSrc).toEqual(
