@@ -12,23 +12,22 @@
     "lint": "NODE_ENV=test eslint src"
   },
   "dependencies": {
-    "@babel/runtime": "~7.1.2",
+    "@babel/runtime": "~7.2.0",
     "classnames": "~2.2.6",
-    "componentry": "~3.0.0-alpha.5",
-    "nanoid": "~1.2.6",
+    "componentry": "~3.0.0-alpha.12",
+    "nanoid": "~2.0.0",
     "prop-types": "^15.6.2",
-    "react": "~16.5.2",
-    "react-dom": "~16.5.2",
-    "react-hot-loader": "~4.3.11",
+    "react": "~16.6.3",
+    "react-dom": "~16.6.3",
     "react-redux": "~5.0.7",
     "react-router-dom": "~4.3.1",
-    "redux": "~4.0.0",
-    "redux-saga": "~0.16.0",
-    "styled-components": "~3.4.9",
+    "redux": "~4.0.1",
+    "redux-saga": "~0.16.2",
+    "styled-components": "~4.1.2",
     "svg-symbol-sprite-loader": "~2.1.0"
   },
   "devDependencies": {
-    "eslint-config-eloquence": "^9.5.0",
-    "prettier": "^1.14.3"
+    "eslint-config-eloquence": "^9.5.1",
+    "prettier": "^1.15.3"
   }
 }

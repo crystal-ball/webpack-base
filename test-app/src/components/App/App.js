@@ -1,5 +1,4 @@
 import React from 'react'
-import { hot } from 'react-hot-loader'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Flex, ThemeProvider } from 'componentry'
 import styled from 'styled-components'
@@ -62,4 +61,4 @@ const App = () => {
   )
 }
 
-export default hot(module)(App) // eslint-disable-line
+export default App
