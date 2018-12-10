@@ -16,7 +16,7 @@ const HomeScreen = () => (
     </Text>
     <Flex>
       <div className="w-25">
-        <img src={MagicImg} className="img-fluid" alt="In pursuit of magic" />
+        <img src={MagicImg} className="mw-100" alt="In pursuit of magic" />
       </div>
       <div className="w-75 pl-3">
         <ul>

@@ -5,14 +5,14 @@ const Footer = () => (
   <>
     <div className="d-flex justify-content-center">
       <Text size="lg">
-        <Icon id="cog" mr={1} />
+        <Icon id="cog" mr={5} />
         Configuration Generator
       </Text>
     </div>
     <footer className="mx-3">
       <Text textAlign="right">
-        <Icon id="warning" className="text-warning" /> Warning: This package contains
-        awesomeness!
+        <Icon id="warning" className="text-warning" mr={5} /> Warning: This package
+        contains awesomeness!
       </Text>
     </footer>
   </>
