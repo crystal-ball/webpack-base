@@ -105,7 +105,7 @@ module.exports = ({
     use: [{ loader: 'svg-symbol-sprite-loader' }],
   },
 
-  // --- 🔢 SVG to React Loader
+  // --- 👾 SVG to React Loader
   // Imported SVGs are converted to React components
   svgComponent: {
     test: /\.svg$/,
