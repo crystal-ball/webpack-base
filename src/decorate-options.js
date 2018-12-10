@@ -2,14 +2,15 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function decorateOptions({ paths = {}, devServer = {}, electron } = {}) {
+module.exports = function decorateOptions({ paths = {}, devServer = {}, target } = {}) {
   const { NODE_ENV } = process.env
+
   const flags = {
     mode: NODE_ENV,
-    // Note that we're only supporting production && not production targets
-    production: NODE_ENV === 'production',
+    electron: target && target.includes('electron'),
+    // NB: we only support production && !production targets
     development: NODE_ENV !== 'production',
-    electron,
+    production: NODE_ENV === 'production',
   }
 
   // Handle default resolution of build specifics off of the source directory, this
@@ -31,22 +32,31 @@ module.exports = function decorateOptions({ paths = {}, devServer = {}, electron
   // Default project configs used when not specified by consumer, see README for
   // details on values and usage
   // ⚠️ If you change these ensure that the docs in README are updated!
-  const defaults = {
-    appEntry: join(appSrc, 'index.js'),
-    appPublic,
-    appSrc,
-    babelLoaderInclude: [appSrc],
-    context,
-    copy: [appPublic],
-    htmlTemplate: join(appSrc, 'index.html'),
-    iconsSpriteLoaderInclude: [join(appSrc, 'media/icons')],
-    outputFilename: `static/js/[name]${chunkHash}.js`,
-    outputPath,
-    publicPath: '/',
-    sassIncludePaths: [join(appSrc, '/styles')],
-  }
+  return {
+    chunkHash,
+    devServer,
+    flags,
+    paths: {
+      // --- Documented path options
+      appPublic,
+      appSrc,
+      context,
+      iconSpritePaths: [join(appSrc, 'media/icons')],
+      outputPath,
+      publicPath: '/',
+      sassIncludePaths: [
+        join(appSrc, '/styles'),
+        flags.production ? join(appSrc, '/styles/prod') : join(appSrc, '/styles/dev'),
+      ],
 
-  // Overwrite the default path configs with any custom paths, pass through the
-  // env and devServer values
-  return { flags, chunkHash, devServer, ...defaults, ...paths }
+      // --- Addl file specific path options that can be overridden, but aren't
+      // --- documented to keep the configs as simple as possible
+      appEntry: join(appSrc, 'index.js'),
+      htmlTemplate: join(appSrc, 'index.html'),
+      jsLoaderInclude: [appSrc],
+
+      // Overwrite the default path configs with any custom paths
+      ...paths,
+    },
+  }
 }

@@ -140,6 +140,7 @@ by passing an options object:
 const options = {
   devServer,
   paths,
+  target, // used for 'electron' projects
 }
 ```
 
@@ -206,7 +207,7 @@ const paths = {
    * @type {Array<Directory|File>}
    * @default [src/media/icons]
    */
-  iconsSpriteLoaderInclude,
+  iconSpritePaths,
   /**
    * Filename template used for build JS output files. Production builds include
    * the `[chunkhash]` to enable long term caching.
@@ -250,6 +251,7 @@ const paths = {
 - Production optimizations including uglify and module concatenation
 - Output directory cleaning
 - Injected `PUBLIC_PATH` for routing
+- `DEVTOOL` environment variable will override source maps
 
 ### webpack Resolution
 

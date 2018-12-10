@@ -26,7 +26,7 @@ COPY ./package.json /usr/src/app/node_modules/@crystal-ball/webpack-base/package
 # Copy test app in to container
 COPY ./test-app .
 # Copy serve config for prod build testing with `serve`
-COPY ./serve.json .
+COPY ./test-app/serve.json .
 
 # Run Build
 RUN npm run build
