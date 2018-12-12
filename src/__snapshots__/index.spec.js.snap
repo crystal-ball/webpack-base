@@ -15,11 +15,48 @@ Object {
     "port": 3000,
     "quiet": true,
   },
-  "devtool": "eval",
+  "devtool": "cheap-module-eval-source-map",
   "entry": "/test/src/index.js",
   "mode": "development",
   "module": Object {
     "rules": Array [
+      Object {
+        "include": Array [
+          "/test/src",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "includePaths": Array [
+                "/test/src/styles",
+                "/test/src/styles/dev",
+              ],
+            },
+          },
+        ],
+      },
       Object {
         "include": Array [
           "/test/src/media/icons",
@@ -58,42 +95,6 @@ Object {
         "use": Array [
           Object {
             "loader": "raw-loader",
-          },
-        ],
-      },
-      Object {
-        "include": Array [
-          "/test/src",
-        ],
-        "test": /\\\\\\.jsx\\?\\$/,
-        "use": Array [
-          Object {
-            "loader": "babel-loader",
-          },
-          Object {
-            "loader": "eslint-loader",
-          },
-        ],
-      },
-      Object {
-        "test": /\\\\\\.scss\\$/,
-        "use": Array [
-          Object {
-            "loader": "style-loader",
-          },
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-            },
-          },
-          Object {
-            "loader": "sass-loader",
-            "options": Object {
-              "includePaths": Array [
-                "/test/src/styles",
-              ],
-            },
           },
         ],
       },
@@ -152,7 +153,7 @@ Object {
     },
     SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "filename": "static/media/icon-sprite.svg",
         "injectSpriteId": true,
       },
     },
@@ -219,11 +220,48 @@ Object {
     "port": 3000,
     "quiet": true,
   },
-  "devtool": "eval",
+  "devtool": "cheap-module-eval-source-map",
   "entry": "/test/src/renderer/index.js",
   "mode": "development",
   "module": Object {
     "rules": Array [
+      Object {
+        "include": Array [
+          "/test/src/renderer",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "includePaths": Array [
+                "/test/src/renderer/styles",
+                "/test/src/renderer/styles/dev",
+              ],
+            },
+          },
+        ],
+      },
       Object {
         "include": Array [
           "/test/src/renderer/media/icons",
@@ -262,42 +300,6 @@ Object {
         "use": Array [
           Object {
             "loader": "raw-loader",
-          },
-        ],
-      },
-      Object {
-        "include": Array [
-          "/test/src/renderer",
-        ],
-        "test": /\\\\\\.jsx\\?\\$/,
-        "use": Array [
-          Object {
-            "loader": "babel-loader",
-          },
-          Object {
-            "loader": "eslint-loader",
-          },
-        ],
-      },
-      Object {
-        "test": /\\\\\\.scss\\$/,
-        "use": Array [
-          Object {
-            "loader": "style-loader",
-          },
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-            },
-          },
-          Object {
-            "loader": "sass-loader",
-            "options": Object {
-              "includePaths": Array [
-                "/test/src/renderer/styles",
-              ],
-            },
           },
         ],
       },
@@ -357,7 +359,7 @@ Object {
     },
     SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "filename": "static/media/icon-sprite.svg",
         "injectSpriteId": true,
       },
     },
@@ -421,6 +423,50 @@ Object {
     "rules": Array [
       Object {
         "include": Array [
+          "/test/src/renderer",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          "/test/path/to/mini-css-extract-loader",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "includePaths": Array [
+                "/test/src/renderer/styles",
+                "/test/src/renderer/styles/prod",
+              ],
+            },
+          },
+        ],
+      },
+      Object {
+        "include": Array [
           "/test/src/renderer/media/icons",
         ],
         "test": /\\\\\\.svg\\$/,
@@ -457,46 +503,6 @@ Object {
         "use": Array [
           Object {
             "loader": "raw-loader",
-          },
-        ],
-      },
-      Object {
-        "include": Array [
-          "/test/src/renderer",
-        ],
-        "test": /\\\\\\.jsx\\?\\$/,
-        "use": Array [
-          Object {
-            "loader": "babel-loader",
-          },
-        ],
-      },
-      Object {
-        "test": /\\\\\\.scss\\$/,
-        "use": Array [
-          "/test/path/to/mini-css-extract-loader",
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-            },
-          },
-          Object {
-            "loader": "postcss-loader",
-            "options": Object {
-              "plugins": Array [
-                [Function],
-                [Function],
-              ],
-            },
-          },
-          Object {
-            "loader": "sass-loader",
-            "options": Object {
-              "includePaths": Array [
-                "/test/src/renderer/styles",
-              ],
-            },
           },
         ],
       },
@@ -562,7 +568,7 @@ Object {
     },
     SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "filename": "static/media/icon-sprite.svg",
         "injectSpriteId": true,
       },
     },
@@ -610,6 +616,22 @@ Object {
         "filename": "static/css/[name].css",
       },
     },
+    CompressionPlugin {
+      "options": Object {
+        "algorithm": [Function],
+        "cache": false,
+        "compressionOptions": Object {
+          "level": 9,
+        },
+        "deleteOriginalAssets": false,
+        "exclude": undefined,
+        "filename": "[path][query]",
+        "include": undefined,
+        "minRatio": 0.8,
+        "test": undefined,
+        "threshold": 0,
+      },
+    },
   ],
   "resolve": Object {
     "alias": Object {
@@ -642,6 +664,50 @@ Object {
   "mode": "production",
   "module": Object {
     "rules": Array [
+      Object {
+        "include": Array [
+          "/test/src",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          "/test/path/to/mini-css-extract-loader",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "includePaths": Array [
+                "/test/src/styles",
+                "/test/src/styles/prod",
+              ],
+            },
+          },
+        ],
+      },
       Object {
         "include": Array [
           "/test/src/media/icons",
@@ -680,46 +746,6 @@ Object {
         "use": Array [
           Object {
             "loader": "raw-loader",
-          },
-        ],
-      },
-      Object {
-        "include": Array [
-          "/test/src",
-        ],
-        "test": /\\\\\\.jsx\\?\\$/,
-        "use": Array [
-          Object {
-            "loader": "babel-loader",
-          },
-        ],
-      },
-      Object {
-        "test": /\\\\\\.scss\\$/,
-        "use": Array [
-          "/test/path/to/mini-css-extract-loader",
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-            },
-          },
-          Object {
-            "loader": "postcss-loader",
-            "options": Object {
-              "plugins": Array [
-                [Function],
-                [Function],
-              ],
-            },
-          },
-          Object {
-            "loader": "sass-loader",
-            "options": Object {
-              "includePaths": Array [
-                "/test/src/styles",
-              ],
-            },
           },
         ],
       },
@@ -784,7 +810,7 @@ Object {
     },
     SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "filename": "static/media/icon-sprite.[chunkhash].svg",
         "injectSpriteId": true,
       },
     },
@@ -832,6 +858,22 @@ Object {
         "filename": "static/css/[name].[chunkhash].css",
       },
     },
+    CompressionPlugin {
+      "options": Object {
+        "algorithm": [Function],
+        "cache": false,
+        "compressionOptions": Object {
+          "level": 9,
+        },
+        "deleteOriginalAssets": false,
+        "exclude": undefined,
+        "filename": "[path][query]",
+        "include": undefined,
+        "minRatio": 0.8,
+        "test": undefined,
+        "threshold": 0,
+      },
+    },
   ],
   "resolve": Object {
     "alias": Object {
@@ -857,7 +899,18 @@ Object {
 exports[`webpack-base returns loader and plugin components 1`] = `
 Object {
   "loaders": Object {
-    "babel": Object {
+    "fileLoader": Object {
+      "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
+      "use": Array [
+        Object {
+          "loader": "file-loader",
+          "options": Object {
+            "name": "static/media/[name].[hash:8].[ext]",
+          },
+        },
+      ],
+    },
+    "jsLoader": Object {
       "include": Array [
         "/test/src",
       ],
@@ -871,18 +924,7 @@ Object {
         },
       ],
     },
-    "file": Object {
-      "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
-      "use": Array [
-        Object {
-          "loader": "file-loader",
-          "options": Object {
-            "name": "static/media/[name].[hash:8].[ext]",
-          },
-        },
-      ],
-    },
-    "raw": Object {
+    "rawLoader": Object {
       "test": /\\\\\\.txt\\$/,
       "use": Array [
         Object {
@@ -890,7 +932,7 @@ Object {
         },
       ],
     },
-    "sass": Object {
+    "sassLoader": Object {
       "test": /\\\\\\.scss\\$/,
       "use": Array [
         Object {
@@ -907,12 +949,13 @@ Object {
           "options": Object {
             "includePaths": Array [
               "/test/src/styles",
+              "/test/src/styles/dev",
             ],
           },
         },
       ],
     },
-    "svgComponent": Object {
+    "svgComponentLoader": Object {
       "exclude": Array [
         "/test/src/media/icons",
       ],
@@ -923,7 +966,7 @@ Object {
         },
       ],
     },
-    "svgSprite": Object {
+    "svgSpriteLoader": Object {
       "include": Array [
         "/test/src/media/icons",
       ],
@@ -936,30 +979,10 @@ Object {
     },
   },
   "plugins": Object {
-    "clean": CleanWebpackPlugin {
-      "options": Object {
-        "allowExternal": false,
-        "dry": false,
-        "root": "/test/cwd/path",
-        "verbose": true,
-      },
-      "paths": Array [
-        "/test/dist",
-      ],
-    },
-    "copy": Object {
+    "copyPlugin": Object {
       "apply": [Function],
     },
-    "duplicatePackageChecker": DuplicatePackageCheckerPlugin {
-      "options": Object {
-        "emitError": false,
-        "exclude": null,
-        "showHelp": true,
-        "strict": true,
-        "verbose": true,
-      },
-    },
-    "environment": EnvironmentPlugin {
+    "environmentPlugin": EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
         "PUBLIC_PATH": "/",
@@ -969,7 +992,7 @@ Object {
         "PUBLIC_PATH",
       ],
     },
-    "friendlyErrors": FriendlyErrorsWebpackPlugin {
+    "friendlyErrorsPlugin": FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
         "messages": Array [
           "  🎉  BINGO 🎉",
@@ -990,13 +1013,13 @@ Object {
         [Function],
       ],
     },
-    "hotModuleReplacement": HotModuleReplacementPlugin {
+    "hotModuleReplacementPlugin": HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
       "multiStep": undefined,
       "options": Object {},
       "requestTimeout": 10000,
     },
-    "html": HtmlWebpackPlugin {
+    "htmlPlugin": HtmlWebpackPlugin {
       "options": Object {
         "cache": true,
         "chunks": "all",
@@ -1016,38 +1039,17 @@ Object {
         "xhtml": false,
       },
     },
-    "miniCSSExtract": MiniCSSExtractPlugin {
-      "options": Object {
-        "chunkFilename": "static/css/[name].css",
-        "filename": "static/css/[name].css",
-      },
-    },
-    "namedModules": NamedModulesPlugin {
-      "options": Object {},
-    },
-    "progressBar": ProgressBarPlugin {
+    "progressBarPlugin": ProgressBarPlugin {
       "options": Object {
         "callback": [Function],
         "clear": false,
         "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
       },
     },
-    "svgSymbolSprite": SVGSymbolSpritePlugin {
+    "svgSymbolSpritePlugin": SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.[contenthash].svg",
+        "filename": "static/media/icon-sprite.svg",
         "injectSpriteId": true,
-      },
-    },
-    "webpackMonitor": MonitorStats {
-      "options": Object {
-        "capture": true,
-        "jsonOpts": Object {
-          "chunkModules": true,
-          "source": false,
-        },
-        "launch": undefined,
-        "port": 8081,
-        "target": "../monitor/stats.json",
       },
     },
   },

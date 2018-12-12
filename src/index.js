@@ -33,16 +33,33 @@ module.exports = function webpackBase(options = {}) {
   if (development) configs = merge(configs, developmentConfigs(decoratedOptions))
 
   // 3. Map loader and plugin names to instances with options
-  configs.module.rules = configs.module.rules
-    .filter(loader => options[loader] !== false)
-    .map(loader => {
-      if (typeof options[loader] === 'function') return options[loader](loaders[loader]())
-      return loaders[loader](options[loader])
-    })
+  const configuredLoaders = {}
+  const configuredPlugins = {}
 
-  configs.plugins = configs.plugins
-    .filter(plugin => options[plugin] !== false)
-    .map(plugin => plugins[plugin])
+  const loadersSet = configs.module.rules
+  configs.module.rules = []
+  loadersSet.forEach(loaderName => {
+    if (options[loaderName] === false) return
 
-  return { configs, loaders, plugins }
+    let loader
+    if (typeof options[loaderName] === 'function') {
+      loader = options[loaderName](loaders[loaderName]())
+    } else {
+      loader = loaders[loaderName](options[loaderName])
+    }
+    configs.module.rules.push(loader)
+    configuredLoaders[loaderName] = loader
+  })
+
+  const pluginsSet = configs.plugins
+  configs.plugins = []
+  pluginsSet.forEach(pluginName => {
+    if (options[pluginName] === false) return
+
+    const plugin = plugins[pluginName]
+    configs.plugins.push(plugin)
+    configuredPlugins[pluginName] = plugin
+  })
+
+  return { configs, loaders: configuredLoaders, plugins: configuredPlugins }
 }
