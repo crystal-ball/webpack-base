@@ -12,6 +12,9 @@ const HomeScreen = () => (
     </div>
     <Header textAlign="center">webpack-base</Header>
     <Text italic textAlign="center">
+      v{process.env.PACKAGE_VERSION}
+    </Text>
+    <Text italic textAlign="center">
       Test applicaton for <code>webpack-base</code> projects.
     </Text>
     <Flex>

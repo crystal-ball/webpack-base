@@ -13,7 +13,10 @@ module.exports = () => {
    * optional options object available for customizing the standard project
    * conventions.
    */
-  const { configs } = webpackBase({ compressPlugin: false })
+  const { configs } = webpackBase({
+    envVars: { PACKAGE_VERSION: '4.1.0' },
+    compressPlugin: false,
+  })
 
   /*
    * Handle non-standard, advanced project customization by directly updating the
