@@ -143,6 +143,7 @@ by passing an options object:
 // customizations and default path overrides
 const options = {
   devServer,
+  envVars
   paths,
   target,
 }
@@ -227,6 +228,15 @@ The following environment variables are injected by the build:
 | `process.env.NODE_ENV`    | Defaults to match NODE_ENV, used by Babili to strip code in prod builds                 |
 | `process.env.DEBUG`       | Defaults to false, can be used for adding detailed logging in dev environment           |
 | `process.env.PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths |
+
+Additional environment variables can be passed in an `envVars` option and they
+will be injected into the build
+
+```
+webpackBase({
+  envVars: { TRACKING_ID: 'x-123456' }
+})
+```
 
 ## ⚛️ Electron support
 

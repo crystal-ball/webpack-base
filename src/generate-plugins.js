@@ -24,6 +24,7 @@ const {
 module.exports = ({
   chunkHash,
   devServer,
+  envVars,
   flags: { electron },
   paths: { appPublic, htmlTemplate, outputPath, publicPath },
 }) => ({
@@ -59,6 +60,7 @@ module.exports = ({
   environmentPlugin: new EnvironmentPlugin({
     DEBUG: false,
     PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
+    ...envVars,
   }),
 
   // --- ℹ️ Indicators

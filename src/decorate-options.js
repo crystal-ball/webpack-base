@@ -2,7 +2,12 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function decorateOptions({ paths = {}, devServer = {}, target } = {}) {
+module.exports = function decorateOptions({
+  paths = {},
+  devServer = {},
+  target,
+  ...rest
+} = {}) {
   const { NODE_ENV } = process.env
 
   const flags = {
@@ -58,5 +63,6 @@ module.exports = function decorateOptions({ paths = {}, devServer = {}, target }
       // Overwrite the default path configs with any custom paths
       ...paths,
     },
+    ...rest,
   }
 }
