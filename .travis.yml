@@ -13,11 +13,8 @@ env:
 before_install:
   - docker --version
 
-install:
-  - npm install
-
 script:
-  - npm test && npm run test:ci
+  - npm run test:ci
 
 deploy:
   provider: script

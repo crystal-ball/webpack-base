@@ -28,6 +28,9 @@ COPY ./test-app .
 # Copy serve config for prod build testing with `serve`
 COPY ./test-app/serve.json .
 
+# Validate unit tests
+RUN npm run test
+
 # Run Build
 RUN npm run build
 
