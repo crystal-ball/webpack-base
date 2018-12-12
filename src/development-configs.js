@@ -1,14 +1,13 @@
 /** Development environment specfic configurations */
-module.exports = ({ appPublic, devServer }) => ({
-  // This makes the bundle appear split into separate modules in the devtools.
-  // We use this instead of source maps in order to have visibility into actual code
-  // being executed, `cheap-module-source-map` can be set if needed
+module.exports = ({ devServer, paths: { appPublic } }) => ({
+  // Set DEVTOOL to 'eval' to see generated code, but show useful original source
+  // for development workflows. Additional considerations:
   // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
-  devtool: 'eval',
+  devtool: process.env.DEVTOOL || 'cheap-module-eval-source-map',
 
   // Development plugins
   // ---------------------------------------------------------------------------
-  plugins: ['hotModuleReplacement', 'friendlyErrors'],
+  plugins: ['hotModuleReplacementPlugin', 'friendlyErrorsPlugin'],
 
   // webpack-dev-server
   // ---------------------------------------------------------------------------

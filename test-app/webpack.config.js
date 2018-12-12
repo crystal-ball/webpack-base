@@ -13,13 +13,13 @@ module.exports = () => {
    * optional options object available for customizing the standard project
    * conventions.
    */
-  const baseConfigs = webpackBase(/* { path, serve } */)
+  const { configs } = webpackBase({ compressPlugin: false })
 
   /*
    * Handle non-standard, advanced project customization by directly updating the
    * generated base configs.
    */
-  // eg: baseConfigs.bail = false
+  // eg: configs.bail = false
 
-  return baseConfigs
+  return configs
 }

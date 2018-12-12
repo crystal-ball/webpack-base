@@ -27,10 +27,11 @@ module.exports = () => ({
   // Production plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    'namedModules',
-    'webpackMonitor',
-    'clean',
-    'duplicatePackageChecker',
-    'miniCSSExtract',
+    'namedModulesPlugin',
+    'webpackMonitorPlugin',
+    'cleanPlugin',
+    'duplicatePackageCheckerPlugin',
+    'miniCSSExtractPlugin',
+    'compressPlugin',
   ],
 })

@@ -14,7 +14,7 @@ import store from './dux/store'
 
 // Injects SVG symbol sprite into document from local storage if it exists,
 // otherwise fetch, cache in local storage and inject.
-svgSymbolSpriteLoader()
+svgSymbolSpriteLoader({ useCache: process.env.NODE_ENV === 'production' })
 
 render(
   <Provider store={store}>

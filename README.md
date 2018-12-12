@@ -67,7 +67,7 @@ npm i -D @crystal-ball/webpack-base
 ### 3. Add configuration files
 
 Setup a [`.babelrc`](./test-app/.babelrc) config file and a
-`webpack.config.js`(./test-app/webpack.config.js) config file in the project
+[`webpack.config.js`](./test-app/webpack.config.js) config file in the project
 root.
 
 ## 📦 Project defaults
@@ -87,9 +87,12 @@ project
 │  └─ / media
 │  │  └─ / icons
 │  └─ / styles
+│  │  └─ / dev
+│  │  └─ / prod
 │  ├─  index.html
 │  └─  index.js
 ├─  .babelrc
+├─  .eslintrc.js
 └─  webpack.config.js
 ```
 
@@ -101,7 +104,8 @@ project
 - **src/media/icons** - The SVG symbol sprite loader will sprite any SVG icons
   imported from this directory.
 - **src/styles** - SASS files in this directory can be imported with a relative
-  import from anywhere in the project.
+  import from anywhere in the project. The `dev` and `prod` directories are
+  passed as `importPaths` to `node-sass` according to the build env.
 - **src/index.js** - The application entry file.
 - **api**, **components**, **dux** and **lib** directories are not required,
   only suggested as a convenient setup.
@@ -117,15 +121,15 @@ way to support specific project needs.
 const webpackBase = require('@crystal-ball/webpack-base')
 
 module.exports = () => {
-  const baseConfigs = webpackBase(/* options */)
+  const { configs } = webpackBase(/* options */)
 
   /*
    * Handle non-standard, advanced project customization by directly updating
    * the generated base configs.
    */
-  // eg: baseConfigs.bail = false
+  // eg: configs.bail = false
 
-  return baseConfigs
+  return configs
 }
 ```
 
@@ -140,101 +144,53 @@ by passing an options object:
 const options = {
   devServer,
   paths,
+  target,
 }
 ```
 
-### Path overrides
+### Available path configs
 
 ```javascript
 const paths = {
-  /**
-   * Application entry point(s) used for the webpack entry. Override to add
-   * additional entries like Babel polyfills, multiple application entries, etc.
-   * @type {File|Array<File>}
-   * @default src/index.js
-   */
-  appEntry,
   /**
    * Application public static files directory. This directory is copied to the
    * build without manipulation by the `CopyWebpackPlugin` and provides an
    * escape hatch to include assets in a build without importing them in the
    * application source.
-   * @type {Directory}
-   * @default public
    */
-  appPublic,
+  appPublic, // ./public
   /**
    * Application source files directory. The directory is added to the webpack
    * `resolve.modules` config to allow using imports relative to the source
    * directory.
-   * @type {Directory}
-   * @default src
    */
-  appSrc,
-  /**
-   * Directories/files that will be loaded && transpiled with Babel using the
-   * `babel-loader`.
-   * @type {Array<Directory|File>}
-   * @default ['src']
-   */
-  babelLoaderInclude,
+  appSrc, // ./src
   /**
    * Project root directory that is used by webpack (eg to handle resolutions).
    * webpack base attempts to automatically set the project context, but it
    * can help fix resolution errors to specify it.
-   * @type {Directory}
-   * @default .
    */
-  context,
-  /**
-   * Project directories copied to the build destination. See the webpack copy
-   * plugin for configuation details
-   * @type {Array<Directory|File>}
-   * @default ['public']
-   */
-  copy,
-  /**
-   * Path to the `index.html` template used by `HtmlWebpackPlugin` to generate
-   * the build `index.html` with injected build assets.
-   * @type {File}
-   * @default src/index.html
-   */
-  htmlTemplate,
+  context, // ./
   /**
    * Directories/files that will be loaded && sprited using the
    * `SVGSymbolSprite` system.
-   * @type {Array<Directory|File>}
-   * @default [src/media/icons]
    */
-  iconsSpriteLoaderInclude,
-  /**
-   * Filename template used for build JS output files. Production builds include
-   * the `[chunkhash]` to enable long term caching.
-   * @type {string}
-   * @default static/js/[name].[production?chunkhash].js
-   */
-  outputFilename,
+  iconSpritePaths, // [./src/media/icons]
   /**
    * Directory that build assets are emitted to.
-   * @type {Directory}
-   * @default dist
    */
-  outputPath,
+  outputPath, // ./dist
   /**
    * The prefix appended to every URL created by the runtime or loaders. This
    * enables serving an application with a CDN or server subdirectory.
-   * @type {string}
-   * @default /
    */
-  publicPath,
+  publicPath, // '/'
   /**
    * Directories included in the SASS resolver. Resources in these directories
    * will be available using relative imports. Useful for importing shared SASS
    * resources inside component SASS definitions.
-   * @type {Array<Directory>}
-   * @default ['src/styles']
    */
-  sassIncludePaths,
+  sassIncludePaths, // ['src/styles']
 }
 ```
 
@@ -250,6 +206,7 @@ const paths = {
 - Production optimizations including uglify and module concatenation
 - Output directory cleaning
 - Injected `PUBLIC_PATH` for routing
+- `DEVTOOL` environment variable will override source maps
 
 ### webpack Resolution
 
@@ -273,7 +230,7 @@ The following environment variables are injected by the build:
 
 ## ⚛️ Electron support
 
-Electron renderer processes can be bundled by passing an `electron` flag in
+Electron renderer processes can be bundled by passing an `target` flag in
 options:
 
 ```javascript
@@ -281,7 +238,7 @@ options:
 const webpackBase = require('@crystal-ball/webpack-base')
 
 module.exports = () => {
-  return webpackBase({ electron: true })
+  return webpackBase({ target: 'electron-renderer' }).configs
 }
 ```
 
@@ -301,24 +258,32 @@ recommended:
 }
 ```
 
-## 🎛 Components access
+## 🎛 Loader and plugins access
 
-A set of loaders and plugins can be accessed directly by calling the package
-`components` export:
+The configured loaders and plugins can be accessed directly in the return value:
 
 ```javascript
 // webpack.config.js
 const webpackBase = require('@crystal-ball/webpack-base')
 
 module.exports = () => {
-  const components = webpackBase.components(/* options */)
-  const { loaders, plugins } = components
+  const { loaders, plugins } = webpackBase(/* options */)
 }
 ```
 
-This can be useful for customizing which plugins are used for projects by
-overwriting the config plugins with a filtered set, as well as adding loaders to
-Storybook.
+#### Returned loaders
+
+```
+jsLoader, sassLoader, svgSpriteLoader, svgComponentLoader, fileLoader, rawLoader
+```
+
+#### Returned plugins
+
+```
+progressBarPlugin, environmentPlugin, htmlPlugin, svgSymbolSpritePlugin, copyPlugin, hotModuleReplacementPlugin, friendlyErrorsPlugin
+```
+
+This can be useful for adding loaders to projects like Storybook.
 
 ## 👷‍♀️ Developing
 

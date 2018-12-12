@@ -6,7 +6,6 @@ const commonConfigs = require('./common-configs')
 const electronConfigs = require('./electron-configs')
 const developmentConfigs = require('./development-configs')
 const productionConfigs = require('./production-configs')
-
 const generateLoaders = require('./generate-loaders')
 const generatePlugins = require('./generate-plugins')
 
@@ -15,38 +14,52 @@ const generatePlugins = require('./generate-plugins')
  * definitions, dev server, build indicators, stats, etc. The configurations are
  * specific to environment and can be overriden as needed for custom build
  * requirements.
- * @param {Object} options
- * @param {Object} options.paths
- * @param {Object} options.serve
- * @returns {Object} Base Webpack configurations object.
  */
 module.exports = function webpackBase(options = {}) {
   const decoratedOptions = decorateOptions(options)
   const loaders = generateLoaders(decoratedOptions)
   const plugins = generatePlugins(decoratedOptions)
 
-  // process.env.BABEL_ENV = process.env.BABEL_ENV || decoratedOptions.flags.mode
+  const { development, production, electron } = decoratedOptions.flags
 
+  // 1. Generate common configs
   // Merge common configs with dev vs prod specific configs to return complete
   // webpack configuration object
   let configs = commonConfigs(decoratedOptions)
 
-  const { development, electron, production } = decoratedOptions.flags
+  // 2. Merge target specific configs
   if (electron) configs = merge(configs, electronConfigs())
   if (production) configs = merge(configs, productionConfigs(decoratedOptions))
   if (development) configs = merge(configs, developmentConfigs(decoratedOptions))
 
-  // Map loader and plugin names to instances
-  configs.module.rules = configs.module.rules.map(loader => loaders[loader])
-  configs.plugins = configs.plugins.map(plugin => plugins[plugin])
+  // 3. Map loader and plugin names to instances with options
+  const configuredLoaders = {}
+  const configuredPlugins = {}
 
-  return configs
-}
+  const loadersSet = configs.module.rules
+  configs.module.rules = []
+  loadersSet.forEach(loaderName => {
+    if (options[loaderName] === false) return
 
-module.exports.components = function components(options = {}) {
-  const decoratedOptions = decorateOptions(options)
-  const loaders = generateLoaders(decoratedOptions)
-  const plugins = generatePlugins(decoratedOptions)
+    let loader
+    if (typeof options[loaderName] === 'function') {
+      loader = options[loaderName](loaders[loaderName]())
+    } else {
+      loader = loaders[loaderName](options[loaderName])
+    }
+    configs.module.rules.push(loader)
+    configuredLoaders[loaderName] = loader
+  })
 
-  return { loaders, plugins }
+  const pluginsSet = configs.plugins
+  configs.plugins = []
+  pluginsSet.forEach(pluginName => {
+    if (options[pluginName] === false) return
+
+    const plugin = plugins[pluginName]
+    configs.plugins.push(plugin)
+    configuredPlugins[pluginName] = plugin
+  })
+
+  return { configs, loaders: configuredLoaders, plugins: configuredPlugins }
 }

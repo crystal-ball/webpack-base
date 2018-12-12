@@ -2,13 +2,9 @@ const { resolve } = require('path')
 
 /** The common configurations are used across environments */
 module.exports = ({
-  appEntry,
-  appSrc,
-  context,
-  outputFilename,
-  outputPath,
-  publicPath,
+  chunkHash,
   flags: { mode },
+  paths: { appEntry, appSrc, context, outputPath, publicPath },
 }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
@@ -27,7 +23,7 @@ module.exports = ({
   // https://webpack.js.org/configuration/output/
   output: {
     path: outputPath,
-    filename: outputFilename,
+    filename: `static/js/[name]${chunkHash}.js`,
     publicPath,
     // Configures the lengths of [hash] and [chunkhash] globally
     hashDigestLength: 12,
@@ -69,10 +65,23 @@ module.exports = ({
   // Common loaders
   // ---------------------------------------------------------------------------
   module: {
-    rules: ['svgSprite', 'svgComponent', 'file', 'raw', 'babel', 'sass'],
+    rules: [
+      'jsLoader',
+      'sassLoader',
+      'svgSpriteLoader',
+      'svgComponentLoader',
+      'fileLoader',
+      'rawLoader',
+    ],
   },
 
   // Common plugins
   // ---------------------------------------------------------------------------
-  plugins: ['progressBar', 'environment', 'html', 'svgSymbolSprite', 'copy'],
+  plugins: [
+    'progressBarPlugin',
+    'environmentPlugin',
+    'htmlPlugin',
+    'svgSymbolSpritePlugin',
+    'copyPlugin',
+  ],
 })
