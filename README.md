@@ -271,6 +271,18 @@ module.exports = () => {
 }
 ```
 
+#### Returned loaders
+
+```
+jsLoader, sassLoader, svgSpriteLoader, svgComponentLoader, fileLoader, rawLoader
+```
+
+#### Returned plugins
+
+```
+progressBarPlugin, environmentPlugin, htmlPlugin, svgSymbolSpritePlugin, copyPlugin, hotModuleReplacementPlugin, friendlyErrorsPlugin
+```
+
 This can be useful for adding loaders to projects like Storybook.
 
 ## 👷‍♀️ Developing
