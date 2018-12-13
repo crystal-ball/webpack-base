@@ -58,7 +58,7 @@ module.exports = function decorateOptions({
       // --- documented to keep the configs as simple as possible
       appEntry: join(appSrc, 'index.js'),
       htmlTemplate: join(appSrc, 'index.html'),
-      jsLoaderInclude: [appSrc],
+      jsLoaderPaths: [appSrc],
 
       // Overwrite the default path configs with any custom paths
       ...paths,
