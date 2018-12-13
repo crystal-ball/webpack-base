@@ -6,6 +6,7 @@ const sourcePackage = require('../source.package.json')
 const projectPackage = require('../package.json')
 
 delete projectPackage.devDependencies['@crystal-ball/webpack-base']
+delete sourcePackage.devDependencies.cypress // don't need this in container
 
 projectPackage.devDependencies = {
   ...projectPackage.devDependencies,
