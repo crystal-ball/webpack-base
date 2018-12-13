@@ -13,8 +13,6 @@ build
 # Config
 .vscode
 .cz-config.js
-.eslintrc.js
-.prettierrc
 .prettierignore
 documentation.yml
 

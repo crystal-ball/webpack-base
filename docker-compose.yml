@@ -1,7 +1,9 @@
 version: '3'
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: ./test-app/Dockerfile
     ports:
       # Both the webpack serve and hot client ports must be exposed!
       - '3000:3000'
