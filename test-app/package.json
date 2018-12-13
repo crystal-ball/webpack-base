@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "eslint-config-eloquence": "^9.5.1",
+    "jest": "^23.6.0",
     "prettier": "^1.15.3"
   }
 }
