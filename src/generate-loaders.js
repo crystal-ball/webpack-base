@@ -8,12 +8,12 @@ const postCSSCustomProperties = require('postcss-custom-properties')
  */
 module.exports = ({
   flags: { production },
-  paths: { appSrc, iconSpritePaths, sassIncludePaths },
+  paths: { iconSpritePaths, jsLoaderPaths, sassIncludePaths },
 }) => ({
   // --- 🎉 JS Loader
   jsLoader: overrides => ({
     test: /\.jsx?$/,
-    include: [appSrc],
+    include: jsLoaderPaths,
     /**
      * ## Using Eslint Loader
      * The `eslint-loader` will run imported modules through eslint first and

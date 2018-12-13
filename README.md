@@ -178,6 +178,11 @@ const paths = {
    */
   iconSpritePaths, // [./src/media/icons]
   /**
+   * Directories that will be loaded using the JS loader, is passed as the
+   * loader `include` property.
+   */
+  jsLoaderPaths, // [./src]
+  /**
    * Directory that build assets are emitted to.
    */
   outputPath, // ./dist
