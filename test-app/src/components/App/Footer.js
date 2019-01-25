@@ -1,9 +1,11 @@
 import React from 'react'
 import { Icon, Text } from 'componentry'
 
+import { component } from './footer.scss'
+
 const Footer = () => (
   <>
-    <div className="d-flex justify-content-center">
+    <div className={`${component} d-flex justify-content-center`}>
       <Text size="lg">
         <Icon id="cog" mr={5} />
         Configuration Generator

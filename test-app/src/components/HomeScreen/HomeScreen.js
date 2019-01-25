@@ -1,9 +1,9 @@
 import React from 'react'
 import { Flex, Header, Text } from 'componentry'
 
-import { ContentContainer } from 'components/universal'
-import Webpack from 'media/webpack-logo.svg'
-import MagicImg from 'media/karly-santiago.jpg'
+import { ContentContainer } from '@/components/universal'
+import Webpack from '@/media/webpack-logo.svg'
+import MagicImg from '@/media/karly-santiago.jpg'
 
 const HomeScreen = () => (
   <ContentContainer>

@@ -4,11 +4,9 @@ import { Flex, ThemeProvider } from 'componentry'
 import styled from 'styled-components'
 
 // Application
-import { ScrollToTop } from 'components/universal'
+import { ScrollToTop } from '@/components/universal'
+import logger from '@/lib/logger'
 import Footer from './Footer'
-import logger from 'lib/logger'
-
-import 'lib/require-icons' // webpack require.context to import all sprite icons
 
 // Screens
 import HomeScreen from '../HomeScreen/HomeScreen'

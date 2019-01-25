@@ -44,6 +44,7 @@ Object {
             "loader": "css-loader",
             "options": Object {
               "localIdentName": "[name]-[local]--[hash:5]",
+              "modules": "global",
             },
           },
           Object {
@@ -190,6 +191,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "@": "/test/src",
       "warning": "/test/node_modules/warning",
     },
     "extensions": Array [
@@ -249,6 +251,7 @@ Object {
             "loader": "css-loader",
             "options": Object {
               "localIdentName": "[name]-[local]--[hash:5]",
+              "modules": "global",
             },
           },
           Object {
@@ -396,6 +399,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "@": "/test/src/renderer",
       "warning": "/test/node_modules/warning",
     },
     "extensions": Array [
@@ -443,6 +447,7 @@ Object {
             "loader": "css-loader",
             "options": Object {
               "localIdentName": "[name]-[local]--[hash:5]",
+              "modules": "global",
             },
           },
           Object {
@@ -635,6 +640,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "@": "/test/src/renderer",
       "warning": "/test/node_modules/warning",
     },
     "extensions": Array [
@@ -686,6 +692,7 @@ Object {
             "loader": "css-loader",
             "options": Object {
               "localIdentName": "[name]-[local]--[hash:5]",
+              "modules": "global",
             },
           },
           Object {
@@ -877,6 +884,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "@": "/test/src",
       "warning": "/test/node_modules/warning",
     },
     "extensions": Array [
@@ -942,6 +950,7 @@ Object {
           "loader": "css-loader",
           "options": Object {
             "localIdentName": "[name]-[local]--[hash:5]",
+            "modules": "global",
           },
         },
         Object {

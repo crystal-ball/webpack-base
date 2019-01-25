@@ -9,6 +9,7 @@ import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader'
 // ⚠️ Import application styles before application components so that base CSS
 // styles are included before component styles.
 import './index.scss'
+import './lib/require-icons'
 import App from './components/App/App'
 import store from './dux/store'
 

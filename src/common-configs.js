@@ -35,10 +35,15 @@ module.exports = ({
     extensions: ['.js', '.jsx', '.json'],
     // Tell webpack what directories should be searched when resolving modules.
     // Including `appSrc` allows for importing modules relative to /src directory!
+    // DEPRECATED: importing relative to appSrc is deprecated, projects should use
+    // the @ alias to import relative to /src.
     modules: [appSrc, 'node_modules'],
     // Alias can be used to point imports to specific modules, include empty object
     // to allow direct assignment in consuming packages
     alias: {
+      // Alias @ to the src/ directory for explicit imports relative to src directory, eg:
+      // `import SomeComponent from '@/components/universal'`
+      '@': appSrc,
       // Short term fix to resolve duplicate versions of warning being imported
       // when using react-router,
       // see: https://github.com/ReactTraining/history/issues/601

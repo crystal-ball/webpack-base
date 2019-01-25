@@ -1,11 +1,15 @@
 'use strict'
-process.env.ELOQUENCE_PROJECT_TYPE = 'webpack'
 
 module.exports = {
   root: true,
   extends: 'eloquence',
   env: {
     browser: true,
+  },
+  settings: {
+    eloquence: {
+      projectType: 'webpack',
+    },
   },
   rules: {
     // Disabled for test application only b/c of subdirectory resolving failures

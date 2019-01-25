@@ -103,9 +103,9 @@ project
   output directory during builds.
 - **src/media/icons** - The SVG symbol sprite loader will sprite any SVG icons
   imported from this directory.
-- **src/styles** - SASS files in this directory can be imported with a relative
-  import from anywhere in the project. The `dev` and `prod` directories are
-  passed as `importPaths` to `node-sass` according to the build env.
+- **src/styles** - SASS files in this directory can be imported with the @ alias
+  from anywhere in the project. The `dev` and `prod` directories are passed as
+  `importPaths` to `node-sass` according to the build env.
 - **src/index.js** - The application entry file.
 - **api**, **components**, **dux** and **lib** directories are not required,
   only suggested as a convenient setup.
@@ -162,8 +162,8 @@ const paths = {
   appPublic, // ./public
   /**
    * Application source files directory. The directory is added to the webpack
-   * `resolve.modules` config to allow using imports relative to the source
-   * directory.
+   * alias config as `@` to allow using imports relative to the source
+   * directory
    */
   appSrc, // ./src
   /**
@@ -214,15 +214,21 @@ const paths = {
 - Injected `PUBLIC_PATH` for routing
 - `DEVTOOL` environment variable will override source maps
 
-### webpack Resolution
+### webpack Alias
 
-The build configures the following module resolutions for convenient shorthand
-imports of common project directories.
+The build configuration includes an alias to the source directory as `@` for
+convenient shorthand imports relative to the project root.
 
-| Module        | Usage                                                                       |
-| ------------- | --------------------------------------------------------------------------- |
-| `/src`        | Allows relative imports from the src directory, useful for shared utilities |
-| `/src/styles` | Allows importing style variables directly from any SASS partial             |
+```javascript
+// In any JS file
+import SomeComponent from '@/components/SomeComponent'
+```
+
+```scss
+// In any SASS file, note the ~ is required to flag to SASS resolver that this
+// is a relative import
+@import '~@/styles/theme';
+```
 
 ### Environment variable injection
 

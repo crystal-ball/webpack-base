@@ -41,7 +41,7 @@ module.exports = ({
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { localIdentName: '[name]-[local]--[hash:5]' },
+              options: { modules: 'global', localIdentName: '[name]-[local]--[hash:5]' },
             },
             {
               // Use postcss to run CSS through autoprefixer and css variables
@@ -69,7 +69,7 @@ module.exports = ({
             { loader: 'style-loader' },
             {
               loader: 'css-loader',
-              options: { localIdentName: '[name]-[local]--[hash:5]' },
+              options: { modules: 'global', localIdentName: '[name]-[local]--[hash:5]' },
             },
             {
               loader: 'sass-loader',
