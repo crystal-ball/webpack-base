@@ -32,7 +32,9 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "format": "prettier --write \"{scripts,src,test-app}/**/*.{js,scss,md}\"",
-    "lint": "NODE_ENV=test eslint scripts src test-app"
+    "lint": "NODE_ENV=test eslint scripts src test-app",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "~7.2.2",
@@ -69,7 +71,8 @@
     "webpack-cli": "~3.2.1",
     "webpack-dev-server": "~3.1.14",
     "webpack-merge": "~4.2.1",
-    "webpack-monitor": "~1.0.14"
+    "webpack-monitor": "~1.0.14",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "commitizen": "^3.0.5",
@@ -88,5 +91,6 @@
     "commitizen": {
       "path": "node_modules/cz-customizable"
     }
-  }
+  },
+  "snyk": true
 }

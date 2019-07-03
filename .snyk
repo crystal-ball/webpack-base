@@ -1,0 +1,74 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - webpack-monitor > babel-core > babel-template > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - eslint-import-resolver-webpack > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-merge > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - babel-plugin-styled-components > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - duplicate-package-checker-webpack-plugin > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - html-webpack-plugin > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/core > @babel/traverse > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - svg-symbol-sprite-loader > cheerio > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-traverse > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/core > @babel/traverse > @babel/types > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-generator > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/core > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-register > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-generator > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-template > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-template > babel-traverse > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-helpers > babel-template > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@svgr/webpack > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/helper-hoist-variables > @babel/types > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - webpack-monitor > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
+    - '@svgr/webpack > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-03T22:58:04.376Z'
