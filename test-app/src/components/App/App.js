@@ -44,11 +44,11 @@ const App = () => {
       <ThemeProvider.Provider value={theme}>
         {/* Restores scroll position to page top on route change */}
         <ScrollToTop />
-        <AppContainer direction="column">
-          <header className="mb-5" />
-          <Flex className="flex-grow-1">
+        <AppContainer direction='column'>
+          <header className='mb-5' />
+          <Flex className='flex-grow-1'>
             <Switch>
-              <Route to="/" exact component={HomeScreen} />
+              <Route to='/' exact component={HomeScreen} />
               <Route component={FourOhFourScreen} />
             </Switch>
           </Flex>

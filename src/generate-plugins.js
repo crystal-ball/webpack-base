@@ -1,3 +1,5 @@
+'use strict'
+
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -70,7 +72,7 @@ module.exports = ({
       messages: [
         `  🎉  ${chalk.green.bold('BINGO')} 🎉`,
         `  Application running at ${chalk.blue.underline(
-          `http://${devServer.host || 'localhost'}:${devServer.port || 3000}`
+          `http://${devServer.host || 'localhost'}:${devServer.port || 3000}`,
         )}`,
       ],
       notes: [],
@@ -112,7 +114,7 @@ module.exports = ({
     /* eslint-enable no-console */
     clear: false, // Don't clear the bar on completion
     format: `  Hacking time... [:bar] ${chalk.green.bold(
-      ':percent'
+      ':percent',
     )} (:elapsed seconds) :msg`,
   }),
 

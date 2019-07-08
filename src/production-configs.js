@@ -1,3 +1,5 @@
+'use strict'
+
 /** Production environment specific configurations. */
 module.exports = () => ({
   // Fail out on the first error instead of tolerating it.

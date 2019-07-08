@@ -2,15 +2,7 @@
 
 module.exports = {
   root: true,
-  extends: 'eloquence',
-  env: {
-    browser: true,
-  },
-  settings: {
-    eloquence: {
-      projectType: 'webpack',
-    },
-  },
+  extends: 'eloquence/react',
   rules: {
     // Disabled for test application only b/c of subdirectory resolving failures
     'import/extensions': 'off',

@@ -7,21 +7,21 @@ import MagicImg from '@/media/karly-santiago.jpg'
 
 const HomeScreen = () => (
   <ContentContainer>
-    <div className="hero d-flex flex-column align-items-center">
+    <div className='hero d-flex flex-column align-items-center'>
       <Webpack />
     </div>
-    <Header textAlign="center">webpack-base</Header>
-    <Text italic textAlign="center">
+    <Header textAlign='center'>webpack-base</Header>
+    <Text italic textAlign='center'>
       v{process.env.PACKAGE_VERSION}
     </Text>
-    <Text italic textAlign="center">
+    <Text italic textAlign='center'>
       Test applicaton for <code>webpack-base</code> projects.
     </Text>
     <Flex>
-      <div className="w-25">
-        <img src={MagicImg} className="mw-100" alt="In pursuit of magic" />
+      <div className='w-25'>
+        <img src={MagicImg} className='mw-100' alt='In pursuit of magic' />
       </div>
-      <div className="w-75 pl-3">
+      <div className='w-75 pl-3'>
         <ul>
           <li>
             JS loader setup to transpile all source in the <code>babelLoaderInclude</code>{' '}

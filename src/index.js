@@ -1,4 +1,5 @@
-/* eslint-disable no-param-reassign */
+'use strict'
+
 const merge = require('webpack-merge')
 
 const decorateOptions = require('./decorate-options')

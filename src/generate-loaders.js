@@ -1,3 +1,5 @@
+'use strict'
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 const postCSSCustomProperties = require('postcss-custom-properties')

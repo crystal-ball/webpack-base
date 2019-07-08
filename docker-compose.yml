@@ -1,9 +1,9 @@
-version: '3'
+version: '2.4'
+
 services:
   app:
     build:
       context: .
-      dockerfile: ./test-app/Dockerfile
     ports:
       # Both the webpack serve and hot client ports must be exposed!
       - '3000:3000'
@@ -15,4 +15,4 @@ services:
       # Template project
       - './test-app/src:/usr/src/app/src'
       - './test-app/webpack.config.js:/usr/src/app/webpack.config.js'
-    entrypoint: /bin/sh
+    command: /bin/sh
