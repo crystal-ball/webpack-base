@@ -1,6 +1,5 @@
 'use strict'
 
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
@@ -11,6 +10,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const WebpackMonitor = require('webpack-monitor')
 const chalk = require('chalk')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const {
   EnvironmentPlugin,
   HotModuleReplacementPlugin,
@@ -28,14 +28,11 @@ module.exports = ({
   devServer,
   envVars,
   flags: { electron },
-  paths: { appPublic, htmlTemplate, outputPath, publicPath },
+  paths: { appPublic, htmlTemplate, publicPath },
 }) => ({
   // --- 📦 Build Prep
   // Wipe output folder before the build
-  cleanPlugin: new CleanWebpackPlugin([outputPath], {
-    // root is required b/c our paths are absolute and clean makes sure they match
-    root: process.cwd(),
-  }),
+  cleanPlugin: new CleanWebpackPlugin(),
 
   // --- ⬇️ Compress
   // Gzip build assets, do not include deleteOriginalAssets or it will delete the

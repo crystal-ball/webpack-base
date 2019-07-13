@@ -2,7 +2,9 @@
 /**
  * Example application wide utility method.
  */
-export default message => {
+const logger = message => {
   if (process.env.DEBUG) console.log('Extra logging: ')
   console.info(message)
 }
+
+export default logger

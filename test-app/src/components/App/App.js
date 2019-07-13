@@ -48,7 +48,7 @@ const App = () => {
           <header className='mb-5' />
           <Flex className='flex-grow-1'>
             <Switch>
-              <Route to='/' exact component={HomeScreen} />
+              <Route path='/' exact component={HomeScreen} />
               <Route component={FourOhFourScreen} />
             </Switch>
           </Flex>

@@ -5,10 +5,11 @@ module.exports = {
         [
           '@babel/preset-env',
           {
+            // Disable module transformation to allow webpack to manage it
             modules: false,
             targets: {
-              Chrome: '70',
-              Firefox: '63',
+              chrome: '70',
+              firefox: '63',
             },
           },
         ],
@@ -26,11 +27,13 @@ module.exports = {
         [
           '@babel/preset-env',
           {
+            // Disable module transformation to allow webpack to manage it
             modules: false,
             targets: '> 0.25%, not ie 11, not dead',
             // Will automatically add core-js imports for unsupported language
             // features based on environment
             useBuiltIns: 'usage',
+            corejs: { version: 3, proposals: true },
           },
         ],
         '@babel/preset-react',
