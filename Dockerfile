@@ -1,4 +1,4 @@
-FROM node:8.11-alpine
+FROM node:10.16-alpine as base
 LABEL maintainer="hedgecock.d@gmail.com"
 
 WORKDIR /usr/src/app
@@ -15,12 +15,28 @@ COPY ./package.json ./source.package.json
 COPY ./scripts ./scripts
 RUN node scripts/prepare-container-install.js
 
+RUN npm install --no-optional --loglevel error
+
+# --- TEST ---
+
+FROM base as test
+
+COPY ./package.json ./package.json
+COPY ./src ./src
+COPY ./test-app ./test-app
+COPY ./__mocks__ ./__mocks__
+COPY ./jest.config.js ./jest.config.js
+COPY ./.eslintrc.js ./.eslintrc.js
+
+# Validate unit tests
+RUN npm run test
+
 # --- PROJECT ---
 
-# COPY --from=builder /usr/src/app/package.json ./package.json
-RUN npm install
+FROM base as builder
 
 # Copy project package to installed version package
+COPY ./src /usr/src/app/node_modules/@crystal-ball/webpack-base/src
 COPY ./package.json /usr/src/app/node_modules/@crystal-ball/webpack-base/package.json
 
 # Copy test app in to container
@@ -28,7 +44,8 @@ COPY ./test-app .
 # Copy serve config for prod build testing with `serve`
 COPY ./test-app/serve.json .
 
-# Expose both the webpack-serve and hot client ports
-EXPOSE 3000
-# Expose the serve port for testing production builds
-EXPOSE 5000
+# Run Build
+RUN npm run build
+
+# Serve the app in the container on :5000
+CMD ["serve"]

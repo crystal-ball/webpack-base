@@ -1,6 +1,9 @@
 # Dependencies
 node_modules
 
+# Git
+.git
+
 # Logs
 npm-debug.log
 

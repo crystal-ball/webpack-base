@@ -43,8 +43,10 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-              "modules": "global",
+              "modules": Object {
+                "localIdentName": "[name]-[local]--[hash:5]",
+                "mode": "global",
+              },
             },
           },
           Object {
@@ -158,8 +160,11 @@ Object {
         "injectSpriteId": true,
       },
     },
-    Object {
-      "apply": [Function],
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/public",
+      ],
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
@@ -250,8 +255,10 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-              "modules": "global",
+              "modules": Object {
+                "localIdentName": "[name]-[local]--[hash:5]",
+                "mode": "global",
+              },
             },
           },
           Object {
@@ -366,8 +373,11 @@ Object {
         "injectSpriteId": true,
       },
     },
-    Object {
-      "apply": [Function],
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/public",
+      ],
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
@@ -446,8 +456,10 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-              "modules": "global",
+              "modules": Object {
+                "localIdentName": "[name]-[local]--[hash:5]",
+                "mode": "global",
+              },
             },
           },
           Object {
@@ -577,8 +589,11 @@ Object {
         "injectSpriteId": true,
       },
     },
-    Object {
-      "apply": [Function],
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/public",
+      ],
     },
     NamedModulesPlugin {
       "options": Object {},
@@ -596,15 +611,22 @@ Object {
       },
     },
     CleanWebpackPlugin {
-      "options": Object {
-        "allowExternal": false,
-        "dry": false,
-        "root": "/test/cwd/path",
-        "verbose": true,
-      },
-      "paths": Array [
-        "/test/src/build",
+      "apply": [Function],
+      "cleanAfterEveryBuildPatterns": Array [],
+      "cleanOnceBeforeBuildPatterns": Array [
+        "**/*",
       ],
+      "cleanStaleWebpackAssets": true,
+      "currentAssets": Array [],
+      "dangerouslyAllowCleanPatternsOutsideProject": false,
+      "dry": false,
+      "handleDone": [Function],
+      "handleInitial": [Function],
+      "initialClean": false,
+      "outputPath": "",
+      "protectWebpackAssets": true,
+      "removeFiles": [Function],
+      "verbose": false,
     },
     DuplicatePackageCheckerPlugin {
       "options": Object {
@@ -691,8 +713,10 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "localIdentName": "[name]-[local]--[hash:5]",
-              "modules": "global",
+              "modules": Object {
+                "localIdentName": "[name]-[local]--[hash:5]",
+                "mode": "global",
+              },
             },
           },
           Object {
@@ -821,8 +845,11 @@ Object {
         "injectSpriteId": true,
       },
     },
-    Object {
-      "apply": [Function],
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/public",
+      ],
     },
     NamedModulesPlugin {
       "options": Object {},
@@ -840,15 +867,22 @@ Object {
       },
     },
     CleanWebpackPlugin {
-      "options": Object {
-        "allowExternal": false,
-        "dry": false,
-        "root": "/test/cwd/path",
-        "verbose": true,
-      },
-      "paths": Array [
-        "/test/dist",
+      "apply": [Function],
+      "cleanAfterEveryBuildPatterns": Array [],
+      "cleanOnceBeforeBuildPatterns": Array [
+        "**/*",
       ],
+      "cleanStaleWebpackAssets": true,
+      "currentAssets": Array [],
+      "dangerouslyAllowCleanPatternsOutsideProject": false,
+      "dry": false,
+      "handleDone": [Function],
+      "handleInitial": [Function],
+      "initialClean": false,
+      "outputPath": "",
+      "protectWebpackAssets": true,
+      "removeFiles": [Function],
+      "verbose": false,
     },
     DuplicatePackageCheckerPlugin {
       "options": Object {
@@ -949,8 +983,10 @@ Object {
         Object {
           "loader": "css-loader",
           "options": Object {
-            "localIdentName": "[name]-[local]--[hash:5]",
-            "modules": "global",
+            "modules": Object {
+              "localIdentName": "[name]-[local]--[hash:5]",
+              "mode": "global",
+            },
           },
         },
         Object {
@@ -988,8 +1024,11 @@ Object {
     },
   },
   "plugins": Object {
-    "copyPlugin": Object {
-      "apply": [Function],
+    "copyPlugin": CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/public",
+      ],
     },
     "environmentPlugin": EnvironmentPlugin {
       "defaultValues": Object {

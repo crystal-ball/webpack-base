@@ -1,13 +1,14 @@
-version: '3'
+version: '2'
+
 services:
   test:
     build:
       context: .
-      dockerfile: ./test-app/Dockerfile
     ports:
       - '5000:5000'
+
   cypress:
-    image: dhedgecock/cypress-ci:10.3.1.3
+    image: dhedgecock/cypress-ci:10.3.1.5
     command: ./node_modules/.bin/cypress run --config baseUrl=http://test:5000
     depends_on:
       - test

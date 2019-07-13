@@ -1,3 +1,5 @@
+'use strict'
+
 /** Development environment specfic configurations */
 module.exports = ({ devServer, paths: { appPublic } }) => ({
   // Set DEVTOOL to 'eval' to see generated code, but show useful original source

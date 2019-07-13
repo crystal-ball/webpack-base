@@ -1,3 +1,5 @@
+'use strict'
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 const postCSSCustomProperties = require('postcss-custom-properties')
@@ -41,7 +43,12 @@ module.exports = ({
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { modules: 'global', localIdentName: '[name]-[local]--[hash:5]' },
+              options: {
+                modules: {
+                  mode: 'global',
+                  localIdentName: '[name]-[local]--[hash:5]',
+                },
+              },
             },
             {
               // Use postcss to run CSS through autoprefixer and css variables
@@ -69,7 +76,12 @@ module.exports = ({
             { loader: 'style-loader' },
             {
               loader: 'css-loader',
-              options: { modules: 'global', localIdentName: '[name]-[local]--[hash:5]' },
+              options: {
+                modules: {
+                  mode: 'global',
+                  localIdentName: '[name]-[local]--[hash:5]',
+                },
+              },
             },
             {
               loader: 'sass-loader',
