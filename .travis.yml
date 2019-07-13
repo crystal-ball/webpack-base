@@ -23,6 +23,6 @@ deploy:
   provider: script
   # Prevent Travis from resetting working directory after build
   skip_cleanup: true
-  script: npx semantic-release
+  script: npm install && npx semantic-release
   on:
     branch: master
