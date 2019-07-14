@@ -14,6 +14,19 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [5.1.0](https://github.com/crystal-ball/webpack-base/compare/v5.0.0...v5.1.0) (2019-07-14)
+
+
+#### ✨ Update
+
+* Update dependency webpack-cli to v3.3.6 (#40)([9f8f3bd](https://github.com/crystal-ball/webpack-base/commit/9f8f3bd4e0e6e4da65b5d92e036cbd184aa2b4b2)), closes [#40](https://github.com/crystal-ball/webpack-base/issue/40)
+
+#### Docs, Upgrade, Chore
+
+* Update Changelog and Readme to match 🔮✨ (#41)([b458cba](https://github.com/crystal-ball/webpack-base/commit/b458cba8c851ab0ce751ae5a40a97ac0f3422f00)), closes [#41](https://github.com/crystal-ball/webpack-base/issue/41)
+* Pin dependencies (#38)([1fb8960](https://github.com/crystal-ball/webpack-base/commit/1fb89601410c13374c34d0d7ec3f69c5d0b9d12e)), closes [#38](https://github.com/crystal-ball/webpack-base/issue/38)
+* Configure Renovate (#34)([98207f6](https://github.com/crystal-ball/webpack-base/commit/98207f6ae6e11f3f25314693c86ce3ad60e05c47)), closes [#34](https://github.com/crystal-ball/webpack-base/issue/34)
+
 ## [5.0.0](https://github.com/crystal-ball/webpack-base/compare/v4.3.0...v5.0.0) (2019-07-13)
 
 
