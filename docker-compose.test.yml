@@ -8,7 +8,9 @@ services:
       - '5000:5000'
 
   cypress:
-    image: dhedgecock/cypress-ci:10.3.1.5
+    image: dhedgecock/cypress-ci:10.3.4.0
+    # See https://github.com/cypress-io/cypress/issues/350
+    ipc: host
     command: ./node_modules/.bin/cypress run --config baseUrl=http://test:5000
     depends_on:
       - test
