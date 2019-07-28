@@ -68,8 +68,7 @@
     "webpack": "4.38.0",
     "webpack-cli": "3.3.6",
     "webpack-dev-server": "3.7.2",
-    "webpack-merge": "4.2.1",
-    "webpack-monitor": "1.0.14"
+    "webpack-merge": "4.2.1"
   },
   "devDependencies": {
     "@crystal-ball/commitizen-adapter": "1.4.0",
