@@ -19,7 +19,9 @@ module.exports = {
         '@babel/plugin-transform-react-jsx-source', // Better stacks for error boundaries
         'babel-plugin-styled-components', // Better styled component display names
         '@babel/plugin-proposal-class-properties',
-        '@babel/plugin-transform-runtime', // Needed for generators and babel-helpers
+        // Runtime will transform Babel helpers to imports from @babel/runtime
+        // Passing useESModules allows webpack to handle module transforms
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
       ],
     },
     production: {
@@ -40,7 +42,9 @@ module.exports = {
       ],
       plugins: [
         '@babel/plugin-proposal-class-properties',
-        '@babel/plugin-transform-runtime', // Needed for generators and babel-helpers
+        // Runtime will transform Babel helpers to imports from @babel/runtime
+        // Passing useESModules allows webpack to handle module transforms
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
       ],
     },
   },
