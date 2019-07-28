@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [5.2.0](https://github.com/crystal-ball/webpack-base/compare/v5.1.0...v5.2.0) (2019-07-28)
+
+
+#### ✨ Update
+
+* Dependencies update 🆙 (#55)([80feb90](https://github.com/crystal-ball/webpack-base/commit/80feb90f826883ffd4b6257635c12e0fc489c204)), closes [#55](https://github.com/crystal-ball/webpack-base/issue/55)
+
+#### Chore
+
+* Bump Cypress to latest 🆙 (#42)([b7e2069](https://github.com/crystal-ball/webpack-base/commit/b7e2069a6cba6d81a08248cba20cac99fc719b7e)), closes [#42](https://github.com/crystal-ball/webpack-base/issue/42)
+
 ## [5.1.0](https://github.com/crystal-ball/webpack-base/compare/v5.0.0...v5.1.0) (2019-07-14)
 
 
