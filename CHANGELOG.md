@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [5.2.1](https://github.com/crystal-ball/webpack-base/compare/v5.2.0...v5.2.1) (2019-07-30)
+
+
+#### 🛠 Fix
+
+* Remove abandoned webpack-monitor dependency 🔧 (#59)([0cd165e](https://github.com/crystal-ball/webpack-base/commit/0cd165ef93b0c1aab1aa6baef6f8b3da2139a38d)), closes [#59](https://github.com/crystal-ball/webpack-base/issue/59)
+
+#### Chore
+
+* Reconfigure Renovate (#57)([842116a](https://github.com/crystal-ball/webpack-base/commit/842116a8be57ba1ba673833c513270959790c144)), closes [#57](https://github.com/crystal-ball/webpack-base/issue/57)
+
 ## [5.2.0](https://github.com/crystal-ball/webpack-base/compare/v5.1.0...v5.2.0) (2019-07-28)
 
 
