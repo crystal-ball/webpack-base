@@ -20,7 +20,7 @@ const {
  * Returns the set of plugins for the passed opts including:
  * clean, copy, duplicatePackageChecker, environment, friendlyErrors,
  * hotModuleReplacement, html, miniCSSExtract, namedModules, progressBar,
- * svgSymbolSprite, webpackMonitor
+ * svgSymbolSprite
  */
 module.exports = ({
   chunkHash,

@@ -598,7 +598,6 @@ Object {
     NamedModulesPlugin {
       "options": Object {},
     },
-    undefined,
     CleanWebpackPlugin {
       "apply": [Function],
       "cleanAfterEveryBuildPatterns": Array [],
@@ -843,7 +842,6 @@ Object {
     NamedModulesPlugin {
       "options": Object {},
     },
-    undefined,
     CleanWebpackPlugin {
       "apply": [Function],
       "cleanAfterEveryBuildPatterns": Array [],

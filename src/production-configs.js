@@ -30,7 +30,6 @@ module.exports = () => ({
   // ---------------------------------------------------------------------------
   plugins: [
     'namedModulesPlugin',
-    'webpackMonitorPlugin',
     'cleanPlugin',
     'duplicatePackageCheckerPlugin',
     'miniCSSExtractPlugin',
