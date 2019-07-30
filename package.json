@@ -23,6 +23,7 @@
     "node": ">=8.11"
   },
   "scripts": {
+    "postinstall": ". ./scripts/post-install.sh",
     "container": "docker-compose run --service-ports --rm app",
     "container:test": "docker-compose run --rm webpack",
     "test": "npm run lint && npm run test:unit",
@@ -74,7 +75,6 @@
     "@crystal-ball/commitizen-adapter": "1.4.0",
     "@crystal-ball/prettier-base": "1.2.0",
     "@crystal-ball/semantic-release-base": "1.6.2",
-    "cypress": "3.4.0",
     "eslint-config-eloquence": "12.3.0",
     "husky": "3.0.1",
     "jest": "24.8.0"
