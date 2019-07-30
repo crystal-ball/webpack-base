@@ -8,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
-const WebpackMonitor = require('webpack-monitor')
 const chalk = require('chalk')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const {
@@ -21,7 +20,7 @@ const {
  * Returns the set of plugins for the passed opts including:
  * clean, copy, duplicatePackageChecker, environment, friendlyErrors,
  * hotModuleReplacement, html, miniCSSExtract, namedModules, progressBar,
- * svgSymbolSprite, webpackMonitor
+ * svgSymbolSprite
  */
 module.exports = ({
   chunkHash,
@@ -121,12 +120,5 @@ module.exports = ({
   // HTML plugin hooks are pre-registered!
   svgSymbolSpritePlugin: new SVGSymbolSprite.Plugin({
     filename: `static/media/icon-sprite${chunkHash}.svg`,
-  }),
-
-  // --- ℹ️ Stats
-  // Totally awesome webpack build stats monitor, run `npm run build:monitor` to
-  // launch the monitor after building
-  webpackMonitorPlugin: new WebpackMonitor({
-    launch: process.env.LAUNCH_MONITOR,
   }),
 })

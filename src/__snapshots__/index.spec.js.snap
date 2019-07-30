@@ -598,18 +598,6 @@ Object {
     NamedModulesPlugin {
       "options": Object {},
     },
-    MonitorStats {
-      "options": Object {
-        "capture": true,
-        "jsonOpts": Object {
-          "chunkModules": true,
-          "source": false,
-        },
-        "launch": undefined,
-        "port": 8081,
-        "target": "../monitor/stats.json",
-      },
-    },
     CleanWebpackPlugin {
       "apply": [Function],
       "cleanAfterEveryBuildPatterns": Array [],
@@ -853,18 +841,6 @@ Object {
     },
     NamedModulesPlugin {
       "options": Object {},
-    },
-    MonitorStats {
-      "options": Object {
-        "capture": true,
-        "jsonOpts": Object {
-          "chunkModules": true,
-          "source": false,
-        },
-        "launch": undefined,
-        "port": 8081,
-        "target": "../monitor/stats.json",
-      },
     },
     CleanWebpackPlugin {
       "apply": [Function],
