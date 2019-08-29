@@ -80,6 +80,14 @@ Setup a [`.babelrc`](./test-app/.babelrc) config file and a
 [`webpack.config.js`](./test-app/webpack.config.js) config file in the project
 root.
 
+#### Babel configuration
+
+Babel configuration should include setting `core-js` options for the
+`preset-env` preset and `plugin-transform-runtime` plugin. The CoreJS package
+includes polyfills for language features not supported by the compile target. It
+is recommended to set the env preset to transform features used with the `usage`
+option and the runtime to use helpers instead of global polyfills.
+
 ## 📦 Project defaults
 
 webpack base works out of the box for projects with projects that use the
