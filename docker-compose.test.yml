@@ -12,13 +12,10 @@ services:
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
     environment:
-      - CYPRESS_baseUrl=http://test
+      - CYPRESS_baseUrl=http://test:5000
     depends_on:
       - test
     # Share the current folder as volume to avoid copying
     working_dir: /e2e
     volumes:
       - ./:/e2e
-    volumes:
-      - ./cypress:/e2e
-      - ./cypress.json:/e2e
