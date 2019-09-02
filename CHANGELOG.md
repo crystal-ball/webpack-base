@@ -14,6 +14,20 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [5.3.0](https://github.com/crystal-ball/webpack-base/compare/v5.2.1...v5.3.0) (2019-09-02)
+
+
+#### ✨ Update
+
+* Upgrade package dependencies 🆙 (#65)([1ab4cde](https://github.com/crystal-ball/webpack-base/commit/1ab4cdea36e3ed661479419d72a0a7b27d783e5e)), closes [#65](https://github.com/crystal-ball/webpack-base/issue/65)
+
+#### Upgrade, Chore
+
+* Update all non-major dependencies (#58)([0b6d1c7](https://github.com/crystal-ball/webpack-base/commit/0b6d1c742da6db4688652f95956103f07479462f)), closes [#58](https://github.com/crystal-ball/webpack-base/issue/58)
+* Move Cypress to a post-install script for faster CI deploys ⚙️ (#60)([f769616](https://github.com/crystal-ball/webpack-base/commit/f76961602f704274232641fd2013fb3ff9e23ea5)), closes [#60](https://github.com/crystal-ball/webpack-base/issue/60)
+* Update cypress/included Docker tag to v3.4.1 (#62)([aaf59eb](https://github.com/crystal-ball/webpack-base/commit/aaf59eb585825cd087292ab19f00832292449049)), closes [#62](https://github.com/crystal-ball/webpack-base/issue/62)
+* Update test-app deps 🆙 (#67)([c33fcce](https://github.com/crystal-ball/webpack-base/commit/c33fccea28fd72fda5311fc921c1c8b351d055e1)), closes [#67](https://github.com/crystal-ball/webpack-base/issue/67)
+
 ### [5.2.1](https://github.com/crystal-ball/webpack-base/compare/v5.2.0...v5.2.1) (2019-07-30)
 
 
