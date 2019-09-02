@@ -62,7 +62,11 @@ module.exports = ({
               loader: 'sass-loader',
               // Allows for aliased imports from include paths, especially useful
               // for importing app theme variables and mixins into component styles
-              options: { includePaths: sassIncludePaths },
+              options: {
+                sassOptions: {
+                  includePaths: sassIncludePaths,
+                },
+              },
             },
           ],
           ...overrides,
@@ -87,7 +91,11 @@ module.exports = ({
               loader: 'sass-loader',
               // Allows for aliased imports from include paths, especially useful
               // for importing app theme variables and mixins into component styles
-              options: { includePaths: sassIncludePaths },
+              options: {
+                sassOptions: {
+                  includePaths: sassIncludePaths,
+                },
+              },
             },
           ],
           ...overrides,

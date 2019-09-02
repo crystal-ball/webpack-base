@@ -52,10 +52,12 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "includePaths": Array [
-                "/test/src/styles",
-                "/test/src/styles/dev",
-              ],
+              "sassOptions": Object {
+                "includePaths": Array [
+                  "/test/src/styles",
+                  "/test/src/styles/dev",
+                ],
+              },
             },
           },
         ],
@@ -264,10 +266,12 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "includePaths": Array [
-                "/test/src/renderer/styles",
-                "/test/src/renderer/styles/dev",
-              ],
+              "sassOptions": Object {
+                "includePaths": Array [
+                  "/test/src/renderer/styles",
+                  "/test/src/renderer/styles/dev",
+                ],
+              },
             },
           },
         ],
@@ -474,10 +478,12 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "includePaths": Array [
-                "/test/src/renderer/styles",
-                "/test/src/renderer/styles/prod",
-              ],
+              "sassOptions": Object {
+                "includePaths": Array [
+                  "/test/src/renderer/styles",
+                  "/test/src/renderer/styles/prod",
+                ],
+              },
             },
           },
         ],
@@ -719,10 +725,12 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "includePaths": Array [
-                "/test/src/styles",
-                "/test/src/styles/prod",
-              ],
+              "sassOptions": Object {
+                "includePaths": Array [
+                  "/test/src/styles",
+                  "/test/src/styles/prod",
+                ],
+              },
             },
           },
         ],
@@ -968,10 +976,12 @@ Object {
         Object {
           "loader": "sass-loader",
           "options": Object {
-            "includePaths": Array [
-              "/test/src/styles",
-              "/test/src/styles/dev",
-            ],
+            "sassOptions": Object {
+              "includePaths": Array [
+                "/test/src/styles",
+                "/test/src/styles/dev",
+              ],
+            },
           },
         },
       ],

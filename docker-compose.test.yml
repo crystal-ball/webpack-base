@@ -8,12 +8,14 @@ services:
       - '5000:5000'
 
   cypress:
-    image: dhedgecock/cypress-ci:10.3.4.0
+    image: cypress/included:3.4.0
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
-    command: ./node_modules/.bin/cypress run --config baseUrl=http://test:5000
+    environment:
+      - CYPRESS_baseUrl=http://test:5000
     depends_on:
       - test
+    # Share the current folder as volume to avoid copying
+    working_dir: /e2e
     volumes:
-      - ./cypress:/usr/cypress/cypress
-      - ./cypress.json:/usr/cypress/cypress.json
+      - ./:/e2e
