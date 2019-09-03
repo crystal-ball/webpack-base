@@ -5,7 +5,7 @@
 # speed up CI/CD builds by only installing Cypress where necessary.
 
 # When package is installed as a node_module, do nothing
-[[ "$PWD" == *node_modules* ]] exit 0
+[[ "$PWD" == *node_modules* ]] && exit 0
 
 # Check for Travis env variable to determine CI/CD state
 if [ -z "$TRAVIS_CI" ]; then
