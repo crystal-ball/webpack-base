@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [5.3.2](https://github.com/crystal-ball/webpack-base/compare/v5.3.1...v5.3.2) (2019-09-03)
+
+
+#### 🛠 Fix
+
+* Remove styled-components plugin from project bundled dependencies 🔧 (#69)([749bbbc](https://github.com/crystal-ball/webpack-base/commit/749bbbcfd7a35f0afcb4cd772c3dd296ac498f60)), closes [#69](https://github.com/crystal-ball/webpack-base/issue/69)
+
 ### [5.3.1](https://github.com/crystal-ball/webpack-base/compare/v5.3.0...v5.3.1) (2019-09-03)
 
 
