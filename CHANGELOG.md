@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [5.3.1](https://github.com/crystal-ball/webpack-base/compare/v5.3.0...v5.3.1) (2019-09-03)
+
+
+#### 🛠 Fix
+
+* Skip postinstall hook when installed as a dependency 🔧 (#68)([807c82f](https://github.com/crystal-ball/webpack-base/commit/807c82fed16387e2e7bf081cd4ce624efbe043e5)), closes [#68](https://github.com/crystal-ball/webpack-base/issue/68)
+
 ## [5.3.0](https://github.com/crystal-ball/webpack-base/compare/v5.2.1...v5.3.0) (2019-09-02)
 
 
