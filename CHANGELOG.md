@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [5.3.3](https://github.com/crystal-ball/webpack-base/compare/v5.3.2...v5.3.3) (2019-09-03)
+
+
+#### 🛠 Fix
+
+* Specify bash when running postinstall explicitly (#70)([8568644](https://github.com/crystal-ball/webpack-base/commit/8568644bdcc76a256d1562d440d7b1406e84a55c)), closes [#70](https://github.com/crystal-ball/webpack-base/issue/70)
+
 ### [5.3.2](https://github.com/crystal-ball/webpack-base/compare/v5.3.1...v5.3.2) (2019-09-03)
 
 
