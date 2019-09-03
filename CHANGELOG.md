@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [5.3.4](https://github.com/crystal-ball/webpack-base/compare/v5.3.3...v5.3.4) (2019-09-03)
+
+
+#### 🛠 Fix
+
+* Postinstall script fix attempt 3 😅 (#71)([d64cd77](https://github.com/crystal-ball/webpack-base/commit/d64cd77b54c98903864127cfbfec8d7bd734c396)), closes [#71](https://github.com/crystal-ball/webpack-base/issue/71)
+
 ### [5.3.3](https://github.com/crystal-ball/webpack-base/compare/v5.3.2...v5.3.3) (2019-09-03)
 
 
