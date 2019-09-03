@@ -28,6 +28,7 @@
     "svg-symbol-sprite-loader": "3.2.0"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "1.10.6",
     "@crystal-ball/prettier-base": "1.4.0",
     "eslint-config-eloquence": "12.4.0",
     "jest": "24.9.0"
