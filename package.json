@@ -44,7 +44,6 @@
     "@svgr/webpack": "4.3.2",
     "autoprefixer": "9.6.1",
     "babel-loader": "8.0.6",
-    "babel-plugin-styled-components": "1.10.6",
     "chalk": "2.4.2",
     "clean-webpack-plugin": "3.0.0",
     "compression-webpack-plugin": "3.0.0",
