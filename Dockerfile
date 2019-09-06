@@ -1,48 +1,48 @@
-FROM node:10.16-alpine as base
+FROM node:10.16 as base
 LABEL maintainer="hedgecock.d@gmail.com"
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src
 
 # Include serve globally for testing production builds
 RUN npm install -g serve
-
-# --- DEPENDENCIES ---
-
-# Copy source and template packages and run merge script to install the same deps
-# as listed in current package (vs published package deps)
-COPY ./test-app/package.json .
-COPY ./package.json ./source.package.json
-COPY ./scripts ./scripts
-RUN node scripts/prepare-container-install.js
-
-RUN npm install --no-optional --loglevel error
 
 # --- TEST ---
 
 FROM base as test
 
-COPY ./package.json ./package.json
-COPY ./src ./src
-COPY ./test-app ./test-app
-COPY ./__mocks__ ./__mocks__
-COPY ./jest.config.js ./jest.config.js
-COPY ./.eslintrc.js ./.eslintrc.js
+# Install dependencies
+COPY ./package*.json ./
+RUN npm install
+
+# Copy remaining source files
+COPY . .
 
 # Validate unit tests
-RUN npm run test
+RUN npm test
 
-# --- PROJECT ---
+# --- APP CLONE ---
 
-FROM base as builder
+FROM base as app
 
-# Copy project package to installed version package
-COPY ./src /usr/src/app/node_modules/@crystal-ball/webpack-base/src
-COPY ./package.json /usr/src/app/node_modules/@crystal-ball/webpack-base/package.json
+RUN git clone https://github.com/crystal-ball/react-application-prototype.git
+WORKDIR /usr/src/react-application-prototype
 
-# Copy test app in to container
-COPY ./test-app .
+# Copy source and template packages and run merge script to install the same deps
+# as listed in current package (vs published package deps)
+# COPY ./test-app/package.json .
+COPY ./package.json ./source.package.json
+COPY ./scripts/prepare-container-install.js ./scripts/prepare-container-install.js
+RUN node scripts/prepare-container-install.js
+
+RUN CI=true npm install --no-optional --loglevel error
+
+# Copy project source to installed version package
+COPY ./src /usr/src/react-application-prototype/node_modules/@crystal-ball/webpack-base/src
+COPY ./package.json /usr/src/react-application-prototype/node_modules/@crystal-ball/webpack-base/package.json
+
+
 # Copy serve config for prod build testing with `serve`
-COPY ./test-app/serve.json .
+RUN echo "{ \"public\": \"dist\" }" >> ./serve.json
 
 # Run Build
 RUN npm run build
