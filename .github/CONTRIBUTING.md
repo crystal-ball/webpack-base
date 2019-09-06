@@ -41,7 +41,6 @@ running a build simple, but allow for any customization required.
 ### Files
 
 - `/src` contains the webpack config generators
-- `/test-app` contains the template for new projects
 
 <!-- Links -->
 

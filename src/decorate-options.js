@@ -5,8 +5,8 @@ const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
 module.exports = function decorateOptions({
-  paths = {},
   devServer = {},
+  paths = {},
   target,
   ...rest
 } = {}) {

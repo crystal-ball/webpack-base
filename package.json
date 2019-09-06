@@ -26,13 +26,13 @@
     "postinstall": "bash ./scripts/post-install.sh",
     "container": "docker-compose run --service-ports --rm app",
     "container:test": "docker-compose run --rm webpack",
-    "test": "npm run lint && npm run test:unit",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "NODE_ENV=test eslint --format=pretty scripts src",
     "test:unit": "jest src",
     "test:ci": "docker-compose -f docker-compose.test.yml up --exit-code-from cypress",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "format": "prettier --write \"{scripts,src,test-app}/**/*.{js,scss,md}\"",
-    "lint": "NODE_ENV=test eslint --format=pretty scripts src test-app"
+    "format": "prettier --write '*.{js,json,md,json}' '**/*.{md,js,json,scss}'"
   },
   "dependencies": {
     "@babel/core": "7.5.5",
