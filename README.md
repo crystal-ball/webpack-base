@@ -1,10 +1,11 @@
 <div align="right">
-  <img src="./assets/project-logo.png" height="100" alt="Crystal Ball webpack base" />
+  <img height=75 src="./docs/assets/readme-header.png" alt="webpack-base">
 </div>
 
-<hr >
+---
 
-<p align="center">
+<div align="center">
+<!-- prettier-ignore-start -->
   <a href="https://www.npmjs.com/package/@crystal-ball/webpack-base">
     <img src="https://img.shields.io/npm/v/@crystal-ball/webpack-base.svg?style=flat-square" alt="NPM version">
   </a>
@@ -23,7 +24,6 @@
   <a href="https://semantic-release.gitbook.io">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic_release-e10079.svg" alt="Semantic Release">
   </a>
-
   <br />
   <a href="https://github.com/crystal-ball">
     <img src="https://img.shields.io/badge/%F0%9F%94%AE%E2%9C%A8-contains_magic-D831D7.svg" alt="Contains magic" />
@@ -31,12 +31,15 @@
   <a href="https://github.com/crystal-ball/crystal-ball.github.io">
     <img src="https://img.shields.io/badge/%F0%9F%92%96%F0%9F%8C%88-full_of_love-F5499E.svg" alt="Full of love" />
   </a>
-</p>
+<!-- prettier-ignore-end -->
+</div>
 
-_This package generates a base webpack configuration and requires the necessary
-tooling dependencies for React web and Electron applications. Consuming projects
-can customize the generated base configurations to meet the specific needs of
-any project._
+<p>
+  <em>This package generates a base webpack configuration and requires the
+  necessary tooling dependencies for React web and Electron applications.
+  Consuming projects can customize the generated base configurations to meet the
+  specific needs of any project.</em>
+</p>
 
 - [Setup](#-setup) - Installation and file setup instructions
 - [Project defaults](#=project-defaults) - Documentation on default project
