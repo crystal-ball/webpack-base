@@ -1,5 +1,10 @@
+# --- Ignore ---
+
+# Dependencies
 node_modules
-.esm-cache
-docs
-.vscode
-cypress/videos
+
+# Build output
+dist
+
+# Test output
+coverage
