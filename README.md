@@ -12,15 +12,21 @@
   <a href="https://travis-ci.com/crystal-ball/webpack-base">
     <img src="https://travis-ci.com/crystal-ball/webpack-base.svg?branch=master" alt="Travis build status">
   </a>
+  <a href="https://codeclimate.com/github/crystal-ball/webpack-base/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/b96df9f9f2fb844ee580/maintainability" />
+  </a>
+  <a href="https://codeclimate.com/github/crystal-ball/webpack-base/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/b96df9f9f2fb844ee580/test_coverage" />
+  </a>
   <a href="https://renovatebot.com/">
     <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="Dependency versions managed by Renovate" />
   </a>
   <a href="https://github.com/crystal-ball/webpack-base#zenhub">
     <img src="https://img.shields.io/badge/shipping_faster_with-ZenHub-5e60ba.svg?style=flat-square" alt="ZenHub" />
   </a>
-  <a href="https://prettier.io/">
+  <!-- <a href="https://prettier.io/">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Prettier">
-  </a>
+  </a> -->
   <a href="https://semantic-release.gitbook.io">
     <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic_release-e10079.svg" alt="Semantic Release">
   </a>

@@ -2,22 +2,34 @@ language: node_js
 node_js:
   - '10'
 
-sudo: required
-
-services:
-  - docker
-
 env:
   - DOCKER_COMPOSE_VERSION=2
 
 before_install:
   - docker --version
   - docker-compose --version
+  # Setup Code Climate test reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 # Skip default npm install for Docker workflow
 install: true
 
-script: docker-compose -f docker-compose.test.yml up --exit-code-from cypress
+script:
+  # Building the app image will install dependencies then lint and unit test so
+  # that image is ready to build app bundle when run
+  - docker build -t crystal-ball/webpack-base .
+  # Copy code coverage report into Travis workspace for Code Climate test
+  # coverage reporting
+  - docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/webpack-base cp -a /usr/src/react-application-prototype/coverage/. /tmp/
+  # Run the acceptance tests 🎉
+  - docker-compose -f docker-compose.test.yml up --exit-code-from cypress
+
+# Call Code Climate reporter with results, note the --prefix option is used to
+# strip the file paths output from the Docker container
+after_script:
+  - ./cc-test-reporter after-build --prefix /usr/src --exit-code $TRAVIS_TEST_RESULT
 
 deploy:
   provider: script
