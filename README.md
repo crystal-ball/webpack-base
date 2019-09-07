@@ -227,6 +227,7 @@ const paths = {
 - Output directory cleaning
 - Injected `PUBLIC_PATH` for routing
 - `DEVTOOL` environment variable will override source maps
+- Import paths case is verified to ensure Linux and MacOS compatability
 
 ### Relative import alias
 
