@@ -14,6 +14,22 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [6.0.0](https://github.com/crystal-ball/webpack-base/compare/v5.3.4...v6.0.0) (2019-09-07)
+
+
+### 💥 Breaking Changes!
+
+* The compression plugin has been removed (Zeit provides Brotli compression out of
+box), The output directory is now `public` to match Zeit defaults, the public directory is now
+`static` and the configuration path names have been cleaned up (see README for new names)
+
+
+#### Release, Docs, Chore
+
+* V6 - Zeit-tastic 🔮✨ (#75)([72f9233](https://github.com/crystal-ball/webpack-base/commit/72f92336e5089fb9bd292d59a0ea756dfa80f865)), closes [#75](https://github.com/crystal-ball/webpack-base/issue/75) [#27](https://github.com/crystal-ball/webpack-base/issue/27)
+* Update package header 📝 (#72)([848dd39](https://github.com/crystal-ball/webpack-base/commit/848dd3924e36947569e6691dcf69cfb20f928dfb)), closes [#72](https://github.com/crystal-ball/webpack-base/issue/72)
+* Remove test app and use prototype app 🔥 (#73)([66b8d40](https://github.com/crystal-ball/webpack-base/commit/66b8d4050bfe3b62f391b04fb9299c27c90f1941)), closes [#73](https://github.com/crystal-ball/webpack-base/issue/73)
+
 ### [5.3.4](https://github.com/crystal-ball/webpack-base/compare/v5.3.3...v5.3.4) (2019-09-03)
 
 

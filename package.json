@@ -1,6 +1,6 @@
 {
   "name": "@crystal-ball/webpack-base",
-  "version": "5.3.4",
+  "version": "6.0.0",
   "description": "Customizable webpack base configuration generator",
   "main": "src/index.js",
   "repository": {
