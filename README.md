@@ -77,7 +77,7 @@ npm i -D @crystal-ball/webpack-base
 **3. Add configuration files**
 
 Add configuration files for webpack and Babel to the project root. The
-[crystal-ball/react-application-prototype][] is a complete working reference
+[@crystal-ball/react-application-prototype][] is a complete working reference
 application using this package. Projects require a:
 
 - `.babelrc.js`
@@ -91,8 +91,6 @@ projects that use the default project directory structure:
 
 ```
 project
-├─ / public
-│  └─  favicon.ico
 ├─ / src
 │  └─ / api
 │  └─ / components
@@ -102,9 +100,12 @@ project
 │  └─ / styles
 │  │  └─ / dev
 │  │  └─ / prod
-│  └─ / lib
+│  └─ / utils
 │  ├─  index.html
-│  └─  index.js
+│  ├─  index.js
+│  └─  index.scss
+├─ / static
+│  └─  favicon.ico
 ├─  .babelrc.js
 ├─  .eslintrc.js
 └─  webpack.config.js
@@ -112,17 +113,18 @@ project
 
 ### Directories
 
-- **public** - The public folder can be used as an escape hatch for including
-  assets that are not directly imported in the project code. The contents are
-  copied to the output directory during builds.
+- **src** - Project source code root directory. Imports relative to this
+  directory can be made with the `@` alias.
 - **src/media/icons** - The SVG symbol sprite loader will sprite any SVG icons
   imported from this directory.
-- **src/styles** - SASS files in this directory can be imported with the @ alias
-  from anywhere in the project. The `dev` and `prod` directories are passed as
-  `importPaths` to `node-sass` according to the build env.
-- **src/index.js** - The application entry file.
-- **api**, **components**, **dux** and **lib** directories are not required,
-  only suggested as a convenient setup.
+- **src/styles** - SCSS files in this directory can be imported with the `@`
+  alias from anywhere in the project. Files in the dev and prod directory will
+  be resolved based on the `NODE_ENV`
+- **src/api**, **src/components**, **src/dux** and **src/utils** - Suggested but
+  not required directory structure for organizing application code by domain
+- **static** - The static folder can be used as an escape hatch for including
+  assets that are not directly imported in the project code. The contents are
+  copied to the output directory during builds.
 
 ## 📝 Configuration API
 
@@ -168,49 +170,50 @@ const { configs } = webpackBase{
 ```javascript
 const paths = {
   /**
+   * Project root directory that is used by webpack (eg to handle resolutions).
+   * webpack base attempts to automatically set the project context, but it
+   * can help fix resolution errors to specify it.
+   * @default /
+   */
+  context,
+  /**
+   * SVG files imported from these directories will be loaded+sprited using the
+   * `SVGSymbolSprite` package.
+   * @default ['/src/media/icons']
+   */
+  iconSpriteIncludes,
+  /**
+   * JS files imported from these directories will be loaded using the JS loader.
+   * @default ['/src']
+   */
+  jsLoaderIncludes,
+  /**
+   * Build assets are emitted to this directory.
+   * @default /public
+   */
+  output,
+  /**
+   * SCSS files in these directories can be imported in other SCSS files using
+   * relative imports. (Useful for importing shared variables or mixins inside
+   * component style files)
+   * @default ['/src/styles', '/src/styles/[dev|prod]]
+   */
+  sassIncludes,
+  /**
+   * Application source files directory. The directory is added to the webpack
+   * alias config as `@` to allow using imports relative to the source
+   * directory.
+   * @default /src
+   */
+  src,
+  /**
    * Application public static files directory. This directory is copied to the
    * build without manipulation by the `CopyWebpackPlugin` and provides an
    * escape hatch to include assets in a build without importing them in the
    * application source.
+   * @default /static
    */
-  appPublic, // ./public
-  /**
-   * Application source files directory. The directory is added to the webpack
-   * alias config as `@` to allow using imports relative to the source
-   * directory
-   */
-  appSrc, // ./src
-  /**
-   * Project root directory that is used by webpack (eg to handle resolutions).
-   * webpack base attempts to automatically set the project context, but it
-   * can help fix resolution errors to specify it.
-   */
-  context, // ./
-  /**
-   * Directories/files that will be loaded && sprited using the
-   * `SVGSymbolSprite` system.
-   */
-  iconSpritePaths, // [./src/media/icons]
-  /**
-   * Directories that will be loaded using the JS loader, is passed as the
-   * loader `include` property.
-   */
-  jsLoaderPaths, // [./src]
-  /**
-   * Directory that build assets are emitted to.
-   */
-  outputPath, // ./dist
-  /**
-   * The prefix appended to every URL created by the runtime or loaders. This
-   * enables serving an application with a CDN or server subdirectory.
-   */
-  publicPath, // '/'
-  /**
-   * Directories included in the SASS resolver. Resources in these directories
-   * will be available using relative imports. Useful for importing shared SASS
-   * resources inside component SASS definitions.
-   */
-  sassIncludePaths, // ['src/styles']
+  static,
 }
 ```
 
@@ -227,6 +230,7 @@ const paths = {
 - Output directory cleaning
 - Injected `PUBLIC_PATH` for routing
 - `DEVTOOL` environment variable will override source maps
+- Import paths case is verified to ensure Linux and MacOS compatability
 
 ### Relative import alias
 
@@ -247,11 +251,11 @@ import SomeComponent from '@/components/SomeComponent'
 
 The following environment variables are injected by the build:
 
-| Constant      | Usage                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------- |
-| `NODE_ENV`    | Defaults to match NODE_ENV, used by Babili to strip code in prod builds                 |
-| `DEBUG`       | Defaults to false, can be used for adding detailed logging in dev environment           |
-| `PUBLIC_PATH` | Set to `publicPath` configuration, useful for importing media and configuring CDN paths |
+| Constant      | Usage                                                                         |
+| ------------- | ----------------------------------------------------------------------------- |
+| `NODE_ENV`    | Defaults to match NODE_ENV, used by Babili to strip code in prod builds       |
+| `DEBUG`       | Defaults to false, can be used for adding detailed logging in dev environment |
+| `PUBLIC_PATH` | Defaults to '/', useful for importing media and configuring CDN paths         |
 
 Additional environment variables can be passed in an `envVars` option and they
 will be injected into the build
@@ -378,6 +382,6 @@ users of ESLint import plugin are able to parse these webpack configs.
 <!-- Links -->
 <!-- prettier-ignore-start -->
 [bundle]: https://github.com/samccone/bundle-buddy
-[crystal-ball/react-application-prototype]: https://github.com/crystal-ball/react-application-prototype
+[@crystal-ball/react-application-prototype]: https://github.com/crystal-ball/react-application-prototype
 [profile]: https://webpack.js.org/configuration/other-options/#profile
 <!-- prettier-ignore-end -->

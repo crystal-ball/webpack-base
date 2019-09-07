@@ -4,67 +4,56 @@ const fs = require('fs')
 const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
-module.exports = function decorateOptions({
-  devServer = {},
-  paths = {},
-  target,
-  ...rest
-} = {}) {
+module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) {
   const { NODE_ENV } = process.env
 
   const flags = {
     mode: NODE_ENV,
     electron: target && target.includes('electron'),
-    // NB: we only support production && !production targets
     development: NODE_ENV !== 'production',
     production: NODE_ENV === 'production',
   }
 
-  // Handle default resolution of build specifics off of the source directory, this
-  // enables easy source dir configuration without having to specify the path for
-  // all downstream source paths
+  // Determine default paths for context and src directories which are used to
+  // build other paths, this enables configuring the src dir to a custom path
+  // without having to configure every single other src dependent path
   const context = paths.context || fs.realpathSync(process.cwd())
-  const appPublic = paths.appPublic || join(context, 'public')
-  let appSrc = paths.appSrc || join(context, 'src')
-  let outputPath = paths.outputPath || join(context, 'dist')
-  let chunkHash = flags.production ? '.[chunkhash]' : ''
+  const src = paths.src || join(context, 'src', flags.electron ? 'renderer' : '')
 
-  // Default app src for electron projects is nested by process type
-  if (flags.electron) {
-    appSrc = join(context, 'src/renderer')
-    outputPath = join(context, 'src/build')
-    chunkHash = ''
-  }
-
-  // Default project configs used when not specified by consumer, see README for
-  // details on values and usage
-  // ⚠️ If you change these ensure that the docs in README are updated!
-  return {
-    chunkHash,
-    devServer,
+  const defaults = {
+    chunkHash: flags.production ? '.[chunkhash]' : '',
+    devServer: {},
     flags,
     paths: {
-      // --- Documented path options
-      appPublic,
-      appSrc,
       context,
-      iconSpritePaths: [join(appSrc, 'media/icons')],
-      outputPath,
-      publicPath: '/',
-      sassIncludePaths: [
-        join(appSrc, '/styles'),
-        flags.production ? join(appSrc, '/styles/prod') : join(appSrc, '/styles/dev'),
+      output: join(context, 'public'),
+      static: join(context, 'static'),
+      src,
+      appIndex: join(src, 'index.js'),
+      htmlTemplate: join(src, 'index.html'),
+      iconSpriteIncludes: [join(src, 'media/icons')],
+      jsLoaderIncludes: [src],
+      sassIncludes: [
+        join(src, '/styles'),
+        join(src, flags.production ? '/styles/prod' : '/styles/dev'),
       ],
+    },
+  }
 
-      // --- Addl file specific path options that can be overridden, but aren't
-      // --- documented to keep the configs as simple as possible
-      appEntry: join(appSrc, 'index.js'),
-      htmlTemplate: join(appSrc, 'index.html'),
-      jsLoaderPaths: [appSrc],
+  if (flags.electron) {
+    // In Electron we always load the files from disk because it's always fast
+    // and simplifies the electron loading configs.
+    defaults.chunkHash = ''
+    defaults.paths.output = join(context, 'src/build')
+  }
 
-      // Overwrite the default path configs with any custom paths
+  // Return package defaults merged with project overrides
+  return {
+    ...defaults,
+    ...rest,
+    paths: {
+      ...defaults.paths,
       ...paths,
     },
-    ...rest,
   }
 }

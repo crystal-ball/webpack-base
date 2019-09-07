@@ -1,6 +1,6 @@
 'use strict'
 
-const CompressionPlugin = require('compression-webpack-plugin')
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
@@ -22,28 +22,20 @@ const {
  * hotModuleReplacement, html, miniCSSExtract, namedModules, progressBar,
  * svgSymbolSprite
  */
-module.exports = ({
-  chunkHash,
-  devServer,
-  envVars,
-  flags: { electron },
-  paths: { appPublic, htmlTemplate, publicPath },
-}) => ({
+module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) => ({
+  // --------------------------------------------------------
+  // ✅ Path validation
+  // Ensure that import paths are case sensitive to ensure Linux/MacOS  compatability
+  caseSensitivePathsPlugin: new CaseSensitivePathsPlugin(),
+
   // --- 📦 Build Prep
   // Wipe output folder before the build
   cleanPlugin: new CleanWebpackPlugin(),
 
-  // --- ⬇️ Compress
-  // Gzip build assets, do not include deleteOriginalAssets or it will delete the
-  // gzipped assets that have the same name
-  compressPlugin: new CompressionPlugin({
-    filename: '[path][query]',
-  }),
-
   // --- 🖨 File copying
   // Copy public directory to build directory, this is an escape hatch for assets
   // needed that are not imported into build
-  copyPlugin: new CopyWebpackPlugin([appPublic]),
+  copyPlugin: new CopyWebpackPlugin([paths.static]),
 
   // --- ✅ Validations + Optimizations
   // Check for duplicate versions of the same package, ie React 15 && React 16
@@ -57,7 +49,7 @@ module.exports = ({
   // ℹ️ Values passed to EnvironmentPlugin are defaults
   environmentPlugin: new EnvironmentPlugin({
     DEBUG: false,
-    PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
+    PUBLIC_PATH: publicPath || '/', // useful for routing and media from /public dir
     ...envVars,
   }),
 
@@ -82,10 +74,10 @@ module.exports = ({
   // --- 📦 HTML index generator
   // Generates index.html with injected script/style resources paths
   htmlPlugin: new HtmlWebpackPlugin({
-    favicon: `${appPublic}/favicon.ico`,
-    inject: !electron,
+    favicon: `${paths.static}/favicon.ico`,
+    inject: !flags.electron,
     minify: false,
-    template: htmlTemplate,
+    template: paths.htmlTemplate,
   }),
 
   // --- 😍 Styles extractions

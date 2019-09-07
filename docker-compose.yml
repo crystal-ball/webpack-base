@@ -9,5 +9,5 @@ services:
       - '5000:5000'
     volumes:
       # Mount source so we don't have to rebuild image on every file change
-      - './src:/usr/src/app/node_modules/@crystal-ball/webpack-base/src'
+      - './src:/usr/src/react-application-prototype/node_modules/@crystal-ball/webpack-base/src'
     command: /bin/sh

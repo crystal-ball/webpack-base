@@ -1,32 +1,33 @@
 'use strict'
 
-const { resolve } = require('path')
+const path = require('path')
 
 /** The common configurations are used across environments */
-module.exports = ({
-  chunkHash,
-  flags: { mode },
-  paths: { appEntry, appSrc, context, outputPath, publicPath },
-}) => ({
+module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
-  mode,
+  mode: flags.mode,
 
   // Explicitly set the build context for resolving entry points and loaders
   // https://webpack.js.org/configuration/entry-context/#context
-  context,
+  context: paths.context,
 
   // Default to a single entry and let webpack automatically split and name bundles
   // https://webpack.js.org/configuration/entry-context/#entry
-  entry: appEntry,
+  entry: paths.appIndex,
 
   // Default to webpack /dist output with hashed filenames in prod builds for long
   // term caching, see README for docs on config effects
   // https://webpack.js.org/configuration/output/
   output: {
-    path: outputPath,
+    path: paths.output,
     filename: `static/js/[name]${chunkHash}.js`,
-    publicPath,
+    // The publicPath value is prefixed to every URL created by the runtime or
+    // loaders. The default is '' which means resources from nested routes have
+    // incorrect paths, eg: 'some/application/route/static/js/main.js
+    // The default config set here ensures that requests are absolute, eg:
+    // '/static/js/main.js'
+    publicPath: publicPath || '/',
     // Configures the lengths of [hash] and [chunkhash] globally
     hashDigestLength: 12,
   },
@@ -35,21 +36,14 @@ module.exports = ({
   // https://webpack.js.org/configuration/resolve/
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    // Tell webpack what directories should be searched when resolving modules.
-    // Including `appSrc` allows for importing modules relative to /src directory!
-    // DEPRECATED: importing relative to appSrc is deprecated, projects should use
-    // the @ alias to import relative to /src.
-    modules: [appSrc, 'node_modules'],
-    // Alias can be used to point imports to specific modules, include empty object
-    // to allow direct assignment in consuming packages
+    // Alias can be used to point imports to specific modules, include empty
+    // object to allow direct assignment in consuming packages
     alias: {
       // Alias @ to the src/ directory for explicit imports relative to src directory, eg:
       // `import SomeComponent from '@/components/universal'`
-      '@': appSrc,
-      // Short term fix to resolve duplicate versions of warning being imported
-      // when using react-router,
-      // see: https://github.com/ReactTraining/history/issues/601
-      warning: resolve(context, 'node_modules/warning'),
+      '@': paths.src,
+      // Ensure that only one @babel/runtime is bundled into application
+      '@babel/runtime': path.resolve(paths.context, 'node_modules/@babel/runtime'),
     },
   },
 
@@ -85,6 +79,7 @@ module.exports = ({
   // Common plugins
   // ---------------------------------------------------------------------------
   plugins: [
+    'caseSensitivePathsPlugin',
     'progressBarPlugin',
     'environmentPlugin',
     'htmlPlugin',

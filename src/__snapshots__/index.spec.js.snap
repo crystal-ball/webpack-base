@@ -4,7 +4,7 @@ exports[`webpack-base returns expected dev configs 1`] = `
 Object {
   "context": "/test",
   "devServer": Object {
-    "contentBase": "/test/public",
+    "contentBase": "/test/static",
     "historyApiFallback": true,
     "hot": true,
     "open": false,
@@ -115,10 +115,16 @@ Object {
   "output": Object {
     "filename": "static/js/[name].js",
     "hashDigestLength": 12,
-    "path": "/test/dist",
+    "path": "/test/public",
     "publicPath": "/",
   },
   "plugins": Array [
+    CaseSensitivePathsPlugin {
+      "fsOperations": 0,
+      "options": Object {},
+      "pathCache": Object {},
+      "primed": false,
+    },
     ProgressBarPlugin {
       "options": Object {
         "callback": [Function],
@@ -143,7 +149,7 @@ Object {
         "chunksSortMode": "auto",
         "compile": true,
         "excludeChunks": Array [],
-        "favicon": "/test/public/favicon.ico",
+        "favicon": "/test/static/favicon.ico",
         "filename": "index.html",
         "hash": false,
         "inject": true,
@@ -165,7 +171,7 @@ Object {
     CopyPlugin {
       "options": Object {},
       "patterns": Array [
-        "/test/public",
+        "/test/static",
       ],
     },
     HotModuleReplacementPlugin {
@@ -199,16 +205,12 @@ Object {
   "resolve": Object {
     "alias": Object {
       "@": "/test/src",
-      "warning": "/test/node_modules/warning",
+      "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
       ".js",
       ".jsx",
       ".json",
-    ],
-    "modules": Array [
-      "/test/src",
-      "node_modules",
     ],
   },
 }
@@ -218,7 +220,7 @@ exports[`webpack-base returns expected electron dev configs 1`] = `
 Object {
   "context": "/test",
   "devServer": Object {
-    "contentBase": "/test/public",
+    "contentBase": "/test/static",
     "historyApiFallback": true,
     "hot": true,
     "open": false,
@@ -334,6 +336,12 @@ Object {
     "publicPath": "/",
   },
   "plugins": Array [
+    CaseSensitivePathsPlugin {
+      "fsOperations": 0,
+      "options": Object {},
+      "pathCache": Object {},
+      "primed": false,
+    },
     ProgressBarPlugin {
       "options": Object {
         "callback": [Function],
@@ -358,7 +366,7 @@ Object {
         "chunksSortMode": "auto",
         "compile": true,
         "excludeChunks": Array [],
-        "favicon": "/test/public/favicon.ico",
+        "favicon": "/test/static/favicon.ico",
         "filename": "index.html",
         "hash": false,
         "inject": false,
@@ -380,7 +388,7 @@ Object {
     CopyPlugin {
       "options": Object {},
       "patterns": Array [
-        "/test/public",
+        "/test/static",
       ],
     },
     HotModuleReplacementPlugin {
@@ -414,16 +422,12 @@ Object {
   "resolve": Object {
     "alias": Object {
       "@": "/test/src/renderer",
-      "warning": "/test/node_modules/warning",
+      "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
       ".js",
       ".jsx",
       ".json",
-    ],
-    "modules": Array [
-      "/test/src/renderer",
-      "node_modules",
     ],
   },
   "target": "electron-renderer",
@@ -552,6 +556,12 @@ Object {
     "maxEntrypointSize": 500000,
   },
   "plugins": Array [
+    CaseSensitivePathsPlugin {
+      "fsOperations": 0,
+      "options": Object {},
+      "pathCache": Object {},
+      "primed": false,
+    },
     ProgressBarPlugin {
       "options": Object {
         "callback": [Function],
@@ -576,7 +586,7 @@ Object {
         "chunksSortMode": "auto",
         "compile": true,
         "excludeChunks": Array [],
-        "favicon": "/test/public/favicon.ico",
+        "favicon": "/test/static/favicon.ico",
         "filename": "index.html",
         "hash": false,
         "inject": false,
@@ -598,7 +608,7 @@ Object {
     CopyPlugin {
       "options": Object {},
       "patterns": Array [
-        "/test/public",
+        "/test/static",
       ],
     },
     NamedModulesPlugin {
@@ -637,36 +647,16 @@ Object {
         "filename": "static/css/[name].css",
       },
     },
-    CompressionPlugin {
-      "options": Object {
-        "algorithm": [Function],
-        "cache": false,
-        "compressionOptions": Object {
-          "level": 9,
-        },
-        "deleteOriginalAssets": false,
-        "exclude": undefined,
-        "filename": "[path][query]",
-        "include": undefined,
-        "minRatio": 0.8,
-        "test": undefined,
-        "threshold": 0,
-      },
-    },
   ],
   "resolve": Object {
     "alias": Object {
       "@": "/test/src/renderer",
-      "warning": "/test/node_modules/warning",
+      "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
       ".js",
       ".jsx",
       ".json",
-    ],
-    "modules": Array [
-      "/test/src/renderer",
-      "node_modules",
     ],
   },
   "stats": Object {
@@ -788,7 +778,7 @@ Object {
   "output": Object {
     "filename": "static/js/[name].[chunkhash].js",
     "hashDigestLength": 12,
-    "path": "/test/dist",
+    "path": "/test/public",
     "publicPath": "/",
   },
   "performance": Object {
@@ -798,6 +788,12 @@ Object {
     "maxEntrypointSize": 500000,
   },
   "plugins": Array [
+    CaseSensitivePathsPlugin {
+      "fsOperations": 0,
+      "options": Object {},
+      "pathCache": Object {},
+      "primed": false,
+    },
     ProgressBarPlugin {
       "options": Object {
         "callback": [Function],
@@ -822,7 +818,7 @@ Object {
         "chunksSortMode": "auto",
         "compile": true,
         "excludeChunks": Array [],
-        "favicon": "/test/public/favicon.ico",
+        "favicon": "/test/static/favicon.ico",
         "filename": "index.html",
         "hash": false,
         "inject": true,
@@ -844,7 +840,7 @@ Object {
     CopyPlugin {
       "options": Object {},
       "patterns": Array [
-        "/test/public",
+        "/test/static",
       ],
     },
     NamedModulesPlugin {
@@ -883,36 +879,16 @@ Object {
         "filename": "static/css/[name].[chunkhash].css",
       },
     },
-    CompressionPlugin {
-      "options": Object {
-        "algorithm": [Function],
-        "cache": false,
-        "compressionOptions": Object {
-          "level": 9,
-        },
-        "deleteOriginalAssets": false,
-        "exclude": undefined,
-        "filename": "[path][query]",
-        "include": undefined,
-        "minRatio": 0.8,
-        "test": undefined,
-        "threshold": 0,
-      },
-    },
   ],
   "resolve": Object {
     "alias": Object {
       "@": "/test/src",
-      "warning": "/test/node_modules/warning",
+      "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
       ".js",
       ".jsx",
       ".json",
-    ],
-    "modules": Array [
-      "/test/src",
-      "node_modules",
     ],
   },
   "stats": Object {
@@ -1010,10 +986,16 @@ Object {
     },
   },
   "plugins": Object {
+    "caseSensitivePathsPlugin": CaseSensitivePathsPlugin {
+      "fsOperations": 0,
+      "options": Object {},
+      "pathCache": Object {},
+      "primed": false,
+    },
     "copyPlugin": CopyPlugin {
       "options": Object {},
       "patterns": Array [
-        "/test/public",
+        "/test/static",
       ],
     },
     "environmentPlugin": EnvironmentPlugin {
@@ -1060,7 +1042,7 @@ Object {
         "chunksSortMode": "auto",
         "compile": true,
         "excludeChunks": Array [],
-        "favicon": "/test/public/favicon.ico",
+        "favicon": "/test/static/favicon.ico",
         "filename": "index.html",
         "hash": false,
         "inject": true,
