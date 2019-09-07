@@ -1,6 +1,6 @@
 'use strict'
 
-// const { resolve } = require('path')
+const path = require('path')
 
 /** The common configurations are used across environments */
 module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
@@ -42,6 +42,8 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
       // Alias @ to the src/ directory for explicit imports relative to src directory, eg:
       // `import SomeComponent from '@/components/universal'`
       '@': paths.src,
+      // Ensure that only one @babel/runtime is bundled into application
+      '@babel/runtime': path.resolve(paths.context, 'node_modules/@babel/runtime'),
     },
   },
 
