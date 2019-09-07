@@ -1,5 +1,6 @@
 'use strict'
 
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
@@ -29,6 +30,11 @@ module.exports = ({
   flags: { electron },
   paths: { appPublic, htmlTemplate, publicPath },
 }) => ({
+  // --------------------------------------------------------
+  // ✅ Path validation
+  // Ensure that import paths are case sensitive to ensure Linux/MacOS  compatability
+  caseSensitivePathsPlugin: new CaseSensitivePathsPlugin(),
+
   // --- 📦 Build Prep
   // Wipe output folder before the build
   cleanPlugin: new CleanWebpackPlugin(),
