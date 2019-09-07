@@ -42,7 +42,7 @@ COPY ./package.json /usr/src/react-application-prototype/node_modules/@crystal-b
 
 
 # Copy serve config for prod build testing with `serve`
-RUN echo "{ \"public\": \"dist\" }" >> ./serve.json
+RUN echo "{ \"public\": \"public\" }" >> ./serve.json
 
 # Run Build
 RUN npm run build
