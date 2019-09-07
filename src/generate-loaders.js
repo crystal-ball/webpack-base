@@ -8,14 +8,11 @@ const postCSSCustomProperties = require('postcss-custom-properties')
  * Returns the set of loaders for the passed opts including:
  * babel, sass, svgSprite, svgComponent, file, raw
  */
-module.exports = ({
-  flags: { production },
-  paths: { iconSpritePaths, jsLoaderPaths, sassIncludePaths },
-}) => ({
+module.exports = ({ flags, paths }) => ({
   // --- 🎉 JS Loader
   jsLoader: overrides => ({
     test: /\.jsx?$/,
-    include: jsLoaderPaths,
+    include: paths.jsLoaderIncludes,
     /**
      * ## Using Eslint Loader
      * The `eslint-loader` will run imported modules through eslint first and
@@ -33,7 +30,7 @@ module.exports = ({
 
   // --- 😍 Styles Loader
   sassLoader: overrides =>
-    production
+    flags.production
       ? {
           // ℹ️ Prod styles uses SCSS+CSS loader chain to import, includes
           // PostCSS+Autoprefixer for browser compatability, and extracts final styles
@@ -64,7 +61,7 @@ module.exports = ({
               // for importing app theme variables and mixins into component styles
               options: {
                 sassOptions: {
-                  includePaths: sassIncludePaths,
+                  includePaths: paths.sassIncludes,
                 },
               },
             },
@@ -93,7 +90,7 @@ module.exports = ({
               // for importing app theme variables and mixins into component styles
               options: {
                 sassOptions: {
-                  includePaths: sassIncludePaths,
+                  includePaths: paths.sassIncludes,
                 },
               },
             },
@@ -105,7 +102,7 @@ module.exports = ({
   // Create an svg sprite with any icons imported into app
   svgSpriteLoader: overrides => ({
     test: /\.svg$/,
-    include: iconSpritePaths,
+    include: paths.iconSpriteIncludes,
     use: [{ loader: 'svg-symbol-sprite-loader' }],
     ...overrides,
   }),
@@ -115,7 +112,7 @@ module.exports = ({
   svgComponentLoader: overrides => ({
     test: /\.svg$/,
     // Make sure that we don't try to use with icons for svg sprite
-    exclude: iconSpritePaths,
+    exclude: paths.iconSpriteIncludes,
     use: [{ loader: '@svgr/webpack' }],
     ...overrides,
   }),

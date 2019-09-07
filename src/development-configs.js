@@ -1,7 +1,7 @@
 'use strict'
 
 /** Development environment specfic configurations */
-module.exports = ({ devServer, paths: { appPublic } }) => ({
+module.exports = ({ devServer, paths }) => ({
   // Set DEVTOOL to 'eval' to see generated code, but show useful original source
   // for development workflows. Additional considerations:
   // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
@@ -27,7 +27,7 @@ module.exports = ({ devServer, paths: { appPublic } }) => ({
 
     // Serve static file from the public file (only required for files not
     // imported into project)
-    contentBase: appPublic,
+    contentBase: paths.static,
     // Serve index.html for all unmatched routes
     historyApiFallback: true,
     // Enable hot module replacement feature
