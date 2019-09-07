@@ -85,7 +85,7 @@ module.exports = ({
   // Common plugins
   // ---------------------------------------------------------------------------
   plugins: [
-    'caseSensitivePlugin',
+    'caseSensitivePathsPlugin',
     'progressBarPlugin',
     'environmentPlugin',
     'htmlPlugin',
