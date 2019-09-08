@@ -113,7 +113,19 @@ module.exports = ({ flags, paths }) => ({
     test: /\.svg$/,
     // Make sure that we don't try to use with icons for svg sprite
     exclude: paths.iconSpriteIncludes,
-    use: [{ loader: '@svgr/webpack' }],
+    use: [
+      {
+        loader: '@svgr/webpack',
+        // For some reason svgr configures svgo to strip out `viewbox` attrs
+        // which makes it impossible to scale svgs... so fix that
+        options: {
+          svgo: true,
+          svgoConfig: {
+            plugins: [{ removeViewBox: false }],
+          },
+        },
+      },
+    ],
     ...overrides,
   }),
 
