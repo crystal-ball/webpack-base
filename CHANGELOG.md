@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [6.0.1](https://github.com/crystal-ball/webpack-base/compare/v6.0.0...v6.0.1) (2019-09-08)
+
+
+#### 🛠 Fix
+
+* Svgo configs stripping svg viewBox attr (#77)([1b8fc82](https://github.com/crystal-ball/webpack-base/commit/1b8fc82f52b094ccc9c8060b6ab17b0b4bf46adf)), closes [#77](https://github.com/crystal-ball/webpack-base/issue/77)
+
+#### Chore
+
+* Configure Code Climate test coverage reporting ⚙️ (#76)([aaac740](https://github.com/crystal-ball/webpack-base/commit/aaac74034b601ff6450532f91cd911fcb6ad7fea)), closes [#76](https://github.com/crystal-ball/webpack-base/issue/76)
+
 ## [6.0.0](https://github.com/crystal-ball/webpack-base/compare/v5.3.4...v6.0.0) (2019-09-07)
 
 
