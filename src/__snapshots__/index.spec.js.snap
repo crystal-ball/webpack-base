@@ -81,6 +81,16 @@ Object {
         "use": Array [
           Object {
             "loader": "@svgr/webpack",
+            "options": Object {
+              "svgo": true,
+              "svgoConfig": Object {
+                "plugins": Array [
+                  Object {
+                    "removeViewBox": false,
+                  },
+                ],
+              },
+            },
           },
         ],
       },
@@ -297,6 +307,16 @@ Object {
         "use": Array [
           Object {
             "loader": "@svgr/webpack",
+            "options": Object {
+              "svgo": true,
+              "svgoConfig": Object {
+                "plugins": Array [
+                  Object {
+                    "removeViewBox": false,
+                  },
+                ],
+              },
+            },
           },
         ],
       },
@@ -511,6 +531,16 @@ Object {
         "use": Array [
           Object {
             "loader": "@svgr/webpack",
+            "options": Object {
+              "svgo": true,
+              "svgoConfig": Object {
+                "plugins": Array [
+                  Object {
+                    "removeViewBox": false,
+                  },
+                ],
+              },
+            },
           },
         ],
       },
@@ -744,6 +774,16 @@ Object {
         "use": Array [
           Object {
             "loader": "@svgr/webpack",
+            "options": Object {
+              "svgo": true,
+              "svgoConfig": Object {
+                "plugins": Array [
+                  Object {
+                    "removeViewBox": false,
+                  },
+                ],
+              },
+            },
           },
         ],
       },
@@ -970,6 +1010,16 @@ Object {
       "use": Array [
         Object {
           "loader": "@svgr/webpack",
+          "options": Object {
+            "svgo": true,
+            "svgoConfig": Object {
+              "plugins": Array [
+                Object {
+                  "removeViewBox": false,
+                },
+              ],
+            },
+          },
         },
       ],
     },
