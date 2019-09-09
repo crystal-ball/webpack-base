@@ -41,3 +41,11 @@ deploy:
   script: CI=true npm install && npx semantic-release
   on:
     branch: master
+
+# ☎️ Slack
+notifications:
+  slack:
+    on_success: change
+    on_failure: always
+    rooms:
+      secure: ac/4ZwzBG5WFTK7iJd+cO+Qk+IHNZH02bWVm0DOyVXRYQl8tHvQLM7/Ov0mHeD5fDb9Pnk36xw2yAvuN6RdxpMUnWIKHqgE3eqddI2hFj16efSkBValJUXkQIp3dUyyajN2uYGz2VG0aOWxCiiY5uurigJdJ11BlVKbXZ9OhMzrxa/KVlRGWKUnrtCUquLqA97YGRpaG7xO63CJkYN+v0mfeFZR2yZ31bQATSavOGncu4sniL7uTChc12A3wWGC3QpV3Aq/QkJXKBMuOtZcUy7ikXA8jSqajST1p6M+PLzidHoQ7ifN6cyDPfOUsx6MnBhycYmEM0bO8StTLVX6rhL+Fe0GQydloIyauBAB/4/RM3qytxMeKn9se2JAIke7CbubdWXnqm4TMZskZxcHi0YRCiX0ZWTZx8rODLXThBsznfgiovuDurPBWvH982vp4NfjYK5OH987zkmFCzcP0IuvYEXQ+hLjiHrzY8LR7m3rJccuhDdoLGxHSxHLOLK3ZDPHmViX72oLuc+QCAJC0YTmAS16jK483Y0WhcsAGzpZVxc5TJ4oVnaxM8Xv/MQ/qm/st4cv7RfLhVEtt75Hev0HFZ0oJikeJVWgGVWwh70Kj4YnoWtt9ixVfVCf4oj+kWUBbpUAv51xuqXXsO65CLmsCVDfCQ2EAGNoam7fgXv0=
