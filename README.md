@@ -1,8 +1,6 @@
-<div align="right">
+<h1 align="right">
   <img height=75 src="./docs/assets/readme-header.png" alt="webpack-base">
-</div>
-
----
+</h1>
 
 <div align="center">
 <!-- prettier-ignore-start -->
