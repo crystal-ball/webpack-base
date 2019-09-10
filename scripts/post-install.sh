@@ -6,6 +6,7 @@
 
 # Skip install in continous integration envs
 [[ ! -z "$CI" ]] && exit 0
+[[ ! -z "$TRAVIS_CI" ]] && exit
 
 # When package is installed as a node_module, do nothing
 [[ "$PWD" == *node_modules* ]] && exit 0
