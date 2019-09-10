@@ -33,6 +33,16 @@ describe('webpack-base', () => {
     expect(configs).toMatchSnapshot()
   })
 
+  test('returns expected storybook configs', () => {
+    process.env.NODE_ENV = 'development'
+
+    const { configs } = webpackBase({
+      target: 'storybook',
+      paths: { context: '/test' },
+    })
+    expect(configs).toMatchSnapshot()
+  })
+
   test('returns expected electron dev configs', () => {
     process.env.NODE_ENV = 'development'
 

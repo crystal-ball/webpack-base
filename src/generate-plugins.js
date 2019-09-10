@@ -112,5 +112,9 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
   // HTML plugin hooks are pre-registered!
   svgSymbolSpritePlugin: new SVGSymbolSprite.Plugin({
     filename: `static/media/icon-sprite${chunkHash}.svg`,
+    // Don't inject the sprite id in electron and storybook targets because the
+    // HTML plugin might be different (Storybook) or the app will just always
+    // fetch it (both)
+    injectSpriteId: !(flags.electron || flags.storybook),
   }),
 })
