@@ -2,10 +2,9 @@ version: '2'
 
 services:
   test:
-    build:
-      context: .
-    ports:
-      - '5000:5000'
+    image: crystal-ball/webpack-base
+    expose:
+      - 5000
 
   cypress:
     image: cypress/included:3.4.1
