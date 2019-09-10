@@ -14,6 +14,18 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [6.1.0](https://github.com/crystal-ball/webpack-base/compare/v6.0.1...v6.1.0) (2019-09-10)
+
+
+#### 💖 New
+
+* Add Storybook target 💖 (#79)([a894762](https://github.com/crystal-ball/webpack-base/commit/a894762971736c014288280fee22bea10b6770cf)), closes [#79](https://github.com/crystal-ball/webpack-base/issue/79)
+
+#### Docs, Chore
+
+* Header upgrade and Slack integrations 📝 (#78)([8d2ccaf](https://github.com/crystal-ball/webpack-base/commit/8d2ccaf18668c13006ec21fdbbbc2e4a06935acf)), closes [#78](https://github.com/crystal-ball/webpack-base/issue/78)
+* Dont install Cypress in Travis builds (#80)([aed3552](https://github.com/crystal-ball/webpack-base/commit/aed355202c2c38695e5037f5e106bdb6beaca8ba)), closes [#80](https://github.com/crystal-ball/webpack-base/issue/80)
+
 ### [6.0.1](https://github.com/crystal-ball/webpack-base/compare/v6.0.0...v6.0.1) (2019-09-08)
 
 
