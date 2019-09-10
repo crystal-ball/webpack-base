@@ -402,7 +402,7 @@ Object {
     SVGSymbolSpritePlugin {
       "options": Object {
         "filename": "static/media/icon-sprite.svg",
-        "injectSpriteId": true,
+        "injectSpriteId": false,
       },
     },
     CopyPlugin {
@@ -632,7 +632,7 @@ Object {
     SVGSymbolSpritePlugin {
       "options": Object {
         "filename": "static/media/icon-sprite.svg",
-        "injectSpriteId": true,
+        "injectSpriteId": false,
       },
     },
     CopyPlugin {
@@ -934,6 +934,232 @@ Object {
   "stats": Object {
     "excludeAssets": [Function],
     "modules": false,
+  },
+}
+`;
+
+exports[`webpack-base returns expected storybook configs 1`] = `
+Object {
+  "context": "/test",
+  "devServer": Object {
+    "contentBase": "/test/static",
+    "historyApiFallback": true,
+    "hot": true,
+    "open": false,
+    "overlay": Object {
+      "errors": true,
+      "warnings": false,
+    },
+    "port": 3000,
+    "quiet": true,
+  },
+  "devtool": "cheap-module-eval-source-map",
+  "entry": "/test/src/index.js",
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "include": Array [
+          "/test/src",
+        ],
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.scss\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[name]-[local]--[hash:5]",
+                "mode": "global",
+              },
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "sassOptions": Object {
+                "includePaths": Array [
+                  "/test/src/styles",
+                  "/test/src/styles/dev",
+                ],
+              },
+            },
+          },
+        ],
+      },
+      Object {
+        "include": Array [
+          "/test/src/media/icons",
+        ],
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "svg-symbol-sprite-loader",
+          },
+        ],
+      },
+      Object {
+        "exclude": Array [
+          "/test/src/media/icons",
+        ],
+        "test": /\\\\\\.svg\\$/,
+        "use": Array [
+          Object {
+            "loader": "@svgr/webpack",
+            "options": Object {
+              "svgo": true,
+              "svgoConfig": Object {
+                "plugins": Array [
+                  Object {
+                    "removeViewBox": false,
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\)\\$/i,
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {
+              "name": "static/media/[name].[hash:8].[ext]",
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": Array [
+          Object {
+            "loader": "raw-loader",
+          },
+        ],
+      },
+    ],
+  },
+  "optimization": Object {
+    "runtimeChunk": true,
+    "splitChunks": Object {
+      "chunks": "all",
+      "name": true,
+    },
+  },
+  "output": Object {
+    "filename": "static/js/[name].js",
+    "hashDigestLength": 12,
+    "path": "/test/public",
+    "publicPath": "/",
+  },
+  "plugins": Array [
+    CaseSensitivePathsPlugin {
+      "fsOperations": 0,
+      "options": Object {},
+      "pathCache": Object {},
+      "primed": false,
+    },
+    ProgressBarPlugin {
+      "options": Object {
+        "callback": [Function],
+        "clear": false,
+        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
+      },
+    },
+    EnvironmentPlugin {
+      "defaultValues": Object {
+        "DEBUG": false,
+        "PUBLIC_PATH": "/",
+      },
+      "keys": Array [
+        "DEBUG",
+        "PUBLIC_PATH",
+      ],
+    },
+    HtmlWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "chunks": "all",
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": "/test/static/favicon.ico",
+        "filename": "index.html",
+        "hash": false,
+        "inject": true,
+        "meta": Object {},
+        "minify": false,
+        "showErrors": true,
+        "template": "/test/src/index.html",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    SVGSymbolSpritePlugin {
+      "options": Object {
+        "filename": "static/media/icon-sprite.svg",
+        "injectSpriteId": false,
+      },
+    },
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/static",
+      ],
+    },
+    HotModuleReplacementPlugin {
+      "fullBuildTimeout": 200,
+      "multiStep": undefined,
+      "options": Object {},
+      "requestTimeout": 10000,
+    },
+    FriendlyErrorsWebpackPlugin {
+      "compilationSuccessInfo": Object {
+        "messages": Array [
+          "  🎉  BINGO 🎉",
+          "  Application running at http://localhost:3000",
+        ],
+        "notes": Array [],
+      },
+      "formatters": Array [
+        [Function],
+        [Function],
+        [Function],
+      ],
+      "onErrors": undefined,
+      "shouldClearConsole": true,
+      "transformers": Array [
+        [Function],
+        [Function],
+        [Function],
+      ],
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "@": "/test/src",
+      "@babel/runtime": "/test/node_modules/@babel/runtime",
+    },
+    "extensions": Array [
+      ".js",
+      ".jsx",
+      ".json",
+    ],
   },
 }
 `;

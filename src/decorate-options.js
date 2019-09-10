@@ -9,6 +9,7 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
 
   const flags = {
     mode: NODE_ENV,
+    storybook: target && target.includes('storybook'),
     electron: target && target.includes('electron'),
     development: NODE_ENV !== 'production',
     production: NODE_ENV === 'production',
