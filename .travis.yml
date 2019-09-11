@@ -5,6 +5,11 @@ node_js:
 env:
   - DOCKER_COMPOSE_VERSION=2
 
+# safelist
+branches:
+  only:
+    - master
+
 before_install:
   - docker --version
   - docker-compose --version
