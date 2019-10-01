@@ -53,7 +53,10 @@ module.exports = ({ flags, paths }) => {
        * must be included by that project. This allows projects to handle
        * specifying and configuring eslint explicitly as required.
        */
-      use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }],
+      use: [
+        { loader: 'babel-loader', options: { cacheDirectory: true } },
+        { loader: 'eslint-loader' },
+      ],
       ...overrides,
     }),
 
