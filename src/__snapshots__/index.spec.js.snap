@@ -28,6 +28,9 @@ Object {
         "use": Array [
           Object {
             "loader": "babel-loader",
+            "options": Object {
+              "cacheDirectory": true,
+            },
           },
           Object {
             "loader": "eslint-loader",
@@ -254,6 +257,9 @@ Object {
         "use": Array [
           Object {
             "loader": "babel-loader",
+            "options": Object {
+              "cacheDirectory": true,
+            },
           },
           Object {
             "loader": "eslint-loader",
@@ -471,6 +477,9 @@ Object {
         "use": Array [
           Object {
             "loader": "babel-loader",
+            "options": Object {
+              "cacheDirectory": true,
+            },
           },
           Object {
             "loader": "eslint-loader",
@@ -582,7 +591,7 @@ Object {
   "performance": Object {
     "assetFilter": [Function],
     "hints": "warning",
-    "maxAssetSize": 250000,
+    "maxAssetSize": 275000,
     "maxEntrypointSize": 500000,
   },
   "plugins": Array [
@@ -714,6 +723,9 @@ Object {
         "use": Array [
           Object {
             "loader": "babel-loader",
+            "options": Object {
+              "cacheDirectory": true,
+            },
           },
           Object {
             "loader": "eslint-loader",
@@ -824,7 +836,7 @@ Object {
   "performance": Object {
     "assetFilter": [Function],
     "hints": "warning",
-    "maxAssetSize": 250000,
+    "maxAssetSize": 275000,
     "maxEntrypointSize": 500000,
   },
   "plugins": Array [
@@ -966,6 +978,9 @@ Object {
         "use": Array [
           Object {
             "loader": "babel-loader",
+            "options": Object {
+              "cacheDirectory": true,
+            },
           },
           Object {
             "loader": "eslint-loader",
@@ -1186,6 +1201,9 @@ Object {
       "use": Array [
         Object {
           "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+          },
         },
         Object {
           "loader": "eslint-loader",

@@ -12,7 +12,7 @@ module.exports = () => ({
   performance: {
     hints: 'warning', // 'error' or false are valid too
     maxEntrypointSize: 500000, // ~500Kb
-    maxAssetSize: 250000, // ~250Kb
+    maxAssetSize: 275000, // ~275Kb
     // Don't warn about image file sizes
     assetFilter: assetFilename => !/\.(map|jpe?g|png|gif|svg)$/i.test(assetFilename),
   },
