@@ -236,6 +236,7 @@ const paths = {
 - `DEVTOOL` environment variable will override source maps
 - Import paths case is verified to ensure Linux and MacOS compatability
 - Production CSS+JS assets are minified
+- Application logo is used to generate and inject favicon resources in build
 
 ### Relative import alias
 

@@ -3,6 +3,7 @@
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -79,6 +80,24 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
     inject: !flags.electron,
     minify: false,
     template: paths.htmlTemplate,
+  }),
+
+  // --- 🖼 Favicons generator
+  // https://github.com/jantimon/favicons-webpack-plugin
+  faviconsWebpackPlugin: new FaviconsWebpackPlugin({
+    logo: paths.favicon,
+    favicons: {
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        windows: false,
+        yandex: false,
+      },
+    },
   }),
 
   // --- 😍 Styles extractions
