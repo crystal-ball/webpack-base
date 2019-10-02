@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [6.4.0](https://github.com/crystal-ball/webpack-base/compare/v6.3.0...v6.4.0) (2019-10-02)
+
+
+#### 💖 New
+
+* Add favicon generator plugin ✨ (#89)([161588b](https://github.com/crystal-ball/webpack-base/commit/161588baadb646360221ad70dd0452162c420e7f)), closes [#89](https://github.com/crystal-ball/webpack-base/issue/89) [#86](https://github.com/crystal-ball/webpack-base/issue/86)
+
 ## [6.3.0](https://github.com/crystal-ball/webpack-base/compare/v6.2.0...v6.3.0) (2019-10-02)
 
 
