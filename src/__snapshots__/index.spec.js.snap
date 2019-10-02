@@ -155,6 +155,12 @@ Object {
         "PUBLIC_PATH",
       ],
     },
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/static",
+      ],
+    },
     HtmlWebpackPlugin {
       "options": Object {
         "cache": true,
@@ -181,11 +187,25 @@ Object {
         "injectSpriteId": true,
       },
     },
-    CopyPlugin {
-      "options": Object {},
-      "patterns": Array [
-        "/test/static",
-      ],
+    FaviconsWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "favicons": Object {
+          "icons": Object {
+            "android": false,
+            "appleIcon": false,
+            "appleStartup": false,
+            "coast": false,
+            "favicons": true,
+            "firefox": false,
+            "windows": false,
+            "yandex": false,
+          },
+        },
+        "inject": true,
+        "logo": "/test/static/logo.png",
+        "prefix": "assets/",
+      },
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
@@ -385,6 +405,12 @@ Object {
         "PUBLIC_PATH",
       ],
     },
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/static",
+      ],
+    },
     HtmlWebpackPlugin {
       "options": Object {
         "cache": true,
@@ -411,11 +437,25 @@ Object {
         "injectSpriteId": false,
       },
     },
-    CopyPlugin {
-      "options": Object {},
-      "patterns": Array [
-        "/test/static",
-      ],
+    FaviconsWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "favicons": Object {
+          "icons": Object {
+            "android": false,
+            "appleIcon": false,
+            "appleStartup": false,
+            "coast": false,
+            "favicons": true,
+            "firefox": false,
+            "windows": false,
+            "yandex": false,
+          },
+        },
+        "inject": true,
+        "logo": "/test/static/logo.png",
+        "prefix": "assets/",
+      },
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
@@ -618,6 +658,12 @@ Object {
         "PUBLIC_PATH",
       ],
     },
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/static",
+      ],
+    },
     HtmlWebpackPlugin {
       "options": Object {
         "cache": true,
@@ -644,11 +690,25 @@ Object {
         "injectSpriteId": false,
       },
     },
-    CopyPlugin {
-      "options": Object {},
-      "patterns": Array [
-        "/test/static",
-      ],
+    FaviconsWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "favicons": Object {
+          "icons": Object {
+            "android": false,
+            "appleIcon": false,
+            "appleStartup": false,
+            "coast": false,
+            "favicons": true,
+            "firefox": false,
+            "windows": false,
+            "yandex": false,
+          },
+        },
+        "inject": true,
+        "logo": "/test/static/logo.png",
+        "prefix": "assets/",
+      },
     },
     NamedModulesPlugin {
       "options": Object {},
@@ -894,6 +954,12 @@ Object {
         "PUBLIC_PATH",
       ],
     },
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/static",
+      ],
+    },
     HtmlWebpackPlugin {
       "options": Object {
         "cache": true,
@@ -920,11 +986,25 @@ Object {
         "injectSpriteId": true,
       },
     },
-    CopyPlugin {
-      "options": Object {},
-      "patterns": Array [
-        "/test/static",
-      ],
+    FaviconsWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "favicons": Object {
+          "icons": Object {
+            "android": false,
+            "appleIcon": false,
+            "appleStartup": false,
+            "coast": false,
+            "favicons": true,
+            "firefox": false,
+            "windows": false,
+            "yandex": false,
+          },
+        },
+        "inject": true,
+        "logo": "/test/static/logo.png",
+        "prefix": "assets/",
+      },
     },
     NamedModulesPlugin {
       "options": Object {},
@@ -1167,6 +1247,12 @@ Object {
         "PUBLIC_PATH",
       ],
     },
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "/test/static",
+      ],
+    },
     HtmlWebpackPlugin {
       "options": Object {
         "cache": true,
@@ -1193,11 +1279,25 @@ Object {
         "injectSpriteId": false,
       },
     },
-    CopyPlugin {
-      "options": Object {},
-      "patterns": Array [
-        "/test/static",
-      ],
+    FaviconsWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "favicons": Object {
+          "icons": Object {
+            "android": false,
+            "appleIcon": false,
+            "appleStartup": false,
+            "coast": false,
+            "favicons": true,
+            "firefox": false,
+            "windows": false,
+            "yandex": false,
+          },
+        },
+        "inject": true,
+        "logo": "/test/static/logo.png",
+        "prefix": "assets/",
+      },
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
@@ -1363,6 +1463,26 @@ Object {
         "DEBUG",
         "PUBLIC_PATH",
       ],
+    },
+    "faviconsWebpackPlugin": FaviconsWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "favicons": Object {
+          "icons": Object {
+            "android": false,
+            "appleIcon": false,
+            "appleStartup": false,
+            "coast": false,
+            "favicons": true,
+            "firefox": false,
+            "windows": false,
+            "yandex": false,
+          },
+        },
+        "inject": true,
+        "logo": "/test/static/logo.png",
+        "prefix": "assets/",
+      },
     },
     "friendlyErrorsPlugin": FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
