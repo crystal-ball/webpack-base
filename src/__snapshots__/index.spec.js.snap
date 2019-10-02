@@ -686,6 +686,37 @@ Object {
         "filename": "static/css/[name].css",
       },
     },
+    OptimizeCssAssetsWebpackPlugin {
+      "deleteAssetsMap": Object {},
+      "options": Object {
+        "assetNameRegExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+        "assetProcessors": Array [
+          Object {
+            "phase": "compilation.optimize-chunk-assets",
+            "processor": [Function],
+            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          },
+        ],
+        "canPrint": undefined,
+        "cssProcessor": [Function],
+        "cssProcessorOptions": Object {},
+        "cssProcessorPluginOptions": Object {},
+      },
+      "phaseAssetProcessors": Object {
+        "compilation.optimize-assets": Array [],
+        "compilation.optimize-chunk-assets": Array [
+          Object {
+            "phase": "compilation.optimize-chunk-assets",
+            "processor": [Function],
+            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          },
+        ],
+        "emit": Array [],
+      },
+      "pluginDescriptor": Object {
+        "name": "OptimizeCssAssetsWebpackPlugin",
+      },
+    },
   ],
   "resolve": Object {
     "alias": Object {
@@ -929,6 +960,37 @@ Object {
       "options": Object {
         "chunkFilename": "static/css/[name].[chunkhash].css",
         "filename": "static/css/[name].[chunkhash].css",
+      },
+    },
+    OptimizeCssAssetsWebpackPlugin {
+      "deleteAssetsMap": Object {},
+      "options": Object {
+        "assetNameRegExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+        "assetProcessors": Array [
+          Object {
+            "phase": "compilation.optimize-chunk-assets",
+            "processor": [Function],
+            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          },
+        ],
+        "canPrint": undefined,
+        "cssProcessor": [Function],
+        "cssProcessorOptions": Object {},
+        "cssProcessorPluginOptions": Object {},
+      },
+      "phaseAssetProcessors": Object {
+        "compilation.optimize-assets": Array [],
+        "compilation.optimize-chunk-assets": Array [
+          Object {
+            "phase": "compilation.optimize-chunk-assets",
+            "processor": [Function],
+            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          },
+        ],
+        "emit": Array [],
+      },
+      "pluginDescriptor": Object {
+        "name": "OptimizeCssAssetsWebpackPlugin",
       },
     },
   ],

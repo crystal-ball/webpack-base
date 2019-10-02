@@ -235,6 +235,7 @@ const paths = {
 - Injected `PUBLIC_PATH` for routing
 - `DEVTOOL` environment variable will override source maps
 - Import paths case is verified to ensure Linux and MacOS compatability
+- Production CSS+JS assets are minified
 
 ### Relative import alias
 
