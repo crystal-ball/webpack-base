@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [6.3.0](https://github.com/crystal-ball/webpack-base/compare/v6.2.0...v6.3.0) (2019-10-02)
+
+
+#### 💖 New
+
+* Minify build CSS in prod 🏎 (#88)([33ad513](https://github.com/crystal-ball/webpack-base/commit/33ad513878c1dff3a738a3cf351bd28a188f92a5)), closes [#88](https://github.com/crystal-ball/webpack-base/issue/88) [#87](https://github.com/crystal-ball/webpack-base/issue/87)
+
 ## [6.2.0](https://github.com/crystal-ball/webpack-base/compare/v6.1.0...v6.2.0) (2019-10-01)
 
 
