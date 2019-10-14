@@ -7,6 +7,9 @@
 # Skip install in continous integration envs
 [[ ! -z "$CI" ]] && exit 0
 
+# Skip install in continous deployment envs
+[[ ! -z "$CD" ]] && exit 0
+
 # When package is installed as a node_module, do nothing
 [[ "$PWD" == *node_modules* ]] && exit 0
 
