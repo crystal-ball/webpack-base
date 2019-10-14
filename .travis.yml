@@ -36,16 +36,16 @@ script:
 # after_script:
 #   - ./cc-test-reporter after-build --prefix /usr/src --exit-code $TRAVIS_TEST_RESULT
 
-deploy:
-  provider: script
-  # Prevent Travis from resetting working directory after build
-  skip_cleanup: true
-  # Running semantic release requires installing node deps to workspace,
-  # explicitly set CI env var for future proofing skipping Cypress install in
-  # post-install script
-  script: CI=true npm install && npx semantic-release
-  on:
-    branch: master
+# deploy:
+#   provider: script
+#   # Prevent Travis from resetting working directory after build
+#   skip_cleanup: true
+#   # Running semantic release requires installing node deps to workspace,
+#   # explicitly set CI env var for future proofing skipping Cypress install in
+#   # post-install script
+#   script: CI=true npm install && npx semantic-release
+#   on:
+#     branch: master
 
 # ☎️ Slack
 notifications:

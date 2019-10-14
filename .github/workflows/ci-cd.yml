@@ -11,18 +11,14 @@ on:
 
 jobs:
   test:
-    name: Continuous Integration - Node v${{ matrix.node-version }}
+    name: Continuous Integration
     runs-on: ubuntu-latest
-    strategy:
-      # Test package on Node versions used by Atom/VSCode for compatability
-      matrix:
-        node-version: ['12', '10']
     steps:
       - uses: actions/checkout@v1
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '12'
       - name: Code Climate - Setup
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -40,27 +36,26 @@ jobs:
           docker-compose -f docker-compose.test.yml up --exit-code-from cypress
       - name: Code Climate - Report
         if: success()
-        run: ./cc-test-reporter after-build
+        run: ./cc-test-reporter after-build --prefix /usr/src
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-  # publish:
-  #   name: Continuous Deployment
-  #   needs: test
-  #   if: github.ref == 'refs/heads/master'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: '10'
-  #     - name: Install
-  #       run: npm install
-  #       env:
-  #         CI: true
-  #     - name: Release
-  #       if: github.ref == 'refs/heads/master'
-  #       run: npx semantic-release
-  #       env:
-  #         GH_TOKEN: ${{ secrets.SEMANTIC_GH_TOKEN }}
-  #         NPM_TOKEN: ${{ secrets.SEMANTIC_NPM_TOKEN }}
+  publish:
+    name: Continuous Deployment
+    needs: test
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Install
+        run: npm install
+        env:
+          CI: true
+      - name: Release
+        run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.SEMANTIC_GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SEMANTIC_NPM_TOKEN }}

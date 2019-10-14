@@ -12,7 +12,7 @@ FROM base as test
 
 # Install dependencies
 COPY ./package*.json ./
-RUN npm install
+RUN CI=true npm install --no-optional --loglevel error
 
 # Copy remaining source files
 COPY . .
