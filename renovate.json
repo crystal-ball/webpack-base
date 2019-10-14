@@ -1,15 +1,35 @@
 {
-  "extends": ["config:base"],
-  "commitMessagePrefix": "Upgrade: ",
+  "automerge": false,
+  "ignorePaths": ["**/node_modules/**"],
+  "ignoreUnstable": true,
   "labels": ["Renovate"],
+  "lockFileMaintenance": {
+    "enabled": false
+  },
   "masterIssue": true,
+  "masterIssueTitle": "Renovate Bot Dependencies Management",
+  "rangeStrategy": "auto",
   "schedule": ["every weekend"],
+  "prCreation": "immediate",
+  "updateNotScheduled": true,
+
   "packageRules": [
     {
       "packagePatterns": ["*"],
+      "commitMessagePrefix": "Chore: ",
+      "commitMessageSuffix": " 🆙",
       "minor": {
-        "groupName": "all non-major dependencies",
-        "groupSlug": "all-minor-patch"
+        "groupName": "minor devDependencies",
+        "groupSlug": "all-minor-devDependencies"
+      }
+    },
+    {
+      "depTypeList": ["dependencies"],
+      "commitMessagePrefix": "Update: ",
+      "commitMessageSuffix": " 🆙",
+      "minor": {
+        "groupName": "minor dependencies",
+        "groupSlug": "all-minor-dependencies"
       }
     }
   ]
