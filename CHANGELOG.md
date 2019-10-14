@@ -14,6 +14,21 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [6.5.0](https://github.com/crystal-ball/webpack-base/compare/v6.4.0...v6.5.0) (2019-10-14)
+
+
+#### ✨ Update
+
+* Update minor dependencies 🆙 (#95)([bb20a9c](https://github.com/crystal-ball/webpack-base/commit/bb20a9c2da1bdcc75a65beb334833caef5e7a52d)), closes [#95](https://github.com/crystal-ball/webpack-base/issue/95)
+
+#### Chore, Docs
+
+* Add Github Action ⚙️ (#94)([ffe4217](https://github.com/crystal-ball/webpack-base/commit/ffe42171e60f9301f129e5d287f058fb548da238)), closes [#94](https://github.com/crystal-ball/webpack-base/issue/94)
+* DevDependencies 🆙([324d2e7](https://github.com/crystal-ball/webpack-base/commit/324d2e7d1df7b052cd97c57947363b64d7d1704f))
+* Reconfigure Renovate ⚙️ (#92)([f5f03a4](https://github.com/crystal-ball/webpack-base/commit/f5f03a4a0650142349bde6819c1d57d013855e7b)), closes [#92](https://github.com/crystal-ball/webpack-base/issue/92)
+* Use env var to skip installing Cypress binary 🎉 (#97)([090d01a](https://github.com/crystal-ball/webpack-base/commit/090d01a39296f0d31777c76763525e608da28475)), closes [#97](https://github.com/crystal-ball/webpack-base/issue/97)
+* Update Github Actions references 📝 (#96)([497639e](https://github.com/crystal-ball/webpack-base/commit/497639e5c1d35dd0e610755bda104f84a1c2a24b)), closes [#96](https://github.com/crystal-ball/webpack-base/issue/96)
+
 ## [6.4.0](https://github.com/crystal-ball/webpack-base/compare/v6.3.0...v6.4.0) (2019-10-02)
 
 
