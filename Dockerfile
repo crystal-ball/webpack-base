@@ -28,7 +28,7 @@ RUN git clone https://github.com/crystal-ball/react-application-prototype.git
 WORKDIR /usr/src/react-application-prototype
 
 # Copy test coverage reports for webpack-base so that we can later copy them
-# to Travis workspace
+# to CI/CD workspace
 COPY --from=test /usr/src/coverage ./coverage
 
 # Copy source and template packages and run merge script to install the same deps
