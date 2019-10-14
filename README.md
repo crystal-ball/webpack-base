@@ -7,8 +7,8 @@
   <a href="https://www.npmjs.com/package/@crystal-ball/webpack-base">
     <img src="https://img.shields.io/npm/v/@crystal-ball/webpack-base.svg?style=flat-square" alt="NPM version">
   </a>
-  <a href="https://travis-ci.com/crystal-ball/webpack-base">
-    <img src="https://travis-ci.com/crystal-ball/webpack-base.svg?branch=master" alt="Travis build status">
+  <a href="https://github.com/crystal-ball/webpack-base/actions?workflow=CI%2FCD">
+    <img src="https://github.com/crystal-ball/webpack-base/workflows/CI%2FCD/badge.svg" alt="Build status" />
   </a>
   <a href="https://codeclimate.com/github/crystal-ball/webpack-base/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/b96df9f9f2fb844ee580/maintainability" />
