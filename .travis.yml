@@ -10,13 +10,13 @@ branches:
   only:
     - master
 
-before_install:
-  - docker --version
-  - docker-compose --version
-  # Setup Code Climate test reporter
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+# before_install:
+#   - docker --version
+#   - docker-compose --version
+#   # Setup Code Climate test reporter
+#   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+#   - chmod +x ./cc-test-reporter
+#   - ./cc-test-reporter before-build
 
 # Skip default npm install for Docker workflow
 install: true
@@ -33,8 +33,8 @@ script:
 
 # Call Code Climate reporter with results, note the --prefix option is used to
 # strip the file paths output from the Docker container
-after_script:
-  - ./cc-test-reporter after-build --prefix /usr/src --exit-code $TRAVIS_TEST_RESULT
+# after_script:
+#   - ./cc-test-reporter after-build --prefix /usr/src --exit-code $TRAVIS_TEST_RESULT
 
 deploy:
   provider: script
