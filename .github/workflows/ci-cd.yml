@@ -51,9 +51,7 @@ jobs:
         with:
           node-version: '12'
       - name: Install
-        run: npm install
-        env:
-          CD: true
+        run: CI=true CYPRESS_INSTALL_BINARY=0 npm install
       - name: Release
         run: npx semantic-release
         env:

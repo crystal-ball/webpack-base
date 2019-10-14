@@ -12,7 +12,7 @@ FROM base as test
 
 # Install dependencies
 COPY ./package*.json ./
-RUN CI=true npm install --no-optional --loglevel error
+RUN CI=true CYPRESS_INSTALL_BINARY=0 npm install --no-optional --loglevel error
 
 # Copy remaining source files
 COPY . .
@@ -38,7 +38,7 @@ COPY ./package.json ./source.package.json
 COPY ./scripts/prepare-container-install.js ./scripts/prepare-container-install.js
 RUN node scripts/prepare-container-install.js
 
-RUN CI=true npm install --no-optional --loglevel error
+RUN CI=true CYPRESS_INSTALL_BINARY=0 npm install --no-optional --loglevel error
 
 # Copy project source to installed version package
 COPY ./src /usr/src/react-application-prototype/node_modules/@crystal-ball/webpack-base/src
