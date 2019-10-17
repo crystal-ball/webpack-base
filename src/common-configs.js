@@ -83,11 +83,10 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
     'progressBarPlugin',
     'environmentPlugin',
     'copyPlugin',
-    // ℹ️ HTML plugin must come before the SVG sprite and favicon plugins b/c
-    // they use hooks registered by the HTML plugin to inject resources into
+    // ℹ️ HTML plugin must come before the SVG sprite plugin b/c it uses
+    // lifecycle hooks registered by the HTML plugin to inject resources into
     // generated app index.html
     'htmlPlugin',
     'svgSymbolSpritePlugin',
-    'faviconsWebpackPlugin',
   ],
 })

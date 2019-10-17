@@ -187,26 +187,6 @@ Object {
         "injectSpriteId": true,
       },
     },
-    FaviconsWebpackPlugin {
-      "options": Object {
-        "cache": true,
-        "favicons": Object {
-          "icons": Object {
-            "android": false,
-            "appleIcon": false,
-            "appleStartup": false,
-            "coast": false,
-            "favicons": true,
-            "firefox": false,
-            "windows": false,
-            "yandex": false,
-          },
-        },
-        "inject": true,
-        "logo": "/test/static/logo.png",
-        "prefix": "assets/",
-      },
-    },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
       "multiStep": undefined,
@@ -435,26 +415,6 @@ Object {
       "options": Object {
         "filename": "static/media/icon-sprite.svg",
         "injectSpriteId": false,
-      },
-    },
-    FaviconsWebpackPlugin {
-      "options": Object {
-        "cache": true,
-        "favicons": Object {
-          "icons": Object {
-            "android": false,
-            "appleIcon": false,
-            "appleStartup": false,
-            "coast": false,
-            "favicons": true,
-            "firefox": false,
-            "windows": false,
-            "yandex": false,
-          },
-        },
-        "inject": true,
-        "logo": "/test/static/logo.png",
-        "prefix": "assets/",
       },
     },
     HotModuleReplacementPlugin {
@@ -688,26 +648,6 @@ Object {
       "options": Object {
         "filename": "static/media/icon-sprite.svg",
         "injectSpriteId": false,
-      },
-    },
-    FaviconsWebpackPlugin {
-      "options": Object {
-        "cache": true,
-        "favicons": Object {
-          "icons": Object {
-            "android": false,
-            "appleIcon": false,
-            "appleStartup": false,
-            "coast": false,
-            "favicons": true,
-            "firefox": false,
-            "windows": false,
-            "yandex": false,
-          },
-        },
-        "inject": true,
-        "logo": "/test/static/logo.png",
-        "prefix": "assets/",
       },
     },
     NamedModulesPlugin {
@@ -986,26 +926,6 @@ Object {
         "injectSpriteId": true,
       },
     },
-    FaviconsWebpackPlugin {
-      "options": Object {
-        "cache": true,
-        "favicons": Object {
-          "icons": Object {
-            "android": false,
-            "appleIcon": false,
-            "appleStartup": false,
-            "coast": false,
-            "favicons": true,
-            "firefox": false,
-            "windows": false,
-            "yandex": false,
-          },
-        },
-        "inject": true,
-        "logo": "/test/static/logo.png",
-        "prefix": "assets/",
-      },
-    },
     NamedModulesPlugin {
       "options": Object {},
     },
@@ -1279,26 +1199,6 @@ Object {
         "injectSpriteId": false,
       },
     },
-    FaviconsWebpackPlugin {
-      "options": Object {
-        "cache": true,
-        "favicons": Object {
-          "icons": Object {
-            "android": false,
-            "appleIcon": false,
-            "appleStartup": false,
-            "coast": false,
-            "favicons": true,
-            "firefox": false,
-            "windows": false,
-            "yandex": false,
-          },
-        },
-        "inject": true,
-        "logo": "/test/static/logo.png",
-        "prefix": "assets/",
-      },
-    },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
       "multiStep": undefined,
@@ -1463,26 +1363,6 @@ Object {
         "DEBUG",
         "PUBLIC_PATH",
       ],
-    },
-    "faviconsWebpackPlugin": FaviconsWebpackPlugin {
-      "options": Object {
-        "cache": true,
-        "favicons": Object {
-          "icons": Object {
-            "android": false,
-            "appleIcon": false,
-            "appleStartup": false,
-            "coast": false,
-            "favicons": true,
-            "firefox": false,
-            "windows": false,
-            "yandex": false,
-          },
-        },
-        "inject": true,
-        "logo": "/test/static/logo.png",
-        "prefix": "assets/",
-      },
     },
     "friendlyErrorsPlugin": FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
