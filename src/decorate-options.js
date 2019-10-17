@@ -31,7 +31,6 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
       static: join(context, 'static'),
       src,
       appIndex: join(src, 'index.js'),
-      favicon: join(context, 'static/logo.png'),
       htmlTemplate: join(src, 'index.html'),
       iconSpriteIncludes: [join(src, 'media/icons')],
       jsLoaderIncludes: [src],
