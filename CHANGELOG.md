@@ -14,6 +14,22 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.0.0](https://github.com/crystal-ball/webpack-base/compare/v6.5.0...v7.0.0) (2019-10-17)
+
+
+### 💥 Breaking Changes!
+
+* Package `favicons-webpack-plugin` removed, favicons must be generated pre-build again.
+
+### 🔖 Release Notes
+
+* Update also adds `@babel/plugin-proposal-nullish-coalescing-operator` as a bundled dependency.
+
+
+#### 🛠 Fix
+
+* Remove webpack favicons plugin 💥 (#98)([a83db00](https://github.com/crystal-ball/webpack-base/commit/a83db00378e2271e9a4b0f97e6c7f76e6117a595)), closes [#98](https://github.com/crystal-ball/webpack-base/issue/98)
+
 ## [6.5.0](https://github.com/crystal-ball/webpack-base/compare/v6.4.0...v6.5.0) (2019-10-14)
 
 
