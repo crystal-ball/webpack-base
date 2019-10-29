@@ -38,7 +38,7 @@
 <!-- prettier-ignore-end -->
 </div>
 
-<p>
+<p align="center">
   <em>This package generates a base webpack configuration and dependencies for
   React web and Electron applications. Users can customize the generated base
   configurations to meet the specific needs of any project.</em>
@@ -84,8 +84,9 @@ Add configuration files for webpack and Babel to the project root. The
 [@crystal-ball/react-application-prototype][] is a complete working reference
 application using this package. Projects require a:
 
-- `.babelrc.js`
+- `.browserslistrc`
 - `.eslintrc.js`
+- `babel.config.js`
 - `webpack.config.js`
 
 ## 📦 Project defaults
@@ -102,16 +103,15 @@ project
 │  └─ / media
 │  │  └─ / icons
 │  └─ / styles
-│  │  └─ / dev
-│  │  └─ / prod
 │  └─ / utils
 │  ├─  index.html
 │  ├─  index.js
 │  └─  index.scss
 ├─ / static
 │  └─  favicon.ico
-├─  .babelrc.js
+├─  .browserslistrc
 ├─  .eslintrc.js
+├─  babel.config.js
 └─  webpack.config.js
 ```
 
@@ -122,8 +122,7 @@ project
 - **src/media/icons** - The SVG symbol sprite loader will sprite any SVG icons
   imported from this directory.
 - **src/styles** - SCSS files in this directory can be imported with the `@`
-  alias from anywhere in the project. Files in the dev and prod directory will
-  be resolved based on the `NODE_ENV`
+  alias from anywhere in the project.
 - **src/api**, **src/components**, **src/dux** and **src/utils** - Suggested but
   not required directory structure for organizing application code by domain
 - **static** - The static folder can be used as an escape hatch for including
