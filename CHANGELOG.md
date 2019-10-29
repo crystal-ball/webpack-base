@@ -14,6 +14,20 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.1.0](https://github.com/crystal-ball/webpack-base/compare/v7.0.0...v7.1.0) (2019-10-29)
+
+
+#### ✨ Update
+
+* Update minor dependencies 🆙 (#102)([973ff92](https://github.com/crystal-ball/webpack-base/commit/973ff929e6cabe6920c5dbd9d96e9e4306994272)), closes [#102](https://github.com/crystal-ball/webpack-base/issue/102)
+
+#### Docs, Test, Chore
+
+* Update README instructions 📝([a94606d](https://github.com/crystal-ball/webpack-base/commit/a94606dcc8e4ebbd8fac54d18f9ddbd150a11102))
+* Update Cypress test to match prototype app ✓ (#103)([e98454e](https://github.com/crystal-ball/webpack-base/commit/e98454ef33d31e2fd49ea61aa75e90aa519fe259)), closes [#103](https://github.com/crystal-ball/webpack-base/issue/103)
+* Update cypress/included Docker tag to v3.5.0 🆙 (#100)([b56ceed](https://github.com/crystal-ball/webpack-base/commit/b56ceedbb453a99dc88962edf799f485e3ce9ce1)), closes [#100](https://github.com/crystal-ball/webpack-base/issue/100)
+* Update minor devDependencies 🆙 (#101)([2d60f82](https://github.com/crystal-ball/webpack-base/commit/2d60f8206a261fe2e5a6316bc20de163163a8587)), closes [#101](https://github.com/crystal-ball/webpack-base/issue/101)
+
 ## [7.0.0](https://github.com/crystal-ball/webpack-base/compare/v6.5.0...v7.0.0) (2019-10-17)
 
 
