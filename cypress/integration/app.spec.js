@@ -3,16 +3,21 @@ describe('Application build', () => {
     cy.visit('/')
   })
 
-  // Test that the production build finished without errors by loading the app
+  /**
+   * The entire application should build and render without errors
+   */
   it('should have built without errors', () => {
-    cy.get('h1').contains(/The Order\s*of the\s*Crystal Code\s*Wizards/)
+    cy.contains(/The Order\s*of the\s*Crystal Code\s*Wizards/)
   })
 
-  // Test that images loaded with the file loader are output into the correct
-  // static/media folder and have a cache busting hash appended to the filename
-  it('should hash image assets', () => {
-    cy.get('img[alt="In pursuit of magic"]')
-      .should('have.attr', 'src')
-      .and('match', /\/static\/media\/karly-santiago\.[a-z0-9]+?\.jpg/)
+  /**
+   * Media imported through webpack should have cache busting hashes
+   */
+  it('should use hashed image assets', () => {
+    cy.get('[data-testid=hero-img]').should($img => {
+      expect($img.css('background-image')).to.match(
+        /\/static\/media\/radpack-bg\.[a-z0-9]+\.jpg/,
+      )
+    })
   })
 })

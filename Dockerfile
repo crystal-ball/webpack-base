@@ -1,4 +1,4 @@
-FROM node:10.17 as base
+FROM node:12.13.0 as base
 LABEL maintainer="hedgecock.d@gmail.com"
 
 WORKDIR /usr/src
@@ -18,7 +18,8 @@ RUN CI=true CYPRESS_INSTALL_BINARY=0 npm install --no-optional --loglevel error
 COPY . .
 
 # Validate unit tests
-RUN npm test
+RUN npm run test:lint
+RUN npm run test:unit
 
 # --- APP CLONE ---
 
