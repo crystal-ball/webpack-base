@@ -7,7 +7,7 @@ services:
       - 5000
 
   cypress:
-    image: cypress/included:3.4.1
+    image: cypress/included:3.5.0
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
     environment:
