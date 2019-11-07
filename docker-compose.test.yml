@@ -7,11 +7,20 @@ services:
       - 5000
 
   cypress:
-    image: cypress/included:3.5.0
+    build:
+      context: .
+      dockerfile: ./cypress/Dockerfile
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
     environment:
+      ## This ensures colors are enabled in the output
+      - TERM=xterm
+      # Cypress env overrides for CI/CD
       - CYPRESS_baseUrl=http://test:5000
+      # Pass through env variables and tokens from ci-cd workflow for
+      # Cypress+Percy to determine test run git info
+      - PERCY_BRANCH=${PERCY_BRANCH}
+      - PERCY_TOKEN=${PERCY_TOKEN}
     depends_on:
       - test
     # Share the current folder as volume to avoid copying

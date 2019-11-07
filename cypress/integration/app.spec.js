@@ -8,6 +8,7 @@ describe('Application build', () => {
    */
   it('should have built without errors', () => {
     cy.contains(/The Order\s*of the\s*Crystal Code\s*Wizards/)
+    cy.percySnapshot()
   })
 
   /**
