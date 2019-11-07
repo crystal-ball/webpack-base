@@ -68,6 +68,7 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
   module: {
     rules: [
       'jsLoader',
+      'mdxLoader',
       'sassLoader',
       'svgSpriteLoader',
       'svgComponentLoader',

@@ -41,7 +41,7 @@ module.exports = ({ devServer, paths }) => ({
     },
     // The.port.
     port: 3000,
-    //   // Custom overrides
+    // Custom overrides
     ...devServer,
   },
 })
