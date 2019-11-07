@@ -38,6 +38,21 @@ Object {
         ],
       },
       Object {
+        "test": /\\\\\\.mdx\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "@mdx-js/loader",
+            "options": Object {
+              "rehypePlugins": Array [],
+              "remarkPlugins": Array [],
+            },
+          },
+        ],
+      },
+      Object {
         "test": /\\\\\\.scss\\$/,
         "use": Array [
           Object {
@@ -267,6 +282,21 @@ Object {
         ],
       },
       Object {
+        "test": /\\\\\\.mdx\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "@mdx-js/loader",
+            "options": Object {
+              "rehypePlugins": Array [],
+              "remarkPlugins": Array [],
+            },
+          },
+        ],
+      },
+      Object {
         "test": /\\\\\\.scss\\$/,
         "use": Array [
           Object {
@@ -483,6 +513,21 @@ Object {
           },
           Object {
             "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.mdx\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "@mdx-js/loader",
+            "options": Object {
+              "rehypePlugins": Array [],
+              "remarkPlugins": Array [],
+            },
           },
         ],
       },
@@ -760,6 +805,21 @@ Object {
           },
           Object {
             "loader": "eslint-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.mdx\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "@mdx-js/loader",
+            "options": Object {
+              "rehypePlugins": Array [],
+              "remarkPlugins": Array [],
+            },
           },
         ],
       },
@@ -1050,6 +1110,21 @@ Object {
         ],
       },
       Object {
+        "test": /\\\\\\.mdx\\$/,
+        "use": Array [
+          Object {
+            "loader": "babel-loader",
+          },
+          Object {
+            "loader": "@mdx-js/loader",
+            "options": Object {
+              "rehypePlugins": Array [],
+              "remarkPlugins": Array [],
+            },
+          },
+        ],
+      },
+      Object {
         "test": /\\\\\\.scss\\$/,
         "use": Array [
           Object {
@@ -1269,6 +1344,21 @@ Object {
         },
         Object {
           "loader": "eslint-loader",
+        },
+      ],
+    },
+    "mdxLoader": Object {
+      "test": /\\\\\\.mdx\\$/,
+      "use": Array [
+        Object {
+          "loader": "babel-loader",
+        },
+        Object {
+          "loader": "@mdx-js/loader",
+          "options": Object {
+            "rehypePlugins": Array [],
+            "remarkPlugins": Array [],
+          },
         },
       ],
     },

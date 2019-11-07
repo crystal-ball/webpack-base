@@ -60,6 +60,22 @@ module.exports = ({ flags, paths }) => {
       ...overrides,
     }),
 
+    // --- 📝 MDX Loader
+    mdxLoader: overrides => ({
+      test: /\.mdx$/,
+      use: [
+        { loader: 'babel-loader' },
+        {
+          loader: '@mdx-js/loader',
+          options: {
+            rehypePlugins: [],
+            remarkPlugins: [],
+          },
+        },
+      ],
+      ...overrides,
+    }),
+
     // --- 😍 Styles Loader
     sassLoader: overrides => ({
       test: /\.scss$/,
