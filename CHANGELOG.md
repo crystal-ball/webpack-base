@@ -14,6 +14,18 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.2.0](https://github.com/crystal-ball/webpack-base/compare/v7.1.0...v7.2.0) (2019-11-07)
+
+
+#### 💖 New
+
+* Include MDX loader 💖 (#109)([bccf975](https://github.com/crystal-ball/webpack-base/commit/bccf9755f5e759a6020e10690b75a47aa944bf42)), closes [#109](https://github.com/crystal-ball/webpack-base/issue/109) [#30](https://github.com/crystal-ball/webpack-base/issue/30)
+
+#### Chore, Test
+
+* Dev dependencies 🆙 (#108)([5859d98](https://github.com/crystal-ball/webpack-base/commit/5859d98cf4c158b0f9291b9c04d5242587f9d2b3)), closes [#108](https://github.com/crystal-ball/webpack-base/issue/108)
+* Add Percy snapshot testing 🦔 (#107)([12614e6](https://github.com/crystal-ball/webpack-base/commit/12614e6b4ec880851db8ad69a5067202f5b30e20)), closes [#107](https://github.com/crystal-ball/webpack-base/issue/107)
+
 ## [7.1.0](https://github.com/crystal-ball/webpack-base/compare/v7.0.0...v7.1.0) (2019-10-29)
 
 
