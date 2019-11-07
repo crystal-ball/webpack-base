@@ -7,11 +7,21 @@ services:
       - 5000
 
   cypress:
-    image: cypress/included:3.5.0
+    build:
+      context: .
+      dockerfile: ./cypress/Dockerfile
     # See https://github.com/cypress-io/cypress/issues/350
     ipc: host
     environment:
       - CYPRESS_baseUrl=http://test:5000
+      # Pass through env variables and tokens from ci-cd workflow for
+      # Cypress+Percy to determine test run git info
+      - COMMIT_INFO_BRANCH=${COMMIT_INFO_BRANCH}
+      - COMMIT_INFO_MESSAGE=${COMMIT_INFO_MESSAGE}
+      - COMMIT_INFO_SHA=${COMMIT_INFO_SHA}
+      - CYPRESS_RECORD_KEY=${CYPRESS_RECORD_KEY}
+      - PERCY_BRANCH=${PERCY_BRANCH}
+      - PERCY_TOKEN=${PERCY_TOKEN}
     depends_on:
       - test
     # Share the current folder as volume to avoid copying

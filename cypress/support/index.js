@@ -13,8 +13,8 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
-import './commands'
+// Setup Percy snapshots
+import '@percy/cypress'
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+// Import custom application commands
+import './commands'
