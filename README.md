@@ -32,7 +32,7 @@
     <img src="https://img.shields.io/badge/Commitizen-%E2%9C%93%20friendly-10e67b" alt="Commitizen friendly" valign="text-top" />
   </a>
   <a href="https://github.com/crystal-ball/webpack-base#workspaces/-projects-5b88b5c9af3c0a2186966767/board?repos=136812233">
-    <img src="https://img.shields.io/badge/Shipping_faster_with-ZenHub-5e60ba.svg" alt="ZenHub" valign="text-top" />
+    <img src="https://img.shields.io/badge/Managed-ZenHub-5e60ba.svg" alt="ZenHub" valign="text-top" />
   </a>
   <a href="https://semantic-release.gitbook.io/semantic-release/">
     <img src="https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-semantic_release-e10079.svg" alt="Semantic Release" valign="text-top"/>
