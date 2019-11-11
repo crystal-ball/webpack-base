@@ -37,7 +37,7 @@
   <a href="https://semantic-release.gitbook.io/semantic-release/">
     <img src="https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-semantic_release-e10079.svg" alt="Semantic Release" valign="text-top"/>
   </a>
-  <a href="./code-of-conduct.md">
+  <a href="./CODE_OF_CONDUCT.md">
     <img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0-de8cf2.svg" alt="Contributor Covenant" valign="text-top" />
   </a>
   <code>:integrations</code>
