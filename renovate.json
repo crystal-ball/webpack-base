@@ -9,28 +9,23 @@
   "masterIssue": true,
   "masterIssueTitle": "Renovate Bot Dependencies Management",
   "rangeStrategy": "auto",
-  "schedule": ["every weekend"],
+  "schedule": ["before 3am on Tuesday"],
   "prCreation": "immediate",
+  "reviewers": ["dhedgecock"],
   "updateNotScheduled": true,
 
   "packageRules": [
     {
       "packagePatterns": ["*"],
       "commitMessagePrefix": "Chore: ",
-      "commitMessageSuffix": " 🆙",
-      "minor": {
-        "groupName": "minor devDependencies",
-        "groupSlug": "all-minor-devDependencies"
-      }
+      "commitMessageAction": "devDependencies upgrade",
+      "commitMessageSuffix": " 🆙"
     },
     {
       "depTypeList": ["dependencies"],
       "commitMessagePrefix": "Update: ",
-      "commitMessageSuffix": " 🆙",
-      "minor": {
-        "groupName": "minor dependencies",
-        "groupSlug": "all-minor-dependencies"
-      }
+      "commitMessageAction": "Package dependencies upgrade",
+      "commitMessageSuffix": " 🆙"
     }
   ]
 }
