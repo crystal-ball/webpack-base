@@ -18,14 +18,18 @@
     {
       "packagePatterns": ["*"],
       "commitMessagePrefix": "Chore: ",
-      "commitMessageAction": "devDependencies upgrade",
-      "commitMessageSuffix": " 🆙"
+      "commitMessageAction": "Upgrade",
+      "commitMessageTopic": "package {{depName}}",
+      "commitMessageSuffix": " 🆙",
+      "groupName": "dev dependencies"
     },
     {
       "depTypeList": ["dependencies"],
       "commitMessagePrefix": "Update: ",
-      "commitMessageAction": "Package dependencies upgrade",
-      "commitMessageSuffix": " 🆙"
+      "commitMessageAction": "Upgrade",
+      "commitMessageTopic": "package {{depName}}",
+      "commitMessageSuffix": " 🆙",
+      "groupName": "dependencies"
     }
   ]
 }
