@@ -7,7 +7,7 @@
     "enabled": false
   },
   "masterIssue": true,
-  "masterIssueTitle": "Renovate Bot Dependencies Management",
+  "masterIssueTitle": "Renovate Bot - Dependencies Management",
   "rangeStrategy": "auto",
   "schedule": ["before 3am on Tuesday"],
   "prCreation": "immediate",
@@ -18,7 +18,7 @@
     {
       "packagePatterns": ["*"],
       "commitMessagePrefix": "Chore: ",
-      "commitMessageAction": "Upgrade",
+      "commitMessageAction": "Update",
       "commitMessageTopic": "package {{depName}}",
       "commitMessageSuffix": " 🆙",
       "groupName": "dev dependencies"
@@ -26,8 +26,8 @@
     {
       "depTypeList": ["dependencies"],
       "commitMessagePrefix": "Update: ",
-      "commitMessageAction": "Upgrade",
-      "commitMessageTopic": "package {{depName}}",
+      "commitMessageAction": "Package",
+      "commitMessageTopic": "{{depName}} upgrades",
       "commitMessageSuffix": " 🆙",
       "groupName": "dependencies"
     }
