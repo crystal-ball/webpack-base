@@ -26,12 +26,12 @@
     "container": "docker-compose run --service-ports --rm app",
     "container:test": "docker-compose run --rm webpack",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "NODE_ENV=test eslint --format=pretty scripts src",
+    "test:lint": "NODE_ENV=test eslint --format=pretty scripts scripts src",
     "test:unit": "jest src",
     "test:ci": "docker-compose -f docker-compose.test.yml up --exit-code-from cypress",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "format": "prettier --write '*.{js,json,md,json}' '**/*.{md,js,json,scss}'"
+    "format": "prettier --write  '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}' !CHANGELOG.md"
   },
   "dependencies": {
     "@babel/core": "7.7.2",
