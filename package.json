@@ -31,7 +31,7 @@
     "test:ci": "docker-compose -f docker-compose.test.yml up --exit-code-from cypress",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "format": "prettier --write  '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}' !CHANGELOG.md"
+    "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}' !CHANGELOG.md"
   },
   "dependencies": {
     "@babel/core": "7.7.2",
