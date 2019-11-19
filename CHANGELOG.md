@@ -14,6 +14,29 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.3.0](https://github.com/crystal-ball/webpack-base/compare/v7.2.0...v7.3.0) (2019-11-19)
+
+
+#### ✨ Update
+
+* Package dependencies 🆙 (#123)([5cdaf2c](https://github.com/crystal-ball/webpack-base/commit/5cdaf2cf22878d7d0c44f2b175e2efbf9461d57c)), closes [#123](https://github.com/crystal-ball/webpack-base/issue/123)
+
+#### Chore, Docs
+
+* Add checks for skipping ci ⚙️ (#119)([96e94ed](https://github.com/crystal-ball/webpack-base/commit/96e94ed9f199853bda542ed611beb4fe37f42064)), closes [#119](https://github.com/crystal-ball/webpack-base/issue/119)
+* Code authoring format script improvements ⚙️([f0396a0](https://github.com/crystal-ball/webpack-base/commit/f0396a0ebc4ec0346d87a33839e6d59f3e0bd129))
+* Code authoring updates 📝([58d9a51](https://github.com/crystal-ball/webpack-base/commit/58d9a51c57a1bcd1b2375086fc1aa9d91ddaa6be))
+* Prune unnecessary template file([8fded3b](https://github.com/crystal-ball/webpack-base/commit/8fded3b6801a735af80acdbbf2a7a11e31bfa702))
+* Prune unnecessary template file([eb3ab4f](https://github.com/crystal-ball/webpack-base/commit/eb3ab4f2366cbf14468911fc3b2ece827fc5ba34))
+* Reconfigure Renovate ⚙️ (#113)([78266b6](https://github.com/crystal-ball/webpack-base/commit/78266b66414dce84d88e3f4c3ee96c243c6347d2)), closes [#113](https://github.com/crystal-ball/webpack-base/issue/113)
+* Reconfigure Renovate ⚙️ (#114)([1b2269b](https://github.com/crystal-ball/webpack-base/commit/1b2269b958ed6e107f19bf20affc08507c4b9a08)), closes [#114](https://github.com/crystal-ball/webpack-base/issue/114)
+* Reconfigure Renovate ⚙️ (#116)([608f448](https://github.com/crystal-ball/webpack-base/commit/608f448aa87a80344924f2c28e23f68e736f4fce)), closes [#116](https://github.com/crystal-ball/webpack-base/issue/116)
+* Update Code of Conduct and Contributing files 🔮✨ (#112)([5e7df7d](https://github.com/crystal-ball/webpack-base/commit/5e7df7d491d1e5c14b76e2a0f10b89ee784ea5c9)), closes [#112](https://github.com/crystal-ball/webpack-base/issue/112)
+* Update dev dependencies 🆙 (#120)([99afc22](https://github.com/crystal-ball/webpack-base/commit/99afc22e6e72b13ec259d015aadbffaa0fd57ab2)), closes [#120](https://github.com/crystal-ball/webpack-base/issue/120)
+* Update package cypress/included to v3.6.1 🆙 (#118)([91b171e](https://github.com/crystal-ball/webpack-base/commit/91b171e712e19444b6fb9889e4110b0a73764ede)), closes [#118](https://github.com/crystal-ball/webpack-base/issue/118)
+* Upgrade dev dependencies 🆙 (#115)([8821153](https://github.com/crystal-ball/webpack-base/commit/8821153aba58528aacf2ee6514f01a0bcd99e80f)), closes [#115](https://github.com/crystal-ball/webpack-base/issue/115)
+* Fix Code of Conduct link 📝([0f8a9a3](https://github.com/crystal-ball/webpack-base/commit/0f8a9a3f44b63a9a478b99c9cc96ae3ebae39f18))
+
 ## [7.2.0](https://github.com/crystal-ball/webpack-base/compare/v7.1.0...v7.2.0) (2019-11-07)
 
 
