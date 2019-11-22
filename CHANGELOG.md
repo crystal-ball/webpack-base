@@ -14,6 +14,18 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.4.0](https://github.com/crystal-ball/webpack-base/compare/v7.3.0...v7.4.0) (2019-11-22)
+
+
+#### 💖 New
+
+* Include Babel plugin for stripping prop types 🤩 (#125)([e02585f](https://github.com/crystal-ball/webpack-base/commit/e02585f4202e48628428ac404f8ce2042292175b)), closes [#125](https://github.com/crystal-ball/webpack-base/issue/125) [#124](https://github.com/crystal-ball/webpack-base/issue/124)
+
+#### Chore
+
+* Add CODEOWNERS 📝([3ec2eea](https://github.com/crystal-ball/webpack-base/commit/3ec2eeab1b1285e74f1aed56d82a08e6fbcdbf7c))
+* Fix prettier script formatting 📝([8823579](https://github.com/crystal-ball/webpack-base/commit/8823579d3276d4d33484937b670893944601ef59))
+
 ## [7.3.0](https://github.com/crystal-ball/webpack-base/compare/v7.2.0...v7.3.0) (2019-11-19)
 
 
