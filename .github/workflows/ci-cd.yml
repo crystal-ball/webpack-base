@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Skip CI Commit
-        run: echo "Skip CI commit success
+        run: echo "Skip CI commit success"
   test:
     name: Continuous Integration
     if: contains(github.event.head_commit.message, 'skip ci') == false
