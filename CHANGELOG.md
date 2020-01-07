@@ -14,6 +14,18 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [7.9.1](https://github.com/crystal-ball/webpack-base/compare/v7.9.0...v7.9.1) (2020-01-07)
+
+
+#### 🛠 Fix
+
+* Package css-loader upgrades to v3.4.1 🆙 (#140)([1f477c7](https://github.com/crystal-ball/webpack-base/commit/1f477c7328799bdfc345a85e441fba0ef419352e)), closes [#140](https://github.com/crystal-ball/webpack-base/issue/140)
+
+#### Chore
+
+* Update dev dependencies 🆙 (#139)([e474998](https://github.com/crystal-ball/webpack-base/commit/e47499880660abf8971eec50b0e024bbc73dbd81)), closes [#139](https://github.com/crystal-ball/webpack-base/issue/139)
+* Update package husky to v4 🆙 (#141)([871ec94](https://github.com/crystal-ball/webpack-base/commit/871ec9458fdf292d199c2019f58aec0df61313a4)), closes [#141](https://github.com/crystal-ball/webpack-base/issue/141)
+
 ## [7.9.0](https://github.com/crystal-ball/webpack-base/compare/v7.8.0...v7.9.0) (2020-01-01)
 
 
