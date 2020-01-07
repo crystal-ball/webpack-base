@@ -81,7 +81,7 @@
     "@percy/cypress": "2.2.0",
     "cypress": "3.8.1",
     "eslint-config-eloquence": "12.16.0",
-    "husky": "3.1.0",
+    "husky": "4.0.0",
     "jest": "24.9.0"
   },
   "config": {
