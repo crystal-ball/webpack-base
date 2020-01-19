@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = class ProgressBarPlugin {
+module.exports = class CaseSensitivePathsPlugin {
   constructor(options) {
     this.options = options
   }

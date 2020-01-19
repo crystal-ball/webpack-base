@@ -1,3 +1,5 @@
+'use strict'
+
 class MiniCSSExtractPlugin {
   constructor(opts) {
     this.options = { chunkFilename: opts.filename, ...opts }
