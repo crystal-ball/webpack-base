@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.11.0](https://github.com/crystal-ball/webpack-base/compare/v7.10.0...v7.11.0) (2020-01-19)
+
+
+#### ✨ Update
+
+* Startup logging and Babel packages (#145)([fd6a09f](https://github.com/crystal-ball/webpack-base/commit/fd6a09f70643138e22c4ce623eb79de8c98315a2)), closes [#145](https://github.com/crystal-ball/webpack-base/issue/145)
+
 ## [7.10.0](https://github.com/crystal-ball/webpack-base/compare/v7.9.1...v7.10.0) (2020-01-14)
 
 
