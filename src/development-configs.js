@@ -19,8 +19,6 @@ module.exports = ({ devServer, paths }) => ({
    * File serving debug info served at /webpack-dev-server
    */
   devServer: {
-    // Only log initial startup information
-    quiet: true,
     // ℹ️ clientLogLevel - Suppress logging, the FriendlyErrors plugin displays
     // cleaner messaging Controls the console logs in the browser before
     // reloading, HMR, etc.
@@ -32,6 +30,9 @@ module.exports = ({ devServer, paths }) => ({
     historyApiFallback: true,
     // Enable hot module replacement feature
     hot: true,
+    // Supress messages output, they're managed by the ProgressBarPlugin and the
+    // FriendlyErrors plugin
+    noInfo: true,
     // Disable auto-open until a re-use tab solution is figured out
     open: false,
     // Show compilation errors and warnings

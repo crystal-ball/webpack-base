@@ -50,7 +50,7 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
   // ℹ️ Values passed to EnvironmentPlugin are defaults
   environmentPlugin: new EnvironmentPlugin({
     DEBUG: false,
-    PUBLIC_PATH: publicPath || '/', // useful for routing and media from /public dir
+    PUBLIC_PATH: publicPath, // useful for routing and media from /public dir
     ...envVars,
   }),
 
@@ -64,7 +64,11 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
           `http://${devServer.host || 'localhost'}:${devServer.port || 3000}`,
         )}`,
       ],
-      notes: [],
+      notes: [
+        `webpack output is served from ${publicPath}`,
+        `Content not from webpack is served from ${paths.static}`,
+        `404s will fallback to /index.html`,
+      ],
     },
   }),
 

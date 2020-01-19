@@ -7,13 +7,13 @@ Object {
     "contentBase": "/test/static",
     "historyApiFallback": true,
     "hot": true,
+    "noInfo": true,
     "open": false,
     "overlay": Object {
       "errors": true,
       "warnings": false,
     },
     "port": 3000,
-    "quiet": true,
   },
   "devtool": "cheap-module-eval-source-map",
   "entry": "/test/src/index.js",
@@ -148,10 +148,7 @@ Object {
   },
   "plugins": Array [
     CaseSensitivePathsPlugin {
-      "fsOperations": 0,
-      "options": Object {},
-      "pathCache": Object {},
-      "primed": false,
+      "options": undefined,
     },
     ProgressBarPlugin {
       "options": Object {
@@ -214,7 +211,11 @@ Object {
           "  🎉  BINGO 🎉",
           "  Application running at http://localhost:3000",
         ],
-        "notes": Array [],
+        "notes": Array [
+          "webpack output is served from /",
+          "Content not from webpack is served from /test/static",
+          "404s will fallback to /index.html",
+        ],
       },
       "formatters": Array [
         [Function],
@@ -251,13 +252,13 @@ Object {
     "contentBase": "/test/static",
     "historyApiFallback": true,
     "hot": true,
+    "noInfo": true,
     "open": false,
     "overlay": Object {
       "errors": true,
       "warnings": false,
     },
     "port": 3000,
-    "quiet": true,
   },
   "devtool": "cheap-module-eval-source-map",
   "entry": "/test/src/renderer/index.js",
@@ -393,10 +394,7 @@ Object {
   },
   "plugins": Array [
     CaseSensitivePathsPlugin {
-      "fsOperations": 0,
-      "options": Object {},
-      "pathCache": Object {},
-      "primed": false,
+      "options": undefined,
     },
     ProgressBarPlugin {
       "options": Object {
@@ -459,7 +457,11 @@ Object {
           "  🎉  BINGO 🎉",
           "  Application running at http://localhost:3000",
         ],
-        "notes": Array [],
+        "notes": Array [
+          "webpack output is served from /",
+          "Content not from webpack is served from /test/static",
+          "404s will fallback to /index.html",
+        ],
       },
       "formatters": Array [
         [Function],
@@ -641,10 +643,7 @@ Object {
   },
   "plugins": Array [
     CaseSensitivePathsPlugin {
-      "fsOperations": 0,
-      "options": Object {},
-      "pathCache": Object {},
-      "primed": false,
+      "options": undefined,
     },
     ProgressBarPlugin {
       "options": Object {
@@ -932,10 +931,7 @@ Object {
   },
   "plugins": Array [
     CaseSensitivePathsPlugin {
-      "fsOperations": 0,
-      "options": Object {},
-      "pathCache": Object {},
-      "primed": false,
+      "options": undefined,
     },
     ProgressBarPlugin {
       "options": Object {
@@ -1079,13 +1075,13 @@ Object {
     "contentBase": "/test/static",
     "historyApiFallback": true,
     "hot": true,
+    "noInfo": true,
     "open": false,
     "overlay": Object {
       "errors": true,
       "warnings": false,
     },
     "port": 3000,
-    "quiet": true,
   },
   "devtool": "cheap-module-eval-source-map",
   "entry": "/test/src/index.js",
@@ -1220,10 +1216,7 @@ Object {
   },
   "plugins": Array [
     CaseSensitivePathsPlugin {
-      "fsOperations": 0,
-      "options": Object {},
-      "pathCache": Object {},
-      "primed": false,
+      "options": undefined,
     },
     ProgressBarPlugin {
       "options": Object {
@@ -1286,7 +1279,11 @@ Object {
           "  🎉  BINGO 🎉",
           "  Application running at http://localhost:3000",
         ],
-        "notes": Array [],
+        "notes": Array [
+          "webpack output is served from /",
+          "Content not from webpack is served from /test/static",
+          "404s will fallback to /index.html",
+        ],
       },
       "formatters": Array [
         [Function],
@@ -1433,10 +1430,7 @@ Object {
   },
   "plugins": Object {
     "caseSensitivePathsPlugin": CaseSensitivePathsPlugin {
-      "fsOperations": 0,
-      "options": Object {},
-      "pathCache": Object {},
-      "primed": false,
+      "options": undefined,
     },
     "copyPlugin": CopyPlugin {
       "options": Object {},
@@ -1460,7 +1454,11 @@ Object {
           "  🎉  BINGO 🎉",
           "  Application running at http://localhost:3000",
         ],
-        "notes": Array [],
+        "notes": Array [
+          "webpack output is served from /",
+          "Content not from webpack is served from /test/static",
+          "404s will fallback to /index.html",
+        ],
       },
       "formatters": Array [
         [Function],

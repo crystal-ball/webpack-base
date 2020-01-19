@@ -25,6 +25,7 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
     chunkHash: flags.production ? '.[chunkhash]' : '',
     devServer: {},
     flags,
+    publicPath: '/',
     paths: {
       context,
       output: join(context, 'public'),

@@ -27,7 +27,7 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
     // incorrect paths, eg: 'some/application/route/static/js/main.js
     // The default config set here ensures that requests are absolute, eg:
     // '/static/js/main.js'
-    publicPath: publicPath || '/',
+    publicPath,
     // Configures the lengths of [hash] and [chunkhash] globally
     hashDigestLength: 12,
   },
