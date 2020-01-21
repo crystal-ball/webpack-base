@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.12.0](https://github.com/crystal-ball/webpack-base/compare/v7.11.0...v7.12.0) (2020-01-21)
+
+
+#### ✨ Update
+
+* Package @svgr/webpack upgrades to v5.1.0 🆙 (#147)([26e41f9](https://github.com/crystal-ball/webpack-base/commit/26e41f954d2e6f0353e0734e0a118c5a89d2abaa)), closes [#147](https://github.com/crystal-ball/webpack-base/issue/147)
+
+#### Chore
+
+* Update dev dependencies 🆙 (#146)([8354eed](https://github.com/crystal-ball/webpack-base/commit/8354eedb8005bd06479b65590cdce94004ac046a)), closes [#146](https://github.com/crystal-ball/webpack-base/issue/146)
+
 ## [7.11.0](https://github.com/crystal-ball/webpack-base/compare/v7.10.0...v7.11.0) (2020-01-19)
 
 
