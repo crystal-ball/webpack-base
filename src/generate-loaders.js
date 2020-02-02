@@ -40,7 +40,7 @@ module.exports = ({ flags, paths }) => {
   return {
     // --- 🎉 JS Loader
     jsLoader: overrides => ({
-      test: /\.jsx?$/,
+      test: /\.(jsx?|tsx?)$/,
       include: paths.jsLoaderIncludes,
       /**
        * ## Using Eslint Loader
