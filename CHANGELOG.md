@@ -14,6 +14,19 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.13.0](https://github.com/crystal-ball/webpack-base/compare/v7.12.0...v7.13.0) (2020-02-02)
+
+
+#### 💖 New
+
+* Support TypeScript 🔐 (#151)([66058ce](https://github.com/crystal-ball/webpack-base/commit/66058ce1464c29eb349433899dd41e5ce0e1a6f6)), closes [#151](https://github.com/crystal-ball/webpack-base/issue/151)
+
+#### Chore
+
+* Update dev dependencies 🆙 (#148)([d69ce8c](https://github.com/crystal-ball/webpack-base/commit/d69ce8c0fc2ae6e493c2e33fc9d2730fd20fe528)), closes [#148](https://github.com/crystal-ball/webpack-base/issue/148)
+* Update package cypress/included to v3.8.3 🆙 (#149)([1ccf78b](https://github.com/crystal-ball/webpack-base/commit/1ccf78b12c936b6e30e7a1b231ef5ca941a92c19)), closes [#149](https://github.com/crystal-ball/webpack-base/issue/149)
+* Update package jest to v25 🆙 (#150)([bf810e0](https://github.com/crystal-ball/webpack-base/commit/bf810e0014ae0664d059bda5d872e36f377c04c6)), closes [#150](https://github.com/crystal-ball/webpack-base/issue/150)
+
 ## [7.12.0](https://github.com/crystal-ball/webpack-base/compare/v7.11.0...v7.12.0) (2020-01-21)
 
 
