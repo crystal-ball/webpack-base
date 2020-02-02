@@ -24,7 +24,7 @@ Object {
         "include": Array [
           "/test/src",
         ],
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\\\\\.\\(jsx\\?\\|tsx\\?\\)\\$/,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -240,6 +240,8 @@ Object {
       ".js",
       ".jsx",
       ".json",
+      ".ts",
+      ".tsx",
     ],
   },
 }
@@ -269,7 +271,7 @@ Object {
         "include": Array [
           "/test/src/renderer",
         ],
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\\\\\.\\(jsx\\?\\|tsx\\?\\)\\$/,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -486,6 +488,8 @@ Object {
       ".js",
       ".jsx",
       ".json",
+      ".ts",
+      ".tsx",
     ],
   },
   "target": "electron-renderer",
@@ -505,7 +509,7 @@ Object {
         "include": Array [
           "/test/src/renderer",
         ],
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\\\\\.\\(jsx\\?\\|tsx\\?\\)\\$/,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -771,6 +775,8 @@ Object {
       ".js",
       ".jsx",
       ".json",
+      ".ts",
+      ".tsx",
     ],
   },
   "stats": Object {
@@ -794,7 +800,7 @@ Object {
         "include": Array [
           "/test/src",
         ],
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\\\\\.\\(jsx\\?\\|tsx\\?\\)\\$/,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -1059,6 +1065,8 @@ Object {
       ".js",
       ".jsx",
       ".json",
+      ".ts",
+      ".tsx",
     ],
   },
   "stats": Object {
@@ -1092,7 +1100,7 @@ Object {
         "include": Array [
           "/test/src",
         ],
-        "test": /\\\\\\.jsx\\?\\$/,
+        "test": /\\\\\\.\\(jsx\\?\\|tsx\\?\\)\\$/,
         "use": Array [
           Object {
             "loader": "babel-loader",
@@ -1308,6 +1316,8 @@ Object {
       ".js",
       ".jsx",
       ".json",
+      ".ts",
+      ".tsx",
     ],
   },
 }
@@ -1331,7 +1341,7 @@ Object {
       "include": Array [
         "/test/src",
       ],
-      "test": /\\\\\\.jsx\\?\\$/,
+      "test": /\\\\\\.\\(jsx\\?\\|tsx\\?\\)\\$/,
       "use": Array [
         Object {
           "loader": "babel-loader",
