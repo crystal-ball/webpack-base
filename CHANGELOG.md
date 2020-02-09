@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [7.14.0](https://github.com/crystal-ball/webpack-base/compare/v7.13.0...v7.14.0) (2020-02-09)
+
+
+#### ✨ Update
+
+* Package dependencies 🆙 (#155)([a8e0a34](https://github.com/crystal-ball/webpack-base/commit/a8e0a34290500f6de54318f5045a49800c8fe77c)), closes [#155](https://github.com/crystal-ball/webpack-base/issue/155)
+
 ## [7.13.0](https://github.com/crystal-ball/webpack-base/compare/v7.12.0...v7.13.0) (2020-02-02)
 
 
