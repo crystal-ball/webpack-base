@@ -79,7 +79,7 @@
     "@percy/cypress": "2.3.0",
     "@types/jest": "25.1.2",
     "cypress": "4.0.1",
-    "eslint-config-eloquence": "13.0.2",
+    "eslint-config-eloquence": "13.1.0",
     "husky": "4.2.1",
     "jest": "25.1.0"
   },
