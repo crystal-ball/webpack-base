@@ -233,7 +233,6 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "@": "/test/src",
       "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
@@ -481,7 +480,6 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "@": "/test/src/renderer",
       "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
@@ -768,7 +766,6 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "@": "/test/src/renderer",
       "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
@@ -1058,7 +1055,6 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "@": "/test/src",
       "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
@@ -1309,7 +1305,6 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "@": "/test/src",
       "@babel/runtime": "/test/node_modules/@babel/runtime",
     },
     "extensions": Array [
