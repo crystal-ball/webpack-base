@@ -14,6 +14,23 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [8.0.0](https://github.com/crystal-ball/webpack-base/compare/v7.14.0...v8.0.0) (2020-02-19)
+
+
+### 💥 Breaking Changes!
+
+* Aliases must be transformed with `babel-plugin-transform-import-aliases`
+
+
+#### 💖 New
+
+* Remove @ webpack alias management 💥 (#160)([9f3d16e](https://github.com/crystal-ball/webpack-base/commit/9f3d16ed26f04230e21efa3f6cf51fb33171ec5c)), closes [#160](https://github.com/crystal-ball/webpack-base/issue/160)
+
+#### Chore
+
+* Update package eslint-config-eloquence to v13.1.0 🆙 (#156)([5f9c9af](https://github.com/crystal-ball/webpack-base/commit/5f9c9af696c5329134fcb17d448bff471c085369)), closes [#156](https://github.com/crystal-ball/webpack-base/issue/156)
+* Update package node to v12.15.0 🆙 (#152)([6efcd90](https://github.com/crystal-ball/webpack-base/commit/6efcd905d99b1e7235abba4d1777555e851de003)), closes [#152](https://github.com/crystal-ball/webpack-base/issue/152)
+
 ## [7.14.0](https://github.com/crystal-ball/webpack-base/compare/v7.13.0...v7.14.0) (2020-02-09)
 
 
