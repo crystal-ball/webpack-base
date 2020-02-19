@@ -39,9 +39,6 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
     // Alias can be used to point imports to specific modules, include empty
     // object to allow direct assignment in consuming packages
     alias: {
-      // Alias @ to the src/ directory for explicit imports relative to src directory, eg:
-      // `import SomeComponent from '@/components/universal'`
-      '@': paths.src,
       // Ensure that only one @babel/runtime is bundled into application
       '@babel/runtime': path.resolve(paths.context, 'node_modules/@babel/runtime'),
     },

@@ -30,7 +30,6 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
       context,
       output: join(context, 'public'),
       static: join(context, 'static'),
-      src,
       appIndex: join(src, 'index.js'),
       htmlTemplate: join(src, 'index.html'),
       iconSpriteIncludes: [join(src, 'media/icons')],

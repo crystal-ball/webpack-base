@@ -137,8 +137,7 @@ project
 
 ### Directories
 
-- **src** - Project source code root directory. Imports relative to this
-  directory can be made with the `@` alias.
+- **src** - Project source code root directory.
 - **src/media/icons** - The SVG symbol sprite loader will sprite any SVG icons
   imported from this directory.
 - **src/styles** - SCSS files in this directory can be imported with the `@`
@@ -223,9 +222,8 @@ const paths = {
    */
   sassIncludes,
   /**
-   * Application source files directory. The directory is added to the webpack
-   * alias config as `@` to allow using imports relative to the source
-   * directory.
+   * Application source files directory. This directory is used as a base for
+   * the icon includes path.
    * @default /src
    */
   src,
@@ -256,21 +254,6 @@ const paths = {
 - Import paths case is verified to ensure Linux and MacOS compatability
 - Production CSS+JS assets are minified
 - Application logo is used to generate and inject favicon resources in build
-
-### Relative import alias
-
-Relative imports can be made from the `src` file using an `@`:
-
-```javascript
-// In any JS file
-import SomeComponent from '@/components/SomeComponent'
-```
-
-```scss
-// In any SASS file, note the ~ is required to flag to SASS resolver that this
-// is a relative import
-@import '~@/styles/theme';
-```
 
 ### Environment variable injection
 
