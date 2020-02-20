@@ -14,6 +14,18 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.0.0](https://github.com/crystal-ball/webpack-base/compare/v8.0.0...v9.0.0) (2020-02-20)
+
+
+### 💥 Breaking Changes!
+
+* Install crystal-ball/babel-base for Babel packages
+
+
+#### 💖 New
+
+* Prune Babel packages 💥 (#161)([c5a4d20](https://github.com/crystal-ball/webpack-base/commit/c5a4d2031a159f3e25521054ff0cd9e3333a6c77)), closes [#161](https://github.com/crystal-ball/webpack-base/issue/161)
+
 ## [8.0.0](https://github.com/crystal-ball/webpack-base/compare/v7.14.0...v8.0.0) (2020-02-19)
 
 
