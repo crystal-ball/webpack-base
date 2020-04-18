@@ -35,7 +35,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
 
   return {
     // --- 🎉 JS Loader
-    jsLoader: overrides => ({
+    jsLoader: (overrides) => ({
       test: /\.(jsx?|tsx?)$/,
       include: paths.jsLoaderIncludes,
       /**
@@ -57,7 +57,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
     }),
 
     // --- 📝 MDX Loader
-    mdxLoader: overrides => ({
+    mdxLoader: (overrides) => ({
       test: /\.mdx$/,
       use: [
         { loader: 'babel-loader' },
@@ -73,7 +73,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
     }),
 
     // --- 😍 Styles Loader
-    sassLoader: overrides => ({
+    sassLoader: (overrides) => ({
       test: /\.scss$/,
       use: flags.production
         ? // ℹ️ Prod styles are run through Autoprefixer for browser compatability
@@ -86,7 +86,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
 
     // --- 📦 SVG icon sprite loader
     // Create an svg sprite with any icons imported into app
-    svgSpriteLoader: overrides => ({
+    svgSpriteLoader: (overrides) => ({
       test: /\.svg$/,
       include: paths.iconSpriteIncludes,
       use: [{ loader: 'svg-symbol-sprite-loader' }],
@@ -95,7 +95,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
 
     // --- 👾 SVG to React Loader
     // Imported SVGs are converted to React components
-    svgComponentLoader: overrides => ({
+    svgComponentLoader: (overrides) => ({
       test: /\.svg$/,
       // Make sure that we don't try to use with icons for svg sprite
       exclude: paths.iconSpriteIncludes,
@@ -117,7 +117,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
 
     // --- 🖼 Images Loader
     // Basic image loader setup with file name hashing
-    fileLoader: overrides => ({
+    fileLoader: (overrides) => ({
       test: /\.(jpe?g|png|gif)$/i,
       use: [
         {
@@ -132,7 +132,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
 
     // --- 📝 Text files Loader
     // If you want to import a text file you can ¯\_(ツ)_/¯
-    rawLoader: overrides => ({
+    rawLoader: (overrides) => ({
       test: /\.txt$/,
       use: [{ loader: 'raw-loader' }],
       ...overrides,

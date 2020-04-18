@@ -1,16 +1,18 @@
+'use strict'
+
 // Linux formats strings differently, resulting in snapshot differences
 const chalk = {
-  bold: src => src,
+  bold: (src) => src,
   green: {
-    bold: src => src,
+    bold: (src) => src,
   },
   blue: {
-    underline: src => src,
+    underline: (src) => src,
   },
   cyan: {
-    bold: src => src,
+    bold: (src) => src,
   },
-  yellow: src => src,
+  yellow: (src) => src,
 }
 
 module.exports = chalk

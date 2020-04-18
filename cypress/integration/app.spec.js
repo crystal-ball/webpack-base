@@ -15,7 +15,7 @@ describe('Application build', () => {
    * Media imported through webpack should have cache busting hashes
    */
   it('should use hashed image assets', () => {
-    cy.get('[data-testid=hero-img]').should($img => {
+    cy.get('[data-testid=hero-img]').should(($img) => {
       expect($img.css('background-image')).to.match(
         /\/static\/media\/radpack-bg\.[a-z0-9]+\.jpg/,
       )

@@ -44,7 +44,7 @@ module.exports = function webpackBase(options = {}) {
 
   const loadersSet = configs.module.rules
   configs.module.rules = []
-  loadersSet.forEach(loaderName => {
+  loadersSet.forEach((loaderName) => {
     if (options[loaderName] === false) return
 
     let loader
@@ -59,7 +59,7 @@ module.exports = function webpackBase(options = {}) {
 
   const pluginsSet = configs.plugins
   configs.plugins = []
-  pluginsSet.forEach(pluginName => {
+  pluginsSet.forEach((pluginName) => {
     if (options[pluginName] === false) return
 
     const plugin = plugins[pluginName]
