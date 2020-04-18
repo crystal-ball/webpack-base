@@ -70,12 +70,7 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "sassOptions": Object {
-                "includePaths": Array [
-                  "/test/src/styles",
-                  "/test/src/styles/dev",
-                ],
-              },
+              "sassOptions": Object {},
             },
           },
         ],
@@ -174,7 +169,11 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
+      "assetJson": undefined,
+      "childCompilerHash": undefined,
+      "hash": undefined,
       "options": Object {
+        "base": false,
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
@@ -186,12 +185,15 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
       },
+      "version": 4,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -316,12 +318,7 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "sassOptions": Object {
-                "includePaths": Array [
-                  "/test/src/renderer/styles",
-                  "/test/src/renderer/styles/dev",
-                ],
-              },
+              "sassOptions": Object {},
             },
           },
         ],
@@ -421,7 +418,11 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
+      "assetJson": undefined,
+      "childCompilerHash": undefined,
+      "hash": undefined,
       "options": Object {
+        "base": false,
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
@@ -433,12 +434,15 @@ Object {
         "inject": false,
         "meta": Object {},
         "minify": false,
+        "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/renderer/index.html",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
       },
+      "version": 4,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -560,12 +564,7 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "sassOptions": Object {
-                "includePaths": Array [
-                  "/test/src/renderer/styles",
-                  "/test/src/renderer/styles/prod",
-                ],
-              },
+              "sassOptions": Object {},
             },
           },
         ],
@@ -671,7 +670,11 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
+      "assetJson": undefined,
+      "childCompilerHash": undefined,
+      "hash": undefined,
       "options": Object {
+        "base": false,
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
@@ -683,12 +686,15 @@ Object {
         "inject": false,
         "meta": Object {},
         "minify": false,
+        "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/renderer/index.html",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
       },
+      "version": 4,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -850,12 +856,7 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "sassOptions": Object {
-                "includePaths": Array [
-                  "/test/src/styles",
-                  "/test/src/styles/prod",
-                ],
-              },
+              "sassOptions": Object {},
             },
           },
         ],
@@ -960,7 +961,11 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
+      "assetJson": undefined,
+      "childCompilerHash": undefined,
+      "hash": undefined,
       "options": Object {
+        "base": false,
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
@@ -972,12 +977,15 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
       },
+      "version": 4,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -1142,12 +1150,7 @@ Object {
           Object {
             "loader": "sass-loader",
             "options": Object {
-              "sassOptions": Object {
-                "includePaths": Array [
-                  "/test/src/styles",
-                  "/test/src/styles/dev",
-                ],
-              },
+              "sassOptions": Object {},
             },
           },
         ],
@@ -1246,7 +1249,11 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
+      "assetJson": undefined,
+      "childCompilerHash": undefined,
+      "hash": undefined,
       "options": Object {
+        "base": false,
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
@@ -1258,12 +1265,15 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
       },
+      "version": 4,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -1390,12 +1400,7 @@ Object {
         Object {
           "loader": "sass-loader",
           "options": Object {
-            "sassOptions": Object {
-              "includePaths": Array [
-                "/test/src/styles",
-                "/test/src/styles/dev",
-              ],
-            },
+            "sassOptions": Object {},
           },
         },
       ],
@@ -1485,7 +1490,11 @@ Object {
       "requestTimeout": 10000,
     },
     "htmlPlugin": HtmlWebpackPlugin {
+      "assetJson": undefined,
+      "childCompilerHash": undefined,
+      "hash": undefined,
       "options": Object {
+        "base": false,
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
@@ -1497,12 +1506,15 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "Webpack App",
         "xhtml": false,
       },
+      "version": 4,
     },
     "progressBarPlugin": ProgressBarPlugin {
       "options": Object {
