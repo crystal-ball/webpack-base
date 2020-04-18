@@ -8,7 +8,7 @@ const postCSSCustomProperties = require('postcss-custom-properties')
  * Returns the set of loaders for the passed opts including:
  * babel, sass, svgSprite, svgComponent, file, raw
  */
-module.exports = ({ flags, paths }) => {
+module.exports = ({ flags, paths, sassOptions }) => {
   const cssLoader = {
     loader: 'css-loader',
     options: {
@@ -22,11 +22,7 @@ module.exports = ({ flags, paths }) => {
   const sassLoader = {
     loader: 'sass-loader',
     options: {
-      sassOptions: {
-        // Allows for aliased imports from include paths, especially useful
-        // for importing app theme variables and mixins into component styles
-        includePaths: paths.sassIncludes,
-      },
+      sassOptions,
     },
   }
 

@@ -183,6 +183,7 @@ const { configs } = webpackBase{
   devServer,
   envVars
   paths,
+  sassOptions,
   target,
 })
 ```
@@ -214,13 +215,6 @@ const paths = {
    * @default /public
    */
   output,
-  /**
-   * SCSS files in these directories can be imported in other SCSS files using
-   * relative imports. (Useful for importing shared variables or mixins inside
-   * component style files)
-   * @default ['/src/styles', '/src/styles/[dev|prod]]
-   */
-  sassIncludes,
   /**
    * Application source files directory. This directory is used as a base for
    * the icon includes path.
