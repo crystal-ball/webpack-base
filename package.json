@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@crystal-ball/commitizen-base": "2.4.0",
-    "@crystal-ball/prettier-base": "1.6.0",
+    "@crystal-ball/prettier-base": "2.1.0",
     "@crystal-ball/semantic-release-base": "2.15.0",
     "@percy/cypress": "2.3.1",
     "@types/jest": "25.1.4",
