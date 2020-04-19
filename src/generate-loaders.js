@@ -8,7 +8,7 @@ const postCSSCustomProperties = require('postcss-custom-properties')
  * Returns the set of loaders for the passed opts including:
  * babel, sass, svgSprite, svgComponent, file, raw
  */
-module.exports = ({ flags, paths }) => {
+module.exports = ({ flags, paths, sassOptions }) => {
   const cssLoader = {
     loader: 'css-loader',
     options: {
@@ -22,11 +22,7 @@ module.exports = ({ flags, paths }) => {
   const sassLoader = {
     loader: 'sass-loader',
     options: {
-      sassOptions: {
-        // Allows for aliased imports from include paths, especially useful
-        // for importing app theme variables and mixins into component styles
-        includePaths: paths.sassIncludes,
-      },
+      sassOptions,
     },
   }
 
@@ -39,7 +35,7 @@ module.exports = ({ flags, paths }) => {
 
   return {
     // --- 🎉 JS Loader
-    jsLoader: overrides => ({
+    jsLoader: (overrides) => ({
       test: /\.(jsx?|tsx?)$/,
       include: paths.jsLoaderIncludes,
       /**
@@ -61,7 +57,7 @@ module.exports = ({ flags, paths }) => {
     }),
 
     // --- 📝 MDX Loader
-    mdxLoader: overrides => ({
+    mdxLoader: (overrides) => ({
       test: /\.mdx$/,
       use: [
         { loader: 'babel-loader' },
@@ -77,7 +73,7 @@ module.exports = ({ flags, paths }) => {
     }),
 
     // --- 😍 Styles Loader
-    sassLoader: overrides => ({
+    sassLoader: (overrides) => ({
       test: /\.scss$/,
       use: flags.production
         ? // ℹ️ Prod styles are run through Autoprefixer for browser compatability
@@ -90,7 +86,7 @@ module.exports = ({ flags, paths }) => {
 
     // --- 📦 SVG icon sprite loader
     // Create an svg sprite with any icons imported into app
-    svgSpriteLoader: overrides => ({
+    svgSpriteLoader: (overrides) => ({
       test: /\.svg$/,
       include: paths.iconSpriteIncludes,
       use: [{ loader: 'svg-symbol-sprite-loader' }],
@@ -99,7 +95,7 @@ module.exports = ({ flags, paths }) => {
 
     // --- 👾 SVG to React Loader
     // Imported SVGs are converted to React components
-    svgComponentLoader: overrides => ({
+    svgComponentLoader: (overrides) => ({
       test: /\.svg$/,
       // Make sure that we don't try to use with icons for svg sprite
       exclude: paths.iconSpriteIncludes,
@@ -121,7 +117,7 @@ module.exports = ({ flags, paths }) => {
 
     // --- 🖼 Images Loader
     // Basic image loader setup with file name hashing
-    fileLoader: overrides => ({
+    fileLoader: (overrides) => ({
       test: /\.(jpe?g|png|gif)$/i,
       use: [
         {
@@ -136,7 +132,7 @@ module.exports = ({ flags, paths }) => {
 
     // --- 📝 Text files Loader
     // If you want to import a text file you can ¯\_(ツ)_/¯
-    rawLoader: overrides => ({
+    rawLoader: (overrides) => ({
       test: /\.txt$/,
       use: [{ loader: 'raw-loader' }],
       ...overrides,

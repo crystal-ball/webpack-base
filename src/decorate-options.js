@@ -26,6 +26,7 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
     devServer: {},
     flags,
     publicPath: '/',
+    sassOptions: {},
     paths: {
       context,
       output: join(context, 'public'),
@@ -34,10 +35,6 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
       htmlTemplate: join(src, 'index.html'),
       iconSpriteIncludes: [join(src, 'media/icons')],
       jsLoaderIncludes: [src],
-      sassIncludes: [
-        join(src, '/styles'),
-        join(src, flags.production ? '/styles/prod' : '/styles/dev'),
-      ],
     },
   }
 
