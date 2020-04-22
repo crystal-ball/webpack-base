@@ -12,7 +12,6 @@
   "schedule": ["before 3am on Tuesday"],
   "prCreation": "immediate",
   "reviewers": ["dhedgecock"],
-  "updateNotScheduled": true,
 
   "packageRules": [
     {
@@ -21,7 +20,8 @@
       "commitMessageAction": "Update",
       "commitMessageTopic": "package {{depName}}",
       "commitMessageSuffix": " 🆙",
-      "groupName": "dev dependencies"
+      "groupName": "dev dependencies",
+      "autoMerge": true
     },
     {
       "depTypeList": ["dependencies"],
