@@ -21,7 +21,7 @@
       "commitMessageTopic": "package {{depName}}",
       "commitMessageSuffix": " 🆙",
       "groupName": "dev dependencies",
-      "autoMerge": true
+      "automerge": true
     },
     {
       "depTypeList": ["dependencies"],
