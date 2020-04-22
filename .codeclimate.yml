@@ -1,4 +1,4 @@
 version: '2'
 # Ref: https://docs.codeclimate.com/docs/excluding-files-and-folders
 exclude_patterns:
-  - '*.spec.js'
+  - '**/*.spec.js'
