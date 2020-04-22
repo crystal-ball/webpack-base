@@ -17,7 +17,7 @@
     <img src="https://snyk.io/test/github/crystal-ball/webpack-base/badge.svg?targetFile=package.json" alt="Known vulnerabilities" valign="text-top" />
   </a>
   <a href="https://codeclimate.com/github/crystal-ball/webpack-base/test_coverage">
-    <img src="https://api.codeclimate.com/v1/badges/eee860e3bd1519dacf5e/test_coverag" alt="Test coverage" valign="text-top" />
+    <img src="https://api.codeclimate.com/v1/badges/eee860e3bd1519dacf5e/test_coverage" alt="Test coverage" valign="text-top" />
   </a>
   <a href="https://codeclimate.com/github/crystal-ball/webpack-base/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/eee860e3bd1519dacf5e/maintainability" alt="Maintainability" valign="text-top" />
