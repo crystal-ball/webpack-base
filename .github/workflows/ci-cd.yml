@@ -26,29 +26,28 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
       - name: Test
+        # Acceptance tests workflow manages:
+        #  1. Setting Cypress+Percy git branch env vars (Github actions aren't supported yet)
+        #  2. Building the application Docker image (executes linting and unit tests)
+        #  3. Copy code coverage output from Docker image to workspace for uploading later
+        #  4. Running Cypress tests using Docker Compose and NGINX
         run: |
-          # Export required Cypress+Percy environment variables for assigning
-          # commit and branch info to test runs. For pull request runs the commit
-          # being tested is a merge commit and branch info isn't getting parsed out
-          # TODO: it may be possible to get the branch info with rev-parse and ^2 to target commit parents?
           export PERCY_BRANCH="${PERCY_BRANCH:-${GITHUB_REF:11}}"
 
-          # Building the app image will install dependencies then lint and unit test so
-          # that image is ready to build app bundle when run
           docker build -t crystal-ball/webpack-base .
-          # Copy code coverage report into workspace for Code Climate test
-          # coverage reporting
           docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/webpack-base cp -a /usr/src/react-application-prototype/coverage/. /tmp/
-          # Run the acceptance tests 🎉
           docker-compose -f docker-compose.test.yml up --exit-code-from cypress
         env:
           PERCY_BRANCH: ${{ github.head_ref }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: Code Climate - Report
         if: success()
-        run: ./cc-test-reporter after-build --prefix /usr/src
+        run: |
+          export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
+          ./cc-test-reporter after-build --prefix /usr/src
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          GIT_BRANCH: ${{ github.head_ref }}
   publish:
     name: Continuous Deployment
     needs: test
