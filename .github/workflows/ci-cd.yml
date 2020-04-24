@@ -1,13 +1,5 @@
 name: CI/CD
-
-# Run action on all PRS and on change to master branch in order to test PRs for
-# continuous integration and deploy master for continuous deployment
-on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   # --- Package testing ✅
