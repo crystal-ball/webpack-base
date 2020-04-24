@@ -10,6 +10,7 @@ on:
       - master
 
 jobs:
+  # ✅ Package testing
   test:
     name: Continuous Integration
     if: contains(github.event.head_commit.message, 'skip ci') == false
@@ -19,18 +20,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '12.16'
       - name: Code Climate - Setup
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
+      # Acceptance tests workflow manages:
+      #  1. Setting Cypress+Percy git branch env vars (Github actions aren't supported yet)
+      #  2. Building the application Docker image (executes linting and unit tests)
+      #  3. Copy code coverage output from Docker image to workspace for uploading later
+      #  4. Running Cypress tests using Docker Compose and NGINX
       - name: Test
-        # Acceptance tests workflow manages:
-        #  1. Setting Cypress+Percy git branch env vars (Github actions aren't supported yet)
-        #  2. Building the application Docker image (executes linting and unit tests)
-        #  3. Copy code coverage output from Docker image to workspace for uploading later
-        #  4. Running Cypress tests using Docker Compose and NGINX
         run: |
           export PERCY_BRANCH="${PERCY_BRANCH:-${GITHUB_REF:11}}"
 
@@ -40,6 +41,7 @@ jobs:
         env:
           PERCY_BRANCH: ${{ github.head_ref }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      # Upload test code coverage report to Code Climate (branch must be explicitly set)
       - name: Code Climate - Report
         if: success()
         run: |
@@ -48,6 +50,8 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           GIT_BRANCH: ${{ github.head_ref }}
+
+  # 🚀 Package publishing
   publish:
     name: Continuous Deployment
     needs: test
@@ -58,7 +62,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '12.16'
       - name: Install
         run: CI=true CYPRESS_INSTALL_BINARY=0 npm install
       - name: Release
