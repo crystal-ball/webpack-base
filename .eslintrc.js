@@ -6,10 +6,13 @@ module.exports = {
 
   overrides: [
     {
-      files: ['*.spec.js'],
+      files: ['cypress/**'],
+      plugins: ['cypress'],
+      env: {
+        'cypress/globals': true,
+      },
       parserOptions: {
-        // Using Babel parser allows writing tests as ESModules now
-        sourceType: 'script',
+        sourceType: 'module',
       },
     },
   ],
