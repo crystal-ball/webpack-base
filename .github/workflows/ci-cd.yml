@@ -10,7 +10,7 @@ on:
       - master
 
 jobs:
-  # ✅ Package testing
+  # --- Package testing ✅
   test:
     name: Continuous Integration
     if: contains(github.event.head_commit.message, 'skip ci') == false
@@ -51,7 +51,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           GIT_BRANCH: ${{ github.head_ref }}
 
-  # 🚀 Package publishing
+  # --- Package publishing 🚀
   publish:
     name: Continuous Deployment
     needs: test
