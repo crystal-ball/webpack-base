@@ -14,6 +14,29 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.3.0](https://github.com/crystal-ball/webpack-base/compare/v9.2.0...v9.3.0) (2020-04-28)
+
+
+#### ✨ Update
+
+* Package dependencies 🆙 (#180)([8b94c46](https://github.com/crystal-ball/webpack-base/commit/8b94c46dbf92564eff3d2ede7022bd081f98d53a)), closes [#180](https://github.com/crystal-ball/webpack-base/issue/180)
+
+#### Chore, Docs
+
+* Broaden CodeClimate ignore match ⚙️([4134682](https://github.com/crystal-ball/webpack-base/commit/41346827ef8b936d7344247c652b6cefa0cd99fc))
+* ESLint config updates ⚙️([bec54ad](https://github.com/crystal-ball/webpack-base/commit/bec54ad5a9e19290b2175711cfa5e37bf022c735))
+* Exclude test files from Maintainability checks ⚙️ (#175)([421684a](https://github.com/crystal-ball/webpack-base/commit/421684ae6c650557866d1674bf5c5c3b9350b4c0)), closes [#175](https://github.com/crystal-ball/webpack-base/issue/175)
+* Reconfigure Renovate ⚙️ (#174)([6c0bc3c](https://github.com/crystal-ball/webpack-base/commit/6c0bc3c04ac0beaeb00e803ebf66b12340ef68d1)), closes [#174](https://github.com/crystal-ball/webpack-base/issue/174)
+* Reconfigure Renovate ⚙️ (#177)([cfaa9f5](https://github.com/crystal-ball/webpack-base/commit/cfaa9f546aed612a6ffe04e6594b5657693cd4e6)), closes [#177](https://github.com/crystal-ball/webpack-base/issue/177)
+* Remove skip job ⚙️ (#172)([a74e2a7](https://github.com/crystal-ball/webpack-base/commit/a74e2a7d345ad8228ba67740fae4f606e1c4649a)), closes [#172](https://github.com/crystal-ball/webpack-base/issue/172)
+* Run ci-cd on all push events ⚙️([89d3ba5](https://github.com/crystal-ball/webpack-base/commit/89d3ba579ab860d6fa538e4c8d65066d27e0242c))
+* Set git branch for code coverage reporting ⚙️ (#173)([a526850](https://github.com/crystal-ball/webpack-base/commit/a5268504a7124fb401b8774b136f4011f93adb9a)), closes [#173](https://github.com/crystal-ball/webpack-base/issue/173)
+* Update dev dependencies 🆙 (#171)([ab135e6](https://github.com/crystal-ball/webpack-base/commit/ab135e62fda9069ceb579fd2e53c5024f87cd05b)), closes [#171](https://github.com/crystal-ball/webpack-base/issue/171)
+* Update dev dependencies 🆙 (#179)([fabc0ca](https://github.com/crystal-ball/webpack-base/commit/fabc0ca15175f2656e6cc9f854b55b84d2ac82c4)), closes [#179](https://github.com/crystal-ball/webpack-base/issue/179)
+* Badge url fix 📝([b5f5ae5](https://github.com/crystal-ball/webpack-base/commit/b5f5ae541907cfa584b6ec3e4a0ac96803f113e4))
+* Improve CI/CD yaml file comments ⚙️ (#178)([762fbf3](https://github.com/crystal-ball/webpack-base/commit/762fbf36af48bf5b01cc8ef693e71549e7f2dc72)), closes [#178](https://github.com/crystal-ball/webpack-base/issue/178)
+* Update CodeClimate badges 📝([2791aba](https://github.com/crystal-ball/webpack-base/commit/2791aba6884d1427d9c9367a851614134b34a626))
+
 ## [9.2.0](https://github.com/crystal-ball/webpack-base/compare/v9.1.0...v9.2.0) (2020-04-19)
 
 
