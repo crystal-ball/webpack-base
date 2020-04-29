@@ -26,7 +26,7 @@
     "container": "docker-compose run --service-ports --rm app",
     "container:test": "docker-compose run --rm webpack",
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "NODE_ENV=test eslint --format=pretty __mocks__ cypress scripts src",
+    "test:lint": "NODE_ENV=test eslint --format=pretty --ext .js,.ts __mocks__ cypress scripts src",
     "test:unit": "jest src",
     "test:ci": "docker-compose -f docker-compose.test.yml up --exit-code-from cypress",
     "cypress:open": "cypress open",
@@ -88,6 +88,11 @@
   "release": {
     "extends": [
       "@crystal-ball/semantic-release-base"
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "github>crystal-ball/renovate-base:library"
     ]
   }
 }
