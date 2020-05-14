@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+### [9.4.1](https://github.com/crystal-ball/webpack-base/compare/v9.4.0...v9.4.1) (2020-05-14)
+
+
+#### 🛠 Fix
+
+* CSS sourcemaps 🎊 (#188)([4a2b274](https://github.com/crystal-ball/webpack-base/commit/4a2b274f3c41c5402b890368eca3d9c45468d4fb)), closes [#188](https://github.com/crystal-ball/webpack-base/issue/188)
+
 ## [9.4.0](https://github.com/crystal-ball/webpack-base/compare/v9.3.0...v9.4.0) (2020-05-14)
 
 
