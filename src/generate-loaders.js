@@ -2,7 +2,6 @@
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
-const postCSSCustomProperties = require('postcss-custom-properties')
 
 /**
  * Returns the set of loaders for the passed opts including:
@@ -12,6 +11,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
   const cssLoader = {
     loader: 'css-loader',
     options: {
+      sourceMap: true,
       modules: {
         mode: 'global',
         localIdentName: '[name]-[local]--[hash:5]',
@@ -22,6 +22,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
   const sassLoader = {
     loader: 'sass-loader',
     options: {
+      sourceMap: true,
       sassOptions,
     },
   }
@@ -29,7 +30,8 @@ module.exports = ({ flags, paths, sassOptions }) => {
   const postCSSLoader = {
     loader: 'postcss-loader',
     options: {
-      plugins: [postCSSCustomProperties(), autoprefixer()],
+      sourceMap: true,
+      plugins: [autoprefixer()],
     },
   }
 

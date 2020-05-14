@@ -15,7 +15,7 @@ Object {
     },
     "port": 3000,
   },
-  "devtool": "cheap-module-eval-source-map",
+  "devtool": "eval-source-map",
   "entry": "/test/src/index.js",
   "mode": "development",
   "module": Object {
@@ -65,12 +65,14 @@ Object {
                 "localIdentName": "[name]-[local]--[hash:5]",
                 "mode": "global",
               },
+              "sourceMap": true,
             },
           },
           Object {
             "loader": "sass-loader",
             "options": Object {
               "sassOptions": Object {},
+              "sourceMap": true,
             },
           },
         ],
@@ -263,7 +265,7 @@ Object {
     },
     "port": 3000,
   },
-  "devtool": "cheap-module-eval-source-map",
+  "devtool": "eval-source-map",
   "entry": "/test/src/renderer/index.js",
   "mode": "development",
   "module": Object {
@@ -313,12 +315,14 @@ Object {
                 "localIdentName": "[name]-[local]--[hash:5]",
                 "mode": "global",
               },
+              "sourceMap": true,
             },
           },
           Object {
             "loader": "sass-loader",
             "options": Object {
               "sassOptions": Object {},
+              "sourceMap": true,
             },
           },
         ],
@@ -550,6 +554,7 @@ Object {
                 "localIdentName": "[name]-[local]--[hash:5]",
                 "mode": "global",
               },
+              "sourceMap": true,
             },
           },
           Object {
@@ -557,14 +562,15 @@ Object {
             "options": Object {
               "plugins": Array [
                 [Function],
-                [Function],
               ],
+              "sourceMap": true,
             },
           },
           Object {
             "loader": "sass-loader",
             "options": Object {
               "sassOptions": Object {},
+              "sourceMap": true,
             },
           },
         ],
@@ -738,37 +744,6 @@ Object {
         "filename": "static/css/[name].css",
       },
     },
-    OptimizeCssAssetsWebpackPlugin {
-      "deleteAssetsMap": Object {},
-      "options": Object {
-        "assetNameRegExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-        "assetProcessors": Array [
-          Object {
-            "phase": "compilation.optimize-chunk-assets",
-            "processor": [Function],
-            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-          },
-        ],
-        "canPrint": undefined,
-        "cssProcessor": [Function],
-        "cssProcessorOptions": Object {},
-        "cssProcessorPluginOptions": Object {},
-      },
-      "phaseAssetProcessors": Object {
-        "compilation.optimize-assets": Array [],
-        "compilation.optimize-chunk-assets": Array [
-          Object {
-            "phase": "compilation.optimize-chunk-assets",
-            "processor": [Function],
-            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-          },
-        ],
-        "emit": Array [],
-      },
-      "pluginDescriptor": Object {
-        "name": "OptimizeCssAssetsWebpackPlugin",
-      },
-    },
   ],
   "resolve": Object {
     "alias": Object {
@@ -842,6 +817,7 @@ Object {
                 "localIdentName": "[name]-[local]--[hash:5]",
                 "mode": "global",
               },
+              "sourceMap": true,
             },
           },
           Object {
@@ -849,14 +825,15 @@ Object {
             "options": Object {
               "plugins": Array [
                 [Function],
-                [Function],
               ],
+              "sourceMap": true,
             },
           },
           Object {
             "loader": "sass-loader",
             "options": Object {
               "sassOptions": Object {},
+              "sourceMap": true,
             },
           },
         ],
@@ -1029,37 +1006,6 @@ Object {
         "filename": "static/css/[name].[chunkhash].css",
       },
     },
-    OptimizeCssAssetsWebpackPlugin {
-      "deleteAssetsMap": Object {},
-      "options": Object {
-        "assetNameRegExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-        "assetProcessors": Array [
-          Object {
-            "phase": "compilation.optimize-chunk-assets",
-            "processor": [Function],
-            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-          },
-        ],
-        "canPrint": undefined,
-        "cssProcessor": [Function],
-        "cssProcessorOptions": Object {},
-        "cssProcessorPluginOptions": Object {},
-      },
-      "phaseAssetProcessors": Object {
-        "compilation.optimize-assets": Array [],
-        "compilation.optimize-chunk-assets": Array [
-          Object {
-            "phase": "compilation.optimize-chunk-assets",
-            "processor": [Function],
-            "regExp": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-          },
-        ],
-        "emit": Array [],
-      },
-      "pluginDescriptor": Object {
-        "name": "OptimizeCssAssetsWebpackPlugin",
-      },
-    },
   ],
   "resolve": Object {
     "alias": Object {
@@ -1095,7 +1041,7 @@ Object {
     },
     "port": 3000,
   },
-  "devtool": "cheap-module-eval-source-map",
+  "devtool": "eval-source-map",
   "entry": "/test/src/index.js",
   "mode": "development",
   "module": Object {
@@ -1145,12 +1091,14 @@ Object {
                 "localIdentName": "[name]-[local]--[hash:5]",
                 "mode": "global",
               },
+              "sourceMap": true,
             },
           },
           Object {
             "loader": "sass-loader",
             "options": Object {
               "sassOptions": Object {},
+              "sourceMap": true,
             },
           },
         ],
@@ -1395,12 +1343,14 @@ Object {
               "localIdentName": "[name]-[local]--[hash:5]",
               "mode": "global",
             },
+            "sourceMap": true,
           },
         },
         Object {
           "loader": "sass-loader",
           "options": Object {
             "sassOptions": Object {},
+            "sourceMap": true,
           },
         },
       ],

@@ -2,10 +2,9 @@
 
 /** Development environment specfic configurations */
 module.exports = ({ devServer, paths }) => ({
-  // Set DEVTOOL to 'eval' to see generated code, but show useful original source
-  // for development workflows. Additional considerations:
-  // https://github.com/facebookincubator/create-react-app/issues/343#issuecomment-237241875
-  devtool: process.env.DEVTOOL || 'cheap-module-eval-source-map',
+  // Default to "best quality SourceMaps for development" (Set DEVTOOL to 'eval'
+  // to see generated code,)
+  devtool: process.env.DEVTOOL || 'eval-source-map',
 
   // Development plugins
   // ---------------------------------------------------------------------------
