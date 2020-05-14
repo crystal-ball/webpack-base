@@ -70,7 +70,7 @@
 - [Featureset](#-featureset) - Overview of the supported magic
 - [Electron support](#-electron-support) - Using within an Electron project
 - [Docker support](#-docker-support) - Using within a Docker workflow
-- [Components access](#-components-access) - Accessing loaders and plugins
+- [Accessing resources](#-accessing-resources) - Accessing loaders and plugins
   directly
 - [Developing](#-developing) - How to develop the project
 - [Testing](#-testing) - How to test the project
@@ -234,9 +234,9 @@ const paths = {
 
 ## 😍 Featureset
 
-- JS loader setup to transpile all source in the `babelLoaderInclude` with the
+- JS loader setup to transpile all source in the `jsLoaderIncludes` with the
   `babel-loader`
-- Appropriate sourcemaps for dev vs prod builds
+- Sourcemaps for dev and prod environments
 - Handles adding scripts to `index.html`
 - Friendly errors
 - Dev server with hot reloading
@@ -298,7 +298,7 @@ recommended:
 }
 ```
 
-## 🎛 Loader and plugins access
+## 🎛 Accessing resources
 
 The configured loaders and plugins can be accessed directly in the return value,
 this is useful when setting up Storybook to pass additional loaders and plugins.

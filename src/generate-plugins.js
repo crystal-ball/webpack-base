@@ -6,7 +6,6 @@ const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const chalk = require('chalk')
@@ -89,10 +88,6 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
   miniCSSExtractPlugin: new MiniCssExtractPlugin({
     filename: `static/css/[name]${chunkHash}.css`,
   }),
-
-  // --- 🏎 Styles minification
-  // https://github.com/NMFR/optimize-css-assets-webpack-plugin
-  optimizeCSSAssetsPlugin: new OptimizeCssAssetsPlugin(),
 
   // --- 🛣 Modules
   // Uses the relative path of a module for the module id instead of the module
