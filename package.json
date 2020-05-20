@@ -34,9 +34,9 @@
     "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}' !CHANGELOG.md"
   },
   "dependencies": {
-    "@mdx-js/loader": "1.6.1",
+    "@mdx-js/loader": "1.6.4",
     "@svgr/webpack": "5.4.0",
-    "autoprefixer": "9.7.6",
+    "autoprefixer": "9.8.0",
     "babel-loader": "8.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "chalk": "4.0.0",
