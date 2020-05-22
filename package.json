@@ -34,14 +34,14 @@
     "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}' !CHANGELOG.md"
   },
   "dependencies": {
-    "@mdx-js/loader": "1.6.1",
+    "@mdx-js/loader": "1.6.4",
     "@svgr/webpack": "5.4.0",
-    "autoprefixer": "9.7.6",
+    "autoprefixer": "9.8.0",
     "babel-loader": "8.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "chalk": "4.0.0",
     "clean-webpack-plugin": "3.0.0",
-    "copy-webpack-plugin": "5.1.1",
+    "copy-webpack-plugin": "6.0.1",
     "css-loader": "3.5.3",
     "duplicate-package-checker-webpack-plugin": "3.0.0",
     "eslint-loader": "4.0.2",
@@ -62,12 +62,12 @@
     "webpack-merge": "4.2.2"
   },
   "devDependencies": {
-    "@crystal-ball/commitizen-base": "2.6.0",
+    "@crystal-ball/commitizen-base": "2.7.1",
     "@crystal-ball/prettier-base": "2.2.0",
-    "@crystal-ball/semantic-release-base": "2.17.0",
+    "@crystal-ball/semantic-release-base": "2.18.1",
     "@percy/cypress": "2.3.1",
-    "@types/jest": "25.2.2",
-    "cypress": "4.5.0",
+    "@types/jest": "25.2.3",
+    "cypress": "4.6.0",
     "eslint-config-eloquence": "13.8.0",
     "husky": "4.2.5",
     "jest": "26.0.1"

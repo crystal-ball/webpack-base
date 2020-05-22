@@ -35,7 +35,7 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
   // --- 🖨 File copying
   // Copy public directory to build directory, this is an escape hatch for assets
   // needed that are not imported into build
-  copyPlugin: new CopyWebpackPlugin([paths.static]),
+  copyPlugin: new CopyWebpackPlugin({ patterns: [paths.static] }),
 
   // --- ✅ Validations + Optimizations
   // Check for duplicate versions of the same package, ie React 15 && React 16
