@@ -14,7 +14,6 @@
 // ***********************************************************
 
 // Setup Percy snapshots
-// eslint-disable-next-line node/no-unpublished-import
 import '@percy/cypress'
 
 // Import custom application commands

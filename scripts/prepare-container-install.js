@@ -3,7 +3,7 @@
 const { writeFileSync } = require('fs')
 const { resolve } = require('path')
 
-/* eslint-disable import/no-unresolved, node/no-missing-require -- File is created by Docker Compose */
+/* eslint-disable import/no-unresolved -- File is created by Docker Compose */
 const sourcePackage = require('../source.package.json')
 const projectPackage = require('../package.json')
 
