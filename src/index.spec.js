@@ -1,3 +1,5 @@
+'use strict'
+
 const webpackBase = require('./index')
 
 // Mocks to ensure snapshots output consistent values based on configs used
