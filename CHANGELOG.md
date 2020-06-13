@@ -14,6 +14,22 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.6.0](https://github.com/crystal-ball/webpack-base/compare/v9.5.0...v9.6.0) (2020-06-13)
+
+
+#### ✨ Update
+
+* Dependencies 🆙([5176ea4](https://github.com/crystal-ball/webpack-base/commit/5176ea4f18de9e2eafd94ff02951ec0427c82b8c))
+
+#### Chore
+
+* Eloquence command ⚙️([9d2dd87](https://github.com/crystal-ball/webpack-base/commit/9d2dd87794f3a1e8c7206ba6094094fd90aed494))
+* Improve testing commands ⚙️([e973ee4](https://github.com/crystal-ball/webpack-base/commit/e973ee4e237d3f170f16c9f4cec5badf181943ff))
+* Update Eloquence ⚙️ (#196)([d51b6f8](https://github.com/crystal-ball/webpack-base/commit/d51b6f827ab7f45e7c3fda7330e54bd4da8d9529)), closes [#196](https://github.com/crystal-ball/webpack-base/issue/196)
+* Update node Docker tag to v12.18.0([9bf4f3e](https://github.com/crystal-ball/webpack-base/commit/9bf4f3e1cc8876f42f44efe0ce3012307feb1fc0))
+* Update package @types/jest to v26 🆙 (#200)([775facd](https://github.com/crystal-ball/webpack-base/commit/775facd5388cddee259258658d9431e0b3efa4b9)), closes [#200](https://github.com/crystal-ball/webpack-base/issue/200)
+* Update package cypress to v4.7.0 🆙 (#193)([85b0347](https://github.com/crystal-ball/webpack-base/commit/85b0347240e1412ef46c68f30a8a6f6e8a22b4bc)), closes [#193](https://github.com/crystal-ball/webpack-base/issue/193)
+
 ## [9.5.0](https://github.com/crystal-ball/webpack-base/compare/v9.4.1...v9.5.0) (2020-05-22)
 
 
