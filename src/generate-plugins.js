@@ -22,7 +22,7 @@ const {
  * hotModuleReplacement, html, miniCSSExtract, namedModules, progressBar,
  * svgSymbolSprite
  */
-module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) => ({
+module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) => ({
   // --------------------------------------------------------
   // ✅ Path validation
   // Ensure that import paths are case sensitive to ensure Linux/MacOS  compatability
@@ -72,7 +72,7 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
   }),
 
   // --- 🔥 Hot Module Replacement
-  // See: https://webpack.js.org/concepts/hot-module-replacement/
+  // Ref: https://webpack.js.org/concepts/hot-module-replacement/
   hotModuleReplacementPlugin: new HotModuleReplacementPlugin(),
 
   // --- 📦 HTML index generator
@@ -86,7 +86,7 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
 
   // --- 😍 Styles extractions
   miniCSSExtractPlugin: new MiniCssExtractPlugin({
-    filename: `static/css/[name]${chunkHash}.css`,
+    filename: `static/css/[name]${fileHash}.css`,
   }),
 
   // --- 🛣 Modules
@@ -115,7 +115,7 @@ module.exports = ({ chunkHash, devServer, envVars, flags, publicPath, paths }) =
   // ⚠️ Order is important, this plugin must be included after HTML plugin so that
   // HTML plugin hooks are pre-registered!
   svgSymbolSpritePlugin: new SVGSymbolSprite.Plugin({
-    filename: `static/media/icon-sprite${chunkHash}.svg`,
+    filename: `static/media/icon-sprite${fileHash}.svg`,
     // Don't inject the sprite id in electron and storybook targets because the
     // HTML plugin might be different (Storybook) or the app will just always
     // fetch it (both)

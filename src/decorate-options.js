@@ -22,7 +22,7 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
   const src = paths.src || join(context, 'src', flags.electron ? 'renderer' : '')
 
   const defaults = {
-    chunkHash: flags.production ? '.[chunkhash]' : '',
+    fileHash: flags.production ? '.[contenthash]' : '',
     devServer: {},
     flags,
     publicPath: '/',

@@ -131,10 +131,10 @@ Object {
     ],
   },
   "optimization": Object {
-    "runtimeChunk": true,
+    "moduleIds": "hashed",
+    "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
-      "name": true,
     },
   },
   "output": Object {
@@ -236,9 +236,7 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "@babel/runtime": "/test/node_modules/@babel/runtime",
-    },
+    "alias": Object {},
     "extensions": Array [
       ".js",
       ".jsx",
@@ -381,10 +379,10 @@ Object {
     ],
   },
   "optimization": Object {
-    "runtimeChunk": true,
+    "moduleIds": "hashed",
+    "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
-      "name": true,
     },
   },
   "output": Object {
@@ -487,9 +485,7 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "@babel/runtime": "/test/node_modules/@babel/runtime",
-    },
+    "alias": Object {},
     "extensions": Array [
       ".js",
       ".jsx",
@@ -629,14 +625,14 @@ Object {
     ],
   },
   "optimization": Object {
-    "runtimeChunk": true,
+    "moduleIds": "hashed",
+    "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
-      "name": true,
     },
   },
   "output": Object {
-    "filename": "static/js/[name].js",
+    "filename": "static/js/[name].[contenthash].js",
     "hashDigestLength": 12,
     "libraryTarget": "commonjs2",
     "path": "/test/src/build",
@@ -704,7 +700,7 @@ Object {
     },
     SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.svg",
+        "filename": "static/media/icon-sprite.[contenthash].svg",
         "injectSpriteId": false,
       },
     },
@@ -740,15 +736,13 @@ Object {
     },
     MiniCSSExtractPlugin {
       "options": Object {
-        "chunkFilename": "static/css/[name].css",
-        "filename": "static/css/[name].css",
+        "chunkFilename": "static/css/[name].[contenthash].css",
+        "filename": "static/css/[name].[contenthash].css",
       },
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "@babel/runtime": "/test/node_modules/@babel/runtime",
-    },
+    "alias": Object {},
     "extensions": Array [
       ".js",
       ".jsx",
@@ -892,14 +886,14 @@ Object {
     ],
   },
   "optimization": Object {
-    "runtimeChunk": true,
+    "moduleIds": "hashed",
+    "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
-      "name": true,
     },
   },
   "output": Object {
-    "filename": "static/js/[name].[chunkhash].js",
+    "filename": "static/js/[name].[contenthash].js",
     "hashDigestLength": 12,
     "path": "/test/public",
     "publicPath": "/",
@@ -966,7 +960,7 @@ Object {
     },
     SVGSymbolSpritePlugin {
       "options": Object {
-        "filename": "static/media/icon-sprite.[chunkhash].svg",
+        "filename": "static/media/icon-sprite.[contenthash].svg",
         "injectSpriteId": true,
       },
     },
@@ -1002,15 +996,13 @@ Object {
     },
     MiniCSSExtractPlugin {
       "options": Object {
-        "chunkFilename": "static/css/[name].[chunkhash].css",
-        "filename": "static/css/[name].[chunkhash].css",
+        "chunkFilename": "static/css/[name].[contenthash].css",
+        "filename": "static/css/[name].[contenthash].css",
       },
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "@babel/runtime": "/test/node_modules/@babel/runtime",
-    },
+    "alias": Object {},
     "extensions": Array [
       ".js",
       ".jsx",
@@ -1157,10 +1149,10 @@ Object {
     ],
   },
   "optimization": Object {
-    "runtimeChunk": true,
+    "moduleIds": "hashed",
+    "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
-      "name": true,
     },
   },
   "output": Object {
@@ -1262,9 +1254,7 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "@babel/runtime": "/test/node_modules/@babel/runtime",
-    },
+    "alias": Object {},
     "extensions": Array [
       ".js",
       ".jsx",
