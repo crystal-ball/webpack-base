@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.7.0](https://github.com/crystal-ball/webpack-base/compare/v9.6.0...v9.7.0) (2020-06-14)
+
+
+#### ✨ Update
+
+* Improve asset caching optimizations 🤩 (#201)([8bd480d](https://github.com/crystal-ball/webpack-base/commit/8bd480d8dcc237297bbe81e09a6aca2d2780c20a)), closes [#201](https://github.com/crystal-ball/webpack-base/issue/201)
+
 ## [9.6.0](https://github.com/crystal-ball/webpack-base/compare/v9.5.0...v9.6.0) (2020-06-13)
 
 
