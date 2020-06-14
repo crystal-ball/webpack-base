@@ -249,6 +249,19 @@ const paths = {
 - Production CSS+JS assets are minified
 - Application logo is used to generate and inject favicon resources in build
 
+### Caching
+
+Long term asset caching is supported by including content based hashes in the
+generated asset filenames.
+
+- `[contenthash]` substitution is included in filenames in production builds to
+  append a hash that will change when the file contents change
+- A single runtime asset is extracted to deduplicate webpack runtime boilerplate
+- Module ids are hashed based on content to prevent import order changes causing
+  all chunks to update.
+- Dynamic imports for code splitting should use webpack magic comments to set a
+  semantic asset name.
+
 ### Environment variable injection
 
 The following environment variables are injected by the build:

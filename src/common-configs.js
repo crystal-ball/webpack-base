@@ -1,9 +1,7 @@
 'use strict'
 
-const path = require('path')
-
 /** The common configurations are used across environments */
-module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
+module.exports = ({ fileHash, flags, paths, publicPath }) => ({
   // webpack v4+ automatic environment optimization switch
   // https://webpack.js.org/concepts/mode/
   mode: flags.mode,
@@ -21,14 +19,14 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
   // https://webpack.js.org/configuration/output/
   output: {
     path: paths.output,
-    filename: `static/js/[name]${chunkHash}.js`,
+    filename: `static/js/[name]${fileHash}.js`,
     // The publicPath value is prefixed to every URL created by the runtime or
     // loaders. The default is '' which means resources from nested routes have
     // incorrect paths, eg: 'some/application/route/static/js/main.js
     // The default config set here ensures that requests are absolute, eg:
     // '/static/js/main.js'
     publicPath,
-    // Configures the lengths of [hash] and [chunkhash] globally
+    // Configures the lengths of [contenthash] globally
     hashDigestLength: 12,
   },
 
@@ -38,26 +36,26 @@ module.exports = ({ chunkHash, publicPath, flags, paths }) => ({
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     // Alias can be used to point imports to specific modules, include empty
     // object to allow direct assignment in consuming packages
-    alias: {
-      // Ensure that only one @babel/runtime is bundled into application
-      '@babel/runtime': path.resolve(paths.context, 'node_modules/@babel/runtime'),
-    },
+    alias: {},
   },
 
-  // Configure the SplitChunksPlugin to split vendor, runtime and main chunks
-  // https://webpack.js.org/plugins/split-chunks-plugin/
+  // Optimization tweaks for A++ asset caching
   optimization: {
-    splitChunks: {
-      // 'All' is required to split vendor even when dynamic modules aren't used
-      // See https://webpack.js.org/plugins/split-chunks-plugin/#optimization-splitchunks-chunks-all
-      // See https://twitter.com/wSokra/status/969633336732905474
-      chunks: 'all',
-      // Use names instead of numbers for bundles
-      name: true,
-    },
+    // Use hashed module ids instead of incrementing module ids so they are consistent
+    // across module resolution order changes
+    // ref: https://webpack.js.org/guides/caching/#module-identifiers
+    moduleIds: 'hashed',
     // Keep the runtime chunk seperated to enable long term caching
-    // https://twitter.com/wSokra/status/969679223278505985
-    runtimeChunk: true,
+    // Ref: https://webpack.js.org/guides/caching/#extracting-boilerplate
+    runtimeChunk: 'single',
+    // ref: https://webpack.js.org/plugins/split-chunks-plugin/
+    splitChunks: {
+      // This indicates which chunks will be selected for optimization, setting
+      // 'all' mmeans that chunks can be shared even between async and non-async
+      // chunks.
+      // ref: https://webpack.js.org/plugins/split-chunks-plugin/#splitchunkschunks
+      chunks: 'all',
+    },
   },
 
   // Common loaders
