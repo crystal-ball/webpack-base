@@ -1,3 +1,5 @@
+/* eslint-disable node/no-process-env */
+
 'use strict'
 
 const webpackBase = require('./index')

@@ -1,10 +1,10 @@
 'use strict'
 
 /** Development environment specfic configurations */
-module.exports = ({ devServer, paths }) => ({
+module.exports = ({ devServer, devtool, paths }) => ({
   // Default to "best quality SourceMaps for development" (Set DEVTOOL to 'eval'
   // to see generated code,)
-  devtool: process.env.DEVTOOL || 'eval-source-map',
+  devtool: devtool || 'eval-source-map',
 
   // Development plugins
   // ---------------------------------------------------------------------------

@@ -1,3 +1,5 @@
+/* eslint-disable node/no-process-env */
+
 'use strict'
 
 const fs = require('fs')
@@ -5,7 +7,7 @@ const { join } = require('path')
 
 /** Assign default values to any option not specified by consuming applicaiton */
 module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) {
-  const { NODE_ENV } = process.env
+  const { DEVTOOL, NODE_ENV } = process.env
 
   const flags = {
     mode: NODE_ENV,
@@ -24,6 +26,7 @@ module.exports = function decorateOptions({ paths = {}, target, ...rest } = {}) 
   const defaults = {
     fileHash: flags.production ? '.[contenthash]' : '',
     devServer: {},
+    devtool: DEVTOOL,
     flags,
     publicPath: '/',
     sassOptions: {},
