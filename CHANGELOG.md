@@ -14,6 +14,20 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.8.0](https://github.com/crystal-ball/webpack-base/compare/v9.7.0...v9.8.0) (2020-07-06)
+
+
+#### ✨ Update
+
+* Dependencies 🆙 (#205)([9caef1e](https://github.com/crystal-ball/webpack-base/commit/9caef1eca819fe31f635a75f886bdc12bac966b0)), closes [#205](https://github.com/crystal-ball/webpack-base/issue/205)
+
+#### Chore
+
+* Update devDependencies 🆙 (#197)([9d67d8d](https://github.com/crystal-ball/webpack-base/commit/9d67d8d63ecec036577949733a69ff725a7290a8)), closes [#197](https://github.com/crystal-ball/webpack-base/issue/197)
+* Update devDependencies 🆙 (#203)([60a08f5](https://github.com/crystal-ball/webpack-base/commit/60a08f5d0dd5277a0d18b0a31dc072d5c4ebb1a8)), closes [#203](https://github.com/crystal-ball/webpack-base/issue/203)
+* Update package @types/jest to v26.0.3 🆙 (#206)([cd2ae75](https://github.com/crystal-ball/webpack-base/commit/cd2ae75e818c612cfdf18e32cc18509c7553eba8)), closes [#206](https://github.com/crystal-ball/webpack-base/issue/206)
+* Update package eslint-config-eloquence to v14.5.0 🆙 (#202)([f498333](https://github.com/crystal-ball/webpack-base/commit/f498333788e902d890698f35f22f950e7e2fde50)), closes [#202](https://github.com/crystal-ball/webpack-base/issue/202)
+
 ## [9.7.0](https://github.com/crystal-ball/webpack-base/compare/v9.6.0...v9.7.0) (2020-06-14)
 
 
