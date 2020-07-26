@@ -66,8 +66,8 @@
     "@crystal-ball/prettier-base": "2.2.0",
     "@crystal-ball/semantic-release-base": "2.20.0",
     "@percy/cypress": "2.3.1",
-    "@types/jest": "26.0.4",
-    "cypress": "4.10.0",
+    "@types/jest": "26.0.7",
+    "cypress": "4.11.0",
     "eslint-config-eloquence": "14.7.0",
     "husky": "4.2.5",
     "jest": "26.1.0"
