@@ -1,6 +1,6 @@
 'use strict'
 
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 
 const decorateOptions = require('./decorate-options')
 const commonConfigs = require('./common-configs')
