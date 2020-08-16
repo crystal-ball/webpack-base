@@ -13,11 +13,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.16'
-      - name: Code Climate - Setup
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
       # Acceptance tests workflow manages:
       #  1. Setting Cypress+Percy git branch env vars (Github actions aren't supported yet)
       #  2. Building the application Docker image (executes linting and unit tests)
@@ -34,14 +29,8 @@ jobs:
           PERCY_BRANCH: ${{ github.head_ref }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       # Upload test code coverage report to Code Climate (branch must be explicitly set)
-      - name: Code Climate - Report
-        if: success()
-        run: |
-          export GIT_BRANCH="${GIT_BRANCH:-${GITHUB_REF:11}}"
-          ./cc-test-reporter after-build --prefix /usr/src
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          GIT_BRANCH: ${{ github.head_ref }}
+      - name: Codecov
+        uses: codecov/codecov-action@v1
 
   # --- Package publishing 🚀
   publish:
