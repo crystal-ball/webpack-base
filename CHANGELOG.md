@@ -14,6 +14,21 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.12.0](https://github.com/crystal-ball/webpack-base/compare/v9.11.0...v9.12.0) (2020-09-04)
+
+
+#### ✨ Update
+
+* Package dependencies 🆙 (#225)([4dc3e78](https://github.com/crystal-ball/webpack-base/commit/4dc3e7827e82b20830fddca59ea8b4a144731da5)), closes [#225](https://github.com/crystal-ball/webpack-base/issue/225)
+
+#### Chore
+
+* Setup Codecov reporting ⚙️ (#218)([7b47fd4](https://github.com/crystal-ball/webpack-base/commit/7b47fd4b65334438ff18a23eed517da20bee9248)), closes [#218](https://github.com/crystal-ball/webpack-base/issue/218)
+* Update devDependencies 🆙 (#219)([db5ceb5](https://github.com/crystal-ball/webpack-base/commit/db5ceb5594483d6976bb6abfd135c4b5d8fef46e)), closes [#219](https://github.com/crystal-ball/webpack-base/issue/219)
+* Update devDependencies 🆙 (#224)([8f9b5d9](https://github.com/crystal-ball/webpack-base/commit/8f9b5d9f0198762f0d7427d175162446ff55ec57)), closes [#224](https://github.com/crystal-ball/webpack-base/issue/224)
+* Update package cypress to v5 🆙 (#222)([0f39d76](https://github.com/crystal-ball/webpack-base/commit/0f39d76dd9e5f494ab5f9eea727aedfb2716ad5d)), closes [#222](https://github.com/crystal-ball/webpack-base/issue/222)
+* Update package jest to v26.4.2 🆙 (#221)([e63cb81](https://github.com/crystal-ball/webpack-base/commit/e63cb819885e44c29d5d01a674c2122212e38a8f)), closes [#221](https://github.com/crystal-ball/webpack-base/issue/221)
+
 ## [9.11.0](https://github.com/crystal-ball/webpack-base/compare/v9.10.0...v9.11.0) (2020-08-13)
 
 
