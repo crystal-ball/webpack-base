@@ -63,13 +63,13 @@
   },
   "devDependencies": {
     "@crystal-ball/commitizen-base": "2.8.0",
-    "@crystal-ball/prettier-base": "2.3.0",
-    "@crystal-ball/semantic-release-base": "2.20.0",
+    "@crystal-ball/prettier-base": "2.4.0",
+    "@crystal-ball/semantic-release-base": "2.21.0",
     "@percy/cypress": "2.3.1",
-    "@types/jest": "26.0.13",
-    "cypress": "5.1.0",
+    "@types/jest": "26.0.14",
+    "cypress": "5.2.0",
     "eslint-config-eloquence": "14.10.0",
-    "husky": "4.2.5",
+    "husky": "4.3.0",
     "jest": "26.4.2"
   },
   "prettier": "@crystal-ball/prettier-base",
