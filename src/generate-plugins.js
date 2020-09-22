@@ -81,6 +81,7 @@ module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) =>
     favicon: `${paths.static}/favicon.ico`,
     inject: !flags.electron,
     minify: false,
+    publicPath,
     template: paths.htmlTemplate,
   }),
 

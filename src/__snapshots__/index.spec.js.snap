@@ -187,6 +187,7 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "publicPath": "/",
         "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
@@ -436,6 +437,7 @@ Object {
         "inject": false,
         "meta": Object {},
         "minify": false,
+        "publicPath": "/",
         "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/renderer/index.html",
@@ -556,9 +558,17 @@ Object {
           Object {
             "loader": "postcss-loader",
             "options": Object {
-              "plugins": Array [
-                [Function],
-              ],
+              "postcssOptions": Object {
+                "plugins": Array [
+                  Object {
+                    "browsers": undefined,
+                    "info": [Function],
+                    "options": Object {},
+                    "postcssPlugin": "autoprefixer",
+                    "prepare": [Function],
+                  },
+                ],
+              },
               "sourceMap": true,
             },
           },
@@ -688,6 +698,7 @@ Object {
         "inject": false,
         "meta": Object {},
         "minify": false,
+        "publicPath": "/",
         "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/renderer/index.html",
@@ -817,9 +828,17 @@ Object {
           Object {
             "loader": "postcss-loader",
             "options": Object {
-              "plugins": Array [
-                [Function],
-              ],
+              "postcssOptions": Object {
+                "plugins": Array [
+                  Object {
+                    "browsers": undefined,
+                    "info": [Function],
+                    "options": Object {},
+                    "postcssPlugin": "autoprefixer",
+                    "prepare": [Function],
+                  },
+                ],
+              },
               "sourceMap": true,
             },
           },
@@ -948,6 +967,7 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "publicPath": "/",
         "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
@@ -1205,6 +1225,7 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "publicPath": "/",
         "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
@@ -1446,6 +1467,7 @@ Object {
         "inject": true,
         "meta": Object {},
         "minify": false,
+        "publicPath": "/",
         "scriptLoading": "blocking",
         "showErrors": true,
         "template": "/test/src/index.html",
