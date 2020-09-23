@@ -1,4 +1,4 @@
-FROM node:12.18.3 as base
+FROM node:12.18.4 as base
 LABEL maintainer="hedgecock.d@gmail.com"
 
 WORKDIR /usr/src
