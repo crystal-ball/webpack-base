@@ -14,7 +14,7 @@ const configs = eloquence({
 })
 
 configs.overrides.push({
-  files: ['cypress/integration/app.spec.js', 'cypress/support/index.js'],
+  files: ['cypress/tests/app.spec.js', 'cypress/support/index.js'],
   parserOptions: {
     sourceType: 'module',
   },
