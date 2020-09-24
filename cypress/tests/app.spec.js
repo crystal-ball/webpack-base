@@ -7,7 +7,7 @@ describe('Application build', () => {
    * The entire application should build and render without errors
    */
   it('should have built without errors', () => {
-    cy.contains(/The Order\s*of the\s*Crystal Code\s*Wizards/)
+    cy.contains(/Prototype application/)
     cy.percySnapshot()
   })
 
