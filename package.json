@@ -71,7 +71,7 @@
     "cypress": "5.3.0",
     "eslint-config-eloquence": "16.3.1",
     "husky": "4.3.0",
-    "jest": "26.5.2"
+    "jest": "26.5.3"
   },
   "prettier": "@crystal-ball/prettier-base",
   "config": {
