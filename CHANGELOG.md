@@ -14,6 +14,24 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [9.14.0](https://github.com/crystal-ball/webpack-base/compare/v9.13.0...v9.14.0) (2020-10-30)
+
+
+#### ✨ Update
+
+* Update package dependencies 🆙 (#244)([1590699](https://github.com/crystal-ball/webpack-base/commit/15906995057176ec8b4161e3619effbad0253a3b)), closes [#244](https://github.com/crystal-ball/webpack-base/issue/244)
+
+#### Chore
+
+* Update actions/checkout action to v2 ⚙️ (#242)([96315b2](https://github.com/crystal-ball/webpack-base/commit/96315b219175d5924bd3a63e771a491b94c84a06)), closes [#242](https://github.com/crystal-ball/webpack-base/issue/242)
+* Update devDependencies 🆙 (#236)([0ffc140](https://github.com/crystal-ball/webpack-base/commit/0ffc140680468a9f923146ae857d6235a89ea0ad)), closes [#236](https://github.com/crystal-ball/webpack-base/issue/236)
+* Update devDependencies 🆙 (#240)([eebc013](https://github.com/crystal-ball/webpack-base/commit/eebc01316732a0f17329d4c9c06229bcc2251091)), closes [#240](https://github.com/crystal-ball/webpack-base/issue/240)
+* Update devDependencies 🆙 (#243)([e15f572](https://github.com/crystal-ball/webpack-base/commit/e15f572040457aae9bba6aa447a877ff5db51c38)), closes [#243](https://github.com/crystal-ball/webpack-base/issue/243)
+* Update node Docker tag to v12.19.0 (#238)([7e63354](https://github.com/crystal-ball/webpack-base/commit/7e63354b82cc03a3752301400e4edfd7475437a8)), closes [#238](https://github.com/crystal-ball/webpack-base/issue/238)
+* Update package cypress to v5.3.0 🆙 (#232)([5bce7dc](https://github.com/crystal-ball/webpack-base/commit/5bce7dc17eb3eff875151570d7b3171d93bb9874)), closes [#232](https://github.com/crystal-ball/webpack-base/issue/232)
+* Update package eslint-config-eloquence to v16 🆙 (#235)([40de699](https://github.com/crystal-ball/webpack-base/commit/40de6994b4fb952cb0374a7fa2a1cfa00b0ee4e2)), closes [#235](https://github.com/crystal-ball/webpack-base/issue/235)
+* Update package jest to v26.5.3 🆙 (#237)([53485c4](https://github.com/crystal-ball/webpack-base/commit/53485c4e2125b221fde6972baedfb9d253847f32)), closes [#237](https://github.com/crystal-ball/webpack-base/issue/237)
+
 ## [9.13.0](https://github.com/crystal-ball/webpack-base/compare/v9.12.0...v9.13.0) (2020-09-24)
 
 
