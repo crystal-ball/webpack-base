@@ -14,6 +14,18 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [10.0.0](https://github.com/crystal-ball/webpack-base/compare/v9.15.0...v10.0.0) (2020-11-17)
+
+
+### 💥 Breaking Changes!
+
+* Applications must add a favicon link to their index.html templates
+
+
+#### Chore
+
+* Remove favicon mgmt from HTML plugin 💥 (#249)([4aed82b](https://github.com/crystal-ball/webpack-base/commit/4aed82b4bd0782e7aae1199453a360deae58f8cb)), closes [#249](https://github.com/crystal-ball/webpack-base/issue/249)
+
 ## [9.15.0](https://github.com/crystal-ball/webpack-base/compare/v9.14.0...v9.15.0) (2020-11-17)
 
 
