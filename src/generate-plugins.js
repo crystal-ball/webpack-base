@@ -78,7 +78,6 @@ module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) =>
   // --- 📦 HTML index generator
   // Generates index.html with injected script/style resources paths
   htmlPlugin: new HtmlWebpackPlugin({
-    favicon: `${paths.static}/favicon.ico`,
     inject: !flags.electron,
     minify: false,
     publicPath,
