@@ -63,10 +63,10 @@
     "webpack-merge": "5.4.0"
   },
   "devDependencies": {
-    "@crystal-ball/commitizen-base": "2.8.0",
-    "@crystal-ball/prettier-base": "2.4.0",
-    "@crystal-ball/semantic-release-base": "2.22.0",
-    "@percy/cypress": "2.3.2",
+    "@crystal-ball/commitizen-base": "2.9.0",
+    "@crystal-ball/prettier-base": "2.5.0",
+    "@crystal-ball/semantic-release-base": "2.25.0",
+    "@percy/cypress": "2.3.3",
     "@types/jest": "26.0.15",
     "cypress": "5.6.0",
     "eslint-config-eloquence": "16.6.0",
