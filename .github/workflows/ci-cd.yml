@@ -12,7 +12,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.16'
+          node-version: '14.15'
       # Acceptance tests workflow manages:
       #  1. Setting Cypress+Percy git branch env vars (Github actions aren't supported yet)
       #  2. Building the application Docker image (executes linting and unit tests)
