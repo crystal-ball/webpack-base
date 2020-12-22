@@ -14,6 +14,21 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [10.1.0](https://github.com/crystal-ball/webpack-base/compare/v10.0.0...v10.1.0) (2020-12-22)
+
+
+#### ✨ Update
+
+* Dependencies 🆙 (#254)([34df66a](https://github.com/crystal-ball/webpack-base/commit/34df66a5995090dbd0f673667aab53de6e98507e)), closes [#254](https://github.com/crystal-ball/webpack-base/issue/254)
+
+#### Chore
+
+* Update devDependencies 🆙 (#252)([813b382](https://github.com/crystal-ball/webpack-base/commit/813b382e62c16936506b31260c6afbe4161e463a)), closes [#252](https://github.com/crystal-ball/webpack-base/issue/252)
+* Update devDependencies 🆙 (#255)([6c96777](https://github.com/crystal-ball/webpack-base/commit/6c96777625852069e3e75db6fa168990becd4694)), closes [#255](https://github.com/crystal-ball/webpack-base/issue/255)
+* Update devDependencies 🆙 (#258)([75c072e](https://github.com/crystal-ball/webpack-base/commit/75c072ec39074aa5dcde7f51feae4bc86655609b)), closes [#258](https://github.com/crystal-ball/webpack-base/issue/258)
+* Update package @types/jest to v26.0.16 🆙 (#257)([e97df0f](https://github.com/crystal-ball/webpack-base/commit/e97df0fe20b2055c54cae374d3158c6b2516c43d)), closes [#257](https://github.com/crystal-ball/webpack-base/issue/257)
+* Update to Node 14 LTS ⚙️ (#256)([e250f44](https://github.com/crystal-ball/webpack-base/commit/e250f440cde88fb16c1e6113f2e99ada9f92180d)), closes [#256](https://github.com/crystal-ball/webpack-base/issue/256)
+
 ## [10.0.0](https://github.com/crystal-ball/webpack-base/compare/v9.15.0...v10.0.0) (2020-11-17)
 
 
