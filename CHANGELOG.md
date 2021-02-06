@@ -14,6 +14,21 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [10.2.0](https://github.com/crystal-ball/webpack-base/compare/v10.1.0...v10.2.0) (2021-02-06)
+
+
+#### ✨ Update
+
+* Package dependencies 🆙 (#266)([958298a](https://github.com/crystal-ball/webpack-base/commit/958298a6647e256b1abd0e672debe484a8ce2802)), closes [#266](https://github.com/crystal-ball/webpack-base/issue/266)
+
+#### Chore
+
+* Update devDependencies 🆙 (#262)([e78b114](https://github.com/crystal-ball/webpack-base/commit/e78b114c336d1d0106708b5a0e051007dbc9edcb)), closes [#262](https://github.com/crystal-ball/webpack-base/issue/262)
+* Update devDependencies 🆙 (#263)([6a0af87](https://github.com/crystal-ball/webpack-base/commit/6a0af872d22cb42838f3e13644a09d0de9837c95)), closes [#263](https://github.com/crystal-ball/webpack-base/issue/263)
+* Update package @percy/cypress to v2.3.4 🆙 (#264)([4e560f5](https://github.com/crystal-ball/webpack-base/commit/4e560f5efc88ee98c5f31fbe91e578b132ce0eb2)), closes [#264](https://github.com/crystal-ball/webpack-base/issue/264)
+* Update package cypress to v6.2.1 🆙 (#261)([f67d06a](https://github.com/crystal-ball/webpack-base/commit/f67d06a842ceead278397a0778bc9394f073a067)), closes [#261](https://github.com/crystal-ball/webpack-base/issue/261)
+* Update package cypress to v6.4.0 🆙 (#265)([c9b5787](https://github.com/crystal-ball/webpack-base/commit/c9b578709ccd88b3f3ceadc78b9b29d6f9145209)), closes [#265](https://github.com/crystal-ball/webpack-base/issue/265)
+
 ## [10.1.0](https://github.com/crystal-ball/webpack-base/compare/v10.0.0...v10.1.0) (2020-12-22)
 
 
