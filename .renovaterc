@@ -1,3 +1,37 @@
 {
-  "extends": ["github>crystal-ball/renovate-base:library"]
+  "extends": [
+    "github>crystal-ball/renovate-base:library"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "copy-webpack-plugin"
+      ],
+      "allowedVersions": "<=6.4"
+    },
+    {
+      "matchPackageNames": [
+        "html-webpack-plugin"
+      ],
+      "allowedVersions": "<=4.5"
+    },
+    {
+      "matchPackageNames": [
+        "postcss-loader"
+      ],
+      "allowedVersions": "<=4.2"
+    },
+    {
+      "matchPackageNames": [
+        "sass-loader"
+      ],
+      "allowedVersions": "<=10.1"
+    },
+    {
+      "matchPackageNames": [
+        "webpack"
+      ],
+      "allowedVersions": "<=4.46"
+    }
+  ]
 }
