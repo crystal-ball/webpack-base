@@ -1,7 +1,7 @@
 # --- 🐳 Cypress CI Dockerfile ---
 # Extend the cypress/included base image with tools used in addition to Cypress
 
-FROM cypress/included:5.6.0
+FROM cypress/included:6.4.0
 
 # Install any packages used in Cypress test files
 RUN npm install @percy/cypress
