@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unassigned-import */
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
