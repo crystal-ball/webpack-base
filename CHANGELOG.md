@@ -14,6 +14,19 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [10.3.0](https://github.com/crystal-ball/webpack-base/compare/v10.2.0...v10.3.0) (2021-02-11)
+
+
+#### ✨ Update
+
+* Dependencies 🆙 (#269)([ba86e75](https://github.com/crystal-ball/webpack-base/commit/ba86e7512b5c3c308c21e11be8b67f5ef8c9d5d1)), closes [#269](https://github.com/crystal-ball/webpack-base/issue/269)
+
+#### Chore
+
+* Reconfigure Renvoate - ignore majors ⚙️ (#268)([6c77342](https://github.com/crystal-ball/webpack-base/commit/6c77342f5462cb7cf407c35fb2b570f25e0318ef)), closes [#268](https://github.com/crystal-ball/webpack-base/issue/268)
+* Update config files ⚙️ (#267)([2bdd2a8](https://github.com/crystal-ball/webpack-base/commit/2bdd2a88358a1ef90b44e4ff2b4b1daf1f161d6a)), closes [#267](https://github.com/crystal-ball/webpack-base/issue/267)
+* Update package husky to v5 🆙 (#270)([910ea7b](https://github.com/crystal-ball/webpack-base/commit/910ea7b9f22f33d61fc25a520d135c400196f526)), closes [#270](https://github.com/crystal-ball/webpack-base/issue/270)
+
 ## [10.2.0](https://github.com/crystal-ball/webpack-base/compare/v10.1.0...v10.2.0) (2021-02-06)
 
 
