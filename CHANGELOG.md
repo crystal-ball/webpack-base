@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [10.4.0](https://github.com/crystal-ball/webpack-base/compare/v10.3.0...v10.4.0) (2021-02-17)
+
+
+#### ✨ Update
+
+* Package mini-css-extract-plugin to v1.3.7 🆙 (#272)([ca64538](https://github.com/crystal-ball/webpack-base/commit/ca6453833151035468ea355884cae3555c775fb2)), closes [#272](https://github.com/crystal-ball/webpack-base/issue/272)
+
+#### Chore
+
+* Update devDependencies 🆙 (#271)([f154fa3](https://github.com/crystal-ball/webpack-base/commit/f154fa345035ffd8238359d014122fbec87e4594)), closes [#271](https://github.com/crystal-ball/webpack-base/issue/271)
+
 ## [10.3.0](https://github.com/crystal-ball/webpack-base/compare/v10.2.0...v10.3.0) (2021-02-11)
 
 
