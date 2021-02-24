@@ -20,7 +20,7 @@
   ],
   "license": "ISC",
   "engines": {
-    "node": "12"
+    "node": "14"
   },
   "scripts": {
     "container": "docker-compose run --service-ports --rm app",
