@@ -65,12 +65,12 @@
   "devDependencies": {
     "@crystal-ball/commitizen-base": "2.10.0",
     "@crystal-ball/prettier-base": "2.6.0",
-    "@crystal-ball/semantic-release-base": "2.27.0",
+    "@crystal-ball/semantic-release-base": "2.28.0",
     "@percy/cypress": "2.3.4",
     "@types/jest": "26.0.20",
     "cypress": "6.5.0",
-    "eslint-config-eloquence": "17.4.0",
-    "husky": "5.0.9",
+    "eslint-config-eloquence": "17.5.0",
+    "husky": "5.1.1",
     "jest": "26.6.3"
   },
   "config": {
