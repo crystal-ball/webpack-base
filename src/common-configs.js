@@ -44,7 +44,7 @@ module.exports = ({ fileHash, flags, paths, publicPath }) => ({
     // Use hashed module ids instead of incrementing module ids so they are consistent
     // across module resolution order changes
     // ref: https://webpack.js.org/guides/caching/#module-identifiers
-    moduleIds: 'hashed',
+    moduleIds: 'deterministic',
     // Keep the runtime chunk seperated to enable long term caching
     // Ref: https://webpack.js.org/guides/caching/#extracting-boilerplate
     runtimeChunk: 'single',

@@ -28,10 +28,5 @@ module.exports = () => ({
 
   // Production plugins
   // ---------------------------------------------------------------------------
-  plugins: [
-    'namedModulesPlugin',
-    'cleanPlugin',
-    'duplicatePackageCheckerPlugin',
-    'miniCSSExtractPlugin',
-  ],
+  plugins: ['cleanPlugin', 'duplicatePackageCheckerPlugin', 'miniCSSExtractPlugin'],
 })

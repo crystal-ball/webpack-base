@@ -131,7 +131,7 @@ Object {
     ],
   },
   "optimization": Object {
-    "moduleIds": "hashed",
+    "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
@@ -171,32 +171,13 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
-      "assetJson": undefined,
-      "childCompilerHash": undefined,
-      "hash": undefined,
-      "options": Object {
-        "base": false,
-        "cache": true,
-        "chunks": "all",
-        "chunksSortMode": "auto",
-        "compile": true,
-        "excludeChunks": Array [],
-        "favicon": false,
-        "filename": "index.html",
-        "hash": false,
+      "userOptions": Object {
         "inject": true,
-        "meta": Object {},
         "minify": false,
         "publicPath": "/",
-        "scriptLoading": "blocking",
-        "showErrors": true,
         "template": "/test/src/index.html",
-        "templateContent": false,
-        "templateParameters": [Function],
-        "title": "Webpack App",
-        "xhtml": false,
       },
-      "version": 4,
+      "version": 5,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -205,10 +186,7 @@ Object {
       },
     },
     HotModuleReplacementPlugin {
-      "fullBuildTimeout": 200,
-      "multiStep": undefined,
       "options": Object {},
-      "requestTimeout": 10000,
     },
     FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
@@ -380,7 +358,7 @@ Object {
     ],
   },
   "optimization": Object {
-    "moduleIds": "hashed",
+    "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
@@ -421,32 +399,13 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
-      "assetJson": undefined,
-      "childCompilerHash": undefined,
-      "hash": undefined,
-      "options": Object {
-        "base": false,
-        "cache": true,
-        "chunks": "all",
-        "chunksSortMode": "auto",
-        "compile": true,
-        "excludeChunks": Array [],
-        "favicon": false,
-        "filename": "index.html",
-        "hash": false,
+      "userOptions": Object {
         "inject": false,
-        "meta": Object {},
         "minify": false,
         "publicPath": "/",
-        "scriptLoading": "blocking",
-        "showErrors": true,
         "template": "/test/src/renderer/index.html",
-        "templateContent": false,
-        "templateParameters": [Function],
-        "title": "Webpack App",
-        "xhtml": false,
       },
-      "version": 4,
+      "version": 5,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -455,10 +414,7 @@ Object {
       },
     },
     HotModuleReplacementPlugin {
-      "fullBuildTimeout": 200,
-      "multiStep": undefined,
       "options": Object {},
-      "requestTimeout": 10000,
     },
     FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
@@ -635,7 +591,7 @@ Object {
     ],
   },
   "optimization": Object {
-    "moduleIds": "hashed",
+    "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
@@ -682,41 +638,19 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
-      "assetJson": undefined,
-      "childCompilerHash": undefined,
-      "hash": undefined,
-      "options": Object {
-        "base": false,
-        "cache": true,
-        "chunks": "all",
-        "chunksSortMode": "auto",
-        "compile": true,
-        "excludeChunks": Array [],
-        "favicon": false,
-        "filename": "index.html",
-        "hash": false,
+      "userOptions": Object {
         "inject": false,
-        "meta": Object {},
         "minify": false,
         "publicPath": "/",
-        "scriptLoading": "blocking",
-        "showErrors": true,
         "template": "/test/src/renderer/index.html",
-        "templateContent": false,
-        "templateParameters": [Function],
-        "title": "Webpack App",
-        "xhtml": false,
       },
-      "version": 4,
+      "version": 5,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
         "filename": "static/media/icon-sprite.[contenthash].svg",
         "injectSpriteId": false,
       },
-    },
-    NamedModulesPlugin {
-      "options": Object {},
     },
     CleanWebpackPlugin {
       "apply": [Function],
@@ -905,7 +839,7 @@ Object {
     ],
   },
   "optimization": Object {
-    "moduleIds": "hashed",
+    "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
@@ -951,41 +885,19 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
-      "assetJson": undefined,
-      "childCompilerHash": undefined,
-      "hash": undefined,
-      "options": Object {
-        "base": false,
-        "cache": true,
-        "chunks": "all",
-        "chunksSortMode": "auto",
-        "compile": true,
-        "excludeChunks": Array [],
-        "favicon": false,
-        "filename": "index.html",
-        "hash": false,
+      "userOptions": Object {
         "inject": true,
-        "meta": Object {},
         "minify": false,
         "publicPath": "/",
-        "scriptLoading": "blocking",
-        "showErrors": true,
         "template": "/test/src/index.html",
-        "templateContent": false,
-        "templateParameters": [Function],
-        "title": "Webpack App",
-        "xhtml": false,
       },
-      "version": 4,
+      "version": 5,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
         "filename": "static/media/icon-sprite.[contenthash].svg",
         "injectSpriteId": true,
       },
-    },
-    NamedModulesPlugin {
-      "options": Object {},
     },
     CleanWebpackPlugin {
       "apply": [Function],
@@ -1169,7 +1081,7 @@ Object {
     ],
   },
   "optimization": Object {
-    "moduleIds": "hashed",
+    "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
@@ -1209,32 +1121,13 @@ Object {
       ],
     },
     HtmlWebpackPlugin {
-      "assetJson": undefined,
-      "childCompilerHash": undefined,
-      "hash": undefined,
-      "options": Object {
-        "base": false,
-        "cache": true,
-        "chunks": "all",
-        "chunksSortMode": "auto",
-        "compile": true,
-        "excludeChunks": Array [],
-        "favicon": false,
-        "filename": "index.html",
-        "hash": false,
+      "userOptions": Object {
         "inject": true,
-        "meta": Object {},
         "minify": false,
         "publicPath": "/",
-        "scriptLoading": "blocking",
-        "showErrors": true,
         "template": "/test/src/index.html",
-        "templateContent": false,
-        "templateParameters": [Function],
-        "title": "Webpack App",
-        "xhtml": false,
       },
-      "version": 4,
+      "version": 5,
     },
     SVGSymbolSpritePlugin {
       "options": Object {
@@ -1243,10 +1136,7 @@ Object {
       },
     },
     HotModuleReplacementPlugin {
-      "fullBuildTimeout": 200,
-      "multiStep": undefined,
       "options": Object {},
-      "requestTimeout": 10000,
     },
     FriendlyErrorsWebpackPlugin {
       "compilationSuccessInfo": Object {
@@ -1445,38 +1335,16 @@ Object {
       ],
     },
     "hotModuleReplacementPlugin": HotModuleReplacementPlugin {
-      "fullBuildTimeout": 200,
-      "multiStep": undefined,
       "options": Object {},
-      "requestTimeout": 10000,
     },
     "htmlPlugin": HtmlWebpackPlugin {
-      "assetJson": undefined,
-      "childCompilerHash": undefined,
-      "hash": undefined,
-      "options": Object {
-        "base": false,
-        "cache": true,
-        "chunks": "all",
-        "chunksSortMode": "auto",
-        "compile": true,
-        "excludeChunks": Array [],
-        "favicon": false,
-        "filename": "index.html",
-        "hash": false,
+      "userOptions": Object {
         "inject": true,
-        "meta": Object {},
         "minify": false,
         "publicPath": "/",
-        "scriptLoading": "blocking",
-        "showErrors": true,
         "template": "/test/src/index.html",
-        "templateContent": false,
-        "templateParameters": [Function],
-        "title": "Webpack App",
-        "xhtml": false,
       },
-      "version": 4,
+      "version": 5,
     },
     "progressBarPlugin": ProgressBarPlugin {
       "options": Object {
