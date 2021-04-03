@@ -1,3 +1,7 @@
+/// <reference types="Cypress" />
+/* eslint-disable jest/valid-expect */
+/* eslint-disable jest/expect-expect */
+
 describe('Application build', () => {
   beforeEach(() => {
     cy.visit('/')

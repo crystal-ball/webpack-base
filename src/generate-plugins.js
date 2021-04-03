@@ -10,11 +10,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
 const chalk = require('chalk')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const {
-  EnvironmentPlugin,
-  HotModuleReplacementPlugin,
-  NamedModulesPlugin,
-} = require('webpack')
+const { EnvironmentPlugin, HotModuleReplacementPlugin } = require('webpack')
 
 /**
  * Returns the set of plugins for the passed opts including:
@@ -88,15 +84,6 @@ module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) =>
   miniCSSExtractPlugin: new MiniCssExtractPlugin({
     filename: `static/css/[name]${fileHash}.css`,
   }),
-
-  // --- 🛣 Modules
-  // Uses the relative path of a module for the module id instead of the module
-  // index. This produces more consistent module ids across builds b/c the path
-  // changes much less frequently than the index. Apparently consistent module ids
-  // is a good thing in webpack land.
-  // ℹ️ We use NamedModulesPlugin b/c the paths gzip better than the hashes
-  // produced by the HashedModuleIdsPlugin!
-  namedModulesPlugin: new NamedModulesPlugin(),
 
   // --- 🔢 Stats
   // Visual compile indicator with progress bar

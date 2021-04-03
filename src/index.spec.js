@@ -14,54 +14,60 @@ describe('webpack-base', () => {
     process.cwd = () => '/test/cwd/path'
   })
 
-  test('returns loader and plugin components', () => {
+  it('returns loader and plugin components', () => {
     process.env.NODE_ENV = 'development'
 
     const { loaders, plugins } = webpackBase({ paths: { context: '/test' } })
+
     expect({ loaders, plugins }).toMatchSnapshot()
   })
 
-  test('returns expected dev configs', () => {
+  it('returns expected dev configs', () => {
     process.env.NODE_ENV = 'development'
 
     const { configs } = webpackBase({ paths: { context: '/test' } })
+
     expect(configs).toMatchSnapshot()
   })
 
-  test('returns expected prod configs', () => {
+  it('returns expected prod configs', () => {
     process.env.NODE_ENV = 'production'
 
     const { configs } = webpackBase({ paths: { context: '/test' } })
+
     expect(configs).toMatchSnapshot()
   })
 
-  test('returns expected storybook configs', () => {
+  it('returns expected storybook configs', () => {
     process.env.NODE_ENV = 'development'
 
     const { configs } = webpackBase({
       target: 'storybook',
       paths: { context: '/test' },
     })
+
     expect(configs).toMatchSnapshot()
   })
 
-  test('returns expected electron dev configs', () => {
+  it('returns expected electron dev configs', () => {
     process.env.NODE_ENV = 'development'
 
     const { configs } = webpackBase({
       target: 'electron-renderer',
       paths: { context: '/test' },
     })
+
     expect(configs).toMatchSnapshot()
   })
 
-  test('returns expected electron prod configs', () => {
+  it('returns expected electron prod configs', () => {
     process.env.NODE_ENV = 'production'
 
     const { configs } = webpackBase({
       target: 'electron-renderer',
       paths: { context: '/test' },
     })
+
     expect(configs).toMatchSnapshot()
   })
 })

@@ -16,10 +16,10 @@ const generatePlugins = require('./generate-plugins')
  * specific to environment and can be overriden as needed for custom build
  * requirements.
  * @param {Object} options
- * @param {Object} options.devServer
- * @param {Object} options.envVars
- * @param {Object} options.paths
- * @param {?string} options.target
+ * @param {Object} [options.devServer]
+ * @param {Object} [options.envVars]
+ * @param {Object} [options.paths]
+ * @param {?string} [options.target]
  */
 module.exports = function webpackBase(options = {}) {
   const decoratedOptions = decorateOptions(options)
