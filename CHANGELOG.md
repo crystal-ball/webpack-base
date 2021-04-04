@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.1.0](https://github.com/crystal-ball/webpack-base/compare/v11.0.0...v11.1.0) (2021-04-04)
+
+
+#### ✨ Update
+
+* SVG Symbol Sprite Loader package update 🆙([0a18a26](https://github.com/crystal-ball/webpack-base/commit/0a18a2689c441951f24aaee682467988de17dbcd))
+
 ## [11.0.0](https://github.com/crystal-ball/webpack-base/compare/v10.4.0...v11.0.0) (2021-04-04)
 
 
