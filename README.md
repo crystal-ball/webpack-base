@@ -256,8 +256,8 @@ generated asset filenames.
 - `[contenthash]` substitution is included in filenames in production builds to
   append a hash that will change when the file contents change
 - A single runtime asset is extracted to deduplicate webpack runtime boilerplate
-- Module ids are hashed based on content to prevent import order changes causing
-  all chunks to update.
+- Module ids are deterministically hashed based on content to prevent import
+  order changes causing all chunks to update.
 - Dynamic imports for code splitting should use webpack magic comments to set a
   semantic asset name.
 
