@@ -14,6 +14,27 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.0.0](https://github.com/crystal-ball/webpack-base/compare/v10.4.0...v11.0.0) (2021-04-04)
+
+
+### 💥 Breaking Changes!
+
+* Updates to webpack v5 and uses a different module hash. No user updates should be
+required.
+
+
+#### ✨ Update
+
+* Revert Percy major bump (#281)([3b90cf0](https://github.com/crystal-ball/webpack-base/commit/3b90cf0e00ccd189dc0c29c96c89bc1a2f071202)), closes [#281](https://github.com/crystal-ball/webpack-base/issue/281)
+* Set default branch to main 💖([fed8199](https://github.com/crystal-ball/webpack-base/commit/fed819967fac1e8ca36eb44f590dc70e1ffcb47d))
+* Webpack 5 🤩 (#280)([66822b8](https://github.com/crystal-ball/webpack-base/commit/66822b8f735caf72c682319c6dd65b09bb26b573)), closes [#280](https://github.com/crystal-ball/webpack-base/issue/280)
+
+#### Chore, Docs
+
+* Update devDependencies 🆙 (#273)([83f154b](https://github.com/crystal-ball/webpack-base/commit/83f154b7142c1d25f4ea2131c85142820b2446f1)), closes [#273](https://github.com/crystal-ball/webpack-base/issue/273)
+* Update devDependencies 🆙 (#277)([38ea668](https://github.com/crystal-ball/webpack-base/commit/38ea66894812d287497296cd681ecc9b8ced7c41)), closes [#277](https://github.com/crystal-ball/webpack-base/issue/277)
+* Module ids hashing 📝([c23f729](https://github.com/crystal-ball/webpack-base/commit/c23f7294d1ccb09f0a4a499abf3510f3734db487))
+
 ## [10.4.0](https://github.com/crystal-ball/webpack-base/compare/v10.3.0...v10.4.0) (2021-02-17)
 
 
