@@ -4,6 +4,7 @@ const eloquence = require('eslint-config-eloquence')
 
 const configs = eloquence({
   target: 'node',
+  parser: 'default',
   enableESM: false,
   enableTS: false,
   rules: {
