@@ -14,6 +14,21 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.2.0](https://github.com/crystal-ball/webpack-base/compare/v11.1.0...v11.2.0) (2021-05-02)
+
+
+#### ✨ Update
+
+* Dependencies 🆙 (#287)([b191303](https://github.com/crystal-ball/webpack-base/commit/b191303640e7edeb52cef7e4b554cb68004e00ff)), closes [#287](https://github.com/crystal-ball/webpack-base/issue/287)
+
+#### Chore, Upgrade
+
+* Commitizen configuration file ⚙️([ae66df5](https://github.com/crystal-ball/webpack-base/commit/ae66df539bc07bf0e01ab94fc62adb49b5a363fc))
+* Update cypress/included Docker tag to v7.2.0 (#286)([f7f77db](https://github.com/crystal-ball/webpack-base/commit/f7f77dbc10de7c38bdd514950ba7f99842fea43c)), closes [#286](https://github.com/crystal-ball/webpack-base/issue/286)
+* Update devDependencies 🆙 (#282)([35011c1](https://github.com/crystal-ball/webpack-base/commit/35011c1bf2b2df8df6564ee554baed3670c2e785)), closes [#282](https://github.com/crystal-ball/webpack-base/issue/282)
+* Update devDependencies 🆙 (#285)([cb22a6a](https://github.com/crystal-ball/webpack-base/commit/cb22a6af50f1398e73fe80e18debc61c26d8a61e)), closes [#285](https://github.com/crystal-ball/webpack-base/issue/285)
+* Percy version updates (#284)([3c19741](https://github.com/crystal-ball/webpack-base/commit/3c19741ace1a53fa92ddde2adb44746fd003842e)), closes [#284](https://github.com/crystal-ball/webpack-base/issue/284)
+
 ## [11.1.0](https://github.com/crystal-ball/webpack-base/compare/v11.0.0...v11.1.0) (2021-04-04)
 
 
