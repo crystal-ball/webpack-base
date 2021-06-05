@@ -14,6 +14,19 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.3.0](https://github.com/crystal-ball/webpack-base/compare/v11.2.0...v11.3.0) (2021-06-05)
+
+
+#### ✨ Update
+
+* Package dependencies 🆙 (#297)([6da1a9e](https://github.com/crystal-ball/webpack-base/commit/6da1a9e30a6f1402e4b87d3a7c50eaa2dcce8316)), closes [#297](https://github.com/crystal-ball/webpack-base/issue/297)
+
+#### Chore
+
+* Update devDependencies 🆙 (#291)([22f10e3](https://github.com/crystal-ball/webpack-base/commit/22f10e39f0e3a8986965a3573f28b8d4d41f758d)), closes [#291](https://github.com/crystal-ball/webpack-base/issue/291)
+* Update Eloquence version 🆙 (#289)([752c2b1](https://github.com/crystal-ball/webpack-base/commit/752c2b11d2830d6cc7bb44e230cb5665f836daaa)), closes [#289](https://github.com/crystal-ball/webpack-base/issue/289)
+* Update package jest to v27 🆙 (#294)([16f91fe](https://github.com/crystal-ball/webpack-base/commit/16f91fe3075784c8d7bab33d13e672699a956392)), closes [#294](https://github.com/crystal-ball/webpack-base/issue/294)
+
 ## [11.2.0](https://github.com/crystal-ball/webpack-base/compare/v11.1.0...v11.2.0) (2021-05-02)
 
 
