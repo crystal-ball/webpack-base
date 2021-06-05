@@ -33,6 +33,12 @@ Object {
             },
           },
           Object {
+            "loader": "@linaria/webpack-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+          Object {
             "loader": "eslint-loader",
           },
         ],
@@ -260,6 +266,12 @@ Object {
             },
           },
           Object {
+            "loader": "@linaria/webpack-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+          Object {
             "loader": "eslint-loader",
           },
         ],
@@ -475,6 +487,12 @@ Object {
             "loader": "babel-loader",
             "options": Object {
               "cacheDirectory": true,
+            },
+          },
+          Object {
+            "loader": "@linaria/webpack-loader",
+            "options": Object {
+              "sourceMap": true,
             },
           },
           Object {
@@ -723,6 +741,12 @@ Object {
             "loader": "babel-loader",
             "options": Object {
               "cacheDirectory": true,
+            },
+          },
+          Object {
+            "loader": "@linaria/webpack-loader",
+            "options": Object {
+              "sourceMap": true,
             },
           },
           Object {
@@ -983,6 +1007,12 @@ Object {
             },
           },
           Object {
+            "loader": "@linaria/webpack-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+          Object {
             "loader": "eslint-loader",
           },
         ],
@@ -1201,6 +1231,12 @@ Object {
           "loader": "babel-loader",
           "options": Object {
             "cacheDirectory": true,
+          },
+        },
+        Object {
+          "loader": "@linaria/webpack-loader",
+          "options": Object {
+            "sourceMap": true,
           },
         },
         Object {
