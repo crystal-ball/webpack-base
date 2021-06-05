@@ -55,6 +55,7 @@ module.exports = ({ flags, paths, sassOptions }) => {
        */
       use: [
         { loader: 'babel-loader', options: { cacheDirectory: true } },
+        { loader: '@linaria/webpack-loader', options: { sourceMap: true } },
         { loader: 'eslint-loader' },
       ],
       ...overrides,
