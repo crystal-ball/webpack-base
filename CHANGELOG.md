@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.4.0](https://github.com/crystal-ball/webpack-base/compare/v11.3.0...v11.4.0) (2021-06-05)
+
+
+#### 💖 New
+
+* Add support for Linaria 🎊 (#298)([d10735a](https://github.com/crystal-ball/webpack-base/commit/d10735a114759ba194214c66e3e9e6c46667fe65)), closes [#298](https://github.com/crystal-ball/webpack-base/issue/298)
+
+#### Chore
+
+* Update node Docker tag to v14.17 (#293)([5bd2418](https://github.com/crystal-ball/webpack-base/commit/5bd24184c65c5a309978a346c179e1f9e03970de)), closes [#293](https://github.com/crystal-ball/webpack-base/issue/293)
+
 ## [11.3.0](https://github.com/crystal-ball/webpack-base/compare/v11.2.0...v11.3.0) (2021-06-05)
 
 
