@@ -137,6 +137,20 @@ Object {
     ],
   },
   "optimization": Object {
+    "minimizer": Array [
+      "...",
+      CssMinimizerPlugin {
+        "options": Object {
+          "exclude": undefined,
+          "include": undefined,
+          "minify": [Function],
+          "minimizerOptions": undefined,
+          "parallel": true,
+          "test": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
+        },
+      },
+    ],
     "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
@@ -370,6 +384,20 @@ Object {
     ],
   },
   "optimization": Object {
+    "minimizer": Array [
+      "...",
+      CssMinimizerPlugin {
+        "options": Object {
+          "exclude": undefined,
+          "include": undefined,
+          "minify": [Function],
+          "minimizerOptions": undefined,
+          "parallel": true,
+          "test": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
+        },
+      },
+    ],
     "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
@@ -609,6 +637,20 @@ Object {
     ],
   },
   "optimization": Object {
+    "minimizer": Array [
+      "...",
+      CssMinimizerPlugin {
+        "options": Object {
+          "exclude": undefined,
+          "include": undefined,
+          "minify": [Function],
+          "minimizerOptions": undefined,
+          "parallel": true,
+          "test": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
+        },
+      },
+    ],
     "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
@@ -863,6 +905,20 @@ Object {
     ],
   },
   "optimization": Object {
+    "minimizer": Array [
+      "...",
+      CssMinimizerPlugin {
+        "options": Object {
+          "exclude": undefined,
+          "include": undefined,
+          "minify": [Function],
+          "minimizerOptions": undefined,
+          "parallel": true,
+          "test": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
+        },
+      },
+    ],
     "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
@@ -1111,6 +1167,20 @@ Object {
     ],
   },
   "optimization": Object {
+    "minimizer": Array [
+      "...",
+      CssMinimizerPlugin {
+        "options": Object {
+          "exclude": undefined,
+          "include": undefined,
+          "minify": [Function],
+          "minimizerOptions": undefined,
+          "parallel": true,
+          "test": /\\\\\\.css\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
+        },
+      },
+    ],
     "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": Object {
