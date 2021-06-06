@@ -1,5 +1,7 @@
 'use strict'
 
+const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
+
 /** The common configurations are used across environments */
 module.exports = ({ fileHash, flags, paths, publicPath }) => ({
   // webpack v4+ automatic environment optimization switch
@@ -56,6 +58,11 @@ module.exports = ({ fileHash, flags, paths, publicPath }) => ({
       // ref: https://webpack.js.org/plugins/split-chunks-plugin/#splitchunkschunks
       chunks: 'all',
     },
+    // Configured minimizers for uglifying assets in production builds
+    minimizer: [
+      '...', // The `...` syntax extends existing minimizers (i.e. `terser-webpack-plugin`)
+      new CSSMinimizerPlugin(),
+    ],
   },
 
   // Common loaders
