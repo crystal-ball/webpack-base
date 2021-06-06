@@ -14,6 +14,13 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.5.0](https://github.com/crystal-ball/webpack-base/compare/v11.4.0...v11.5.0) (2021-06-06)
+
+
+#### 💖 New
+
+* Add CSS minification support ✨ (#299)([c57ac6b](https://github.com/crystal-ball/webpack-base/commit/c57ac6b341f18cf1507a05a3a78755548b60c82e)), closes [#299](https://github.com/crystal-ball/webpack-base/issue/299)
+
 ## [11.4.0](https://github.com/crystal-ball/webpack-base/compare/v11.3.0...v11.4.0) (2021-06-05)
 
 
