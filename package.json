@@ -72,9 +72,9 @@
     "@crystal-ball/semantic-release-base": "2.32.0",
     "@percy/cypress": "2.3.4",
     "@types/jest": "26.0.23",
-    "cypress": "7.4.0",
+    "cypress": "7.6.0",
     "eslint-config-eloquence": "19.1.0",
-    "jest": "27.0.4",
+    "jest": "27.0.6",
     "node-notifier": "10.0.0"
   }
 }
