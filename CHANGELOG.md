@@ -14,6 +14,17 @@ with [@crystal-ball/semantic-release-base](https://github.com/crystal-ball/seman
 > - 🛠 - Fixes
 
 
+## [11.6.0](https://github.com/crystal-ball/webpack-base/compare/v11.5.0...v11.6.0) (2021-11-14)
+
+
+#### ✨ Update
+
+* Lots of dependencies updating 🆙 (#306)([f2f5051](https://github.com/crystal-ball/webpack-base/commit/f2f5051546fb02a02b199352ea3df3f9bb931f27)), closes [#306](https://github.com/crystal-ball/webpack-base/issue/306)
+
+#### Chore
+
+* Update devDependencies 🆙 (#300)([ba21e90](https://github.com/crystal-ball/webpack-base/commit/ba21e90fb4ab12c10b9b93991cb76f59da6c4ab9)), closes [#300](https://github.com/crystal-ball/webpack-base/issue/300)
+
 ## [11.5.0](https://github.com/crystal-ball/webpack-base/compare/v11.4.0...v11.5.0) (2021-06-06)
 
 
