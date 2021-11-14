@@ -1,24 +1,27 @@
 'use strict'
 
-const eloquence = require('eslint-config-eloquence')
+module.exports = {
+  extends: ['eloquence/node'],
+  plugins: ['cypress'],
 
-const configs = eloquence({
-  target: 'node',
-  parser: 'default',
-  enableESM: false,
-  enableTS: false,
   rules: {
     // Package linting overrides
     'node/no-process-env': 'off',
     'node/no-sync': 'off',
-  },
-})
 
-configs.overrides.push({
-  files: ['cypress/tests/app.spec.js', 'cypress/support/index.js'],
-  parserOptions: {
-    sourceType: 'module',
+    // CommonJS rule overrides
+    'import/extensions': 'off',
+    'import/no-useless-path-segments': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
   },
-})
 
-module.exports = configs
+  overrides: [
+    {
+      files: ['cypress/tests/app.spec.js', 'cypress/support/index.js'],
+      env: { 'cypress/globals': true },
+      parserOptions: {
+        sourceType: 'module',
+      },
+    },
+  ],
+}

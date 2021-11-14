@@ -1,5 +1,3 @@
-/* eslint-disable node/no-process-env */
-
 'use strict'
 
 const fs = require('fs')

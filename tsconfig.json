@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    // --- Project options
+    "allowJs": true, // Allow JS file to be compiled
+    "checkJs": true, // Check all JS files by default
+    "noEmit": true, // Don't emit files (Compilation handled by Babel)
+    "isolatedModules": true, // Disallow features that require cross-file information for compilation (Babel safety check)
+
+    // --- Strict checks
+    "strict": true,
+    "noImplicitAny": false, // Difficult to enforce in JS type checking
+
+    // --- Module Resolution
+    "module": "commonjs",
+    "moduleResolution": "node", // Use Node.js algorithm to resolve modules
+
+    // --- Advanced
+    "forceConsistentCasingInFileNames": true, // Check import path casing matches file system (recommended by TS)
+    "skipLibCheck": true // Skip type checking .d.ts declaration files (recommended by TS)
+  },
+  "include": ["src/**/*"]
+}

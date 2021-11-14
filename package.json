@@ -3,6 +3,7 @@
   "version": "11.5.0",
   "description": "Customizable webpack base configuration generator",
   "main": "src/index.js",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/crystal-ball/webpack-base.git"
@@ -70,11 +71,13 @@
     "@crystal-ball/commitizen-base": "2.11.0",
     "@crystal-ball/prettier-base": "2.9.0",
     "@crystal-ball/semantic-release-base": "2.34.0",
+    "@percy/cli": "1.0.0-beta.70",
     "@percy/cypress": "3.1.1",
     "@types/jest": "27.0.2",
     "cypress": "9.0.0",
     "eslint-config-eloquence": "20.0.1",
     "jest": "27.3.1",
-    "node-notifier": "10.0.0"
+    "node-notifier": "10.0.0",
+    "typescript": "4.4.4"
   }
 }

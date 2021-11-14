@@ -89,7 +89,9 @@ module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) =>
   // Visual compile indicator with progress bar
   progressBarPlugin: new ProgressBarPlugin({
     /* eslint-disable no-console */
-    callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
+    callback: () => {
+      console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`)
+    },
     /* eslint-enable no-console */
     clear: false, // Don't clear the bar on completion
     format: `  Hacking time... [:bar] ${chalk.green.bold(
