@@ -18,13 +18,15 @@ jobs:
       #  2. Building the application Docker image (executes linting and unit tests)
       #  3. Copy code coverage output from Docker image to workspace for uploading later
       #  4. Running Cypress tests using Docker Compose and NGINX
+      # export PERCY_BRANCH="${PERCY_BRANCH:-${GITHUB_REF:11}}"
+      # docker build -t crystal-ball/webpack-base .
+      # docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/webpack-base cp -a /usr/src/react-application-prototype/coverage/. /tmp/
+      # docker-compose -f docker-compose.test.yml up --exit-code-from cypress
       - name: Test
         run: |
-          export PERCY_BRANCH="${PERCY_BRANCH:-${GITHUB_REF:11}}"
-
-          docker build -t crystal-ball/webpack-base .
-          docker run --rm -v $(pwd)/coverage:/tmp crystal-ball/webpack-base cp -a /usr/src/react-application-prototype/coverage/. /tmp/
-          docker-compose -f docker-compose.test.yml up --exit-code-from cypress
+          CI=true CYPRESS_INSTALL_BINARY=0 npm install --no-optional --loglevel error
+          npm run test:lint
+          npm run test:unit
         env:
           PERCY_BRANCH: ${{ github.head_ref }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
