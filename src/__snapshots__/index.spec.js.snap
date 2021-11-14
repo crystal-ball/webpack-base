@@ -4,16 +4,17 @@ exports[`webpack-base returns expected dev configs 1`] = `
 Object {
   "context": "/test",
   "devServer": Object {
-    "contentBase": "/test/static",
+    "client": Object {
+      "overlay": Object {
+        "errors": true,
+        "warnings": false,
+      },
+    },
     "historyApiFallback": true,
     "hot": true,
-    "noInfo": true,
     "open": false,
-    "overlay": Object {
-      "errors": true,
-      "warnings": false,
-    },
     "port": 3000,
+    "static": "/test/static",
   },
   "devtool": "eval-source-map",
   "entry": "/test/src/index.js",
@@ -167,13 +168,6 @@ Object {
     CaseSensitivePathsPlugin {
       "options": undefined,
     },
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
-    },
     EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
@@ -205,34 +199,6 @@ Object {
         "injectSpriteId": true,
       },
     },
-    HotModuleReplacementPlugin {
-      "options": Object {},
-    },
-    FriendlyErrorsWebpackPlugin {
-      "compilationSuccessInfo": Object {
-        "messages": Array [
-          "  🎉  BINGO 🎉",
-          "  Application running at http://localhost:3000",
-        ],
-        "notes": Array [
-          "webpack output is served from /",
-          "Content not from webpack is served from /test/static",
-          "404s will fallback to /index.html",
-        ],
-      },
-      "formatters": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-      "onErrors": undefined,
-      "shouldClearConsole": true,
-      "transformers": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-    },
   ],
   "resolve": Object {
     "alias": Object {},
@@ -244,6 +210,9 @@ Object {
       ".tsx",
     ],
   },
+  "stats": Object {
+    "logging": "warn",
+  },
 }
 `;
 
@@ -251,16 +220,17 @@ exports[`webpack-base returns expected electron dev configs 1`] = `
 Object {
   "context": "/test",
   "devServer": Object {
-    "contentBase": "/test/static",
+    "client": Object {
+      "overlay": Object {
+        "errors": true,
+        "warnings": false,
+      },
+    },
     "historyApiFallback": true,
     "hot": true,
-    "noInfo": true,
     "open": false,
-    "overlay": Object {
-      "errors": true,
-      "warnings": false,
-    },
     "port": 3000,
+    "static": "/test/static",
   },
   "devtool": "eval-source-map",
   "entry": "/test/src/renderer/index.js",
@@ -415,13 +385,6 @@ Object {
     CaseSensitivePathsPlugin {
       "options": undefined,
     },
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
-    },
     EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
@@ -453,34 +416,6 @@ Object {
         "injectSpriteId": false,
       },
     },
-    HotModuleReplacementPlugin {
-      "options": Object {},
-    },
-    FriendlyErrorsWebpackPlugin {
-      "compilationSuccessInfo": Object {
-        "messages": Array [
-          "  🎉  BINGO 🎉",
-          "  Application running at http://localhost:3000",
-        ],
-        "notes": Array [
-          "webpack output is served from /",
-          "Content not from webpack is served from /test/static",
-          "404s will fallback to /index.html",
-        ],
-      },
-      "formatters": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-      "onErrors": undefined,
-      "shouldClearConsole": true,
-      "transformers": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-    },
   ],
   "resolve": Object {
     "alias": Object {},
@@ -491,6 +426,9 @@ Object {
       ".ts",
       ".tsx",
     ],
+  },
+  "stats": Object {
+    "logging": "warn",
   },
   "target": "electron-renderer",
 }
@@ -673,13 +611,6 @@ Object {
   "plugins": Array [
     CaseSensitivePathsPlugin {
       "options": undefined,
-    },
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
     },
     EnvironmentPlugin {
       "defaultValues": Object {
@@ -941,13 +872,6 @@ Object {
     CaseSensitivePathsPlugin {
       "options": undefined,
     },
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
-    },
     EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
@@ -1034,16 +958,17 @@ exports[`webpack-base returns expected storybook configs 1`] = `
 Object {
   "context": "/test",
   "devServer": Object {
-    "contentBase": "/test/static",
+    "client": Object {
+      "overlay": Object {
+        "errors": true,
+        "warnings": false,
+      },
+    },
     "historyApiFallback": true,
     "hot": true,
-    "noInfo": true,
     "open": false,
-    "overlay": Object {
-      "errors": true,
-      "warnings": false,
-    },
     "port": 3000,
+    "static": "/test/static",
   },
   "devtool": "eval-source-map",
   "entry": "/test/src/index.js",
@@ -1197,13 +1122,6 @@ Object {
     CaseSensitivePathsPlugin {
       "options": undefined,
     },
-    ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
-    },
     EnvironmentPlugin {
       "defaultValues": Object {
         "DEBUG": false,
@@ -1235,34 +1153,6 @@ Object {
         "injectSpriteId": false,
       },
     },
-    HotModuleReplacementPlugin {
-      "options": Object {},
-    },
-    FriendlyErrorsWebpackPlugin {
-      "compilationSuccessInfo": Object {
-        "messages": Array [
-          "  🎉  BINGO 🎉",
-          "  Application running at http://localhost:3000",
-        ],
-        "notes": Array [
-          "webpack output is served from /",
-          "Content not from webpack is served from /test/static",
-          "404s will fallback to /index.html",
-        ],
-      },
-      "formatters": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-      "onErrors": undefined,
-      "shouldClearConsole": true,
-      "transformers": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-    },
   ],
   "resolve": Object {
     "alias": Object {},
@@ -1273,6 +1163,9 @@ Object {
       ".ts",
       ".tsx",
     ],
+  },
+  "stats": Object {
+    "logging": "warn",
   },
 }
 `;
@@ -1415,34 +1308,6 @@ Object {
         "PUBLIC_PATH",
       ],
     },
-    "friendlyErrorsPlugin": FriendlyErrorsWebpackPlugin {
-      "compilationSuccessInfo": Object {
-        "messages": Array [
-          "  🎉  BINGO 🎉",
-          "  Application running at http://localhost:3000",
-        ],
-        "notes": Array [
-          "webpack output is served from /",
-          "Content not from webpack is served from /test/static",
-          "404s will fallback to /index.html",
-        ],
-      },
-      "formatters": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-      "onErrors": undefined,
-      "shouldClearConsole": true,
-      "transformers": Array [
-        [Function],
-        [Function],
-        [Function],
-      ],
-    },
-    "hotModuleReplacementPlugin": HotModuleReplacementPlugin {
-      "options": Object {},
-    },
     "htmlPlugin": HtmlWebpackPlugin {
       "userOptions": Object {
         "inject": true,
@@ -1451,13 +1316,6 @@ Object {
         "template": "/test/src/index.html",
       },
       "version": 5,
-    },
-    "progressBarPlugin": ProgressBarPlugin {
-      "options": Object {
-        "callback": [Function],
-        "clear": false,
-        "format": "  Hacking time... [:bar] :percent (:elapsed seconds) :msg",
-      },
     },
     "svgSymbolSpritePlugin": SVGSymbolSpritePlugin {
       "options": Object {

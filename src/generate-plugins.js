@@ -3,12 +3,9 @@
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const SVGSymbolSprite = require('svg-symbol-sprite-loader')
-const chalk = require('chalk')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { EnvironmentPlugin, HotModuleReplacementPlugin } = require('webpack')
 
@@ -18,7 +15,7 @@ const { EnvironmentPlugin, HotModuleReplacementPlugin } = require('webpack')
  * hotModuleReplacement, html, miniCSSExtract, namedModules, progressBar,
  * svgSymbolSprite
  */
-module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) => ({
+module.exports = ({ envVars, fileHash, flags, paths, publicPath }) => ({
   // --------------------------------------------------------
   // ✅ Path validation
   // Ensure that import paths are case sensitive to ensure Linux/MacOS  compatability
@@ -51,21 +48,6 @@ module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) =>
 
   // --- ℹ️ Logging
   // Shows and clears errors in a easier to read format
-  friendlyErrorsPlugin: new FriendlyErrorsWebpackPlugin({
-    compilationSuccessInfo: {
-      messages: [
-        `  🎉  ${chalk.green.bold('BINGO')} 🎉`,
-        `  Application running at ${chalk.blue.underline(
-          `http://${devServer.host || 'localhost'}:${devServer.port || 3000}`,
-        )}`,
-      ],
-      notes: [
-        `webpack output is served from ${publicPath}`,
-        `Content not from webpack is served from ${paths.static}`,
-        `404s will fallback to /index.html`,
-      ],
-    },
-  }),
 
   // --- 🔥 Hot Module Replacement
   // Ref: https://webpack.js.org/concepts/hot-module-replacement/
@@ -87,15 +69,6 @@ module.exports = ({ devServer, envVars, fileHash, flags, paths, publicPath }) =>
 
   // --- 🔢 Stats
   // Visual compile indicator with progress bar
-  progressBarPlugin: new ProgressBarPlugin({
-    /* eslint-disable no-console */
-    callback: () => console.log(`\n  🎉  ${chalk.bold('BINGO')} 🎉\n`),
-    /* eslint-enable no-console */
-    clear: false, // Don't clear the bar on completion
-    format: `  Hacking time... [:bar] ${chalk.green.bold(
-      ':percent',
-    )} (:elapsed seconds) :msg`,
-  }),
 
   // --- 📦 Asset extractions
   // Plugin for SVG symbol sprite extracts imported SVGs into a file

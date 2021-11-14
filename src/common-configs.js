@@ -83,7 +83,6 @@ module.exports = ({ fileHash, flags, paths, publicPath }) => ({
   // ---------------------------------------------------------------------------
   plugins: [
     'caseSensitivePathsPlugin',
-    'progressBarPlugin',
     'environmentPlugin',
     'copyPlugin',
     // ℹ️ HTML plugin must come before the SVG sprite plugin b/c it uses
